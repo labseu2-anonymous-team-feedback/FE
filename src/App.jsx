@@ -1,9 +1,10 @@
 import React from 'react';
+import Navigation from './common/Navigation'
 
 function App() {
   return (
-    <div className="App">
-      Welcome To Anonymous Team Feedback
+    <div>
+      <Navigation />
     </div>
   );
 }
