@@ -9,6 +9,7 @@ const NavigationDiv = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 80px;
+  box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.6);
 
   img {
     height: 50px;
@@ -18,6 +19,9 @@ const NavigationDiv = styled.div`
     display: flex;
     align-items: center;
     margin-right: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 
     #user-nav-div-left {
       display: flex;
@@ -57,13 +61,13 @@ function Navigation() {
   return (
     <NavigationDiv>
       <img src={logo} />
-      <div id="user-nav-div">
+      <button id="user-nav-div">
         <div id="user-nav-div-left">
           <img src={avatar} />
           <span id="username-nav-span">John Doe</span>
         </div>
         <Triangle id="triangle-nav" />
-      </div>
+      </button>
     </NavigationDiv>
   );
 }
