@@ -8,10 +8,8 @@ const Signup = styled.div`
   align-items: center;
   height: 100vh;
 
-  label {
-    /* justify-content: flex-start;
-    width: 100%;
-    display: flex; */
+  .passwordContainer {
+    width: 48%;
   }
 `;
 

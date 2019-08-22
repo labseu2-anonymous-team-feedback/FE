@@ -23,7 +23,6 @@ export default class Signup extends Component {
           <label htmlFor="email" className="d-flex">
             Email
           </label>
-
           <input
             type="email"
             id="email"
@@ -31,19 +30,32 @@ export default class Signup extends Component {
             placeholder="E-mail"
           />
 
-          <input
-            type="password"
-            id="defaultLoginFormPassword"
-            className="form-control mb-4"
-            placeholder="Password"
-          />
+          <div className="d-flex justify-content-between">
+            <div className="passwordContainer">
+              <label htmlFor="password" className="d-flex">
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                className="form-control mb-4"
+                placeholder="Password"
+              />
+            </div>
 
-          <input
-            type="password"
-            id="defaultLoginFormPassword"
-            className="form-control mb-4"
-            placeholder="Confirm Password"
-          />
+            <div className="passwordContainer">
+              <label htmlFor="confirmPassword" className="d-flex">
+                Confirm Password
+              </label>
+              <input
+                type="password"
+                id="confirmPassword"
+                className="form-control mb-4"
+                placeholder="Confirm Password"
+              />
+            </div>
+          </div>
+
           <div className="d-flex justify-content-around" />
 
           <button className="btn btn-info btn-block my-4" type="submit">
