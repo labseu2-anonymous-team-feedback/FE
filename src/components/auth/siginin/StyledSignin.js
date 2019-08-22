@@ -27,16 +27,8 @@ const Signup = styled.div`
     }
   }
 
-  .passwordContainerDiv {
-    @media (max-width: 780px) {
-      flex-direction: column;
-    }
-    .passwordContainer {
-      width: 48%;
-      @media (max-width: 780px) {
-        width: 100%;
-      }
-    }
+  .passwordContainer {
+    width: 48%;
   }
 
   .dividerContainer {
