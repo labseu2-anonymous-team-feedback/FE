@@ -15,7 +15,7 @@ export default class Signup extends Component {
           className="text-center border border-light p-5 w-50 z-depth-1"
           action="#!"
         >
-          <p className="h4 mb-4">Sign in</p>
+          <p className="h4 mb-4">Sign Up</p>
 
           <label htmlFor="username" className="d-flex font-weight-bold">
             Username
