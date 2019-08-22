@@ -12,6 +12,10 @@ const AddButton = styled.button`
   text-align: center;
 `;
 
+const Container = styled.div`
+  margin-top: 8rem;
+`;
+
 class CreateSurvey extends Component {
   constructor(props) {
     super(props);
@@ -27,7 +31,7 @@ class CreateSurvey extends Component {
   render() {
     const { data } = this.state;
     return (
-      <div className="container">
+      <Container className="container">
         <div className="col-md">
           <form className="border border-light p-5" action="#!">
             <h1 className="text-center">Create a Survey</h1>
@@ -71,7 +75,7 @@ class CreateSurvey extends Component {
             </div>
           </form>
         </div>
-      </div>
+      </Container>
     );
   }
 }
