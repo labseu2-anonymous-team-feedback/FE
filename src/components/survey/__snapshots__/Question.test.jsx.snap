@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CreateSurvey /> renders the createSurvey component correctly 1`] = `ShallowWrapper {}`;
+
+exports[`<Question /> renders the Question component correctly 1`] = `ShallowWrapper {}`;
+
+exports[`<Question /> renders the createSurvey component correctly 1`] = `ShallowWrapper {}`;
