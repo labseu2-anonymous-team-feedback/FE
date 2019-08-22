@@ -6,7 +6,6 @@ const Signup = styled.div`
   padding: 1rem;
   justify-content: center;
   align-items: center;
-  /* height: 100vh; */
 
   .passwordContainer {
     width: 48%;
