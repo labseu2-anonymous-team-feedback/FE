@@ -3,10 +3,6 @@ import styled from 'styled-components';
 import Divider from '../../styles/Divider';
 import Question from './Question';
 
-const Questions = styled.div`
-  /* border: 1px solid blue; */
-`;
-
 const AddButton = styled.button`
   font-size: 1.5rem;
   border-radius: 50%;
@@ -47,7 +43,7 @@ class CreateSurvey extends Component {
               />
             </div>
 
-            <Questions>
+            <div>
               <h2>Survey Questions</h2>
               <Divider size={30} />
 
@@ -64,7 +60,7 @@ class CreateSurvey extends Component {
                   +
                 </AddButton>
               </div>
-            </Questions>
+            </div>
 
             <Divider size={30} />
 
