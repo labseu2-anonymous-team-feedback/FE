@@ -76,7 +76,7 @@ export default class Signup extends Component {
             <div className="divider">
               <hr />
             </div>
-            <p className="font-weight-bold">OR</p>
+            <p className="font-weight-bold text-muted">OR</p>
             <div className="divider">
               <hr />
             </div>
@@ -98,7 +98,9 @@ export default class Signup extends Component {
 
           <p>
             Already have an account? &nbsp;
-            <Link to="/login">Sign In</Link>
+            <Link to="/login">
+              <u>Sign In</u>
+            </Link>
           </p>
         </form>
       </StyledSignup>
