@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 import { Signup as StyledSignup } from "./StyledSignup";
 
 export default class Signup extends Component {
@@ -7,10 +9,13 @@ export default class Signup extends Component {
   render() {
     return (
       <StyledSignup>
-        <form className="text-center border border-light p-5 w-50" action="#!">
+        <form
+          className="text-center border border-light p-5 w-50 z-depth-1"
+          action="#!"
+        >
           <p className="h4 mb-4">Sign in</p>
 
-          <label htmlFor="username" className="d-flex text-dark">
+          <label htmlFor="username" className="d-flex font-weight-bold">
             Username
           </label>
           <input
@@ -20,7 +25,7 @@ export default class Signup extends Component {
             placeholder="Enter Username"
           />
 
-          <label htmlFor="email" className="d-flex">
+          <label htmlFor="email" className="d-flex font-weight-bold">
             Email
           </label>
           <input
@@ -32,7 +37,7 @@ export default class Signup extends Component {
 
           <div className="d-flex justify-content-between">
             <div className="passwordContainer">
-              <label htmlFor="password" className="d-flex">
+              <label htmlFor="password" className="d-flex font-weight-bold">
                 Password
               </label>
               <input
@@ -44,7 +49,7 @@ export default class Signup extends Component {
             </div>
 
             <div className="passwordContainer">
-              <label htmlFor="confirmPassword" className="d-flex">
+              <label htmlFor="confirmPassword" className="d-flex font-weight-bold">
                 Confirm Password
               </label>
               <input
@@ -62,22 +67,20 @@ export default class Signup extends Component {
             Sign Up
           </button>
 
-          {/*
-    <!-- Social login -->
-    <p>or sign in with:</p>
+          <p>
+            Already have an account? &nbsp;
+            <Link to="/login">Sign In</Link>
+          </p>
 
-    <a type="button" class="light-blue-text mx-2">
-        <i class="fab fa-facebook-f"></i>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-        <i class="fab fa-twitter"></i>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-        <i class="fab fa-linkedin-in"></i>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-        <i class="fab fa-github"></i>
-    </a> */}
+          <div className="dividerContainer">
+            <div className="divider">
+              <hr />
+            </div>
+            <p className="font-weight-bold">OR</p>
+            <div className="divider">
+              <hr />
+            </div>
+          </div>
         </form>
       </StyledSignup>
     );

@@ -11,6 +11,16 @@ const Signup = styled.div`
   .passwordContainer {
     width: 48%;
   }
+
+  .dividerContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    .divider {
+      padding: 1rem;
+      width: 47%;
+    }
+  }
 `;
 
 export { Signup };
