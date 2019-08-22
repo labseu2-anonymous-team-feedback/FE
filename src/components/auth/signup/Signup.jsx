@@ -1,15 +1,72 @@
-import React, { Component } from 'react';
-import { Signup as StyledSignup } from './StyledSignup';
-
+import React, { Component } from "react";
+import { Signup as StyledSignup } from "./StyledSignup";
 
 export default class Signup extends Component {
+  componentDidMount() {}
+
   render() {
     return (
       <StyledSignup>
-        <input type="text" placeholder="Enter Username" />
-        <input type="email" placeholder="Enter Email" />
-        <input type="password" placeholder="Enter Password" />
-        <button>Signup</button>
+        <form className="text-center border border-light p-5 w-50" action="#!">
+          <p className="h4 mb-4">Sign in</p>
+
+          <label htmlFor="username" className="d-flex text-dark">
+            Username
+          </label>
+          <input
+            type="text"
+            id="username"
+            className="form-control mb-4"
+            placeholder="Enter Username"
+          />
+
+          <label htmlFor="email" className="d-flex">
+            Email
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            className="form-control mb-4"
+            placeholder="E-mail"
+          />
+
+          <input
+            type="password"
+            id="defaultLoginFormPassword"
+            className="form-control mb-4"
+            placeholder="Password"
+          />
+
+          <input
+            type="password"
+            id="defaultLoginFormPassword"
+            className="form-control mb-4"
+            placeholder="Confirm Password"
+          />
+          <div className="d-flex justify-content-around" />
+
+          <button className="btn btn-info btn-block my-4" type="submit">
+            Sign Up
+          </button>
+
+          {/*
+    <!-- Social login -->
+    <p>or sign in with:</p>
+
+    <a type="button" class="light-blue-text mx-2">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+    <a type="button" class="light-blue-text mx-2">
+        <i class="fab fa-twitter"></i>
+    </a>
+    <a type="button" class="light-blue-text mx-2">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a type="button" class="light-blue-text mx-2">
+        <i class="fab fa-github"></i>
+    </a> */}
+        </form>
       </StyledSignup>
     );
   }
