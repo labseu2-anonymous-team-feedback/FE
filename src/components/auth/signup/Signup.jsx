@@ -1,7 +1,9 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-import { Signup as StyledSignup } from "./StyledSignup";
+import { Signup as StyledSignup } from './StyledSignup';
+import GoogleButton from '../../../assets/images/google-button.png';
+import SlackButton from '../../../assets/images/slack-button.png';
 
 export default class Signup extends Component {
   componentDidMount() {}
@@ -49,7 +51,10 @@ export default class Signup extends Component {
             </div>
 
             <div className="passwordContainer">
-              <label htmlFor="confirmPassword" className="d-flex font-weight-bold">
+              <label
+                htmlFor="confirmPassword"
+                className="d-flex font-weight-bold"
+              >
                 Confirm Password
               </label>
               <input
@@ -67,11 +72,6 @@ export default class Signup extends Component {
             Sign Up
           </button>
 
-          <p>
-            Already have an account? &nbsp;
-            <Link to="/login">Sign In</Link>
-          </p>
-
           <div className="dividerContainer">
             <div className="divider">
               <hr />
@@ -81,6 +81,21 @@ export default class Signup extends Component {
               <hr />
             </div>
           </div>
+
+          <div className="d-flex">
+            <div className="optional-login">
+              <img src={GoogleButton} alt="Sign up with google" />
+            </div>
+
+            <div className="optional-login">
+              <img src={SlackButton} alt="Sign up with slack" />
+            </div>
+          </div>
+
+          <p>
+            Already have an account? &nbsp;
+            <Link to="/login">Sign In</Link>
+          </p>
         </form>
       </StyledSignup>
     );

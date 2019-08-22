@@ -6,7 +6,7 @@ const Signup = styled.div`
   padding: 1rem;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
 
   .passwordContainer {
     width: 48%;
@@ -19,6 +19,14 @@ const Signup = styled.div`
     .divider {
       padding: 1rem;
       width: 47%;
+    }
+  }
+
+  .optional-login {
+    width: 50%;
+    margin-bottom: 1rem;
+    img {
+      width: 300px;
     }
   }
 `;
