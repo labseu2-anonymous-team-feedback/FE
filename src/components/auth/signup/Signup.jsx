@@ -9,6 +9,7 @@ export default class Signup extends Component {
         <input type="text" placeholder="Enter Username" />
         <input type="email" placeholder="Enter Email" />
         <input type="password" placeholder="Enter Password" />
+        <button>Signup</button>
       </StyledSignup>
     );
   }
