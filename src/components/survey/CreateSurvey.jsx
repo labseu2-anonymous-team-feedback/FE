@@ -10,6 +10,15 @@ const Questions = styled.div`
   /* border: 1px solid blue; */
 `;
 
+const AddButton = styled.button`
+  font-size: 1.5rem;
+  border-radius: 50%;
+  padding: 0px;
+  width: 4rem;
+  height: 4rem;
+  text-align: center;
+`;
+
 class CreateSurvey extends Component {
   constructor(props) {
     super(props);
@@ -67,12 +76,18 @@ class CreateSurvey extends Component {
                   </select>
                 </div>
               </Question>
+
+              <div className="text-center">
+                <AddButton type="button" className="btn btn-info">
+                  +
+                </AddButton>
+              </div>
             </Questions>
 
             <Divider size={30} />
 
             <div className="form-group">
-              <button className="btn btn-info btn-block" type="submit">
+              <button className="btn btn-primary btn-block" type="submit">
                 Save Survey
               </button>
             </div>
