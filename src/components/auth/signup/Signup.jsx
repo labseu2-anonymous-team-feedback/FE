@@ -12,7 +12,7 @@ export default class Signup extends Component {
     return (
       <StyledSignup>
         <form
-          className="text-center border border-light p-5 w-50 z-depth-1"
+          className="text-center border border-light p-5 z-depth-1"
           action="#!"
         >
           <p className="h4 mb-4">Sign Up</p>
@@ -39,7 +39,7 @@ export default class Signup extends Component {
             required
           />
 
-          <div className="d-flex justify-content-between">
+          <div className="d-flex justify-content-between passwordContainerDiv">
             <div className="passwordContainer">
               <label htmlFor="password" className="d-flex font-weight-bold">
                 Password
@@ -86,7 +86,7 @@ export default class Signup extends Component {
             </div>
           </div>
 
-          <div className="d-flex">
+          <div className="d-flex optionalLoginContainer">
             <div className="optional-login">
               <a href="##">
                 <img src={GoogleButton} alt="Sign up with google" />

@@ -21,12 +21,17 @@ const Signup = styled.div`
       width: 47%;
     }
   }
-
-  .optional-login {
-    width: 50%;
-    margin-bottom: 1rem;
-    img {
-      width: 300px;
+  .optionalLoginContainer {
+    @media (max-width: 780px) {
+      flex-direction: column;
+      align-items: center;
+    }
+    .optional-login {
+      width: 50%;
+      margin-bottom: 1rem;
+      img {
+        width: 300px;
+      }
     }
   }
 `;

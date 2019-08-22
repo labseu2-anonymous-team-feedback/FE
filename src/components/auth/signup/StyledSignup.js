@@ -8,8 +8,35 @@ const Signup = styled.div`
   align-items: center;
   height: 100vh;
 
-  .passwordContainer {
-    width: 48%;
+  form {
+    width: 50%;
+    @media (max-width: 1400px) {
+      width: 60%;
+    }
+
+    @media (max-width: 1200px) {
+      width: 70%;
+    }
+
+    @media (max-width: 1050px) {
+      width: 85%;
+    }
+
+    @media (max-width: 870px) {
+      width: 95%;
+    }
+  }
+
+  .passwordContainerDiv {
+    @media (max-width: 780px) {
+      flex-direction: column;
+    }
+    .passwordContainer {
+      width: 48%;
+      @media (max-width: 780px) {
+        width: 100%;
+      }
+    }
   }
 
   .dividerContainer {
@@ -22,11 +49,21 @@ const Signup = styled.div`
     }
   }
 
-  .optional-login {
-    width: 50%;
-    margin-bottom: 1rem;
-    img {
-      width: 300px;
+  .optionalLoginContainer {
+    @media (max-width: 780px) {
+      flex-direction: column;
+      align-items: center;
+    }
+    .optional-login {
+      width: 50%;
+      margin-bottom: 1rem;
+      img {
+        width: 300px;
+        @media (max-width: 780px) {
+          justify-content: center;
+          width: 100%;
+        }
+      }
     }
   }
 `;
