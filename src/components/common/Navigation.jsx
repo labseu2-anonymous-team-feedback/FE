@@ -59,7 +59,7 @@ function Navigation() {
           </div>
           <Triangle id="triangle-nav" />
         </button>
-        <div className="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="user-nav-div">
+        <div className="dropdown-menu dropdown-menu-right border-0 z-depth-1" aria-labelledby="user-nav-div">
           <a className="dropdown-item" href="#">Dashboard</a>
           <a className="dropdown-item" href="#">Logout</a>
         </div>
