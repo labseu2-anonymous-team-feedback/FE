@@ -12,7 +12,7 @@ export default class Signin extends Component {
     return (
       <StyledSignin>
         <form
-          className="text-center border border-light p-5 w-50 z-depth-1"
+          className="text-center border border-light p-5 z-depth-1"
           action="#!"
         >
           <p className="h4 mb-4">Sign In</p>
@@ -55,7 +55,7 @@ export default class Signin extends Component {
             </div>
           </div>
 
-          <div className="d-flex">
+          <div className="d-flex optionalLoginContainer">
             <div className="optional-login">
               <a href="##">
                 <img src={GoogleButton} alt="Sign up with google" />

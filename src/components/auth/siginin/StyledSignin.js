@@ -8,6 +8,25 @@ const Signup = styled.div`
   align-items: center;
   height: 100vh;
 
+  form {
+    width: 50%;
+    @media (max-width: 1400px) {
+      width: 60%;
+    }
+
+    @media (max-width: 1200px) {
+      width: 70%;
+    }
+
+    @media (max-width: 1050px) {
+      width: 85%;
+    }
+
+    @media (max-width: 870px) {
+      width: 95%;
+    }
+  }
+
   .passwordContainer {
     width: 48%;
   }
@@ -21,6 +40,7 @@ const Signup = styled.div`
       width: 47%;
     }
   }
+
   .optionalLoginContainer {
     @media (max-width: 780px) {
       flex-direction: column;
@@ -31,6 +51,10 @@ const Signup = styled.div`
       margin-bottom: 1rem;
       img {
         width: 300px;
+        @media (max-width: 780px) {
+          justify-content: center;
+          width: 100%;
+        }
       }
     }
   }
