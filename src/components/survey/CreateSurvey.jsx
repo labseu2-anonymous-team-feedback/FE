@@ -52,9 +52,15 @@ class CreateSurvey extends Component {
               <Divider size={30} />
 
               <Question />
+              <Question />
+              <Question />
+              <Question />
+              <Question />
+              <Question />
+              <Question />
 
               <div className="text-center">
-                <AddButton type="button" className="btn btn-info">
+                <AddButton type="button" className="btn btn-light">
                   +
                 </AddButton>
               </div>
@@ -63,7 +69,7 @@ class CreateSurvey extends Component {
             <Divider size={30} />
 
             <div className="form-group">
-              <button className="btn btn-primary btn-block" type="submit">
+              <button className="btn btn-info btn-block" type="submit">
                 Save Survey
               </button>
             </div>
