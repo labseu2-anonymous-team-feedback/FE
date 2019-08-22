@@ -31,4 +31,4 @@ const Signup = styled.div`
   }
 `;
 
-export { Signup };
+export default Signup;

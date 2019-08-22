@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Signup as StyledSignup } from './StyledSignup';
+import StyledSignup from './StyledSignup';
 import GoogleButton from '../../../assets/images/google-button.png';
 import SlackButton from '../../../assets/images/slack-button.png';
 
