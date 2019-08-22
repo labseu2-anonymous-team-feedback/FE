@@ -12,7 +12,7 @@ function App() {
       <Navigation />
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/signin" component={Signin} />
-      <Route exact path="/create-survey" component={CreateSurvey} />
+      <Route exact path="/" component={CreateSurvey} />
     </Router>
   );
 }
