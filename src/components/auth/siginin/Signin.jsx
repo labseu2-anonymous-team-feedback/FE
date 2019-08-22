@@ -25,6 +25,7 @@ export default class Signin extends Component {
             id="email"
             className="form-control mb-4"
             placeholder="E-mail"
+            required
           />
 
           <label htmlFor="password" className="d-flex font-weight-bold">
@@ -35,6 +36,7 @@ export default class Signin extends Component {
             id="password"
             className="form-control mb-4"
             placeholder="Password"
+            required
           />
 
           <div className="d-flex justify-content-around" />
