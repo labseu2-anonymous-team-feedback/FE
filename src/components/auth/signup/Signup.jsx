@@ -84,11 +84,15 @@ export default class Signup extends Component {
 
           <div className="d-flex">
             <div className="optional-login">
-              <img src={GoogleButton} alt="Sign up with google" />
+              <a href="##">
+                <img src={GoogleButton} alt="Sign up with google" />
+              </a>
             </div>
 
             <div className="optional-login">
-              <img src={SlackButton} alt="Sign up with slack" />
+              <a href="##">
+                <img src={SlackButton} alt="Sign up with slack" />
+              </a>
             </div>
           </div>
 
