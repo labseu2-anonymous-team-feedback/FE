@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withApollo } from 'react-apollo';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 
 import { LOGIN_MUTATION } from '../../../graphql/mutations';
 import GoogleButton from '../../../assets/images/google-button.png';
@@ -9,6 +10,9 @@ import SlackButton from '../../../assets/images/slack-button.png';
 import StyledSignin from './StyledSignin';
 
 function Signin({ client }) {
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
+
   const email = React.createRef();
   const password = React.createRef();
 
@@ -20,15 +24,28 @@ function Signin({ client }) {
       const res = await mutate({
         mutation: LOGIN_MUTATION,
         variables: {
-          email: email.current,
-          password: password.current,
+          email: email.current.value,
+          password: password.current.value,
         },
       });
-      console.log(res);
-    } catch (error) {
-      console.log(error);
+      if (!res.data.userLogin) setError(true);
+      else {
+        localStorage.setItem('token', res.data.userLogin.token);
+        localStorage.setItem('username', res.data.userLogin.username);
+        setSuccess(true);
+      }
+    } catch (err) {
+      setError(true);
     }
   };
+
+  if (error) {
+    toast.error('Unable to Login, Try Again');
+  }
+
+  if (success) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <StyledSignin>
