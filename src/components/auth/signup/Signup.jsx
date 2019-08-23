@@ -1,52 +1,55 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { withApollo } from "react-apollo";
-import { Redirect } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import { withApollo } from 'react-apollo';
+import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 
-import { CREATE_ACCOUNT } from "../../../graphql/mutations";
-import StyledSignup from "./StyledSignup";
-import GoogleButton from "../../../assets/images/google-button.png";
-import SlackButton from "../../../assets/images/slack-button.png";
-import { toast } from "react-toastify";
+import { CREATE_ACCOUNT } from '../../../graphql/mutations';
+import StyledSignup from './StyledSignup';
+import GoogleButton from '../../../assets/images/google-button.png';
+import SlackButton from '../../../assets/images/slack-button.png';
+
 class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      email: "",
-      password: "",
-      error: "",
-      data: ""
+      username: '',
+      email: '',
+      password: '',
+      error: '',
+      data: '',
     };
 
     this.mutate = props.client.mutate;
   }
 
-  onChange = e => {
+  onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value, error: '' });
-  }
+  };
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
+    const { username, email, password } = this.state;
     this.mutate({
       mutation: CREATE_ACCOUNT,
       variables: {
-        username: this.state.username,
-        email: this.state.email,
-        password: this.state.password
-      }
+        username,
+        email,
+        password,
+      },
     })
-      .then(res => this.setState({ data: res }))
-      .catch(err => this.setState({ error: err }));
+      .then((res) => this.setState({ data: res }))
+      .catch((err) => this.setState({ error: err }));
   };
 
   render() {
-    if (this.state.error) {
-      toast.error("Unable to Register, Try Again");
+    const { error, data } = this.state;
+    if (error) {
+      toast.error('Unable to Register, Try Again');
     }
 
-    if (this.state.data) {
-      toast.success("Registration successful");
+    if (data) {
+      toast.success('Registration successful');
       return <Redirect to="/signin" />;
     }
 
@@ -151,4 +154,10 @@ class Signup extends Component {
     );
   }
 }
+
+Signup.propTypes = {
+  client: PropTypes.shape({
+    mutate: PropTypes.func.isRequired,
+  }).isRequired,
+};
 export default withApollo(Signup);
