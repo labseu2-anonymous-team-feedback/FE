@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { useMutation } from 'react-apollo';
+import { toast } from 'react-toastify';
 
-import ADD_TODO from '../../../graphql/mutations';
+import { CREATE_ACCOUNT } from '../../../graphql/mutations';
 import StyledSignup from './StyledSignup';
 import GoogleButton from '../../../assets/images/google-button.png';
 import SlackButton from '../../../assets/images/slack-button.png';
@@ -13,11 +14,16 @@ export default function Signup() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const [createAccount, { loading, data, error }] = useMutation(ADD_TODO);
-  // {(createAccount, { loading, data, error }) => (
-  console.log(loading);
-  console.log(data);
-  console.log(error);
+  const [createAccount, { data, error }] = useMutation(CREATE_ACCOUNT);
+
+  if (error) {
+    toast.error('Unable to Register, Try Again');
+  }
+
+  if (data) {
+    toast.success('Registration successful');
+    return <Redirect to="signin" />;
+  }
   return (
     <StyledSignup>
       <form
