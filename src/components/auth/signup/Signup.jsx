@@ -22,9 +22,8 @@ class Signup extends Component {
     this.mutate = props.client.mutate;
   }
 
-  onChange = event => {
-    this.setState({ [event.target.name]: event.target.value, error: '' });
-
+  onChange = e => {
+    this.setState({ [e.target.name]: e.target.value, error: '' });
   }
 
   onSubmit = e => {
