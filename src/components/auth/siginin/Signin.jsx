@@ -1,16 +1,38 @@
 import React from 'react';
+import { withApollo } from 'react-apollo';
 import { Link } from 'react-router-dom';
 
+import { LOGIN_MUTATION } from '../../../graphql/mutations';
 import GoogleButton from '../../../assets/images/google-button.png';
 import SlackButton from '../../../assets/images/slack-button.png';
 import StyledSignin from './StyledSignin';
 
-export default function Signin() {
+function Signin({ mutate }) {
+  const email = React.createRef();
+  const password = React.createRef();
+
+  const onSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      const res = await mutate({
+        mutation: LOGIN_MUTATION,
+        variables: {
+          email: email.current,
+          password: password.current,
+        },
+      });
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <StyledSignin>
       <form
         className="text-center border border-light p-5 z-depth-1"
         action="#!"
+        onSubmit={onSubmit}
       >
         <p className="h4 mb-4">Sign In</p>
 
@@ -18,6 +40,7 @@ export default function Signin() {
           Email
         </label>
         <input
+          ref={email}
           type="email"
           id="email"
           className="form-control mb-4"
@@ -29,6 +52,7 @@ export default function Signin() {
           Password
         </label>
         <input
+          ref={password}
           type="password"
           id="password"
           className="form-control mb-4"
@@ -75,3 +99,5 @@ export default function Signin() {
     </StyledSignin>
   );
 }
+
+export default withApollo(Signin);
