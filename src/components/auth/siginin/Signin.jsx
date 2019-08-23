@@ -1,15 +1,18 @@
 import React from 'react';
 import { withApollo } from 'react-apollo';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { LOGIN_MUTATION } from '../../../graphql/mutations';
 import GoogleButton from '../../../assets/images/google-button.png';
 import SlackButton from '../../../assets/images/slack-button.png';
 import StyledSignin from './StyledSignin';
 
-function Signin({ mutate }) {
+function Signin({ client }) {
   const email = React.createRef();
   const password = React.createRef();
+
+  const { mutate } = client;
 
   const onSubmit = async (e) => {
     try {
@@ -99,5 +102,11 @@ function Signin({ mutate }) {
     </StyledSignin>
   );
 }
+
+Signin.propTypes = {
+  client: PropTypes.shape({
+    mutate: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default withApollo(Signin);
