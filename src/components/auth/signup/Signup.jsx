@@ -23,7 +23,6 @@ class Signup extends Component {
   }
 
   onChange = event => {
-    // this.setState({ error: "" });
     this.setState({ [event.target.name]: event.target.value, error: '' });
 
   }
