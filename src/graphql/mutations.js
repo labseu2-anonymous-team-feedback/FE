@@ -14,4 +14,16 @@ const CREATE_ACCOUNT = gql`
   }
 `;
 
-export { CREATE_ACCOUNT };
+const CREATE_NEW_SURVEY = gql`
+  mutation createNewSurvey {
+    createNewSurvey($title: String!) {
+      id
+      title
+      owner {
+        username
+      }
+    }
+  }
+`;
+
+export { CREATE_ACCOUNT, CREATE_NEW_SURVEY };
