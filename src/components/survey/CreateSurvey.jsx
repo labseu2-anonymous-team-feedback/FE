@@ -21,15 +21,37 @@ class CreateSurvey extends Component {
     super(props);
 
     this.state = {
-      data: {
-        title: '',
-        questions: [],
-      },
+      title: '',
+      questions: [
+        {
+          text: '',
+          type: '',
+        },
+      ],
     };
   }
 
+  handleChangeQuestion = (index, e) => {
+    const { name, value } = e.target;
+
+    this.setState((prev) => ({
+      questions: prev.questions.map((q, i) => {
+        if (index === i) {
+          return {
+            ...q,
+            [name]: value,
+          };
+        }
+        return q;
+      }),
+    }));
+  };
+
+  handleChangeSurvey = (e) =>
+    this.setState((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+
   render() {
-    const { data } = this.state;
+    const { title, questions } = this.state;
     return (
       <Container className="container">
         <div className="col-md">
@@ -42,8 +64,8 @@ class CreateSurvey extends Component {
                 type="text"
                 id="title"
                 className="form-control mb-4"
-                value={data.title}
-                onChange={this.change}
+                value={title}
+                onChange={this.handleChangeSurvey}
               />
             </div>
 
@@ -51,16 +73,30 @@ class CreateSurvey extends Component {
               <h2>Survey Questions</h2>
               <Divider size={30} />
 
-              <Question />
-              <Question />
-              <Question />
-              <Question />
-              <Question />
-              <Question />
-              <Question />
+              {questions.map((question, index) => (
+                <Question
+                  key={index.toString()}
+                  text={question.text}
+                  type={question.type}
+                  index={index}
+                  handleChangeQuestion={this.handleChangeQuestion}
+                />
+              ))}
 
               <div className="text-center">
-                <AddButton type="button" className="btn btn-light">
+                <AddButton
+                  type="button"
+                  className="btn btn-light"
+                  onClick={() => {
+                    this.setState((prev) => ({
+                      ...prev,
+                      questions: prev.questions.concat({
+                        text: '',
+                        type: '',
+                      }),
+                    }));
+                  }}
+                >
                   +
                 </AddButton>
               </div>

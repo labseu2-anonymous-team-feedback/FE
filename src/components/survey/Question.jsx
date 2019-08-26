@@ -36,18 +36,30 @@ const Close = styled.button`
   }
 `;
 
-const Question = () => (
+const Question = ({ text, type, index, handleChangeQuestion }) => (
   <StyledQuestion>
     <Close type="button" className="remove-question">
       x
     </Close>
     <div className="form-group">
       <label htmlFor="text">Question</label>
-      <textarea className="form-control rounded-0" id="text" rows="3" />
+      <textarea
+        className="form-control rounded-0"
+        id="text"
+        rows="3"
+        name="text"
+        onChange={(e) => handleChangeQuestion(index, e)}
+        value={text}
+      />
     </div>
     <div className="form-group">
       <label htmlFor="type">Question type</label>
-      <select className="browser-default custom-select mb-4" id="type">
+      <select
+        name="type"
+        onChange={(e) => handleChangeQuestion(index, e)}
+        className="browser-default custom-select mb-4"
+        id="type"
+      >
         <option value="" disabled>
           Choose option
         </option>
