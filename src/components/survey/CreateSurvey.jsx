@@ -47,6 +47,12 @@ class CreateSurvey extends Component {
     }));
   };
 
+  removeQuestion = (index) => {
+    this.setState((prev) => ({
+      questions: prev.questions.filter((current, i) => index !== i),
+    }));
+  };
+
   handleChangeSurvey = (e) => {
     this.setState((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -81,6 +87,7 @@ class CreateSurvey extends Component {
                   type={question.type}
                   index={index}
                   handleChangeQuestion={this.handleChangeQuestion}
+                  removeQuestion={this.removeQuestion}
                 />
               ))}
 

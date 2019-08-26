@@ -30,6 +30,10 @@ const Close = styled.button`
   border: 1px solid #db8a74;
   transition: all 0.25s ease-in-out;
 
+  &:focus {
+    outline: none;
+  }
+
   &:hover {
     background: #db8a74;
     color: white;
@@ -42,9 +46,14 @@ const Question = ({
   type,
   index,
   handleChangeQuestion,
+  removeQuestion,
 }) => (
   <StyledQuestion>
-    <Close type="button" className="remove-question">
+    <Close
+      type="button"
+      className="remove-question"
+      onClick={() => removeQuestion(index)}
+    >
       x
     </Close>
     <div className="form-group">
@@ -70,12 +79,8 @@ const Question = ({
         <option value="" disabled>
           Choose option
         </option>
-        <option value="text">
-          Text
-        </option>
-        <option value="rating">
-          Rating
-        </option>
+        <option value="text">Text</option>
+        <option value="rating">Rating</option>
       </select>
     </div>
   </StyledQuestion>
@@ -86,6 +91,7 @@ Question.propTypes = {
   type: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
   handleChangeQuestion: PropTypes.func.isRequired,
+  removeQuestion: PropTypes.func.isRequired,
 };
 
 export default Question;
