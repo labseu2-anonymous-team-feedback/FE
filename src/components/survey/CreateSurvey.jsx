@@ -1,20 +1,7 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import Divider from '../../styles/Divider';
 import Question from './Question';
-
-const AddButton = styled.button`
-  font-size: 1.5rem;
-  border-radius: 50%;
-  padding: 0px;
-  width: 4rem;
-  height: 4rem;
-  text-align: center;
-`;
-
-const Container = styled.div`
-  margin-top: 8rem;
-`;
+import { AddButton, Container } from './SurveyStyles';
 
 class CreateSurvey extends Component {
   constructor(props) {
