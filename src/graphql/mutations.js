@@ -15,8 +15,8 @@ const CREATE_ACCOUNT = gql`
 `;
 
 const CREATE_NEW_SURVEY = gql`
-  mutation createNewSurvey {
-    createNewSurvey($title: String!) {
+  mutation createNewSurvey($title: String!) {
+    createNewSurvey(title: $title) {
       id
       title
       owner {

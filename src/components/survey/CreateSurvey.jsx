@@ -54,7 +54,7 @@ class CreateSurvey extends Component {
   };
 
   handleChangeSurvey = (e) => {
-    this.setState((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    this.setState({ title: e.target.value });
   };
 
   render() {
@@ -71,6 +71,7 @@ class CreateSurvey extends Component {
                 type="text"
                 id="title"
                 className="form-control mb-4"
+                name="title"
                 value={title}
                 onChange={this.handleChangeSurvey}
               />
