@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledQuestion = styled.div`
@@ -36,7 +37,12 @@ const Close = styled.button`
   }
 `;
 
-const Question = ({ text, type, index, handleChangeQuestion }) => (
+const Question = ({
+  text,
+  type,
+  index,
+  handleChangeQuestion,
+}) => (
   <StyledQuestion>
     <Close type="button" className="remove-question">
       x
@@ -56,6 +62,7 @@ const Question = ({ text, type, index, handleChangeQuestion }) => (
       <label htmlFor="type">Question type</label>
       <select
         name="type"
+        value={type}
         onChange={(e) => handleChangeQuestion(index, e)}
         className="browser-default custom-select mb-4"
         id="type"
@@ -63,11 +70,22 @@ const Question = ({ text, type, index, handleChangeQuestion }) => (
         <option value="" disabled>
           Choose option
         </option>
-        <option value="text">Text</option>
-        <option value="rating">Rating</option>
+        <option value="text">
+          Text
+        </option>
+        <option value="rating">
+          Rating
+        </option>
       </select>
     </div>
   </StyledQuestion>
 );
+
+Question.propTypes = {
+  text: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
+  handleChangeQuestion: PropTypes.func.isRequired,
+};
 
 export default Question;

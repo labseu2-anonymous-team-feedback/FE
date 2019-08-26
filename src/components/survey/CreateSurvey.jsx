@@ -47,8 +47,9 @@ class CreateSurvey extends Component {
     }));
   };
 
-  handleChangeSurvey = (e) =>
+  handleChangeSurvey = (e) => {
     this.setState((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
   render() {
     const { title, questions } = this.state;
