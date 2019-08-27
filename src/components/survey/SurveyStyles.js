@@ -11,16 +11,26 @@ export const AddButton = styled.button`
 
 export const Container = styled.div`
   margin-top: 8rem;
+  padding-left: 0rem;
+  padding-right: 0rem;
+
+  form {
+    @media (max-width: 575px) {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+  }
 `;
 
 export const StyledQuestion = styled.div`
-  -webkit-box-shadow: 0px 0px 5px 7px rgba(0, 0, 0, 0.08);
-  -moz-box-shadow: 0px 0px 5px 7px rgba(0, 0, 0, 0.08);
-  box-shadow: 0px 0px 5px 7px rgba(0, 0, 0, 0.08);
-
   padding: 2.5rem 2.5rem 1rem 2.5rem;
   margin: 1rem auto;
   position: relative;
+
+  @media (max-width: 575px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 
   &:hover {
     .remove-question {
@@ -30,7 +40,11 @@ export const StyledQuestion = styled.div`
 `;
 
 export const Close = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   opacity: 0;
+  background: white;
   color: #db8a74;
   position: absolute;
   right: 0.75rem;
