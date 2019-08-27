@@ -56,7 +56,7 @@ React is the current industry standard that offers a lot of out of the box benef
 ### GraphQL
 GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools. | [View Dependency](https://graphql.org/)
 
-## React Apollo
+### React Apollo
 React Apollo allows you to fetch data from your GraphQL server and use it in building complex and reactive UIs using the React framework. React Apollo may be used in any context that React may be used. In the browser, in React Native, or in Node.js when you want to do server-side rendering. | [View Dependency](https://apollographql.com)
 ### dotenv
 
