@@ -50,7 +50,7 @@ class Signup extends Component {
 
     if (data) {
       toast.success('Registration successful');
-      return <Redirect to="/signin" />;
+      return <Redirect to="/login" />;
     }
 
     return (
@@ -145,7 +145,7 @@ class Signup extends Component {
           </div>
           <p>
             Already have an account? &nbsp;
-            <Link to="/signin">
+            <Link to="/login">
               <u>Sign In</u>
             </Link>
           </p>
