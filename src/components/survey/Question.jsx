@@ -20,7 +20,7 @@ const Question = ({
     <div className="form-group">
       <label htmlFor="text">Question</label>
       <textarea
-        className="form-control rounded-0"
+        className="form-control mb-4"
         id="text"
         rows="3"
         name="text"
