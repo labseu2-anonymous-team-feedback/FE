@@ -12,10 +12,9 @@ function App() {
   return (
     <Router>
       <Navigation />
-      <Route exact path="/signup" component={Signup} />
-      <Route exact path="/signin" component={Signin} />
+      <Route exact path="/register" component={Signup} />
+      <Route exact path="/login" component={Signin} />
       <PrivateRoute exact path="/" component={CreateSurvey} />
-      {/* <Route exact path="/" component={CreateSurvey} /> */}
     </Router>
   );
 }
