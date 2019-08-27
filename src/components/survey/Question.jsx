@@ -9,18 +9,18 @@ const Question = ({
   handleChangeQuestion,
   removeQuestion,
 }) => (
-  <StyledQuestion>
+  <StyledQuestion className="z-depth-1">
     <Close
       type="button"
       className="remove-question"
       onClick={() => removeQuestion(index)}
     >
-      x
+      ✕
     </Close>
     <div className="form-group">
       <label htmlFor="text">Question</label>
       <textarea
-        className="form-control rounded-0"
+        className="form-control mb-4"
         id="text"
         rows="3"
         name="text"
