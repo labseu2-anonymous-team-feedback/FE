@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import { mainColor } from '../../styles/variables';
 import logo from '../../assets/images/logo.png';
 import avatar from '../../assets/images/avatar-default.png';
-import { isLoggedIn } from '../../utils';
 
 const NavigationNav = styled.nav`
   img {
@@ -50,39 +48,23 @@ const Triangle = styled.div`
 `;
 
 function Navigation() {
-  const isSignedIn = isLoggedIn();
-  return isSignedIn ? (
+  return (
     <NavigationNav className="navbar fixed-top navbar-dark white scrolling-navbar">
       <img alt="logo" src={logo} />
       <div className="dropdown">
-        <button
-          type="button"
-          id="user-nav-div"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
+        <button type="button" id="user-nav-div" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <div id="user-nav-div-left">
             <img alt="avatar" src={avatar} />
             <span id="username-nav-span">John Doe</span>
           </div>
           <Triangle id="triangle-nav" />
         </button>
-        <div
-          className="dropdown-menu dropdown-menu-right border-0 z-depth-1"
-          aria-labelledby="user-nav-div"
-        >
-          <a className="dropdown-item" href="##">
-            Dashboard
-          </a>
-          <a className="dropdown-item" href="##">
-            Logout
-          </a>
+        <div className="dropdown-menu dropdown-menu-right border-0 z-depth-1" aria-labelledby="user-nav-div">
+          <a className="dropdown-item" href="##">Dashboard</a>
+          <a className="dropdown-item" href="##">Logout</a>
         </div>
       </div>
     </NavigationNav>
-  ) : (
-    ''
   );
 }
 
