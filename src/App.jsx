@@ -9,7 +9,7 @@ import CreateSurvey from './components/survey/CreateSurvey';
 function App() {
   return (
     <Router>
-      <Navigation />
+      <Route exact path="/" component={Navigation} />
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/signin" component={Signin} />
       <Route exact path="/" component={CreateSurvey} />
