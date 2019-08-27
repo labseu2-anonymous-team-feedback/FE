@@ -27,6 +27,7 @@ class Navigation extends React.Component {
   logout = (e) => {
     e.preventDefault();
     localStorage.clear();
+    this.setState({ user: null });
     window.location.reload();
   };
 
@@ -46,7 +47,7 @@ class Navigation extends React.Component {
             >
               <div id="user-nav-div-left">
                 <img alt="avatar" src={avatar} />
-                <span id="username-nav-span">John Doe</span>
+                <span id="username-nav-span">{user.username}</span>
               </div>
               <Triangle id="triangle-nav" />
             </button>
