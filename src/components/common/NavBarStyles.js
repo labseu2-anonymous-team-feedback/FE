@@ -71,6 +71,18 @@ export const Triangle = styled.div`
 
 
 export const NavItems = styled.div`
-    border: 1px solid red;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    a {
+        padding: 1rem;
+        color: #212529;
+
+        &:hover {
+            color: #222;
+        }
+    }
+    
 `;
