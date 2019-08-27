@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { withApollo } from 'react-apollo';
 
 import Signup from './components/auth/signup/Signup';
@@ -12,9 +12,11 @@ function App() {
   return (
     <Router>
       <Navigation />
-      <Route exact path="/register" component={Signup} />
-      <Route exact path="/login" component={Signin} />
-      <PrivateRoute exact path="/" component={CreateSurvey} />
+      <Switch>
+        <Route exact path="/register" component={Signup} />
+        <Route exact path="/login" component={Signin} />
+        <PrivateRoute exact path="/" component={CreateSurvey} />
+      </Switch>
     </Router>
   );
 }
