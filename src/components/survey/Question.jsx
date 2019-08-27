@@ -9,13 +9,13 @@ const Question = ({
   handleChangeQuestion,
   removeQuestion,
 }) => (
-  <StyledQuestion>
+  <StyledQuestion className="z-depth-1">
     <Close
       type="button"
       className="remove-question"
       onClick={() => removeQuestion(index)}
     >
-      x
+      ✕
     </Close>
     <div className="form-group">
       <label htmlFor="text">Question</label>
