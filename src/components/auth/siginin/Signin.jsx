@@ -28,14 +28,14 @@ function Signin({ client }) {
           password: password.current.value,
         },
       });
-      console.log(res);
+
       if (!res.data.userLogin) setError(true);
       else {
         localStorage.setItem('token', res.data.userLogin.token);
         localStorage.setItem('username', res.data.userLogin.username);
         setSuccess(true);
       }
-    } catch (err) { console.log(err)
+    } catch (err) {
       setError(true);
     }
   };
