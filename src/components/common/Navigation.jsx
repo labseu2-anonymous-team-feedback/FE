@@ -1,71 +1,83 @@
 import React from 'react';
-import styled from 'styled-components';
-import { mainColor } from '../../styles/variables';
+import { Link } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
 import logo from '../../assets/images/logo.png';
 import avatar from '../../assets/images/avatar-default.png';
+import { NavigationNav, Triangle, NavItems } from './NavBarStyles';
 
-const NavigationNav = styled.nav`
-  img {
-    height: 50px;
+class Navigation extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      user: null,
+    };
   }
 
-  #user-nav-div {
-    display: flex;
-    align-items: center;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-
-    #user-nav-div-left {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-right: 10px;
-
-      img {
-        height: 40px;
-        width: 40px;
-      }
-
-      #username-nav-span {
-        font-size: 14px;
-      }
-    }
-
-    #triangle-nav {
-      align-self: flex-end;
-      margin-bottom: 4px;
+  componentDidMount() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const user = jwtDecode(token);
+      this.setState({ user });
+    } else {
+      this.setState({ user: null });
     }
   }
-`;
 
-const Triangle = styled.div`
-  width: 0;
-  height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-top: 10px solid ${mainColor};
-`;
+  logout = (e) => {
+    e.preventDefault();
+    localStorage.clear();
+    this.setState({ user: null });
+    window.location.reload();
+  };
 
-function Navigation() {
-  return (
-    <NavigationNav className="navbar fixed-top navbar-dark white scrolling-navbar">
-      <img alt="logo" src={logo} />
-      <div className="dropdown">
-        <button type="button" id="user-nav-div" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <div id="user-nav-div-left">
-            <img alt="avatar" src={avatar} />
-            <span id="username-nav-span">John Doe</span>
-          </div>
-          <Triangle id="triangle-nav" />
-        </button>
-        <div className="dropdown-menu dropdown-menu-right border-0 z-depth-1" aria-labelledby="user-nav-div">
-          <a className="dropdown-item" href="##">Dashboard</a>
-          <a className="dropdown-item" href="##">Logout</a>
+  render() {
+    const { user } = this.state;
+    return (
+      <NavigationNav className="navbar fixed-top navbar-dark white scrolling-navbar">
+        <div className="logo-div">
+          <img alt="logo" src={logo} />
         </div>
-      </div>
-    </NavigationNav>
-  );
+        <div className="auth-links">
+          {user ? (
+            <div className="dropdown">
+              <button
+                type="button"
+                id="user-nav-div"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <div id="user-nav-div-left">
+                  <img alt="avatar" src={avatar} />
+                  <div className="user-info">
+                    <span id="username-nav-span">{user.username}</span>
+                    <Triangle id="triangle-nav" />
+                  </div>
+                </div>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-right border-0 z-depth-1"
+                aria-labelledby="user-nav-div"
+              >
+                <a className="dropdown-item" href="##">
+                  Dashboard
+                </a>
+                <a className="dropdown-item" href="##" onClick={this.logout}>
+                  Logout
+                </a>
+              </div>
+            </div>
+          ) : (
+            <NavItems>
+              <Link to="/signup">Sign Up</Link>
+              <Link to="/signin">Sign In</Link>
+            </NavItems>
+          )}
+        </div>
+      </NavigationNav>
+    );
+  }
 }
 
 export default Navigation;

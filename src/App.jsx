@@ -11,10 +11,10 @@ import PrivateRoute from './components/common/PrivateRoute';
 function App() {
   return (
     <Router>
-      <Navigation />
+      <Route exact path="/" component={Navigation} />
+      <Route exact path="/register" component={Signup} />
+      <Route exact path="/login" component={Signin} />
       <Switch>
-        <Route exact path="/register" component={Signup} />
-        <Route exact path="/login" component={Signin} />
         <PrivateRoute exact path="/" component={CreateSurvey} />
       </Switch>
     </Router>
