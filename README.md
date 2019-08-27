@@ -4,19 +4,13 @@
 [![](https://img.shields.io/badge/Protected_by-Hound-a873d1.svg)](https://houndci.com)
 
 
+```
+Link to staging environment: https://staging-atf.herokuapp.com/
+```
 
-`Link to staging environment:`
-
-<a href="">
- https://staging-atf.herokuapp.com/
-</a>
-
-
-`Link to production environment:`
-<a href="">
- https://anonymous-team-feeedback.herokuapp.com/
- </a>
-
+```
+Link to production environment: https://anonymous-team-feeedback.herokuapp.com/
+```
 
 
 # Table of Contents
@@ -59,7 +53,11 @@
 
 React is the current industry standard that offers a lot of out of the box benefits. It is fast, efficient, and scalable. Due to the large community, finding solutions to potential problems and reference material is much easier, even for a potential dev without a lot of experience who would like to contribute to Main Course. | [View Dependency](https://reactjs.org/docs/getting-started.html)
 
+### GraphQL
+GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools. | [View Dependency](https://graphql.org/)
 
+## React Apollo
+React Apollo allows you to fetch data from your GraphQL server and use it in building complex and reactive UIs using the React framework. React Apollo may be used in any context that React may be used. In the browser, in React Native, or in Node.js when you want to do server-side rendering. | [View Dependency](https://apollographql.com)
 ### dotenv
 
 Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology. | [View Dependency](https://www.npmjs.com/package/dotenv)
@@ -68,15 +66,14 @@ Dotenv is a zero-dependency module that loads environment variables from a .env 
 
 Has a thriving community and offers the ability to directly style multiple components within a file. The syntax used is familiar to JavaScript and improves code cleanliness and makes it easy to get up and going for those without a lot of css experience. Styled components are also very efficient, improving load time for users. | [View Dependency](https://www.styled-components.com/docs/)
 
-### Connected React Router
-
-Allows for the ability to synchronize state with redux store through uni-directional data flow, time traveling, and dispatching of history methods. This makes for an incredibly useful tool when dealing with various stages of state and subsequent routing for a seamless and intuitive UI. | [View Dependency](https://www.npmjs.com/package/connected-react-router)
+### React Router
+Declarative routing for React. Helps in the Routing of our application.
+ | [View Dependency](https://reacttraining.com/react-router/web/guides/quick-start)
 
 ## Front-End Dependencies `(Development)`
 
 ### Eslint
-
-[See Above Explanation](#eslint)
+Eslint is the dominant linting tool for NodeJS and it makes it possible to establish a clear coding convention for a team or project, as well as aiding in catching various bugs such as variables improperly scoped. | [View Dependency](https://eslint.org/)
 
 
 
