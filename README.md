@@ -11,3 +11,69 @@ Link to staging environment: https://staging-atf.herokuapp.com/
 ```
 Link to production environment: https://anonymous-team-feeedback.herokuapp.com/
 ```
+
+
+# Table of Contents
+
+- [Discussion Board](#discussion-board-pine)
+- [Team](#team)
+- [Table of Contents](#table-of-contents)
+- [Scripts](#scripts)
+  - [Running](#running)
+- [Environment Variables](#environment-variables)
+- [Tech-Stack](#tech-stack)
+  - [Back-End Dependencies `(Production)`](#front-end-dependencies-production)
+    - [React](#react)
+    - [Dotenv](#dotenv)
+    - [Styled-Components](#styled-components)
+  - [Front-End Dependencies `(Development)`](#front-end-dependencies-development)
+    - [Eslint](#eslint-1)
+    - [Eslint-Config-Prettier](#eslint-config-prettier)
+    - [React-Testing-Library](#react-testing-library)
+
+# Scripts
+
+## Running
+
+`npm start`: Runs only the front-end client.
+
+`npm test`: Will run the tests for front-end
+
+`npm run build`: Will create a build file for front-end
+
+# Environment Variables
+
+`URL`: The url of the hosted website
+
+# Tech-Stack
+
+## Front-End Dependencies `(Production)`
+
+### React
+
+React is the current industry standard that offers a lot of out of the box benefits. It is fast, efficient, and scalable. Due to the large community, finding solutions to potential problems and reference material is much easier, even for a potential dev without a lot of experience who would like to contribute to Main Course. | [View Dependency](https://reactjs.org/docs/getting-started.html)
+
+### GraphQL
+GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools. | [View Dependency](https://graphql.org/)
+
+### React Apollo
+React Apollo allows you to fetch data from your GraphQL server and use it in building complex and reactive UIs using the React framework. React Apollo may be used in any context that React may be used. In the browser, in React Native, or in Node.js when you want to do server-side rendering. | [View Dependency](https://apollographql.com)
+### dotenv
+
+Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology. | [View Dependency](https://www.npmjs.com/package/dotenv)
+
+### Styled Components
+
+Has a thriving community and offers the ability to directly style multiple components within a file. The syntax used is familiar to JavaScript and improves code cleanliness and makes it easy to get up and going for those without a lot of css experience. Styled components are also very efficient, improving load time for users. | [View Dependency](https://www.styled-components.com/docs/)
+
+### React Router
+Declarative routing for React. Helps in the Routing of our application.
+ | [View Dependency](https://reacttraining.com/react-router/web/guides/quick-start)
+
+## Front-End Dependencies `(Development)`
+
+### Eslint
+Eslint is the dominant linting tool for NodeJS and it makes it possible to establish a clear coding convention for a team or project, as well as aiding in catching various bugs such as variables improperly scoped. | [View Dependency](https://eslint.org/)
+
+
+
