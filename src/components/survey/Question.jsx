@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { StyledQuestion, Close } from './SurveyStyles';
 
 const Question = ({
-  text,
+  question,
   type,
   index,
   handleChangeQuestion,
@@ -23,9 +23,9 @@ const Question = ({
         className="form-control mb-4"
         id="text"
         rows="3"
-        name="text"
+        name="question"
         onChange={(e) => handleChangeQuestion(index, e)}
-        value={text}
+        value={question}
       />
     </div>
     <div className="form-group">
@@ -48,7 +48,7 @@ const Question = ({
 );
 
 Question.propTypes = {
-  text: PropTypes.string.isRequired,
+  question: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
   handleChangeQuestion: PropTypes.func.isRequired,
