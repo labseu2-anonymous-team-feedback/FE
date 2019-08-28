@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
+import { toast } from 'react-toastify';
 import Divider from '../../styles/Divider';
 import Question from './Question';
 import { AddButton, Container } from './SurveyStyles';
@@ -18,6 +19,7 @@ class CreateSurvey extends Component {
           type: '',
         },
       ],
+      error: '',
     };
   }
 
@@ -60,11 +62,12 @@ class CreateSurvey extends Component {
                 onSubmit={(e) => {
                   e.preventDefault();
                   if (!title) {
-                    // TO DO: Validate survey title
+                    toast.error('Survey title required');
                   } else {
                     createNewSurvey({
                       variables: { input: { title, questions } },
                     });
+                    toast.success('Survey created successfully');
                   }
                 }}
               >
