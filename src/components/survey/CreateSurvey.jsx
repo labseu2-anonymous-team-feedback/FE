@@ -19,7 +19,6 @@ class CreateSurvey extends Component {
           type: '',
         },
       ],
-      error: '',
     };
   }
 
@@ -61,13 +60,41 @@ class CreateSurvey extends Component {
                 action="#!"
                 onSubmit={(e) => {
                   e.preventDefault();
+                  let questionsAreValid = true;
+
+                  questions.forEach((q, index) => {
+                    if (!q.question) {
+                      toast.error('Please provide all questions');
+                      questionsAreValid = false;
+                    }
+                    if (!q.type) {
+                      toast.error('Please specify a type for all questions');
+                      questionsAreValid = false;
+                    }
+                    if (q.question && q.question.length < 5) {
+                      toast.error(
+                        'Each question must be at least 5 characters long'
+                      );
+                      questionsAreValid = false;
+                    }
+                  });
+
                   if (!title) {
                     toast.error('Survey title required');
-                  } else {
+                  } else if (questionsAreValid) {
                     createNewSurvey({
                       variables: { input: { title, questions } },
                     });
                     toast.success('Survey created successfully');
+                    this.setState({
+                      title: '',
+                      questions: [
+                        {
+                          question: '',
+                          type: '',
+                        },
+                      ],
+                    });
                   }
                 }}
               >
