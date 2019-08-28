@@ -10,7 +10,7 @@ const Signup = styled.div`
   
   form {
     background: white;
-    width: 32%;
+    width: 35%;
     padding-top: 4rem !important;
     a:hover {
       text-decoration: underline;
