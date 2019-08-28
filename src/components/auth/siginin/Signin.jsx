@@ -6,7 +6,6 @@ import { toast } from 'react-toastify';
 
 import { LOGIN_MUTATION } from '../../../graphql/mutations';
 import GoogleButton from '../../../assets/images/google-button.png';
-import SlackButton from '../../../assets/images/slack-button.png';
 import StyledSignin from './StyledSignin';
 
 function Signin({ client }) {
@@ -103,17 +102,17 @@ function Signin({ client }) {
               <img src={GoogleButton} alt="Sign up with google" />
             </a>
           </div>
-
-          <div className="optional-login">
-            <a href="##">
-              <img src={SlackButton} alt="Sign up with slack" />
-            </a>
-          </div>
         </div>
 
         <p>
           <Link to="/forgotpassword">
             <u>Forgot Password?</u>
+          </Link>
+        </p>
+        <p>
+          Don&apos;t have an account? &nbsp;
+          <Link to="/register">
+            <u>Sign Up</u>
           </Link>
         </p>
       </form>

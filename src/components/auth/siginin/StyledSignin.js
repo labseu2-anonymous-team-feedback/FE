@@ -25,6 +25,11 @@ const Signup = styled.div`
     @media (max-width: 870px) {
       width: 95%;
     }
+
+    @media (max-width: 500px) {
+      width: 100%;
+      padding: 1rem !important;
+    }
   }
 
   .passwordContainer {
@@ -42,6 +47,7 @@ const Signup = styled.div`
   }
 
   .optionalLoginContainer {
+    justify-content: center;
     @media (max-width: 780px) {
       flex-direction: column;
       align-items: center;
@@ -49,11 +55,13 @@ const Signup = styled.div`
     .optional-login {
       width: 50%;
       margin-bottom: 1rem;
+      @media (max-width: 780px) {
+          width: 100%;
+        }
       img {
         width: 300px;
-        @media (max-width: 780px) {
-          justify-content: center;
-          width: 100%;
+        @media (max-width: 450px) {
+          width: 200px;
         }
       }
     }

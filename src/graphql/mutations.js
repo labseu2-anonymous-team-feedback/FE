@@ -37,4 +37,28 @@ const CREATE_NEW_SURVEY = gql`
   }
 `;
 
-export { CREATE_ACCOUNT, LOGIN_MUTATION, CREATE_NEW_SURVEY };
+const GOOGLE_AUTH_MUTATION = gql`
+  # mutation google($accessToken: String!) {
+  #   authGoogle(googleAccessToken: $accessToken) {
+  #     username
+  #     email
+  #     token
+  #   }
+  # }
+  mutation google ($accessToken: String!){
+    authGoogle(googleAccessToken:{
+      accessToken: $accessToken
+    }) {
+      username
+      email
+      token
+    }
+  }
+`;
+
+export {
+  CREATE_ACCOUNT,
+  LOGIN_MUTATION,
+  CREATE_NEW_SURVEY,
+  GOOGLE_AUTH_MUTATION,
+};

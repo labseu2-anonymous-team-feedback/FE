@@ -4,10 +4,12 @@ import { withApollo } from 'react-apollo';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 
-import { CREATE_ACCOUNT } from '../../../graphql/mutations';
+import {
+  CREATE_ACCOUNT,
+  GOOGLE_AUTH_MUTATION,
+} from '../../../graphql/mutations';
 import StyledSignup from './StyledSignup';
 import GoogleButton from '../../../assets/images/google-button.png';
-import SlackButton from '../../../assets/images/slack-button.png';
 
 class Signup extends Component {
   constructor(props) {
@@ -40,6 +42,19 @@ class Signup extends Component {
     })
       .then((res) => this.setState({ data: res }))
       .catch((err) => this.setState({ error: err }));
+  };
+
+  onGoogleAuth = (e) => {
+    e.preventDefault();
+    const accessToken = 'ya29.GltyB-SQ2LAhE2O_MAiiBGdwqAcTUOdFlJKDX5ZOCEI4HNm6DxX8VcxqhhtNpaiEhcfSTsFc7Q3W9Jj1PUhd_M7lK3OXaugH41f0O7xMKugS9se0E1uJVwtjb5AJ';
+    this.mutate({
+      mutation: GOOGLE_AUTH_MUTATION,
+      variables: {
+        accessToken,
+      },
+    })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   };
 
   render() {
@@ -133,13 +148,8 @@ class Signup extends Component {
           </div>
           <div className="d-flex optionalLoginContainer">
             <div className="optional-login">
-              <a href="##">
+              <a href="##" onClick={this.onGoogleAuth}>
                 <img src={GoogleButton} alt="Sign up with google" />
-              </a>
-            </div>
-            <div className="optional-login">
-              <a href="##">
-                <img src={SlackButton} alt="Sign up with slack" />
               </a>
             </div>
           </div>
