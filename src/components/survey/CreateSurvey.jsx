@@ -63,7 +63,7 @@ class CreateSurvey extends Component {
                     // TO DO: Validate survey title
                   } else {
                     createNewSurvey({
-                      variables: { title },
+                      variables: { input: { title, questions } },
                     });
                   }
                 }}
