@@ -62,7 +62,7 @@ class CreateSurvey extends Component {
                   e.preventDefault();
                   let questionsAreValid = true;
 
-                  questions.forEach((q, index) => {
+                  questions.forEach((q) => {
                     if (!q.question) {
                       toast.error('Please provide all questions');
                       questionsAreValid = false;
@@ -72,9 +72,7 @@ class CreateSurvey extends Component {
                       questionsAreValid = false;
                     }
                     if (q.question && q.question.length < 5) {
-                      toast.error(
-                        'Each question must be at least 5 characters long'
-                      );
+                      toast.error('Each question must be at least 5 characters long');
                       questionsAreValid = false;
                     }
                   });
