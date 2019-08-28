@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
+import { toast } from 'react-toastify';
 import Divider from '../../styles/Divider';
 import Question from './Question';
 import { AddButton, Container } from './SurveyStyles';
@@ -14,7 +15,7 @@ class CreateSurvey extends Component {
       title: '',
       questions: [
         {
-          text: '',
+          question: '',
           type: '',
         },
       ],
@@ -59,11 +60,38 @@ class CreateSurvey extends Component {
                 action="#!"
                 onSubmit={(e) => {
                   e.preventDefault();
+                  let questionsAreValid = true;
+
+                  questions.forEach((q) => {
+                    if (!q.question) {
+                      toast.error('Please provide all questions');
+                      questionsAreValid = false;
+                    }
+                    if (!q.type) {
+                      toast.error('Please specify a type for all questions');
+                      questionsAreValid = false;
+                    }
+                    if (q.question && q.question.length < 5) {
+                      toast.error('Each question must be at least 5 characters long');
+                      questionsAreValid = false;
+                    }
+                  });
+
                   if (!title) {
-                    // TO DO: Validate survey title
-                  } else {
+                    toast.error('Survey title required');
+                  } else if (questionsAreValid) {
                     createNewSurvey({
-                      variables: { title },
+                      variables: { input: { title, questions } },
+                    });
+                    toast.success('Survey created successfully');
+                    this.setState({
+                      title: '',
+                      questions: [
+                        {
+                          question: '',
+                          type: '',
+                        },
+                      ],
                     });
                   }
                 }}
@@ -89,7 +117,7 @@ class CreateSurvey extends Component {
                   {questions.map((question, index) => (
                     <Question
                       key={index.toString()}
-                      text={question.text}
+                      question={question.question}
                       type={question.type}
                       index={index}
                       handleChangeQuestion={this.handleChangeQuestion}
@@ -105,7 +133,7 @@ class CreateSurvey extends Component {
                         this.setState((prev) => ({
                           ...prev,
                           questions: prev.questions.concat({
-                            text: '',
+                            question: '',
                             type: '',
                           }),
                         }));
