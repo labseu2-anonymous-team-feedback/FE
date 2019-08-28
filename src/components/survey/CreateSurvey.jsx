@@ -14,7 +14,7 @@ class CreateSurvey extends Component {
       title: '',
       questions: [
         {
-          text: '',
+          question: '',
           type: '',
         },
       ],
@@ -89,7 +89,7 @@ class CreateSurvey extends Component {
                   {questions.map((question, index) => (
                     <Question
                       key={index.toString()}
-                      text={question.text}
+                      question={question.question}
                       type={question.type}
                       index={index}
                       handleChangeQuestion={this.handleChangeQuestion}
@@ -105,7 +105,7 @@ class CreateSurvey extends Component {
                         this.setState((prev) => ({
                           ...prev,
                           questions: prev.questions.concat({
-                            text: '',
+                            question: '',
                             type: '',
                           }),
                         }));
