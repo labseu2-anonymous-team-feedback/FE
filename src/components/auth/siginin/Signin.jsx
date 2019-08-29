@@ -102,7 +102,11 @@ function Signin({ client }) {
 
         <div className="d-flex optionalLoginContainer">
           <div className="optional-login">
-            <a href="##">
+            <a
+              href="https://anonymous-feedback-app.herokuapp.com/google"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={GoogleButton} alt="Sign up with google" />
             </a>
           </div>
@@ -115,6 +119,12 @@ function Signin({ client }) {
         <p>
           No Account yet? &nbsp;
           <Link to="/register">Create Account</Link>
+        </p>
+        <p>
+          Don&apos;t have an account? &nbsp;
+          <Link to="/register">
+            <u>Sign Up</u>
+          </Link>
         </p>
       </form>
     </StyledSignin>

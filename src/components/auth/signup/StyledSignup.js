@@ -28,6 +28,11 @@ const Signup = styled.div`
     @media (max-width: 870px) {
       width: 95%;
     }
+
+    @media (max-width: 500px) {
+      width: 100%;
+      padding: 1rem !important;
+    }
   }
 
   .passwordContainerDiv {

@@ -49,9 +49,22 @@ const CREATE_NEW_SURVEY = gql`
   }
 `;
 
+
+const GOOGLE_AUTH_MUTATION = gql`
+  mutation google{
+  authGoogle{
+    id
+    username
+    email
+    token
+  }
+}
+`;
+
 export {
   CREATE_ACCOUNT,
   VERIFY_ACCOUNT,
   LOGIN_MUTATION,
   CREATE_NEW_SURVEY,
+  GOOGLE_AUTH_MUTATION,
 };

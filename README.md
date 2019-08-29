@@ -70,6 +70,15 @@ Has a thriving community and offers the ability to directly style multiple compo
 Declarative routing for React. Helps in the Routing of our application.
  | [View Dependency](https://reacttraining.com/react-router/web/guides/quick-start)
 
+### JWT-Decode
+
+Jwt-decode is a small browser library that helps decoding JWTs token which are Base64Url encoded.  This library doesn't validate the token, any well formed JWT can be decoded. | [View Dependency](https://www.npmjs.com/package/jwt-decode)
+
+### Query-String
+
+The query-string package helps in objectifying the query parameters in our react application. | [View Dependency](https://www.npmjs.com/package/query-string)
+ 
+
 ## Front-End Dependencies `(Development)`
 
 ### Eslint

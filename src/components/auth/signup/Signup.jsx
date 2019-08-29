@@ -3,8 +3,12 @@ import { Link, Redirect } from 'react-router-dom';
 import { withApollo } from 'react-apollo';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
+import queryString from 'query-string';
 
-import { CREATE_ACCOUNT } from '../../../graphql/mutations';
+import {
+  CREATE_ACCOUNT,
+  GOOGLE_AUTH_MUTATION,
+} from '../../../graphql/mutations';
 import StyledSignup from './StyledSignup';
 import GoogleButton from '../../../assets/images/google-button.png';
 
@@ -22,12 +26,31 @@ class Signup extends Component {
     this.mutate = props.client.mutate;
   }
 
+  componentDidMount() {
+    const { location } = this.props;
+    const { search } = location;
+    const parsed = queryString.parse(search);
+    if (parsed.google) {
+      this.mutate({
+        mutation: GOOGLE_AUTH_MUTATION,
+      })
+        .then((res) => {
+          const { token } = res.data.authGoogle;
+
+          localStorage.setItem('token', token);
+          this.setState({ data: res });
+        })
+        .catch((err) => this.setState({ error: err }));
+    }
+  }
+
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value, error: '' });
   };
 
   onSubmit = (e) => {
     e.preventDefault();
+
     const { username, email, password } = this.state;
     this.mutate({
       mutation: CREATE_ACCOUNT,
@@ -43,13 +66,14 @@ class Signup extends Component {
 
   render() {
     const { error, data } = this.state;
+
     if (error) {
       toast.error('Unable to Register, Try Again');
     }
 
     if (data) {
       toast.success('Registration successful');
-      return <Redirect to="/login" />;
+      return <Redirect to="/" />;
     }
 
     return (
@@ -131,7 +155,11 @@ class Signup extends Component {
             </div>
           </div>
           <div className="d-flex optionalLoginContainer">
-            <a href="##">
+            <a
+              href="https://anonymous-feedback-app.herokuapp.com/google"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={GoogleButton} alt="Sign up with google" />
             </a>
           </div>
@@ -150,6 +178,9 @@ class Signup extends Component {
 Signup.propTypes = {
   client: PropTypes.shape({
     mutate: PropTypes.func.isRequired,
+  }).isRequired,
+  location: PropTypes.shape({
+    search: PropTypes.string.isRequired,
   }).isRequired,
 };
 export default withApollo(Signup);
