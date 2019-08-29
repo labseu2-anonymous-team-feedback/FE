@@ -38,22 +38,14 @@ const CREATE_NEW_SURVEY = gql`
 `;
 
 const GOOGLE_AUTH_MUTATION = gql`
-  # mutation google($accessToken: String!) {
-  #   authGoogle(googleAccessToken: $accessToken) {
-  #     username
-  #     email
-  #     token
-  #   }
-  # }
-  mutation google ($accessToken: String!){
-    authGoogle(googleAccessToken:{
-      accessToken: $accessToken
-    }) {
-      username
-      email
-      token
-    }
+  mutation google{
+  authGoogle{
+    id
+    username
+    email
+    token
   }
+}
 `;
 
 export {
