@@ -15,6 +15,7 @@ function App() {
   return (
     <Router>
       <Route exact path="/" component={Navigation} />
+      <Route exact path="/verify_account/:verifyToken" component={Navigation} />
       <Route exact path="/register" component={Signup} />
       <Route exact path="/login" component={Signin} />
       <Route exact path="/resetPassword" component={ResetPassword} />

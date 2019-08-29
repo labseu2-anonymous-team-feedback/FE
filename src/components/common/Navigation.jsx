@@ -1,9 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { withApollo } from 'react-apollo';
 import jwtDecode from 'jwt-decode';
+import { toast } from 'react-toastify';
 import logo from '../../assets/images/logo.png';
 import avatar from '../../assets/images/avatar-default.png';
 import { NavigationNav, Triangle, NavItems } from './NavBarStyles';
+import { VERIFY_ACCOUNT } from '../../graphql/mutations';
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -16,6 +20,27 @@ class Navigation extends React.Component {
 
   componentDidMount() {
     const token = localStorage.getItem('token');
+    const {
+      match: { params },
+    } = this.props;
+    const { client } = this.props;
+
+    client
+      .mutate({
+        mutation: VERIFY_ACCOUNT,
+        variables: {
+          token: params.verifyToken,
+        },
+      })
+      .then((results) => {
+        console.log(results);
+        toast.success('Account verified successfully');
+      })
+      .catch((error) => {
+        console.log('Error: ', error);
+        toast.error('Failed to verify account');
+      });
+
     if (token) {
       const user = jwtDecode(token);
       this.setState({ user });
@@ -80,4 +105,13 @@ class Navigation extends React.Component {
   }
 }
 
-export default Navigation;
+Navigation.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      verifyToken: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
+  client: PropTypes.objectOf(PropTypes.object).isRequired,
+};
+
+export default withApollo(Navigation);
