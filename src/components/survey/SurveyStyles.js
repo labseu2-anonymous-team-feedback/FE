@@ -10,9 +10,12 @@ export const AddButton = styled.button`
 `;
 
 export const Container = styled.div`
-  margin-top: 8rem;
+  margin: 8rem auto;
   padding-left: 0rem;
   padding-right: 0rem;
+  background: white;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12)!important;
+  width: 60%;
 
   form {
     @media (max-width: 575px) {

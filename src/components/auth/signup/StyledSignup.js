@@ -9,7 +9,10 @@ const Signup = styled.div`
   height: 100vh;
 
   form {
-    width: 50%;
+    width: 35%;
+    background: white;
+    padding-bottom: 1rem !important;
+    
     @media (max-width: 1400px) {
       width: 60%;
     }
@@ -55,22 +58,22 @@ const Signup = styled.div`
   }
 
   .optionalLoginContainer {
+    display: flex;
+    align-items: center;
     justify-content: center;
+    
     @media (max-width: 780px) {
       flex-direction: column;
       align-items: center;
     }
-    .optional-login {
-      width: 50%;
+
+    img {
+      width: 300px;
       margin-bottom: 1rem;
+      
       @media (max-width: 780px) {
-          width: 100%;
-        }
-      img {
-        width: 300px;
-        @media (max-width: 450px) {
-          width: 200px;
-        }
+        justify-content: center;
+        width: 100%;
       }
     }
   }
