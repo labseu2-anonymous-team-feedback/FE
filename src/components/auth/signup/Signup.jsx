@@ -11,6 +11,7 @@ import {
 } from '../../../graphql/mutations';
 import StyledSignup from './StyledSignup';
 import GoogleButton from '../../../assets/images/google-button.png';
+import TextInput from '../../common/TextInput';
 
 class Signup extends Component {
   constructor(props) {
@@ -84,61 +85,14 @@ class Signup extends Component {
           action="#!"
         >
           <p className="h4 mb-4">Sign Up</p>
-          <label htmlFor="username" className="d-flex font-weight-bold">
-            Username
-          </label>
-          <input
-            type="text"
-            id="username"
-            className="form-control mb-3"
-            placeholder="Enter Username"
-            name="username"
-            onChange={this.onChange}
-            required
-          />
-          <label htmlFor="email" className="d-flex font-weight-bold">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            className="form-control mb-3"
-            placeholder="E-mail"
-            name="email"
-            onChange={this.onChange}
-            required
-          />
+          <TextInput title="Username" id="username" name="username" onChange={this.onChange} required />
+          <TextInput title="Email" id="email" name="email" type="email" onChange={this.onChange} required />
           <div className="d-flex justify-content-between passwordContainerDiv">
             <div className="passwordContainer">
-              <label htmlFor="password" className="d-flex font-weight-bold">
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                className="form-control mb-4"
-                placeholder="Password"
-                name="password"
-                onChange={this.onChange}
-                required
-              />
+              <TextInput title="Password" id="password" name="password" type="password" onChange={this.onChange} required />
             </div>
             <div className="passwordContainer">
-              <label
-                htmlFor="confirmPassword"
-                className="d-flex font-weight-bold"
-              >
-                Confirm Password
-              </label>
-              <input
-                type="password"
-                id="confirmPassword"
-                className="form-control mb-4"
-                placeholder="Confirm Password"
-                name="confirmPassword"
-                onChange={this.onChange}
-                required
-              />
+              <TextInput title="Confirm Password" id="confirmPassword" name="confirmPassword" type="password" onChange={this.onChange} required />
             </div>
           </div>
           <div className="d-flex justify-content-around" />

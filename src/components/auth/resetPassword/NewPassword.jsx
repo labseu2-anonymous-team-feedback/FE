@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyledNewPassword } from './StyledResetPassword';
+import TextInput from '../../common/TextInput';
 
 function NewPassword() {
   return (
@@ -10,31 +11,8 @@ function NewPassword() {
       >
         <p className="h4 mb-4">Enter New Password</p>
 
-        <div className="form-group">
-          <label htmlFor="password" className="d-flex font-weight-bold">
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            className="form-control mb-4"
-            name="password"
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="password" className="d-flex font-weight-bold">
-            Confirm Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            className="form-control mb-4"
-            name="confirmPassword"
-            required
-          />
-        </div>
+        <TextInput title="Password" id="password" type="password" name="password" required />
+        <TextInput title="Confirm Password" id="password" type="password" name="confirmPassword" required />
 
         <button className="btn btn-info btn-block my-4" type="submit">
           Update Password

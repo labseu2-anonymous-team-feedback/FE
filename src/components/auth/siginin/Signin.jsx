@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import { LOGIN_MUTATION } from '../../../graphql/mutations';
 import GoogleButton from '../../../assets/images/google-button.png';
 import StyledSignin from './StyledSignin';
+import TextInput from '../../common/TextInput';
 
 function Signin({ client }) {
   const [error, setError] = useState(false);
@@ -41,6 +42,7 @@ function Signin({ client }) {
 
   if (error) {
     toast.error('Unable to Login, Try Again');
+    setError(false);
   }
 
   if (success) {
@@ -56,33 +58,8 @@ function Signin({ client }) {
       >
         <p className="h4 mb-4">Sign In</p>
 
-        <div className="form-group">
-          <label htmlFor="email" className="d-flex font-weight-bold">
-            Email
-          </label>
-          <input
-            ref={email}
-            type="email"
-            id="email"
-            className="form-control"
-            placeholder="E-mail"
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="password" className="d-flex font-weight-bold">
-            Password
-          </label>
-          <input
-            ref={password}
-            type="password"
-            id="password"
-            className="form-control"
-            placeholder="Password"
-            required
-          />
-        </div>
+        <TextInput title="Email" id="email" type="email" ref={email} required />
+        <TextInput title="Password" id="password" type="password" ref={password} required />
 
         <div className="form-group my-4">
           <button className="btn btn-info btn-block" type="submit">
