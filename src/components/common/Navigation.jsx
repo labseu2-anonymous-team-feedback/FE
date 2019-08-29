@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withApollo } from 'react-apollo';
 import jwtDecode from 'jwt-decode';
+import { toast } from 'react-toastify';
 import logo from '../../assets/images/logo.png';
 import avatar from '../../assets/images/avatar-default.png';
 import { NavigationNav, Triangle, NavItems } from './NavBarStyles';
+import { VERIFY_ACCOUNT } from '../../graphql/mutations';
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -16,6 +19,24 @@ class Navigation extends React.Component {
 
   componentDidMount() {
     const token = localStorage.getItem('token');
+    const { verifyToken } = this.props.match.params;
+    const { mutate } = this.props.client;
+
+    mutate({
+      mutation: VERIFY_ACCOUNT,
+      variables: {
+        token: verifyToken,
+      },
+    })
+      .then((results) => {
+        console.log(results);
+        toast.success('Account verified successfully');
+      })
+      .catch((error) => {
+        console.log('Error: ', error);
+        toast.error('Failed to verify account');
+      });
+
     if (token) {
       const user = jwtDecode(token);
       this.setState({ user });
@@ -80,4 +101,4 @@ class Navigation extends React.Component {
   }
 }
 
-export default Navigation;
+export default withApollo(Navigation);

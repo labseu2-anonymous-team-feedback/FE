@@ -25,6 +25,17 @@ const CREATE_ACCOUNT = gql`
   }
 `;
 
+const VERIFY_ACCOUNT = gql`
+  mutation verifyAccount($token: String! ) {
+    verifyAccount(token: $token) {
+      id
+      username
+      email
+      token
+    }
+  }
+`;
+
 const CREATE_NEW_SURVEY = gql`
   mutation createNewSurvey($input: SurveyInput!) {
     createNewSurvey(input: $input) {
@@ -38,4 +49,9 @@ const CREATE_NEW_SURVEY = gql`
   }
 `;
 
-export { CREATE_ACCOUNT, LOGIN_MUTATION, CREATE_NEW_SURVEY };
+export {
+  CREATE_ACCOUNT,
+  VERIFY_ACCOUNT,
+  LOGIN_MUTATION,
+  CREATE_NEW_SURVEY,
+};
