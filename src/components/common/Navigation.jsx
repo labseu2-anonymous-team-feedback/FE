@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { withApollo } from 'react-apollo';
 import jwtDecode from 'jwt-decode';
@@ -19,15 +20,18 @@ class Navigation extends React.Component {
 
   componentDidMount() {
     const token = localStorage.getItem('token');
-    const { verifyToken } = this.props.match.params;
-    const { mutate } = this.props.client;
+    const {
+      match: { params },
+    } = this.props;
+    const { client } = this.props;
 
-    mutate({
-      mutation: VERIFY_ACCOUNT,
-      variables: {
-        token: verifyToken,
-      },
-    })
+    client
+      .mutate({
+        mutation: VERIFY_ACCOUNT,
+        variables: {
+          token: params.verifyToken,
+        },
+      })
       .then((results) => {
         console.log(results);
         toast.success('Account verified successfully');
@@ -100,5 +104,14 @@ class Navigation extends React.Component {
     );
   }
 }
+
+Navigation.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      verifyToken: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
+  client: PropTypes.objectOf(PropTypes.object).isRequired,
+};
 
 export default withApollo(Navigation);
