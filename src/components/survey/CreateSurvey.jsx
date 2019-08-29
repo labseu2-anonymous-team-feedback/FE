@@ -56,7 +56,7 @@ class CreateSurvey extends Component {
           <Mutation mutation={CREATE_NEW_SURVEY}>
             {(createNewSurvey) => (
               <form
-                className="border border-light p-5"
+                className="p-5"
                 action="#!"
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -72,7 +72,9 @@ class CreateSurvey extends Component {
                       questionsAreValid = false;
                     }
                     if (q.question && q.question.length < 5) {
-                      toast.error('Each question must be at least 5 characters long');
+                      toast.error(
+                        'Each question must be at least 5 characters long'
+                      );
                       questionsAreValid = false;
                     }
                   });

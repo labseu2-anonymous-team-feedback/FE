@@ -66,7 +66,7 @@ class Signup extends Component {
           <input
             type="text"
             id="username"
-            className="form-control mb-4"
+            className="form-control mb-3"
             placeholder="Enter Username"
             name="username"
             onChange={this.onChange}
@@ -78,7 +78,7 @@ class Signup extends Component {
           <input
             type="email"
             id="email"
-            className="form-control mb-4"
+            className="form-control mb-3"
             placeholder="E-mail"
             name="email"
             onChange={this.onChange}

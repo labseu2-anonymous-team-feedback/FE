@@ -11,7 +11,8 @@ const Signup = styled.div`
   form {
     width: 35%;
     background: white;
-
+    padding-bottom: 1rem !important;
+    
     @media (max-width: 1400px) {
       width: 60%;
     }
