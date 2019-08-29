@@ -9,7 +9,8 @@ const ResetPasswordDiv = styled.div`
   height: 100vh;
 
   form, .confirmContainer {
-    width: 50%;
+    width: 35%;
+    background: white !important;
     @media (max-width: 1400px) {
       width: 60%;
     }
