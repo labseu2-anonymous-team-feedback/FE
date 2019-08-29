@@ -9,6 +9,7 @@ import CreateSurvey from './components/survey/CreateSurvey';
 import ResetPassword from './components/auth/resetPassword/ResetPassword';
 import ResetPasswordConfirmation from './components/auth/resetPassword/ResetPasswordConfirmation';
 import PrivateRoute from './components/common/PrivateRoute';
+import NewPassword from './components/auth/resetPassword/NewPassword';
 
 function App() {
   return (
@@ -17,7 +18,12 @@ function App() {
       <Route exact path="/register" component={Signup} />
       <Route exact path="/login" component={Signin} />
       <Route exact path="/resetPassword" component={ResetPassword} />
-      <Route exact path="/resetPasswordConfirmation" component={ResetPasswordConfirmation} />
+      <Route
+        exact
+        path="/resetPasswordConfirmation"
+        component={ResetPasswordConfirmation}
+      />
+      <Route exact path="/new-password" component={NewPassword} />
       <Switch>
         <PrivateRoute exact path="/" component={CreateSurvey} />
       </Switch>
