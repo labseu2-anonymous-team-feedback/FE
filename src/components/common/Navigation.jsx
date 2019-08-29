@@ -25,21 +25,21 @@ class Navigation extends React.Component {
     } = this.props;
     const { client } = this.props;
 
-    client
-      .mutate({
-        mutation: VERIFY_ACCOUNT,
-        variables: {
-          token: params.verifyToken,
-        },
-      })
-      .then((results) => {
-        console.log(results);
-        toast.success('Account verified successfully');
-      })
-      .catch((error) => {
-        console.log('Error: ', error);
-        toast.error('Failed to verify account');
-      });
+    if (client && client.mutate) {
+      client
+        .mutate({
+          mutation: VERIFY_ACCOUNT,
+          variables: {
+            token: params.verifyToken,
+          },
+        })
+        .then((results) => { // eslint-disable-line
+          toast.success('Account verified successfully');
+        })
+        .catch((error) => { // eslint-disable-line
+          toast.error('Failed to verify account');
+        });
+    }
 
     if (token) {
       const user = jwtDecode(token);
