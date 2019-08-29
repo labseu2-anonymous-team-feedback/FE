@@ -30,7 +30,6 @@ class Signup extends Component {
     const { location } = this.props;
     const { search } = location;
     const parsed = queryString.parse(search);
-    console.log(parsed);
     if (parsed.google) {
       this.mutate({
         mutation: GOOGLE_AUTH_MUTATION,
