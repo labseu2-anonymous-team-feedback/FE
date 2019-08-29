@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 import { CREATE_ACCOUNT } from '../../../graphql/mutations';
 import StyledSignup from './StyledSignup';
 import GoogleButton from '../../../assets/images/google-button.png';
-import SlackButton from '../../../assets/images/slack-button.png';
 
 class Signup extends Component {
   constructor(props) {
@@ -67,7 +66,7 @@ class Signup extends Component {
           <input
             type="text"
             id="username"
-            className="form-control mb-4"
+            className="form-control mb-3"
             placeholder="Enter Username"
             name="username"
             onChange={this.onChange}
@@ -79,7 +78,7 @@ class Signup extends Component {
           <input
             type="email"
             id="email"
-            className="form-control mb-4"
+            className="form-control mb-3"
             placeholder="E-mail"
             name="email"
             onChange={this.onChange}
@@ -132,16 +131,9 @@ class Signup extends Component {
             </div>
           </div>
           <div className="d-flex optionalLoginContainer">
-            <div className="optional-login">
-              <a href="##">
-                <img src={GoogleButton} alt="Sign up with google" />
-              </a>
-            </div>
-            <div className="optional-login">
-              <a href="##">
-                <img src={SlackButton} alt="Sign up with slack" />
-              </a>
-            </div>
+            <a href="##">
+              <img src={GoogleButton} alt="Sign up with google" />
+            </a>
           </div>
           <p>
             Already have an account? &nbsp;

@@ -6,7 +6,6 @@ import { toast } from 'react-toastify';
 
 import { LOGIN_MUTATION } from '../../../graphql/mutations';
 import GoogleButton from '../../../assets/images/google-button.png';
-import SlackButton from '../../../assets/images/slack-button.png';
 import StyledSignin from './StyledSignin';
 
 function Signin({ client }) {
@@ -51,41 +50,45 @@ function Signin({ client }) {
   return (
     <StyledSignin>
       <form
-        className="text-center border border-light p-5 z-depth-1"
+        className="text-center border border-light p-4 z-depth-1"
         action="#!"
         onSubmit={onSubmit}
       >
         <p className="h4 mb-4">Sign In</p>
 
-        <label htmlFor="email" className="d-flex font-weight-bold">
-          Email
-        </label>
-        <input
-          ref={email}
-          type="email"
-          id="email"
-          className="form-control mb-4"
-          placeholder="E-mail"
-          required
-        />
+        <div className="form-group">
+          <label htmlFor="email" className="d-flex font-weight-bold">
+            Email
+          </label>
+          <input
+            ref={email}
+            type="email"
+            id="email"
+            className="form-control"
+            placeholder="E-mail"
+            required
+          />
+        </div>
 
-        <label htmlFor="password" className="d-flex font-weight-bold">
-          Password
-        </label>
-        <input
-          ref={password}
-          type="password"
-          id="password"
-          className="form-control mb-4"
-          placeholder="Password"
-          required
-        />
+        <div className="form-group">
+          <label htmlFor="password" className="d-flex font-weight-bold">
+            Password
+          </label>
+          <input
+            ref={password}
+            type="password"
+            id="password"
+            className="form-control"
+            placeholder="Password"
+            required
+          />
+        </div>
 
-        <div className="d-flex justify-content-around" />
-
-        <button className="btn btn-info btn-block my-4" type="submit">
-          Sign In
-        </button>
+        <div className="form-group my-4">
+          <button className="btn btn-info btn-block" type="submit">
+            Sign In
+          </button>
+        </div>
 
         <div className="dividerContainer">
           <div className="divider">
@@ -103,18 +106,15 @@ function Signin({ client }) {
               <img src={GoogleButton} alt="Sign up with google" />
             </a>
           </div>
-
-          <div className="optional-login">
-            <a href="##">
-              <img src={SlackButton} alt="Sign up with slack" />
-            </a>
-          </div>
         </div>
 
         <p>
-          <Link to="/forgotpassword">
-            <u>Forgot Password?</u>
-          </Link>
+          <Link to="/forgotpassword">Forgot Password?</Link>
+        </p>
+
+        <p>
+          No Account yet? &nbsp;
+          <Link to="/register">Create Account</Link>
         </p>
       </form>
     </StyledSignin>

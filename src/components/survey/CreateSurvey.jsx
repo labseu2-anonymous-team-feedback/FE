@@ -56,7 +56,7 @@ class CreateSurvey extends Component {
           <Mutation mutation={CREATE_NEW_SURVEY}>
             {(createNewSurvey) => (
               <form
-                className="border border-light p-5"
+                className="p-5"
                 action="#!"
                 onSubmit={(e) => {
                   e.preventDefault();
