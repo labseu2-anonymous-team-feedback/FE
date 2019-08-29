@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function TextInput({
-  id, onChange, ref, name, required, title,
+  id, onChange, ref, name, required, title, type,
 }) {
   return (
     <>
-      <label htmlFor={id}>
+      <label htmlFor={id} className="d-flex">
         {title}
       </label>
       <input
-        type="text"
+        type={type}
         id={id}
         className="form-control mb-4"
         name={name}
@@ -27,6 +27,7 @@ TextInput.defaultProps = {
   ref: undefined,
   name: '',
   required: false,
+  type: 'text',
 };
 
 TextInput.propTypes = {
@@ -36,6 +37,7 @@ TextInput.propTypes = {
   name: PropTypes.string,
   required: PropTypes.bool,
   title: PropTypes.string.isRequired,
+  type: PropTypes.string,
 };
 
 export default TextInput;

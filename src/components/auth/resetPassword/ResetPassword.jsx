@@ -23,6 +23,7 @@ function ResetPassword() {
 
   if (error) {
     toast.error('Wrong email address');
+    setError(false);
   }
 
   return (

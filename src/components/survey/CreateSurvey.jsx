@@ -6,6 +6,7 @@ import Question from './Question';
 import { AddButton, Container } from './SurveyStyles';
 
 import { CREATE_NEW_SURVEY } from '../../graphql/mutations';
+import TextInput from '../common/TextInput';
 
 class CreateSurvey extends Component {
   constructor(props) {
@@ -98,17 +99,7 @@ class CreateSurvey extends Component {
               >
                 <h1 className="text-center">Create a Survey</h1>
                 <Divider size={30} />
-                <div className="form-group">
-                  <label htmlFor="title">Survey Title</label>
-                  <input
-                    type="text"
-                    id="title"
-                    className="form-control mb-4"
-                    name="title"
-                    value={title}
-                    onChange={this.handleChangeSurvey}
-                  />
-                </div>
+                <TextInput title="Survey Title" id="title" name={title} onChange={this.handleChangeSurvey} />
 
                 <div>
                   <h2>Survey Questions</h2>
