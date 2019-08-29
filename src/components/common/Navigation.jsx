@@ -25,7 +25,7 @@ class Navigation extends React.Component {
     } = this.props;
     const { client } = this.props;
 
-    if (client && client.mutate) {
+    if (params && params.verifyToken) {
       client
         .mutate({
           mutation: VERIFY_ACCOUNT,
