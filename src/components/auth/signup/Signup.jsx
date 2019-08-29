@@ -67,9 +67,16 @@ class Signup extends Component {
 
   render() {
     const { error, data } = this.state;
-
+    const { location } = this.props;
+    const { search } = location;
+    const parsed = queryString.parse(search);
     if (error) {
       toast.error('Unable to Register, Try Again');
+    }
+
+    if (parsed.google && data) {
+      // Don't show toast error if user is signing in with google
+      return <Redirect to="/" />;
     }
 
     if (data) {
@@ -85,14 +92,41 @@ class Signup extends Component {
           action="#!"
         >
           <p className="h4 mb-4">Sign Up</p>
-          <TextInput title="Username" id="username" name="username" onChange={this.onChange} required />
-          <TextInput title="Email" id="email" name="email" type="email" onChange={this.onChange} required />
+          <TextInput
+            title="Username"
+            id="username"
+            name="username"
+            onChange={this.onChange}
+            required
+          />
+          <TextInput
+            title="Email"
+            id="email"
+            name="email"
+            type="email"
+            onChange={this.onChange}
+            required
+          />
           <div className="d-flex justify-content-between passwordContainerDiv">
             <div className="passwordContainer">
-              <TextInput title="Password" id="password" name="password" type="password" onChange={this.onChange} required />
+              <TextInput
+                title="Password"
+                id="password"
+                name="password"
+                type="password"
+                onChange={this.onChange}
+                required
+              />
             </div>
             <div className="passwordContainer">
-              <TextInput title="Confirm Password" id="confirmPassword" name="confirmPassword" type="password" onChange={this.onChange} required />
+              <TextInput
+                title="Confirm Password"
+                id="confirmPassword"
+                name="confirmPassword"
+                type="password"
+                onChange={this.onChange}
+                required
+              />
             </div>
           </div>
           <div className="d-flex justify-content-around" />
