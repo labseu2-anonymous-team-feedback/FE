@@ -20,6 +20,7 @@ class Signup extends Component {
       username: '',
       email: '',
       password: '',
+      confirmPassword: '',
       error: '',
       data: '',
     };
@@ -52,21 +53,35 @@ class Signup extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    const { username, email, password } = this.state;
-    this.mutate({
-      mutation: CREATE_ACCOUNT,
-      variables: {
-        username,
-        email,
-        password,
-      },
-    })
-      .then((res) => this.setState({ data: res }))
-      .catch((err) => this.setState({ error: err }));
+    const {
+      username, email, password, confirmPassword,
+    } = this.state;
+
+    if (password !== confirmPassword) {
+      toast.error('Passwords do not match');
+    } else {
+      this.mutate({
+        mutation: CREATE_ACCOUNT,
+        variables: {
+          username,
+          email,
+          password,
+        },
+      })
+        .then((res) => this.setState({ data: res }))
+        .catch((err) => this.setState({ error: err }));
+    }
   };
 
   render() {
-    const { error, data } = this.state;
+    const {
+      username,
+      email,
+      password,
+      confirmPassword,
+      error,
+      data,
+    } = this.state;
     const { location } = this.props;
     const { search } = location;
     const parsed = queryString.parse(search);
@@ -93,9 +108,11 @@ class Signup extends Component {
         >
           <p className="h4 mb-4">Sign Up</p>
           <TextInput
+            type="text"
             title="Username"
             id="username"
             name="username"
+            value={username}
             onChange={this.onChange}
             required
           />
@@ -104,6 +121,7 @@ class Signup extends Component {
             id="email"
             name="email"
             type="email"
+            value={email}
             onChange={this.onChange}
             required
           />
@@ -114,6 +132,7 @@ class Signup extends Component {
                 id="password"
                 name="password"
                 type="password"
+                value={password}
                 onChange={this.onChange}
                 required
               />
@@ -124,6 +143,7 @@ class Signup extends Component {
                 id="confirmPassword"
                 name="confirmPassword"
                 type="password"
+                value={confirmPassword}
                 onChange={this.onChange}
                 required
               />
