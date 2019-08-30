@@ -53,17 +53,24 @@ class Signup extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    const { username, email, password } = this.state;
-    this.mutate({
-      mutation: CREATE_ACCOUNT,
-      variables: {
-        username,
-        email,
-        password,
-      },
-    })
-      .then((res) => this.setState({ data: res }))
-      .catch((err) => this.setState({ error: err }));
+    const {
+      username, email, password, confirmPassword,
+    } = this.state;
+
+    if (password !== confirmPassword) {
+      toast.error('Passwords do not match');
+    } else {
+      this.mutate({
+        mutation: CREATE_ACCOUNT,
+        variables: {
+          username,
+          email,
+          password,
+        },
+      })
+        .then((res) => this.setState({ data: res }))
+        .catch((err) => this.setState({ error: err }));
+    }
   };
 
   render() {
