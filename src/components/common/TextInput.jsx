@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function TextInput({ id, onChange, value, name, required, title, type }) {
+function TextInput({
+  id, onChange, value, name, required, title, type,
+}) {
   return (
     <>
       <label htmlFor={id} className="d-flex">
