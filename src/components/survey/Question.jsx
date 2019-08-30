@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledQuestion, Close } from './SurveyStyles';
 import OptionSelect from '../common/OptionSelect';
+import TextArea from '../common/TextArea';
 
 const typeOptions = [
   {
@@ -29,17 +30,16 @@ const Question = ({
     >
       ✕
     </Close>
-    <div className="form-group">
-      <label htmlFor="text">Question</label>
-      <textarea
-        className="form-control mb-4"
-        id="text"
-        rows="3"
-        name="question"
-        onChange={(e) => handleChangeQuestion(index, e)}
-        value={question}
-      />
-    </div>
+
+    <TextArea
+      label="Question"
+      name="question"
+      value={question}
+      onChange={(e) => handleChangeQuestion(index, e)}
+      className="form-control mb-4"
+      id="question"
+      rows="3"
+    />
 
     <OptionSelect
       label="Question type"
