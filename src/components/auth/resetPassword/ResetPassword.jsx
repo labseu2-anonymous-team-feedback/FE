@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
+import { Redirect } from 'react-router-dom';
 import { toast } from 'react-toastify'; // eslint-disable-line
 import ResetPasswordDiv from './StyledResetPassword';
 import TextInput from '../../common/TextInput';
@@ -7,8 +8,13 @@ import { SEND_RESET_PASSWORD_EMAIL } from '../../../graphql/mutations';
 
 function ResetPassword() {
   const [email, setEmail] = useState('');
+  const [redirectReset, setRedirectReset] = useState(false);
 
   const onChange = (e) => setEmail(e.target.value);
+
+  if (redirectReset) {
+    return <Redirect to="/resetPasswordConfirmation" />;
+  }
 
   return (
     <Mutation mutation={SEND_RESET_PASSWORD_EMAIL}>
@@ -24,12 +30,13 @@ function ResetPassword() {
                   email,
                 },
               })
-                .then((msg) => {
-                  console.log('Email sent: ', msg);
+                .then(() => {
+                  setRedirectReset(true);
                 })
-                .catch((err) => {
-                  console.log('Failed to sent: ', err);
-                });
+                .catch(() => {
+                  toast.error('Failed to send reset email password');
+                })
+                .finally(() => setEmail(''));
             }}
           >
             <p className="h4 mb-4">Reset Password</p>
