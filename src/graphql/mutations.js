@@ -50,6 +50,14 @@ const CREATE_NEW_SURVEY = gql`
 `;
 
 
+const SEND_RESET_PASSWORD_EMAIL = gql`
+  mutation sendResetPasswordEmail($email: String!) {
+    sendResetPasswordEmail(email: $email) {
+      message
+    }
+  }
+`;
+
 const GOOGLE_AUTH_MUTATION = gql`
   mutation google{
   authGoogle{
@@ -67,4 +75,5 @@ export {
   LOGIN_MUTATION,
   CREATE_NEW_SURVEY,
   GOOGLE_AUTH_MUTATION,
+  SEND_RESET_PASSWORD_EMAIL,
 };

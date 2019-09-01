@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify'; // eslint-disable-line
 import ResetPasswordDiv from './StyledResetPassword';
 import TextInput from '../../common/TextInput';
+import { SEND_RESET_PASSWORD_EMAIL } from '../../../graphql/mutations';
 
 function ResetPassword() {
   const [email, setEmail] = useState('');
@@ -9,6 +10,7 @@ function ResetPassword() {
   const onSubmit = (e) => {
     e.preventDefault();
     console.log(email);
+    setEmail('');
   };
 
   const onChange = (e) => setEmail(e.target.value);
