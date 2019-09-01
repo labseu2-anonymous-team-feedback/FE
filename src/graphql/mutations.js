@@ -58,8 +58,8 @@ const SEND_RESET_PASSWORD_EMAIL = gql`
 `;
 
 const SET_NEW_PASSWORD = gql`
-  mutation newPassword($newPassword: String!, $token: String!) {
-    newPassword(newPassword: $newPassword, token: $token) {
+  mutation resetPassword($newPassword: String!, $token: String!) {
+    resetPassword(newPassword: $newPassword, token: $token) {
       message
     }
   }
