@@ -1,30 +1,17 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { toast } from 'react-toastify'; // eslint-disable-line
 import ResetPasswordDiv from './StyledResetPassword';
+import TextInput from '../../common/TextInput';
 
 function ResetPassword() {
-  // eslint-disable-next-line no-unused-vars
-  const [error, setError] = useState(false);
-  const [success, setSuccess] = useState(false);
-
-  const email = React.createRef();
+  const [email, setEmail] = useState('');
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // if password will be reseted
-    setSuccess(true);
-    // else setError to true
+    console.log(email);
   };
 
-  if (success) {
-    return <Redirect to="/resetPasswordConfirmation" />;
-  }
-
-  if (error) {
-    toast.error('Wrong email address');
-    setError(false);
-  }
+  const onChange = (e) => setEmail(e.target.value);
 
   return (
     <ResetPasswordDiv>
@@ -34,16 +21,19 @@ function ResetPassword() {
         onSubmit={onSubmit}
       >
         <p className="h4 mb-4">Reset Password</p>
+        <p>
+          Enter your email in the input below and we will help you recover your
+          password.
+        </p>
 
-        <label htmlFor="email" className="d-flex font-weight-bold">
-          Email
-        </label>
-        <input
-          ref={email}
+        <TextInput
+          title="Email"
+          name="email"
           type="email"
+          value={email}
+          onChange={onChange}
           id="email"
           className="form-control mb-4"
-          placeholder="E-mail"
           required
         />
 

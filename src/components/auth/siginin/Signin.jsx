@@ -102,7 +102,7 @@ function Signin({ client }) {
         </div>
 
         <p>
-          <Link to="/forgotpassword">Forgot Password?</Link>
+          <Link to="/resetPassword">Forgot Password?</Link>
         </p>
 
         <p>
