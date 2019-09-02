@@ -115,6 +115,7 @@ class CreateSurvey extends Component {
 
                   {questions.map((question, index) => (
                     <Question
+                      key={index.toString()}
                       question={question.question}
                       type={question.type}
                       index={index}

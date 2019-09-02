@@ -111,7 +111,9 @@ Navigation.propTypes = {
       verifyToken: PropTypes.string,
     }),
   }).isRequired,
-  client: PropTypes.objectOf(PropTypes.object).isRequired,
+  client: PropTypes.shape({
+    mutate: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default withApollo(Navigation);

@@ -11,7 +11,9 @@ const OptionSelect = ({
         Choose option
       </option>
       {options.map((option) => (
-        <option key={option.value} value={option.value}>{option.name}</option>
+        <option key={option.value} value={option.value}>
+          {option.name}
+        </option>
       ))}
     </select>
   </>
@@ -25,7 +27,7 @@ OptionSelect.propTypes = {
   value: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  options: PropTypes.instanceOf(PropTypes.object),
+  options: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default OptionSelect;
