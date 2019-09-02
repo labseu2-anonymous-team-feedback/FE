@@ -46,7 +46,7 @@ export const NavigationNav = styled.nav`
         #user-nav-div {
             display: flex;
             align-items: center;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: center;
             background-color: transparent;
             border: none;
@@ -55,7 +55,7 @@ export const NavigationNav = styled.nav`
             width: 150px;
 
             @media (max-width: 575px) {
-                width: 100px;
+                width: 130px;
             }
 
             &:focus {
@@ -67,13 +67,22 @@ export const NavigationNav = styled.nav`
             }
 
             .user-info {
-                width: 150px;
                 display: flex;
+                flex-direction: column;
+                align-items: center;
                 justify-content: center;
-                
-                #triangle-nav {
-                    margin: 10px 0px 0px 10px;
+                flex: 3;
+
+                img {
+                    width: 40%;
+                    @media (max-width: 575px) {
+                        width: 40%;
+                    }
                 }
+            }
+            .triangle-div {
+                flex: 1;
+                transform: translateX(-20px);
             }
     }
 }

@@ -73,12 +73,12 @@ class Navigation extends React.Component {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                <div id="user-nav-div-left">
+                <div className="user-info">
                   <img alt="avatar" src={avatar} />
-                  <div className="user-info">
-                    <span id="username-nav-span">{user.username}</span>
-                    <Triangle id="triangle-nav" />
-                  </div>
+                  <span id="username-nav-span">{user.username}</span>
+                </div>
+                <div className="triangle-div">
+                  <Triangle />
                 </div>
               </button>
               <div
