@@ -12,9 +12,8 @@ import TextInput from '../../common/TextInput';
 function Signin({ client }) {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
-
-  const email = React.createRef();
-  const password = React.createRef();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const { mutate } = client;
 
@@ -24,17 +23,14 @@ function Signin({ client }) {
       const res = await mutate({
         mutation: LOGIN_MUTATION,
         variables: {
-          email: email.current.value,
-          password: password.current.value,
+          email,
+          password,
         },
       });
 
-      if (!res.data.userLogin) setError(true);
-      else {
-        localStorage.setItem('token', res.data.userLogin.token);
-        localStorage.setItem('username', res.data.userLogin.username);
-        setSuccess(true);
-      }
+      localStorage.setItem('token', res.data.userLogin.token);
+      localStorage.setItem('username', res.data.userLogin.username);
+      setSuccess(true);
     } catch (err) {
       setError(true);
     }
@@ -58,12 +54,22 @@ function Signin({ client }) {
       >
         <p className="h4 mb-4">Sign In</p>
 
-        <TextInput title="Email" id="email" type="email" ref={email} required />
+        <TextInput
+          title="Email"
+          id="email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+          required
+        />
         <TextInput
           title="Password"
           id="password"
+          name="password"
           type="password"
-          ref={password}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
 
@@ -92,7 +98,7 @@ function Signin({ client }) {
         </div>
 
         <p>
-          <Link to="/forgotpassword">Forgot Password?</Link>
+          <Link to="/resetPassword">Forgot Password?</Link>
         </p>
 
         <p>

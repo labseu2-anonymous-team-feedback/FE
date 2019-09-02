@@ -1,57 +1,68 @@
 import React, { useState } from 'react';
+import { Mutation } from 'react-apollo';
 import { Redirect } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { toast } from 'react-toastify'; // eslint-disable-line
 import ResetPasswordDiv from './StyledResetPassword';
+import TextInput from '../../common/TextInput';
+import { SEND_RESET_PASSWORD_EMAIL } from '../../../graphql/mutations';
 
 function ResetPassword() {
-  // eslint-disable-next-line no-unused-vars
-  const [error, setError] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [email, setEmail] = useState('');
+  const [redirectReset, setRedirectReset] = useState(false);
 
-  const email = React.createRef();
+  const onChange = (e) => setEmail(e.target.value);
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    // if password will be reseted
-    setSuccess(true);
-    // else setError to true
-  };
-
-  if (success) {
+  if (redirectReset) {
     return <Redirect to="/resetPasswordConfirmation" />;
   }
 
-  if (error) {
-    toast.error('Wrong email address');
-    setError(false);
-  }
-
   return (
-    <ResetPasswordDiv>
-      <form
-        className="text-center border border-light p-5 z-depth-1"
-        action="#!"
-        onSubmit={onSubmit}
-      >
-        <p className="h4 mb-4">Reset Password</p>
+    <Mutation mutation={SEND_RESET_PASSWORD_EMAIL}>
+      {(sendResetPasswordEmail) => (
+        <ResetPasswordDiv>
+          <form
+            className="text-center border border-light p-5 z-depth-1"
+            action="#!"
+            onSubmit={(e) => {
+              e.preventDefault();
+              sendResetPasswordEmail({
+                variables: {
+                  email,
+                },
+              })
+                .then(() => {
+                  setRedirectReset(true);
+                })
+                .catch(() => {
+                  toast.error('Failed to send reset email password');
+                })
+                .finally(() => setEmail(''));
+            }}
+          >
+            <p className="h4 mb-4">Reset Password</p>
+            <p>
+              Enter your email in the input below and we will help you recover
+              your password.
+            </p>
 
-        <label htmlFor="email" className="d-flex font-weight-bold">
-          Email
-        </label>
-        <input
-          ref={email}
-          type="email"
-          id="email"
-          className="form-control mb-4"
-          placeholder="E-mail"
-          required
-        />
+            <TextInput
+              title="Email"
+              name="email"
+              type="email"
+              value={email}
+              onChange={onChange}
+              id="email"
+              className="form-control mb-4"
+              required
+            />
 
-        <button className="btn btn-info btn-block my-4" type="submit">
-          Reset Password
-        </button>
-      </form>
-    </ResetPasswordDiv>
+            <button className="btn btn-info btn-block my-4" type="submit">
+              Reset Password
+            </button>
+          </form>
+        </ResetPasswordDiv>
+      )}
+    </Mutation>
   );
 }
 

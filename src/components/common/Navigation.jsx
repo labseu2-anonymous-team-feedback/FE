@@ -33,10 +33,10 @@ class Navigation extends React.Component {
             token: params.verifyToken,
           },
         })
-        .then((results) => { // eslint-disable-line
+        .then(() => {
           toast.success('Account verified successfully');
         })
-        .catch((error) => { // eslint-disable-line
+        .catch(() => {
           toast.error('Failed to verify account');
         });
     }
@@ -108,7 +108,7 @@ class Navigation extends React.Component {
 Navigation.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      verifyToken: PropTypes.string.isRequired,
+      verifyToken: PropTypes.string,
     }),
   }).isRequired,
   client: PropTypes.objectOf(PropTypes.object).isRequired,
