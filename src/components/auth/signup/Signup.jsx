@@ -12,6 +12,7 @@ import {
 import StyledSignup from './StyledSignup';
 import GoogleButton from '../../../assets/images/google-button.png';
 import TextInput from '../../common/TextInput';
+import { trimError } from '../../../utils';
 
 class Signup extends Component {
   constructor(props) {
@@ -82,11 +83,12 @@ class Signup extends Component {
       error,
       data,
     } = this.state;
+
     const { location } = this.props;
     const { search } = location;
     const parsed = queryString.parse(search);
     if (error) {
-      toast.error('Unable to Register, Try Again');
+      toast.error(trimError(error.message) || 'Unable to Register, Try Again');
     }
 
     if (parsed.google && data) {
@@ -163,9 +165,7 @@ class Signup extends Component {
             </div>
           </div>
           <div className="d-flex optionalLoginContainer">
-            <a
-              href="https://anonymous-feedback-app.herokuapp.com/google"
-            >
+            <a href="https://anonymous-feedback-app.herokuapp.com/google">
               <img src={GoogleButton} alt="Sign up with google" />
             </a>
           </div>

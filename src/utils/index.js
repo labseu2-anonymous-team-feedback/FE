@@ -17,4 +17,6 @@ const isLoggedIn = () => {
   return false;
 };
 
-export { isLoggedIn };
+const trimError = (error) => error.replace('GraphQL error:', '');
+
+export { isLoggedIn, trimError };
