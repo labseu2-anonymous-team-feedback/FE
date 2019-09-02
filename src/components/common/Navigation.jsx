@@ -75,7 +75,11 @@ class Navigation extends React.Component {
               >
                 <div className="user-info">
                   <img alt="avatar" src={avatar} />
-                  <span id="username-nav-span">{user.username}</span>
+                  <span id="username-nav-span">
+                    {user.username.length > 12
+                      ? `${user.username.substring(0, 12)}...`
+                      : user.username}
+                  </span>
                 </div>
                 <div className="triangle-div">
                   <Triangle />

@@ -26,12 +26,14 @@ export const Container = styled.div`
   .survey-row {
     @media (max-width: 700px) {
       width: 100%;
-      margin: 8rem auto;
+      margin: 6.5rem auto;
     }
   }
 
   @media (max-width: 575px) {
     width: 100%;
+    margin: 0rem auto;
+    border: 1px solid transparent;
   }
 
   .create-survey-title {
