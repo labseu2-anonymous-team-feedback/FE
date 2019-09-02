@@ -25,16 +25,63 @@ const CREATE_ACCOUNT = gql`
   }
 `;
 
+const VERIFY_ACCOUNT = gql`
+  mutation verifyAccount($token: String! ) {
+    verifyAccount(token: $token) {
+      id
+      username
+      email
+      token
+    }
+  }
+`;
+
 const CREATE_NEW_SURVEY = gql`
-  mutation createNewSurvey($title: String!) {
-    createNewSurvey(title: $title) {
+  mutation createNewSurvey($input: SurveyInput!) {
+    createNewSurvey(input: $input) {
       id
       title
-      owner {
-        username
+      questions {
+        question
+        type
       }
     }
   }
 `;
 
-export { CREATE_ACCOUNT, LOGIN_MUTATION, CREATE_NEW_SURVEY };
+const SEND_RESET_PASSWORD_EMAIL = gql`
+  mutation sendResetPasswordEmail($email: String!) {
+    sendResetPasswordEmail(email: $email) {
+      message
+    }
+  }
+`;
+
+const SET_NEW_PASSWORD = gql`
+  mutation resetPassword($newPassword: String!, $token: String!) {
+    resetPassword(newPassword: $newPassword, token: $token) {
+      message
+    }
+  }
+`;
+
+const GOOGLE_AUTH_MUTATION = gql`
+  mutation google{
+  authGoogle{
+    id
+    username
+    email
+    token
+  }
+}
+`;
+
+export {
+  CREATE_ACCOUNT,
+  VERIFY_ACCOUNT,
+  LOGIN_MUTATION,
+  CREATE_NEW_SURVEY,
+  GOOGLE_AUTH_MUTATION,
+  SEND_RESET_PASSWORD_EMAIL,
+  SET_NEW_PASSWORD,
+};

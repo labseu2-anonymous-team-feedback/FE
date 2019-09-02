@@ -9,21 +9,24 @@ const Signup = styled.div`
   height: 100vh;
 
   form {
-    width: 50%;
-    @media (max-width: 1400px) {
-      width: 60%;
-    }
-
-    @media (max-width: 1200px) {
-      width: 70%;
-    }
-
-    @media (max-width: 1050px) {
-      width: 85%;
-    }
-
+    width: 35%;
+    background: white;
+    padding-bottom: 1rem !important;
+   
     @media (max-width: 870px) {
       width: 95%;
+      border: 1px dashed red;
+    }
+   
+    @media (max-width: 700px) {
+      border: 1px dashed red;
+      width: 95%;
+    }
+
+    @media (max-width: 500px) {
+      width: 100%;
+      padding: 2rem !important;
+      border: 1px dashed red;
     }
   }
 
@@ -50,19 +53,22 @@ const Signup = styled.div`
   }
 
   .optionalLoginContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
     @media (max-width: 780px) {
       flex-direction: column;
       align-items: center;
     }
-    .optional-login {
-      width: 50%;
+
+    img {
+      width: 300px;
       margin-bottom: 1rem;
-      img {
-        width: 300px;
-        @media (max-width: 780px) {
-          justify-content: center;
-          width: 100%;
-        }
+      
+      @media (max-width: 780px) {
+        justify-content: center;
+        width: 100%;
       }
     }
   }

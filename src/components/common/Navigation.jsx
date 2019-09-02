@@ -1,9 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { withApollo } from 'react-apollo';
 import jwtDecode from 'jwt-decode';
+import { toast } from 'react-toastify';
 import logo from '../../assets/images/logo.png';
 import avatar from '../../assets/images/avatar-default.png';
 import { NavigationNav, Triangle, NavItems } from './NavBarStyles';
+import { VERIFY_ACCOUNT } from '../../graphql/mutations';
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -16,6 +20,27 @@ class Navigation extends React.Component {
 
   componentDidMount() {
     const token = localStorage.getItem('token');
+    const {
+      match: { params },
+    } = this.props;
+    const { client } = this.props;
+
+    if (params && params.verifyToken) {
+      client
+        .mutate({
+          mutation: VERIFY_ACCOUNT,
+          variables: {
+            token: params.verifyToken,
+          },
+        })
+        .then(() => {
+          toast.success('Account verified successfully');
+        })
+        .catch(() => {
+          toast.error('Failed to verify account');
+        });
+    }
+
     if (token) {
       const user = jwtDecode(token);
       this.setState({ user });
@@ -41,21 +66,22 @@ class Navigation extends React.Component {
         <div className="auth-links">
           {user ? (
             <div className="dropdown">
-              <button
-                type="button"
+              <div
                 id="user-nav-div"
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                <div id="user-nav-div-left">
+                <div className="user-info">
                   <img alt="avatar" src={avatar} />
-                  <div className="user-info">
-                    <span id="username-nav-span">{user.username}</span>
-                    <Triangle id="triangle-nav" />
-                  </div>
+                  <span id="username-nav-span">
+                    {user.username.length > 12
+                      ? `${user.username.substring(0, 12)}...`
+                      : user.username}
+                  </span>
                 </div>
-              </button>
+                <Triangle id="dropdown-triangle" />
+              </div>
               <div
                 className="dropdown-menu dropdown-menu-right border-0 z-depth-1"
                 aria-labelledby="user-nav-div"
@@ -80,4 +106,15 @@ class Navigation extends React.Component {
   }
 }
 
-export default Navigation;
+Navigation.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      verifyToken: PropTypes.string,
+    }),
+  }).isRequired,
+  client: PropTypes.shape({
+    mutate: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
+export default withApollo(Navigation);

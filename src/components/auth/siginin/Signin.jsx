@@ -6,15 +6,15 @@ import { toast } from 'react-toastify';
 
 import { LOGIN_MUTATION } from '../../../graphql/mutations';
 import GoogleButton from '../../../assets/images/google-button.png';
-import SlackButton from '../../../assets/images/slack-button.png';
 import StyledSignin from './StyledSignin';
+import TextInput from '../../common/TextInput';
+import { trimError } from '../../../utils';
 
 function Signin({ client }) {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
-
-  const email = React.createRef();
-  const password = React.createRef();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const { mutate } = client;
 
@@ -24,24 +24,22 @@ function Signin({ client }) {
       const res = await mutate({
         mutation: LOGIN_MUTATION,
         variables: {
-          email: email.current.value,
-          password: password.current.value,
+          email,
+          password,
         },
       });
 
-      if (!res.data.userLogin) setError(true);
-      else {
-        localStorage.setItem('token', res.data.userLogin.token);
-        localStorage.setItem('username', res.data.userLogin.username);
-        setSuccess(true);
-      }
+      localStorage.setItem('token', res.data.userLogin.token);
+      localStorage.setItem('username', res.data.userLogin.username);
+      setSuccess(true);
     } catch (err) {
-      setError(true);
+      setError(err);
     }
   };
 
   if (error) {
-    toast.error('Unable to Login, Try Again');
+    toast.error(trimError(error.message) || 'Unable to Login, Try Again');
+    setError(false);
   }
 
   if (success) {
@@ -51,41 +49,36 @@ function Signin({ client }) {
   return (
     <StyledSignin>
       <form
-        className="text-center border border-light p-5 z-depth-1"
+        className="text-center border border-light p-4 z-depth-1"
         action="#!"
         onSubmit={onSubmit}
       >
         <p className="h4 mb-4">Sign In</p>
 
-        <label htmlFor="email" className="d-flex font-weight-bold">
-          Email
-        </label>
-        <input
-          ref={email}
-          type="email"
+        <TextInput
+          title="Email"
           id="email"
-          className="form-control mb-4"
-          placeholder="E-mail"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
           required
         />
-
-        <label htmlFor="password" className="d-flex font-weight-bold">
-          Password
-        </label>
-        <input
-          ref={password}
-          type="password"
+        <TextInput
+          title="Password"
           id="password"
-          className="form-control mb-4"
-          placeholder="Password"
+          name="password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
 
-        <div className="d-flex justify-content-around" />
-
-        <button className="btn btn-info btn-block my-4" type="submit">
-          Sign In
-        </button>
+        <div className="form-group my-4">
+          <button className="btn btn-info btn-block" type="submit">
+            Sign In
+          </button>
+        </div>
 
         <div className="dividerContainer">
           <div className="divider">
@@ -99,21 +92,20 @@ function Signin({ client }) {
 
         <div className="d-flex optionalLoginContainer">
           <div className="optional-login">
-            <a href="##">
+            <a href="https://anonymous-feedback-app.herokuapp.com/google">
               <img src={GoogleButton} alt="Sign up with google" />
-            </a>
-          </div>
-
-          <div className="optional-login">
-            <a href="##">
-              <img src={SlackButton} alt="Sign up with slack" />
             </a>
           </div>
         </div>
 
         <p>
-          <Link to="/forgotpassword">
-            <u>Forgot Password?</u>
+          <Link to="/resetPassword">Forgot Password?</Link>
+        </p>
+
+        <p>
+          Don&apos;t have an account? &nbsp;
+          <Link to="/register">
+            <u>Sign Up</u>
           </Link>
         </p>
       </form>

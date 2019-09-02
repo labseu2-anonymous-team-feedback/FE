@@ -3,11 +3,16 @@ import { Link, Redirect } from 'react-router-dom';
 import { withApollo } from 'react-apollo';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
+import queryString from 'query-string';
 
-import { CREATE_ACCOUNT } from '../../../graphql/mutations';
+import {
+  CREATE_ACCOUNT,
+  GOOGLE_AUTH_MUTATION,
+} from '../../../graphql/mutations';
 import StyledSignup from './StyledSignup';
 import GoogleButton from '../../../assets/images/google-button.png';
-import SlackButton from '../../../assets/images/slack-button.png';
+import TextInput from '../../common/TextInput';
+import { trimError } from '../../../utils';
 
 class Signup extends Component {
   constructor(props) {
@@ -16,11 +21,30 @@ class Signup extends Component {
       username: '',
       email: '',
       password: '',
+      confirmPassword: '',
       error: '',
       data: '',
     };
 
     this.mutate = props.client.mutate;
+  }
+
+  componentDidMount() {
+    const { location } = this.props;
+    const { search } = location;
+    const parsed = queryString.parse(search);
+    if (parsed.google) {
+      this.mutate({
+        mutation: GOOGLE_AUTH_MUTATION,
+      })
+        .then((res) => {
+          const { token } = res.data.authGoogle;
+
+          localStorage.setItem('token', token);
+          this.setState({ data: res });
+        })
+        .catch((err) => this.setState({ error: err }));
+    }
   }
 
   onChange = (e) => {
@@ -29,28 +53,58 @@ class Signup extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    const { username, email, password } = this.state;
-    this.mutate({
-      mutation: CREATE_ACCOUNT,
-      variables: {
-        username,
-        email,
-        password,
-      },
-    })
-      .then((res) => this.setState({ data: res }))
-      .catch((err) => this.setState({ error: err }));
+
+    const {
+      username, email, password, confirmPassword,
+    } = this.state;
+
+    if (password !== confirmPassword) {
+      toast.error('Passwords do not match');
+    } else if (username.length < 3) {
+      toast.error('Username must be at least 3 characters long');
+    } else if (password.length < 6) {
+      toast.error('Password must be at least 6 characters long');
+    } else if (username.length > 30) {
+      toast.error('Username should not be longer than 30 characters');
+    } else {
+      this.mutate({
+        mutation: CREATE_ACCOUNT,
+        variables: {
+          username,
+          email,
+          password,
+        },
+      })
+        .then((res) => this.setState({ data: res }))
+        .catch((err) => this.setState({ error: err }));
+    }
   };
 
   render() {
-    const { error, data } = this.state;
+    const {
+      username,
+      email,
+      password,
+      confirmPassword,
+      error,
+      data,
+    } = this.state;
+
+    const { location } = this.props;
+    const { search } = location;
+    const parsed = queryString.parse(search);
     if (error) {
-      toast.error('Unable to Register, Try Again');
+      toast.error(trimError(error.message) || 'Unable to Register, Try Again');
+    }
+
+    if (parsed.google && data) {
+      // Don't show toast error if user is signing in with google
+      return <Redirect to="/" />;
     }
 
     if (data) {
       toast.success('Registration successful');
-      return <Redirect to="/login" />;
+      return <Redirect to="/" />;
     }
 
     return (
@@ -61,58 +115,43 @@ class Signup extends Component {
           action="#!"
         >
           <p className="h4 mb-4">Sign Up</p>
-          <label htmlFor="username" className="d-flex font-weight-bold">
-            Username
-          </label>
-          <input
+          <TextInput
             type="text"
+            title="Username"
             id="username"
-            className="form-control mb-4"
-            placeholder="Enter Username"
             name="username"
+            value={username}
             onChange={this.onChange}
             required
           />
-          <label htmlFor="email" className="d-flex font-weight-bold">
-            Email
-          </label>
-          <input
-            type="email"
+          <TextInput
+            title="Email"
             id="email"
-            className="form-control mb-4"
-            placeholder="E-mail"
             name="email"
+            type="email"
+            value={email}
             onChange={this.onChange}
             required
           />
           <div className="d-flex justify-content-between passwordContainerDiv">
             <div className="passwordContainer">
-              <label htmlFor="password" className="d-flex font-weight-bold">
-                Password
-              </label>
-              <input
-                type="password"
+              <TextInput
+                title="Password"
                 id="password"
-                className="form-control mb-4"
-                placeholder="Password"
                 name="password"
+                type="password"
+                value={password}
                 onChange={this.onChange}
                 required
               />
             </div>
             <div className="passwordContainer">
-              <label
-                htmlFor="confirmPassword"
-                className="d-flex font-weight-bold"
-              >
-                Confirm Password
-              </label>
-              <input
-                type="password"
+              <TextInput
+                title="Confirm Password"
                 id="confirmPassword"
-                className="form-control mb-4"
-                placeholder="Confirm Password"
                 name="confirmPassword"
+                type="password"
+                value={confirmPassword}
                 onChange={this.onChange}
                 required
               />
@@ -132,16 +171,9 @@ class Signup extends Component {
             </div>
           </div>
           <div className="d-flex optionalLoginContainer">
-            <div className="optional-login">
-              <a href="##">
-                <img src={GoogleButton} alt="Sign up with google" />
-              </a>
-            </div>
-            <div className="optional-login">
-              <a href="##">
-                <img src={SlackButton} alt="Sign up with slack" />
-              </a>
-            </div>
+            <a href="https://anonymous-feedback-app.herokuapp.com/google">
+              <img src={GoogleButton} alt="Sign up with google" />
+            </a>
           </div>
           <p>
             Already have an account? &nbsp;
@@ -158,6 +190,9 @@ class Signup extends Component {
 Signup.propTypes = {
   client: PropTypes.shape({
     mutate: PropTypes.func.isRequired,
+  }).isRequired,
+  location: PropTypes.shape({
+    search: PropTypes.string.isRequired,
   }).isRequired,
 };
 export default withApollo(Signup);

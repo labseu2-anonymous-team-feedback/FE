@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
+import { toast } from 'react-toastify';
 import Divider from '../../styles/Divider';
 import Question from './Question';
 import { AddButton, Container } from './SurveyStyles';
 
 import { CREATE_NEW_SURVEY } from '../../graphql/mutations';
+import TextInput from '../common/TextInput';
 
 class CreateSurvey extends Component {
   constructor(props) {
@@ -14,7 +16,7 @@ class CreateSurvey extends Component {
       title: '',
       questions: [
         {
-          text: '',
+          question: '',
           type: '',
         },
       ],
@@ -51,45 +53,70 @@ class CreateSurvey extends Component {
     const { title, questions } = this.state;
     return (
       <Container className="container">
-        <div className="col-md">
+        <div className="col-md survey-row">
           <Mutation mutation={CREATE_NEW_SURVEY}>
             {(createNewSurvey) => (
               <form
-                className="border border-light p-5"
+                className="p-5"
                 action="#!"
                 onSubmit={(e) => {
                   e.preventDefault();
+                  let questionsAreValid = true;
+
+                  questions.forEach((q) => {
+                    if (!q.question) {
+                      toast.error('Please provide all questions');
+                      questionsAreValid = false;
+                    }
+                    if (!q.type) {
+                      toast.error('Please specify a type for all questions');
+                      questionsAreValid = false;
+                    }
+                    if (q.question && q.question.length < 5) {
+                      toast.error('Each question must be at least 5 characters long');
+                      questionsAreValid = false;
+                    }
+                  });
+
                   if (!title) {
-                    // TO DO: Validate survey title
-                  } else {
+                    toast.error('Survey title required');
+                  } else if (questionsAreValid) {
                     createNewSurvey({
-                      variables: { title },
+                      variables: { input: { title, questions } },
+                    });
+                    toast.success('Survey created successfully');
+                    this.setState({
+                      title: '',
+                      questions: [
+                        {
+                          question: '',
+                          type: '',
+                        },
+                      ],
                     });
                   }
                 }}
               >
-                <h1 className="text-center">Create a Survey</h1>
+                <h1 className="text-center create-survey-title">
+                  Create a Survey
+                </h1>
                 <Divider size={30} />
-                <div className="form-group">
-                  <label htmlFor="title">Survey Title</label>
-                  <input
-                    type="text"
-                    id="title"
-                    className="form-control mb-4"
-                    name="title"
-                    value={title}
-                    onChange={this.handleChangeSurvey}
-                  />
-                </div>
+                <TextInput
+                  title="Survey Title"
+                  id="title"
+                  value={title}
+                  name={title}
+                  onChange={this.handleChangeSurvey}
+                />
 
                 <div>
-                  <h2>Survey Questions</h2>
+                  <h2 className="questions-title">Survey Questions</h2>
                   <Divider size={30} />
 
                   {questions.map((question, index) => (
                     <Question
                       key={index.toString()}
-                      text={question.text}
+                      question={question.question}
                       type={question.type}
                       index={index}
                       handleChangeQuestion={this.handleChangeQuestion}
@@ -105,7 +132,7 @@ class CreateSurvey extends Component {
                         this.setState((prev) => ({
                           ...prev,
                           questions: prev.questions.concat({
-                            text: '',
+                            question: '',
                             type: '',
                           }),
                         }));
