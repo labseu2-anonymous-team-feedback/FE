@@ -55,8 +55,8 @@ class Signup extends Component {
     e.preventDefault();
 
     const {
- username, email, password, confirmPassword 
-} = this.state;
+      username, email, password, confirmPassword,
+    } = this.state;
 
     if (password !== confirmPassword) {
       toast.error('Passwords do not match');
