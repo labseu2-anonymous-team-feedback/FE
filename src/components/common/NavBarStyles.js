@@ -6,6 +6,10 @@ export const NavigationNav = styled.nav`
     display: flex;
     padding: 0px !important;
 
+    @media (max-width: 575px) {
+        height: 70px;
+    }
+
     .logo-div {
         height: 100%;
         flex: 1;
@@ -15,6 +19,12 @@ export const NavigationNav = styled.nav`
 
         img {
             height: 70%;
+            @media (max-width: 575px) {
+                height: 50%;
+            }
+            @media (max-width: 375px) {
+                height: 40%;
+            }
         }
     }
 
@@ -26,6 +36,10 @@ export const NavigationNav = styled.nav`
 
         img {
             height: 40px;
+
+            @media (max-width: 575px) {
+                height: 35px;
+            }
         }
 
         #user-nav-div {
@@ -38,6 +52,10 @@ export const NavigationNav = styled.nav`
             cursor: pointer;
             height: 100%;
             width: 150px;
+
+            @media (max-width: 575px) {
+                width: 100px;
+            }
 
             &:focus {
                 outline: none;
