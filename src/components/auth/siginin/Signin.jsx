@@ -8,6 +8,7 @@ import { LOGIN_MUTATION } from '../../../graphql/mutations';
 import GoogleButton from '../../../assets/images/google-button.png';
 import StyledSignin from './StyledSignin';
 import TextInput from '../../common/TextInput';
+import { trimError } from '../../../utils';
 
 function Signin({ client }) {
   const [error, setError] = useState(false);
@@ -32,12 +33,12 @@ function Signin({ client }) {
       localStorage.setItem('username', res.data.userLogin.username);
       setSuccess(true);
     } catch (err) {
-      setError(true);
+      setError(err);
     }
   };
 
   if (error) {
-    toast.error('Unable to Login, Try Again');
+    toast.error(trimError(error.message) || 'Unable to Login, Try Again');
     setError(false);
   }
 

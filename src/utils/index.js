@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import jwtDecode from 'jwt-decode';
 
 const isLoggedIn = () => {
@@ -17,6 +18,12 @@ const isLoggedIn = () => {
   return false;
 };
 
-const trimError = (error) => error.replace('GraphQL error:', '');
+const trimError = (error) => {
+  if (!error) {
+    return;
+  }
+  const response = error.replace('GraphQL error:', '');
+  return response;
+};
 
 export { isLoggedIn, trimError };
