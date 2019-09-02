@@ -22,6 +22,18 @@ export const Container = styled.div`
     margin: 4.5rem auto;
   }
 
+  .create-survey-title {
+    @media (max-width: 575px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  .questions-title {
+    @media (max-width: 575px) {
+      font-size: 1.5rem;
+    }
+  }
+
   form {
     @media (max-width: 575px) {
       padding-left: 1rem !important;
