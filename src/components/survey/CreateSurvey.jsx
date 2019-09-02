@@ -53,7 +53,7 @@ class CreateSurvey extends Component {
     const { title, questions } = this.state;
     return (
       <Container className="container">
-        <div className="col-md">
+        <div className="col-md survey-row">
           <Mutation mutation={CREATE_NEW_SURVEY}>
             {(createNewSurvey) => (
               <form
