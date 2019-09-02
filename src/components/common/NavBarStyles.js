@@ -5,6 +5,7 @@ export const NavigationNav = styled.nav`
     height: 100px;
     display: flex;
     padding: 0px !important;
+    box-shadow: 0 5px 50px -20px rgba(0,0,0,0.1);
 
     @media (max-width: 575px) {
         height: 70px;
