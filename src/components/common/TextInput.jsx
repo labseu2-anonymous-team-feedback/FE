@@ -22,14 +22,19 @@ function TextInput({
   );
 }
 
+TextInput.defaultProps = {
+  required: true,
+  type: 'text',
+};
+
 TextInput.propTypes = {
   id: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  required: PropTypes.bool.isRequired,
+  required: PropTypes.bool,
   title: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
 };
 
 export default TextInput;

@@ -24,11 +24,7 @@ function App() {
         path="/resetPasswordConfirmation"
         component={ResetPasswordConfirmation}
       />
-      <Route
-        exact
-        path="/verify_account/password_reset/:resetToken"
-        component={NewPassword}
-      />
+      <Route exact path="/password_reset/:resetToken" component={NewPassword} />
       <Switch>
         <PrivateRoute exact path="/" component={CreateSurvey} />
       </Switch>
