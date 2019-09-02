@@ -59,7 +59,13 @@ function Signin({ client }) {
         <p className="h4 mb-4">Sign In</p>
 
         <TextInput title="Email" id="email" type="email" ref={email} required />
-        <TextInput title="Password" id="password" type="password" ref={password} required />
+        <TextInput
+          title="Password"
+          id="password"
+          type="password"
+          ref={password}
+          required
+        />
 
         <div className="form-group my-4">
           <button className="btn btn-info btn-block" type="submit">
@@ -79,11 +85,7 @@ function Signin({ client }) {
 
         <div className="d-flex optionalLoginContainer">
           <div className="optional-login">
-            <a
-              href="https://anonymous-feedback-app.herokuapp.com/google"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://anonymous-feedback-app.herokuapp.com/google">
               <img src={GoogleButton} alt="Sign up with google" />
             </a>
           </div>

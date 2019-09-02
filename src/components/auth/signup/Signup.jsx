@@ -145,8 +145,6 @@ class Signup extends Component {
           <div className="d-flex optionalLoginContainer">
             <a
               href="https://anonymous-feedback-app.herokuapp.com/google"
-              target="_blank"
-              rel="noopener noreferrer"
             >
               <img src={GoogleButton} alt="Sign up with google" />
             </a>
