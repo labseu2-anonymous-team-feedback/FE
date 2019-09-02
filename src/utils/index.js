@@ -22,7 +22,7 @@ const trimError = (error) => {
   if (!error) {
     return;
   }
-  const response = error.replace('GraphQL error:', '');
+  const response = error.replace('GraphQL error:', '').trim();
   return response;
 };
 
