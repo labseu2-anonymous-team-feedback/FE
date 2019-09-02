@@ -17,6 +17,35 @@ export const Container = styled.div`
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12)!important;
   width: 60%;
 
+  @media (max-width: 700px) {
+    width: 100% !important;
+    padding: 0rem;
+    margin: 4.5rem auto;
+  }
+
+  .survey-row {
+    @media (max-width: 700px) {
+      width: 100%;
+      margin: 8rem auto;
+    }
+  }
+
+  @media (max-width: 575px) {
+    width: 100%;
+  }
+
+  .create-survey-title {
+    @media (max-width: 575px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  .questions-title {
+    @media (max-width: 575px) {
+      font-size: 1.5rem;
+    }
+  }
+
   form {
     @media (max-width: 575px) {
       padding-left: 1rem !important;

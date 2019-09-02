@@ -5,6 +5,11 @@ export const NavigationNav = styled.nav`
     height: 100px;
     display: flex;
     padding: 0px !important;
+    box-shadow: 0 5px 50px -20px rgba(0,0,0,0.1);
+
+    @media (max-width: 575px) {
+        height: 70px;
+    }
 
     .logo-div {
         height: 100%;
@@ -15,6 +20,12 @@ export const NavigationNav = styled.nav`
 
         img {
             height: 70%;
+            @media (max-width: 575px) {
+                height: 50%;
+            }
+            @media (max-width: 375px) {
+                height: 40%;
+            }
         }
     }
 
@@ -26,18 +37,26 @@ export const NavigationNav = styled.nav`
 
         img {
             height: 40px;
+
+            @media (max-width: 575px) {
+                height: 35px;
+            }
         }
 
         #user-nav-div {
             display: flex;
             align-items: center;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: center;
             background-color: transparent;
             border: none;
             cursor: pointer;
             height: 100%;
             width: 150px;
+
+            @media (max-width: 575px) {
+                width: 130px;
+            }
 
             &:focus {
                 outline: none;
@@ -48,13 +67,22 @@ export const NavigationNav = styled.nav`
             }
 
             .user-info {
-                width: 150px;
                 display: flex;
+                flex-direction: column;
+                align-items: center;
                 justify-content: center;
-                
-                #triangle-nav {
-                    margin: 10px 0px 0px 10px;
+                flex: 3;
+
+                img {
+                    width: 40%;
+                    @media (max-width: 575px) {
+                        width: 40%;
+                    }
                 }
+            }
+            .triangle-div {
+                flex: 1;
+                transform: translateX(-20px);
             }
     }
 }
