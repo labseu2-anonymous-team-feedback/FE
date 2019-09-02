@@ -102,10 +102,6 @@ function Signin({ client }) {
         </p>
 
         <p>
-          No Account yet? &nbsp;
-          <Link to="/register">Create Account</Link>
-        </p>
-        <p>
           Don&apos;t have an account? &nbsp;
           <Link to="/register">
             <u>Sign Up</u>
