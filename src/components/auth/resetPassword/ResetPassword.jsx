@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
-import { Redirect } from 'react-router-dom';
-import { toast } from 'react-toastify'; // eslint-disable-line
+import { Redirect, Link } from 'react-router-dom';
+import { toast } from "react-toastify"; // eslint-disable-line
 import ResetPasswordDiv from './StyledResetPassword';
 import TextInput from '../../common/TextInput';
 import { SEND_RESET_PASSWORD_EMAIL } from '../../../graphql/mutations';
@@ -59,6 +59,13 @@ function ResetPassword() {
             <button className="btn btn-info btn-block my-4" type="submit">
               Reset Password
             </button>
+
+            <p>
+              Back to &nbsp;
+              <Link to="/login">
+                <u>Sign In</u>
+              </Link>
+            </p>
           </form>
         </ResetPasswordDiv>
       )}

@@ -17,13 +17,15 @@ const OptionSelect = ({
   </>
 );
 
+OptionSelect.defaultProps = { options: [] };
+
 OptionSelect.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  options: PropTypes.instanceOf(PropTypes.object).isRequired,
+  options: PropTypes.instanceOf(PropTypes.object),
 };
 
 export default OptionSelect;

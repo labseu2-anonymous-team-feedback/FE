@@ -8,6 +8,7 @@ import { LOGIN_MUTATION } from '../../../graphql/mutations';
 import GoogleButton from '../../../assets/images/google-button.png';
 import StyledSignin from './StyledSignin';
 import TextInput from '../../common/TextInput';
+import { trimError } from '../../../utils';
 
 function Signin({ client }) {
   const [error, setError] = useState(false);
@@ -32,12 +33,12 @@ function Signin({ client }) {
       localStorage.setItem('username', res.data.userLogin.username);
       setSuccess(true);
     } catch (err) {
-      setError(true);
+      setError(err);
     }
   };
 
   if (error) {
-    toast.error('Unable to Login, Try Again');
+    toast.error(trimError(error.message) || 'Unable to Login, Try Again');
     setError(false);
   }
 
@@ -91,11 +92,7 @@ function Signin({ client }) {
 
         <div className="d-flex optionalLoginContainer">
           <div className="optional-login">
-            <a
-              href="https://anonymous-feedback-app.herokuapp.com/google"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://anonymous-feedback-app.herokuapp.com/google">
               <img src={GoogleButton} alt="Sign up with google" />
             </a>
           </div>
@@ -105,10 +102,6 @@ function Signin({ client }) {
           <Link to="/resetPassword">Forgot Password?</Link>
         </p>
 
-        <p>
-          No Account yet? &nbsp;
-          <Link to="/register">Create Account</Link>
-        </p>
         <p>
           Don&apos;t have an account? &nbsp;
           <Link to="/register">
