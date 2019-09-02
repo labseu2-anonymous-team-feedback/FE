@@ -24,8 +24,17 @@ Link to production environment: https://anonymous-team-feeedback.herokuapp.com/
 - [Tech-Stack](#tech-stack)
   - [Back-End Dependencies `(Production)`](#front-end-dependencies-production)
     - [React](#react)
+    - [GraphQL](#graphql)
+    - [React Apollo](#react-apollo)
     - [Dotenv](#dotenv)
     - [Styled-Components](#styled-components)
+    - [React Router](#react-router)
+    - [JWT-Decode](#jwt-decode)
+    - [Query-String](#query-string)
+    - [Coveralls](#coveralls)
+    - [Enzyme](#enzyme)
+    - [Prop-Types](#prop-types)
+    - [React-Toastify](#react-toastify)
   - [Front-End Dependencies `(Development)`](#front-end-dependencies-development)
     - [Eslint](#eslint-1)
     - [Eslint-Config-Prettier](#eslint-config-prettier)
@@ -77,6 +86,22 @@ Jwt-decode is a small browser library that helps decoding JWTs token which are B
 ### Query-String
 
 The query-string package helps in objectifying the query parameters in our react application. | [View Dependency](https://www.npmjs.com/package/query-string)
+
+### Coveralls
+
+Shows which parts of code aren't covered by the test suite | [View Dependency](https://docs.coveralls.io/)
+
+### Enzyme
+
+The query-string package helps in objectifying the query parameters in our react application. | [View Dependency](https://airbnb.io/enzyme/docs/api/)
+
+### Prop-Types
+
+Allows declaration of types for React Props. | [View Dependency](https://reactjs.org/docs/typechecking-with-proptypes.html)
+
+### React-Toastify
+
+ React-Toastify allow you to add notification to your app with ease. | [View Dependency](https://github.com/fkhadra/react-toastify)
  
 
 ## Front-End Dependencies `(Development)`
