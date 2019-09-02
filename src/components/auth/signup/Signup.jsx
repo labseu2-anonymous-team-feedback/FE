@@ -55,8 +55,8 @@ class Signup extends Component {
     e.preventDefault();
 
     const {
-      username, email, password, confirmPassword,
-    } = this.state;
+ username, email, password, confirmPassword 
+} = this.state;
 
     if (password !== confirmPassword) {
       toast.error('Passwords do not match');
@@ -88,7 +88,15 @@ class Signup extends Component {
     const { search } = location;
     const parsed = queryString.parse(search);
     if (error) {
-      toast.error(trimError(error.message) || 'Unable to Register, Try Again');
+      if (trimError(error.message) === 'Validation error') {
+        toast.error(
+          error.graphQLErrors[0].extensions.exception.errors[0].message,
+        );
+      } else {
+        toast.error(
+          trimError(error.message) || 'Unable to Register, Try Again',
+        );
+      }
     }
 
     if (parsed.google && data) {

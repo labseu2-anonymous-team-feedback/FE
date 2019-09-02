@@ -38,7 +38,13 @@ function Signin({ client }) {
   };
 
   if (error) {
-    toast.error(trimError(error.message) || 'Unable to Login, Try Again');
+    if (trimError(error.message) === 'Validation error') {
+      toast.error(
+        error.graphQLErrors[0].extensions.exception.errors[0].message,
+      );
+    } else {
+      toast.error(trimError(error.message) || 'Unable to Login, Try Again');
+    }
     setError(false);
   }
 
