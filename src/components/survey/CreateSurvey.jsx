@@ -99,7 +99,13 @@ class CreateSurvey extends Component {
               >
                 <h1 className="text-center">Create a Survey</h1>
                 <Divider size={30} />
-                <TextInput title="Survey Title" id="title" name={title} onChange={this.handleChangeSurvey} />
+                <TextInput
+                  title="Survey Title"
+                  id="title"
+                  value={title}
+                  name={title}
+                  onChange={this.handleChangeSurvey}
+                />
 
                 <div>
                   <h2>Survey Questions</h2>
@@ -107,7 +113,6 @@ class CreateSurvey extends Component {
 
                   {questions.map((question, index) => (
                     <Question
-                      key={index.toString()}
                       question={question.question}
                       type={question.type}
                       index={index}
