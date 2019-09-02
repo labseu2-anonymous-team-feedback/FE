@@ -55,7 +55,7 @@ export const NavigationNav = styled.nav`
             width: 150px;
 
             @media (max-width: 575px) {
-                width: 130px;
+                width: 100%;
             }
 
             &:focus {
@@ -72,17 +72,21 @@ export const NavigationNav = styled.nav`
                 align-items: center;
                 justify-content: center;
                 flex: 3;
+                @media (max-width: 575px) {
+                    height: 100%;
+                    width: 100%;
+
+                }
 
                 img {
                     width: 40%;
                     @media (max-width: 575px) {
-                        width: 40%;
+                        width: 30%;
                     }
                 }
             }
-            .triangle-div {
-                flex: 1;
-                transform: translateX(-20px);
+            #dropdown-triangle {
+                transform: translateX(-30px);
             }
     }
 }
