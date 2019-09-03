@@ -18,13 +18,17 @@ export const NavigationNav = styled.nav`
         align-items: center;
         padding-left: 1rem;
 
-        img {
-            height: 70%;
-            @media (max-width: 575px) {
-                height: 50%;
-            }
-            @media (max-width: 375px) {
-                height: 40%;
+        a {
+            height: 65%;
+            
+            .logo {
+                height: 100%;
+                @media (max-width: 575px) {
+                    height: 50%;
+                }
+                @media (max-width: 375px) {
+                    height: 40%;
+                }
             }
         }
     }
@@ -37,9 +41,11 @@ export const NavigationNav = styled.nav`
 
         img {
             height: 40px;
+            width: 40px !important;
 
             @media (max-width: 575px) {
                 height: 35px;
+                width: 35px;
             }
         }
 
@@ -55,7 +61,7 @@ export const NavigationNav = styled.nav`
             width: 150px;
 
             @media (max-width: 575px) {
-                width: 100%;
+                width: 120px;
             }
 
             &:focus {
