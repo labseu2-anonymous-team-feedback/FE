@@ -24,10 +24,10 @@ export const NavigationNav = styled.nav`
             .logo {
                 height: 100%;
                 @media (max-width: 575px) {
-                    height: 50%;
+                    height: 100%;
                 }
                 @media (max-width: 375px) {
-                    height: 40%;
+                    height: 80%;
                 }
             }
         }
