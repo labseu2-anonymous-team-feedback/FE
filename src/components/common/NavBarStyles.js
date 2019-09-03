@@ -18,13 +18,17 @@ export const NavigationNav = styled.nav`
         align-items: center;
         padding-left: 1rem;
 
-        img {
-            height: 70%;
-            @media (max-width: 575px) {
-                height: 50%;
-            }
-            @media (max-width: 375px) {
-                height: 40%;
+        a {
+            height: 65%;
+            
+            .logo {
+                height: 100%;
+                @media (max-width: 575px) {
+                    height: 50%;
+                }
+                @media (max-width: 375px) {
+                    height: 40%;
+                }
             }
         }
     }
