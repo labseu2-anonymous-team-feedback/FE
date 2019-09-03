@@ -37,9 +37,11 @@ export const NavigationNav = styled.nav`
 
         img {
             height: 40px;
+            width: 40px !important;
 
             @media (max-width: 575px) {
                 height: 35px;
+                width: 35px;
             }
         }
 
@@ -55,7 +57,7 @@ export const NavigationNav = styled.nav`
             width: 150px;
 
             @media (max-width: 575px) {
-                width: 100%;
+                width: 120px;
             }
 
             &:focus {
