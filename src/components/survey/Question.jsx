@@ -7,11 +7,11 @@ import TextArea from '../common/TextArea';
 const typeOptions = [
   {
     name: 'Text',
-    value: 'Text',
+    value: 'text',
   },
   {
     name: 'Rating',
-    value: 'Rating',
+    value: 'rating',
   },
 ];
 

@@ -53,7 +53,7 @@ class CreateSurvey extends Component {
     const { title, questions } = this.state;
     return (
       <Container className="container">
-        <div className="col-md">
+        <div className="col-md survey-row">
           <Mutation mutation={CREATE_NEW_SURVEY}>
             {(createNewSurvey) => (
               <form
@@ -97,12 +97,20 @@ class CreateSurvey extends Component {
                   }
                 }}
               >
-                <h1 className="text-center">Create a Survey</h1>
+                <h1 className="text-center create-survey-title">
+                  Create a Survey
+                </h1>
                 <Divider size={30} />
-                <TextInput title="Survey Title" id="title" name={title} onChange={this.handleChangeSurvey} />
+                <TextInput
+                  title="Survey Title"
+                  id="title"
+                  value={title}
+                  name={title}
+                  onChange={this.handleChangeSurvey}
+                />
 
                 <div>
-                  <h2>Survey Questions</h2>
+                  <h2 className="questions-title">Survey Questions</h2>
                   <Divider size={30} />
 
                   {questions.map((question, index) => (

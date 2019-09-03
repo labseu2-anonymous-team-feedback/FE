@@ -12,26 +12,21 @@ const Signup = styled.div`
     width: 35%;
     background: white;
     padding-bottom: 1rem !important;
-    
-    @media (max-width: 1400px) {
-      width: 60%;
-    }
-
-    @media (max-width: 1200px) {
-      width: 70%;
-    }
-
-    @media (max-width: 1050px) {
-      width: 85%;
-    }
-
+   
     @media (max-width: 870px) {
+      width: 95%;
+      border: 1px dashed red;
+    }
+   
+    @media (max-width: 700px) {
+      border: 1px dashed red;
       width: 95%;
     }
 
     @media (max-width: 500px) {
       width: 100%;
-      padding: 1rem !important;
+      padding: 2rem !important;
+      border: 1px dashed red;
     }
   }
 

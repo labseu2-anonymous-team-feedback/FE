@@ -60,6 +60,12 @@ class Signup extends Component {
 
     if (password !== confirmPassword) {
       toast.error('Passwords do not match');
+    } else if (username.length < 3) {
+      toast.error('Username must be at least 3 characters long');
+    } else if (password.length < 6) {
+      toast.error('Password must be at least 6 characters long');
+    } else if (username.length > 30) {
+      toast.error('Username should not be longer than 30 characters');
     } else {
       this.mutate({
         mutation: CREATE_ACCOUNT,
