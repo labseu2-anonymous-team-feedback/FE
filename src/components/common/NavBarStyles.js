@@ -81,7 +81,6 @@ export const NavigationNav = styled.nav`
                 @media (max-width: 575px) {
                     height: 100%;
                     width: 100%;
-
                 }
 
                 img {
@@ -91,8 +90,8 @@ export const NavigationNav = styled.nav`
                     }
                 }
             }
-            #dropdown-triangle {
-                transform: translateX(-30px);
+            #triangle-nav {
+                transform: translateX(10px);
             }
     }
 }
