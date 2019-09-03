@@ -113,7 +113,7 @@ class Signup extends Component {
       <StyledSignup>
         <form
           onSubmit={this.onSubmit}
-          className="text-center border border-light p-5 z-depth-1"
+          className="text-center p-5"
           action="#!"
         >
           <p className="h4 mb-4">Sign Up</p>
