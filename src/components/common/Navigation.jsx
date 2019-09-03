@@ -34,10 +34,14 @@ class Navigation extends React.Component {
           },
         })
         .then(() => {
-          toast.success('Account verified successfully');
+          toast('Account verified successfully', {
+            className: 'toast-success',
+          });
         })
         .catch(() => {
-          toast.error('Failed to verify account');
+          toast('Failed to verify account', {
+            className: 'toast-error',
+          });
         });
     }
 
@@ -61,7 +65,9 @@ class Navigation extends React.Component {
     return (
       <NavigationNav className="navbar fixed-top navbar-dark white scrolling-navbar">
         <div className="logo-div">
-          <img alt="logo" src={logo} />
+          <Link to="/">
+            <img alt="logo" src={logo} className="logo" />
+          </Link>
         </div>
         <div className="auth-links">
           {user ? (

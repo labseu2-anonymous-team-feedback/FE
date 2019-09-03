@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
 import { Redirect, Link } from 'react-router-dom';
-import { toast } from "react-toastify"; // eslint-disable-line
+import { toast } from 'react-toastify'; // eslint-disable-line
 import ResetPasswordDiv from './StyledResetPassword';
 import TextInput from '../../common/TextInput';
 import { SEND_RESET_PASSWORD_EMAIL } from '../../../graphql/mutations';
@@ -34,7 +34,9 @@ function ResetPassword() {
                   setRedirectReset(true);
                 })
                 .catch(() => {
-                  toast.error('Failed to send reset email password');
+                  toast('Failed to send reset email password', {
+                    className: 'toast-error',
+                  });
                 })
                 .finally(() => setEmail(''));
             }}
