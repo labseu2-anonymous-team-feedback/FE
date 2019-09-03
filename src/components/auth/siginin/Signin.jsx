@@ -8,7 +8,6 @@ import { LOGIN_MUTATION } from '../../../graphql/mutations';
 import GoogleButton from '../../../assets/images/google-button.png';
 import StyledSignin from './StyledSignin';
 import TextInput from '../../common/TextInput';
-import { trimError } from '../../../utils';
 
 function Signin({ client }) {
   const [error, setError] = useState(false);
@@ -38,7 +37,7 @@ function Signin({ client }) {
   };
 
   if (error) {
-    toast.error(trimError(error.message) || 'Unable to Login, Try Again');
+    toast('Unable to log in, Try again!', { className: 'toast-error' });
     setError(false);
   }
 

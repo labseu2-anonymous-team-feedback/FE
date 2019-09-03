@@ -34,10 +34,14 @@ class Navigation extends React.Component {
           },
         })
         .then(() => {
-          toast.success('Account verified successfully');
+          toast('Account verified successfully', {
+            className: 'toast-success',
+          });
         })
         .catch(() => {
-          toast.error('Failed to verify account');
+          toast('Failed to verify account', {
+            className: 'toast-error',
+          });
         });
     }
 

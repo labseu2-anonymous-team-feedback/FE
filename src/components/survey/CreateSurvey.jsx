@@ -65,26 +65,35 @@ class CreateSurvey extends Component {
 
                   questions.forEach((q) => {
                     if (!q.question) {
-                      toast.error('Please provide all questions');
+                      toast('Please provide all questions', {
+                        className: 'toast-error',
+                      });
                       questionsAreValid = false;
                     }
                     if (!q.type) {
-                      toast.error('Please specify a type for all questions');
+                      toast('Please specify a type for all questions', {
+                        className: 'toast-error',
+                      });
                       questionsAreValid = false;
                     }
                     if (q.question && q.question.length < 5) {
-                      toast.error('Each question must be at least 5 characters long');
+                      toast(
+                        'Each question must be at least 5 characters long',
+                        { className: 'toast-error' },
+                      );
                       questionsAreValid = false;
                     }
                   });
 
                   if (!title) {
-                    toast.error('Survey title required');
+                    toast('Survey title required', {
+                      className: 'toast-error',
+                    });
                   } else if (questionsAreValid) {
                     createNewSurvey({
                       variables: { input: { title, questions } },
                     });
-                    toast.success('Survey created successfully');
+                    toast('Survey created successfully', { className: 'toast-success' });
                     this.setState({
                       title: '',
                       questions: [
