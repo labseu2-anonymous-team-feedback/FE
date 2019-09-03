@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #f3f7f9;
+  font-family: 'Miriam Libre', sans-serif;
 }
 
 code {

@@ -54,11 +54,7 @@ function Signin({ client }) {
 
   return (
     <StyledSignin>
-      <form
-        className="text-center  p-4"
-        action="#!"
-        onSubmit={onSubmit}
-      >
+      <form className="text-center  p-4" action="#!" onSubmit={onSubmit}>
         <p className="h4 mb-4">Sign In</p>
 
         <TextInput
