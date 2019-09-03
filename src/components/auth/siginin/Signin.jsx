@@ -3,7 +3,7 @@ import { withApollo } from 'react-apollo';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-
+import { trimError } from '../../../utils';
 import { LOGIN_MUTATION } from '../../../graphql/mutations';
 import GoogleButton from '../../../assets/images/google-button.png';
 import StyledSignin from './StyledSignin';
@@ -37,7 +37,8 @@ function Signin({ client }) {
   };
 
   if (error) {
-    toast('Unable to log in, Try again!', { className: 'toast-error' });
+    const msg = trimError(error.message) || 'Unable to log in, Try again!';
+    toast(msg, { className: 'toast-error' });
     setError(false);
   }
 
