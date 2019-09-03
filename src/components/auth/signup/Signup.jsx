@@ -102,9 +102,15 @@ class Signup extends Component {
     const { search } = location;
     const parsed = queryString.parse(search);
     if (error) {
-      toast(trimError(error.message) || 'Unable to Register, Try Again', {
-        className: 'toast-error',
-      });
+      if (trimError(error.message) === 'Validation error') {
+        toast(error.graphQLErrors[0].extensions.exception.errors[0].message, {
+          className: 'toast-error',
+        });
+      } else {
+        toast(trimError(error.message) || 'Unable to Register, Try Again', {
+          className: 'toast-error',
+        });
+      }
     }
 
     if (parsed.google && data) {
@@ -119,12 +125,8 @@ class Signup extends Component {
 
     return (
       <StyledSignup>
-        <form
-          onSubmit={this.onSubmit}
-          className="text-center border border-light p-5 z-depth-1"
-          action="#!"
-        >
-          <p className="h4 mb-4">Sign Up</p>
+        <form onSubmit={this.onSubmit} className="text-center p-5" action="#!">
+          <p className="h4 mb-4 f-1">Sign Up</p>
           <TextInput
             type="text"
             title="Username"

@@ -9,6 +9,7 @@ const Signup = styled.div`
   height: 100vh;
   
   form {
+    /* border: none; */
     background: white;
     width: 35%;
     padding-top: 4rem !important;

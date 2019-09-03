@@ -65,11 +65,11 @@ class NewPassword extends React.Component {
     return (
       <StyledNewPassword>
         <form
-          className="text-center border border-light p-5 z-depth-1"
+          className="text-center p-5"
           action="#!"
           onSubmit={this.submit}
         >
-          <p className="h4 mb-4">Enter New Password</p>
+          <p className="h4 mb-4 f-1">Enter New Password</p>
 
           <TextInput
             title="Password"
