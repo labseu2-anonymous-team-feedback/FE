@@ -3,12 +3,11 @@ import { withApollo } from 'react-apollo';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-
+import { trimError } from '../../../utils';
 import { LOGIN_MUTATION } from '../../../graphql/mutations';
 import GoogleButton from '../../../assets/images/google-button.png';
 import StyledSignin from './StyledSignin';
 import TextInput from '../../common/TextInput';
-import { trimError } from '../../../utils';
 
 function Signin({ client }) {
   const [error, setError] = useState(false);
@@ -38,7 +37,15 @@ function Signin({ client }) {
   };
 
   if (error) {
-    toast.error(trimError(error.message) || 'Unable to Login, Try Again');
+    if (trimError(error.message) === 'Validation error') {
+      toast(error.graphQLErrors[0].extensions.exception.errors[0].message, {
+        className: 'toast-error',
+      });
+    } else {
+      toast(trimError(error.message) || 'Unable to Login, Try Again', {
+        className: 'toast-error',
+      });
+    }
     setError(false);
   }
 
@@ -48,12 +55,8 @@ function Signin({ client }) {
 
   return (
     <StyledSignin>
-      <form
-        className="text-center border border-light p-4 z-depth-1"
-        action="#!"
-        onSubmit={onSubmit}
-      >
-        <p className="h4 mb-4">Sign In</p>
+      <form className="text-center  p-4" action="#!" onSubmit={onSubmit}>
+        <p className="h4 mb-4 f-1">Sign In</p>
 
         <TextInput
           title="Email"

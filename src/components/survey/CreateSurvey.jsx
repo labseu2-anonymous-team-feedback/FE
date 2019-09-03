@@ -14,12 +14,7 @@ class CreateSurvey extends Component {
 
     this.state = {
       title: '',
-      questions: [
-        {
-          question: '',
-          type: '',
-        },
-      ],
+      questions: [],
     };
   }
 
@@ -65,26 +60,34 @@ class CreateSurvey extends Component {
 
                   questions.forEach((q) => {
                     if (!q.question) {
-                      toast.error('Please provide all questions');
+                      toast('Please provide all questions', {
+                        className: 'toast-error',
+                      });
                       questionsAreValid = false;
                     }
                     if (!q.type) {
-                      toast.error('Please specify a type for all questions');
+                      toast('Please specify a type for all questions', {
+                        className: 'toast-error',
+                      });
                       questionsAreValid = false;
                     }
                     if (q.question && q.question.length < 5) {
-                      toast.error('Each question must be at least 5 characters long');
+                      toast('Each question must be at least 5 characters long', { className: 'toast-error' });
                       questionsAreValid = false;
                     }
                   });
 
                   if (!title) {
-                    toast.error('Survey title required');
+                    toast('Survey title required', {
+                      className: 'toast-error',
+                    });
                   } else if (questionsAreValid) {
                     createNewSurvey({
                       variables: { input: { title, questions } },
                     });
-                    toast.success('Survey created successfully');
+                    toast('Survey created successfully', {
+                      className: 'toast-success',
+                    });
                     this.setState({
                       title: '',
                       questions: [
@@ -97,7 +100,7 @@ class CreateSurvey extends Component {
                   }
                 }}
               >
-                <h1 className="text-center create-survey-title">
+                <h1 className="text-center create-survey-title f-1">
                   Create a Survey
                 </h1>
                 <Divider size={30} />
@@ -110,7 +113,7 @@ class CreateSurvey extends Component {
                 />
 
                 <div>
-                  <h2 className="questions-title">Survey Questions</h2>
+                  <h2 className="questions-title f-1">Survey Questions</h2>
                   <Divider size={30} />
 
                   {questions.map((question, index) => (

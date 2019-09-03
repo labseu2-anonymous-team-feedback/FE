@@ -59,13 +59,21 @@ class Signup extends Component {
     } = this.state;
 
     if (password !== confirmPassword) {
-      toast.error('Passwords do not match');
+      toast('Passwords do not match', {
+        className: 'toast-error',
+      });
     } else if (username.length < 3) {
-      toast.error('Username must be at least 3 characters long');
+      toast('Username must be at least 3 characters long', {
+        className: 'toast-error',
+      });
     } else if (password.length < 6) {
-      toast.error('Password must be at least 6 characters long');
+      toast('Password must be at least 6 characters long', {
+        className: 'toast-error',
+      });
     } else if (username.length > 30) {
-      toast.error('Username should not be longer than 30 characters');
+      toast('Username should not be longer than 30 characters', {
+        className: 'toast-error',
+      });
     } else {
       this.mutate({
         mutation: CREATE_ACCOUNT,
@@ -94,7 +102,15 @@ class Signup extends Component {
     const { search } = location;
     const parsed = queryString.parse(search);
     if (error) {
-      toast.error(trimError(error.message) || 'Unable to Register, Try Again');
+      if (trimError(error.message) === 'Validation error') {
+        toast(error.graphQLErrors[0].extensions.exception.errors[0].message, {
+          className: 'toast-error',
+        });
+      } else {
+        toast(trimError(error.message) || 'Unable to Register, Try Again', {
+          className: 'toast-error',
+        });
+      }
     }
 
     if (parsed.google && data) {
@@ -103,18 +119,14 @@ class Signup extends Component {
     }
 
     if (data) {
-      toast.success('Registration successful');
+      toast('Registration successful', { className: 'toast-success' });
       return <Redirect to="/" />;
     }
 
     return (
       <StyledSignup>
-        <form
-          onSubmit={this.onSubmit}
-          className="text-center border border-light p-5 z-depth-1"
-          action="#!"
-        >
-          <p className="h4 mb-4">Sign Up</p>
+        <form onSubmit={this.onSubmit} className="text-center p-5" action="#!">
+          <p className="h4 mb-4 f-1">Sign Up</p>
           <TextInput
             type="text"
             title="Username"

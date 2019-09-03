@@ -6,9 +6,27 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #f3f7f9;
+  font-family: 'Miriam Libre', sans-serif;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.f-1 {
+  font-family: 'Baloo Thambi', cursive;
+  color: #636262;
+}
+
+.toast-error {
+  color: white;
+  background: #ff4c4f;
+  border-radius: 5px;
+}
+
+.toast-success {
+  color: white;
+  background-color: #92c619;
+  border-radius: 5px;
 }

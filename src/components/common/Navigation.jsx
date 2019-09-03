@@ -34,10 +34,14 @@ class Navigation extends React.Component {
           },
         })
         .then(() => {
-          toast.success('Account verified successfully');
+          toast('Account verified successfully', {
+            className: 'toast-success',
+          });
         })
         .catch(() => {
-          toast.error('Failed to verify account');
+          toast('Failed to verify account', {
+            className: 'toast-error',
+          });
         });
     }
 
@@ -61,7 +65,9 @@ class Navigation extends React.Component {
     return (
       <NavigationNav className="navbar fixed-top navbar-dark white scrolling-navbar">
         <div className="logo-div">
-          <img alt="logo" src={logo} />
+          <Link to="/">
+            <img alt="logo" src={logo} className="logo" />
+          </Link>
         </div>
         <div className="auth-links">
           {user ? (
@@ -72,15 +78,17 @@ class Navigation extends React.Component {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                <div className="user-info">
+                <div id="user-nav-div-left">
                   <img alt="avatar" src={avatar} />
-                  <span id="username-nav-span">
-                    {user.username.length > 12
-                      ? `${user.username.substring(0, 12)}...`
-                      : user.username}
-                  </span>
+                  <div className="user-info">
+                    <span id="username-nav-span">
+                      {user.username.length > 12
+                        ? `${user.username.substring(0, 12)}...`
+                        : user.username}
+                    </span>
+                  </div>
                 </div>
-                <Triangle id="dropdown-triangle" />
+                <Triangle id="triangle-nav" />
               </div>
               <div
                 className="dropdown-menu dropdown-menu-right border-0 z-depth-1"

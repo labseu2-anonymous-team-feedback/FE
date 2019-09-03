@@ -29,9 +29,11 @@ class NewPassword extends React.Component {
     const { client } = this.props;
 
     if (newPasswordConfirm !== newPassword) {
-      toast.error('Passwords do not match');
+      toast('Passwords do not match', { className: 'toast-error' });
     } else if (newPassword.length < 6) {
-      toast.error('Password must be at least 6 characters long');
+      toast('Password must be at least 6 characters long', {
+        className: 'toast-error',
+      });
     } else {
       client
         .mutate({
@@ -42,13 +44,13 @@ class NewPassword extends React.Component {
           },
         })
         .then(() => {
-          toast.success('Password updated successfully');
+          toast('Password updated successfully', { className: 'toast-success' });
           setTimeout(() => {
             this.setState({ redirectHome: true });
           }, 3000);
         })
         .catch(() => {
-          toast.error('Failed to reset password');
+          toast('Failed to reset password', { className: 'toast-error' });
         });
     }
   };
@@ -63,11 +65,11 @@ class NewPassword extends React.Component {
     return (
       <StyledNewPassword>
         <form
-          className="text-center border border-light p-5 z-depth-1"
+          className="text-center p-5"
           action="#!"
           onSubmit={this.submit}
         >
-          <p className="h4 mb-4">Enter New Password</p>
+          <p className="h4 mb-4 f-1">Enter New Password</p>
 
           <TextInput
             title="Password"

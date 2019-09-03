@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
 import { Redirect, Link } from 'react-router-dom';
-import { toast } from "react-toastify"; // eslint-disable-line
+import { toast } from 'react-toastify'; // eslint-disable-line
 import ResetPasswordDiv from './StyledResetPassword';
 import TextInput from '../../common/TextInput';
 import { SEND_RESET_PASSWORD_EMAIL } from '../../../graphql/mutations';
@@ -21,7 +21,7 @@ function ResetPassword() {
       {(sendResetPasswordEmail) => (
         <ResetPasswordDiv>
           <form
-            className="text-center border border-light p-5 z-depth-1"
+            className="text-center p-5"
             action="#!"
             onSubmit={(e) => {
               e.preventDefault();
@@ -34,12 +34,14 @@ function ResetPassword() {
                   setRedirectReset(true);
                 })
                 .catch(() => {
-                  toast.error('Failed to send reset email password');
+                  toast('Failed to send reset email password', {
+                    className: 'toast-error',
+                  });
                 })
                 .finally(() => setEmail(''));
             }}
           >
-            <p className="h4 mb-4">Reset Password</p>
+            <p className="h4 mb-4 f-1">Reset Password</p>
             <p>
               Enter your email in the input below and we will help you recover
               your password.
