@@ -72,8 +72,7 @@ class Navigation extends React.Component {
         <div className="auth-links">
           {user ? (
             <div className="dropdown">
-              <button
-                type="button"
+              <div
                 id="user-nav-div"
                 data-toggle="dropdown"
                 aria-haspopup="true"
@@ -82,11 +81,15 @@ class Navigation extends React.Component {
                 <div id="user-nav-div-left">
                   <img alt="avatar" src={avatar} />
                   <div className="user-info">
-                    <span id="username-nav-span">{user.username}</span>
-                    <Triangle id="triangle-nav" />
+                    <span id="username-nav-span">
+                      {user.username.length > 12
+                        ? `${user.username.substring(0, 12)}...`
+                        : user.username}
+                    </span>
                   </div>
                 </div>
-              </button>
+                <Triangle id="triangle-nav" />
+              </div>
               <div
                 className="dropdown-menu dropdown-menu-right border-0 z-depth-1"
                 aria-labelledby="user-nav-div"
