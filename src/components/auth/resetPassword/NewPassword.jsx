@@ -67,7 +67,7 @@ class NewPassword extends React.Component {
           action="#!"
           onSubmit={this.submit}
         >
-          <p className="h4 mb-4">Enter New Password</p>
+          <p className="h4 mb-4 f-1">Enter New Password</p>
 
           <TextInput
             title="Password"

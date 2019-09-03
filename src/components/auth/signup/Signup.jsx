@@ -122,7 +122,7 @@ class Signup extends Component {
           className="text-center p-5"
           action="#!"
         >
-          <p className="h4 mb-4">Sign Up</p>
+          <p className="h4 mb-4 f-1">Sign Up</p>
           <TextInput
             type="text"
             title="Username"

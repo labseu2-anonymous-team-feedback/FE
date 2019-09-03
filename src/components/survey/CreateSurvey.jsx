@@ -97,7 +97,7 @@ class CreateSurvey extends Component {
                   }
                 }}
               >
-                <h1 className="text-center create-survey-title">
+                <h1 className="text-center create-survey-title f-1">
                   Create a Survey
                 </h1>
                 <Divider size={30} />
@@ -110,7 +110,7 @@ class CreateSurvey extends Component {
                 />
 
                 <div>
-                  <h2 className="questions-title">Survey Questions</h2>
+                  <h2 className="questions-title f-1">Survey Questions</h2>
                   <Divider size={30} />
 
                   {questions.map((question, index) => (

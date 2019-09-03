@@ -39,7 +39,7 @@ function ResetPassword() {
                 .finally(() => setEmail(''));
             }}
           >
-            <p className="h4 mb-4">Reset Password</p>
+            <p className="h4 mb-4 f-1">Reset Password</p>
             <p>
               Enter your email in the input below and we will help you recover
               your password.
