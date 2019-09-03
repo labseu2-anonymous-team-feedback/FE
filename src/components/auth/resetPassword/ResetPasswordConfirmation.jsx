@@ -5,7 +5,7 @@ import ResetPasswordDiv from './StyledResetPassword';
 function ResetPasswordConfirmation() {
   return (
     <ResetPasswordDiv>
-      <div className="confirmContainer text-center border border-light p-5 z-depth-1">
+      <div className="confirmContainer text-center p-5">
         <p className="h4 mb-4">Password Reset Email sent</p>
         <p className="mb-4">
           Please check your email address for directions on how to reset your

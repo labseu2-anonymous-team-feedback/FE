@@ -21,7 +21,7 @@ function ResetPassword() {
       {(sendResetPasswordEmail) => (
         <ResetPasswordDiv>
           <form
-            className="text-center border border-light p-5 z-depth-1"
+            className="text-center p-5"
             action="#!"
             onSubmit={(e) => {
               e.preventDefault();
