@@ -14,12 +14,7 @@ class CreateSurvey extends Component {
 
     this.state = {
       title: '',
-      questions: [
-        {
-          question: '',
-          type: '',
-        },
-      ],
+      questions: [],
     };
   }
 
@@ -77,10 +72,7 @@ class CreateSurvey extends Component {
                       questionsAreValid = false;
                     }
                     if (q.question && q.question.length < 5) {
-                      toast(
-                        'Each question must be at least 5 characters long',
-                        { className: 'toast-error' },
-                      );
+                      toast('Each question must be at least 5 characters long', { className: 'toast-error' });
                       questionsAreValid = false;
                     }
                   });
@@ -93,7 +85,9 @@ class CreateSurvey extends Component {
                     createNewSurvey({
                       variables: { input: { title, questions } },
                     });
-                    toast('Survey created successfully', { className: 'toast-success' });
+                    toast('Survey created successfully', {
+                      className: 'toast-success',
+                    });
                     this.setState({
                       title: '',
                       questions: [

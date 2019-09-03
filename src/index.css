@@ -15,12 +15,12 @@ code {
 
 .toast-error {
   color: white;
-  background: #f27059;
+  background: #ff4c4f;
   border-radius: 5px;
 }
 
 .toast-success {
-  color: #155724;
-  background-color: #d4edda;
-  border-color: #c3e6cb;
+  color: white;
+  background-color: #92c619;
+  border-radius: 5px;
 }

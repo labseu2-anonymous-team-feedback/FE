@@ -14,7 +14,6 @@ export const Container = styled.div`
   padding-left: 0rem;
   padding-right: 0rem;
   background: white;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12)!important;
   width: 60%;
 
   @media (max-width: 700px) {
@@ -59,6 +58,8 @@ export const Container = styled.div`
 export const StyledQuestion = styled.div`
   padding: 2.5rem 2.5rem 1rem 2.5rem;
   margin: 1rem auto;
+  /* border: 1px solid #e9e9e9; */
+  box-shadow: 0px 1px 5px -2px rgba(76,86,87,1) !important;
   position: relative;
 
   @media (max-width: 575px) {
