@@ -10,7 +10,7 @@ import ResetPassword from './components/auth/resetPassword/ResetPassword';
 import ResetPasswordConfirmation from './components/auth/resetPassword/ResetPasswordConfirmation';
 import PrivateRoute from './components/common/PrivateRoute';
 import NewPassword from './components/auth/resetPassword/NewPassword';
-import userDashboard from './components/dashboard/dashboard';
+import userDashboard from './components/dashboard/Dashboard';
 
 function App() {
   return (
