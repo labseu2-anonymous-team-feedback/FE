@@ -22,6 +22,7 @@ module.exports = {
   rules: {
     "import/prefer-default-export": 0,
     "linebreak-style": 0,
+    "react/prefer-stateless-function": 0,
     "jsx-a11y/label-has-associated-control": [
       "error",
       {
