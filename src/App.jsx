@@ -10,6 +10,7 @@ import ResetPassword from './components/auth/resetPassword/ResetPassword';
 import ResetPasswordConfirmation from './components/auth/resetPassword/ResetPasswordConfirmation';
 import PrivateRoute from './components/common/PrivateRoute';
 import NewPassword from './components/auth/resetPassword/NewPassword';
+import Feedback from './components/feedback/Feedback';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <Switch>
         <PrivateRoute exact path="/" component={CreateSurvey} />
       </Switch>
+      <Route path="/fbk" component={Feedback} />
     </Router>
   );
 }
