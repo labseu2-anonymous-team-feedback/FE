@@ -10,11 +10,14 @@ import ResetPassword from './components/auth/resetPassword/ResetPassword';
 import ResetPasswordConfirmation from './components/auth/resetPassword/ResetPasswordConfirmation';
 import PrivateRoute from './components/common/PrivateRoute';
 import NewPassword from './components/auth/resetPassword/NewPassword';
+import Response from './components/response/Response';
 
 function App() {
   return (
     <Router>
       <Route exact path="/" component={Navigation} />
+      <Route exact path="/response" component={Navigation} />
+      <Route exact path="/response" component={Response} />
       <Route exact path="/verify_account/:verifyToken" component={Navigation} />
       <Route exact path="/register" component={Signup} />
       <Route exact path="/login" component={Signin} />
