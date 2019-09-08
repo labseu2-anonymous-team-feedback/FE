@@ -3,7 +3,25 @@ import { useQuery } from '@apollo/react-hooks';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
 import avatar from '../../assets/images/avatar-default.png';
+import arrow from '../../assets/images/arrow.svg';
+
 import { GET_SURVEYS } from '../../graphql/queries';
+import {
+  DashboardContainer,
+  UserWrapper,
+  UserContainer,
+  UserStatus,
+  UserStatus2,
+  UserIcon,
+  UserImg,
+  Button,
+  InputText,
+  SurveyInputWrapper,
+  InputAndButtonWrapper,
+  SurveyWrapper,
+  InputButtonWrapper,
+  DashboardWrapper,
+} from './DashboardStyles';
 
 import {
   NavigationNav,
@@ -16,7 +34,7 @@ export function Dashboard() {
   const { data, loading, error } = useQuery(GET_SURVEYS);
   if (data.getUserSurveys) {
     return (
-      <div>
+      <DashboardContainer>
         <NavigationNav className="navbar fixed-top navbar-dark white scrolling-navbar">
           <div className="logo-div">
             <Link to="/">
@@ -34,7 +52,7 @@ export function Dashboard() {
                 <div id="user-nav-div-left">
                   <img alt="avatar" src={avatar} />
                   <div className="user-info">
-                    <span id="username-nav-span"></span>
+                    <span id="username-nav-span" />
                   </div>
                 </div>
                 <Triangle id="triangle-nav" />
@@ -55,16 +73,50 @@ export function Dashboard() {
                 </a>
               </div>
             </div>
-
             <NavItems>
-              <Link to="/signup"></Link>
-              <Link to="/signin"></Link>
+              <Link to="/signup">signin</Link>
+              <Link to="/signin">signup</Link>
             </NavItems>
           </div>
         </NavigationNav>
 
-        <Survey data={data.getUserSurveys} />
-      </div>
+        <DashboardWrapper>
+          <UserWrapper>
+            <UserContainer>
+              <UserIcon>
+                <UserImg src={avatar} alt="" />
+              </UserIcon>
+              <span className="avatar-name">Petar</span>
+              <UserStatus>
+                <div className="user-status-inner">9 Surveys</div>
+                <div className="user-status-inner">4 responses</div>
+              </UserStatus>
+              <UserStatus2>
+                <div className="user-status-inner2">My Surveys</div>
+                <div className="user-status-inner2">
+                  Profile Settings
+                </div>
+              </UserStatus2>
+            </UserContainer>
+          </UserWrapper>
+
+          <SurveyWrapper>
+            <SurveyInputWrapper>
+              <InputButtonWrapper>
+                <InputAndButtonWrapper>
+                  <div>
+                    <InputText placeholder="A small text input" />
+                  </div>
+                  <div className="button-survey">
+                    <Button>Add Survey</Button>
+                  </div>
+                </InputAndButtonWrapper>
+              </InputButtonWrapper>
+              <Survey data={data.getUserSurveys} />
+            </SurveyInputWrapper>
+          </SurveyWrapper>
+        </DashboardWrapper>
+      </DashboardContainer>
     );
   }
   return <div>{loading}</div>;
