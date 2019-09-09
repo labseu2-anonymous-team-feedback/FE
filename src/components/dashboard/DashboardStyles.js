@@ -220,7 +220,7 @@ export const Button = styled.button`
   width: 8em;
   height: 2.5em;
   color: #fff;
-  background: #1a81ff;
+  background: #338fff;
   padding: 1px;
   border: 2px solid #494949 !important;
   border-radius: 3px;
@@ -234,7 +234,7 @@ export const SurveyButton = styled.button`
   width: 7em;
   height: 2em;
   color: #fff;
-  background: #1a81ff;
+  background: #338fff;
   padding: 1px;
   border: 2px solid #494949 !important;
   border-radius: 3px;
