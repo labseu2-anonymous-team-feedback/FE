@@ -16,7 +16,7 @@ const Signin = React.lazy(() =>
   import('./components/auth/siginin/Signin'));
 
 const userDashboard = React.lazy(() =>
-  import('./components/dashboard/Dashboard'));
+  import('./components/dashboard/dashboard'));
 
 const CreateSurvey = React.lazy(() =>
   import('./components/survey/CreateSurvey'));
