@@ -120,9 +120,9 @@ export const UserStatus2 = styled.div`
     padding: 0.5rem;
     border: 1px solid grey;
     border-radius: 3px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 `;
 
@@ -135,14 +135,26 @@ export const UserImg = styled.img`
 export const UserArrow = styled.img`
   width: 20%;
 
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media (max-width: 400px) {
+    width: 30%;
+  }
 `;
 
 export const UserSettings = styled.img`
   width: 20%;
 
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media (max-width: 400px) {
+    width: 30%;
+  }
 `;
-
-
 
 export const InputText = styled.input`
   border: 2px solid white;
@@ -165,18 +177,18 @@ export const InputText = styled.input`
 `;
 
 export const Button = styled.button`
-         width: 8em;
-         height: 2.5em;
-         color: #fff;
-         background: #1a81ff;
-         padding: 1px;
-         border: 2px solid #494949 !important;
-         border-radius: 3px;
+  width: 8em;
+  height: 2.5em;
+  color: #fff;
+  background: #1a81ff;
+  padding: 1px;
+  border: 2px solid #494949 !important;
+  border-radius: 3px;
 
-         &:hover {
-           background-color: lightgrey;
-         }
-       `;
+  &:hover {
+    background-color: lightgrey;
+  }
+`;
 
 export const IndividualSurvey = styled.div`
   border: 1px solid black;
@@ -185,6 +197,9 @@ export const IndividualSurvey = styled.div`
   padding: 1rem;
   margin-bottom: 1.5rem;
   background-color: #94c1f7;
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+    0 6px 6px rgba(0, 0, 0, 0.23);
 `;
 
 export const MainInputAndButtonWrapper = styled.div`

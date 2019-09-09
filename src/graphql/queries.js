@@ -8,7 +8,7 @@ const IS_LOGGED_IN = gql`
 `;
 
 const GET_SURVEYS = qql`
-query GetUserSurveys {
+query getUserSurveys {
   getUserSurveys{
     title
     owner{
