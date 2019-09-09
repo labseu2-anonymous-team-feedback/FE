@@ -9,10 +9,21 @@ export const DashboardContainer = styled.section`
 `;
 
 export const UserWrapper = styled.div`
-  width: 80%;
-  padding: 1rem;
-  margin-top: 2.5rem;
-`;
+         width: 80%;
+         padding: 1rem;
+         margin-top: 2.5rem;
+
+         @media (max-width: 700px) {
+           display: flex;
+           width: 95%;
+           padding: 1rem;
+         }
+
+
+
+
+
+       `;
 
 export const DashboardWrapper = styled.div`
   width: 80%;
@@ -48,18 +59,30 @@ export const SurveyInputWrapper = styled.div`
 `;
 
 export const UserContainer = styled.div`
-  display: flex;
-  width: 50%;
-  flex-direction: column;
-  background: #ffff;
-  padding: 1rem;
-  border-radius: 3px;
+         display: flex;
+         width: 50%;
+         flex-direction: column;
+         background: #ffff;
+         padding: 1rem;
+         border-radius: 3px;
 
-  .avatar-name {
-    text-align: center;
-    padding-bottom: 1.3rem;
-  }
-`;
+         .avatar-name {
+           text-align: center;
+           padding-bottom: 1.3rem;
+         }
+
+         @media (max-width: 800px) {
+           display: flex;
+           width: 65%;
+           padding: 1rem;
+         }
+
+         @media (max-width: 700px) {
+           display: flex;
+           width: 70%;
+           padding: 1rem;
+         }
+       `;
 
 export const UserIcon = styled.div`
   display: flex;
