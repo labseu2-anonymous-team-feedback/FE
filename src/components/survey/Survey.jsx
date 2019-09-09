@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   IndividualSurvey,
-  Button,
+  SurveyButton,
 } from '../dashboard/DashboardStyles';
 
 export function Survey(props) {
@@ -14,7 +14,8 @@ export function Survey(props) {
           <br />
           {survey.owner.username}
           <br />
-          <Button>View More</Button>
+          <br />
+          <SurveyButton>View More</SurveyButton>
         </IndividualSurvey>
       ))}
     </div>

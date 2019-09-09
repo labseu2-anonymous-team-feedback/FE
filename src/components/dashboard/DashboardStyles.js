@@ -224,6 +224,20 @@ export const Button = styled.button`
   }
 `;
 
+export const SurveyButton = styled.button`
+  width: 7em;
+  height: 2em;
+  color: #fff;
+  background: #1a81ff;
+  padding: 1px;
+  border: 2px solid #494949 !important;
+  border-radius: 3px;
+
+  &:hover {
+    background-color: lightgrey;
+  }
+`;
+
 export const IndividualSurvey = styled.div`
   border: 1px solid black;
   padding: 1rem;
