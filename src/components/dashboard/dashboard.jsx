@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
 import avatar from '../../assets/images/avatar-default.png';
 import arrow from '../../assets/images/arrow.svg';
+import settings from '../../assets/images/settings.svg';
 
 import { GET_SURVEYS } from '../../graphql/queries';
 import {
@@ -22,6 +23,7 @@ import {
   InputButtonWrapper,
   DashboardWrapper,
   UserArrow,
+  UserSettings,
 } from './DashboardStyles';
 
 import {
@@ -100,7 +102,7 @@ export function Dashboard() {
 
                 <div className="user-status-inner2">
                   <span>Profile Settings</span>
-                  <UserArrow src={arrow} />
+                  <UserSettings src={settings} />
                 </div>
               </UserStatus2>
             </UserContainer>

@@ -133,9 +133,15 @@ export const UserImg = styled.img`
 `;
 
 export const UserArrow = styled.img`
-  width: 18%;
+  width: 20%;
 
 `;
+
+export const UserSettings = styled.img`
+  width: 20%;
+
+`;
+
 
 
 export const InputText = styled.input`
