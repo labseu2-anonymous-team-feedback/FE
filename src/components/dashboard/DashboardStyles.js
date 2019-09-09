@@ -18,6 +18,16 @@ export const DashboardWrapper = styled.div`
   width: 80%;
   display: flex;
   margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    display: flex;
+    width: 80%;
+  }
+
+  @media (max-width: 1150px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const SurveyWrapper = styled.div`
@@ -26,6 +36,11 @@ export const SurveyWrapper = styled.div`
   display: flex;
   width: 90%;
   justify-content: flex-start;
+
+  @media (max-width: 1200px) {
+    display: flex;
+    width: 80%;
+  }
 `;
 
 export const SurveyInputWrapper = styled.div`
@@ -61,16 +76,25 @@ export const UserStatus = styled.div`
   justify-content: space-around;
   border: 1px solid lightgray;
   width: 96%;
-  background: #ffff;
+  border-radius: 3px;
+
+  .user-status-inner {
+    display: flex;
+    width: 200px;
+    padding: 0.2rem;
+    flex-wrap: wrap;
+  }
 `;
 
 export const UserStatus2 = styled.div`
   padding: 0.5rem;
+  border-radius: 3px;
 
   .user-status-inner2 {
     background-color: #b8d5fa;
     padding: 0.5rem;
     border: 1px solid grey;
+    border-radius: 3px;
   }
 `;
 
@@ -89,7 +113,9 @@ export const InputText = styled.input`
   box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
     0 0 16px rgba(0, 0, 0, 0.1);
   padding: 5px;
+  width: 100%;
   width: 400px;
+  box-sizing: border-box;
   background: rgba(255, 255, 255, 0.5);
   margin: 0 0 9px 0;
 `;
@@ -127,6 +153,11 @@ export const InputAndButtonWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
+
+  @media (max-width: 700px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const InputButtonWrapper = styled.div`

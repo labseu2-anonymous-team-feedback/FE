@@ -88,7 +88,7 @@ export function Dashboard() {
               </UserIcon>
               <span className="avatar-name">Petar</span>
               <UserStatus>
-                <div className="user-status-inner">9 Surveys</div>
+                <div className="user-status-inner">9 surveys</div>
                 <div className="user-status-inner">4 responses</div>
               </UserStatus>
               <UserStatus2>
