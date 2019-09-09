@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FaSpinner } from 'react-icons/fa';
 
 export const Container = styled.div`
   width: 804px;
@@ -57,4 +58,8 @@ export const TextArea = styled.textarea`
   border: 1px solid #ccc;
   width: 100%;
   padding: 0.8rem;
+`;
+
+export const LoadIngIcon = styled(FaSpinner)`
+ color: #fff;
 `;

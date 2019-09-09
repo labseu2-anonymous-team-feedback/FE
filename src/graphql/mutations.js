@@ -76,6 +76,14 @@ const GOOGLE_AUTH_MUTATION = gql`
 }
 `;
 
+const SAVE_FEEDBACK = gql`
+ mutation saveFeedback($input: FeedbackInputArray!) {
+   saveFeedback(input: $input) {
+     message
+   }
+ }
+`;
+
 export {
   CREATE_ACCOUNT,
   VERIFY_ACCOUNT,
@@ -84,4 +92,5 @@ export {
   GOOGLE_AUTH_MUTATION,
   SEND_RESET_PASSWORD_EMAIL,
   SET_NEW_PASSWORD,
+  SAVE_FEEDBACK,
 };
