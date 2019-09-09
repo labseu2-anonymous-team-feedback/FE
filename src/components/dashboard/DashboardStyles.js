@@ -73,6 +73,7 @@ export const UserContainer = styled.div`
   background: #ffff;
   padding: 1rem;
   border-radius: 3px;
+  text-overflow: ellipsis;
 
   .avatar-name {
     text-align: center;
@@ -81,19 +82,19 @@ export const UserContainer = styled.div`
 
   @media (max-width: 1400px) {
     display: flex;
-    width: 85%;
+    width: 88%;
     padding: 1rem;
   }
 
   @media (max-width: 800px) {
     display: flex;
-    width: 65%;
+    width: 70%;
     padding: 1rem;
   }
 
   @media (max-width: 700px) {
     display: flex;
-    width: 70%;
+    width: 65%;
     padding: 1rem;
   }
 
@@ -106,7 +107,7 @@ export const UserContainer = styled.div`
 
   @media (max-width: 400px) {
     display: flex;
-    width: 98%;
+    width: 99%;
     padding: 1rem;
   }
 `;
@@ -133,6 +134,7 @@ export const UserStatus = styled.div`
     width: 200px;
     padding: 0.2rem;
     flex-wrap: wrap;
+    text-overflow: ellipsis;
   }
 `;
 
@@ -148,6 +150,7 @@ export const UserStatus2 = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-overflow: ellipsis;
 
     @media (max-width: 400px) {
       width: 110%;
@@ -224,6 +227,8 @@ export const Button = styled.button`
   padding: 1px;
   border: 2px solid #494949 !important;
   border-radius: 3px;
+  -webkit-font-smoothing: inherit;
+  cursor: pointer;
 
   &:hover {
     background-color: lightgrey;
@@ -238,6 +243,8 @@ export const SurveyButton = styled.button`
   padding: 1px;
   border: 2px solid #494949 !important;
   border-radius: 3px;
+  -webkit-font-smoothing: inherit;
+  cursor: pointer;
 
   &:hover {
     background-color: lightgrey;
@@ -253,6 +260,7 @@ export const IndividualSurvey = styled.div`
   -moz-border-radius: 4px 3px 6px 10px;
   -o-border-radius: 4px 3px 6px 10px;
   border-radius: 4px 3px 6px 10px;
+  text-overflow: ellipsis;
 
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
     0 6px 6px rgba(0, 0, 0, 0.23);
