@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Chart from './Chart';
 
 
 class ResultSort extends Component {
@@ -29,12 +30,16 @@ class ResultSort extends Component {
 
     const sortedAnswers = processedData(question, answers);
     return (
-      sortedAnswers.map((ans) => (
-        <div key={ans.answerId}>
-          {ans.comment}
-          {ans.rating}
-        </div>
-      ))
+    //   sortedAnswers.map((ans) => (
+    //     <div key={ans.answerId}>
+    //       {ans.comment}
+    //       {ans.rating}
+    //       {ans.type}
+    //     </div>
+    //   ))
+      <div>
+        <Chart data={sortedAnswers} />
+      </div>
     );
   }
 }
