@@ -6,16 +6,18 @@ import { TextResponseWrapper, Text, TextArea } from './styles';
 export default function TextResponse({
   question,
   changeHandler,
+  index,
 }) {
   return (
     <TextResponseWrapper>
-      <Text>{question}</Text>
-      <TextArea onChange={changeHandler} />
+      <Text>{`${index + 1}. ${question.question}`}</Text>
+      <TextArea onChange={(e) => changeHandler(e, question.id)} />
     </TextResponseWrapper>
   );
 }
 
 TextResponse.propTypes = {
   changeHandler: PropTypes.func.isRequired,
-  question: PropTypes.string.isRequired,
+  question: PropTypes.objectOf(PropTypes.any).isRequired,
+  index: PropTypes.number.isRequired,
 };

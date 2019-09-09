@@ -29,7 +29,8 @@ function App() {
       <Switch>
         <PrivateRoute exact path="/" component={CreateSurvey} />
       </Switch>
-      <Route path="/fbk" component={Feedback} />
+      <Route exact path="/take_survey/:surveyId" component={Navigation} />
+      <Route path="/take_survey/:surveyId" component={Feedback} />
     </Router>
   );
 }

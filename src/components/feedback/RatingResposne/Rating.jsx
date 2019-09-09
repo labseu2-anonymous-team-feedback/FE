@@ -13,6 +13,6 @@ export default function Rating({ value, selectHandler }) {
 }
 
 Rating.propTypes = {
-  value: propTypes.string.isRequired,
+  value: propTypes.number.isRequired,
   selectHandler: propTypes.func.isRequired,
 };

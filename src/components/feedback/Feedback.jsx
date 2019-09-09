@@ -1,41 +1,101 @@
 import React from 'react';
+import { Query } from 'react-apollo';
+import { GET_SURVEY_DETAILS } from '../../graphql/queries';
 import { Container, Title } from './styles';
 import TextResponse from './TextResponse';
 import RatingResponse from './RatingResposne/RatingResponse';
 
-export default function Feedback() {
-  const changeHandler = (e) => {
+export default class Feedback extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      surveyId: '',
+      answers: [],
+    };
+  }
+
+  componentDidMount() {
+    const {
+      match: {
+        params: { surveyId },
+      },
+    } = this.props;
+    if (surveyId) {
+      this.setState({ surveyId });
+    }
+  }
+
+  changeHandler = (e, questionId) => {
     e.preventDefault(); // this is not needed
+    console.log(questionId);
   };
-  return (
-    <Container>
-      <Title>My build week performance survey</Title>
-      <div className="form-group">
-        <TextResponse
-          question="2. Any suggestions on how I can improve on my performance?"
-          changeHandler={changeHandler}
-        />
-      </div>
-      <div className="form-group">
-        <TextResponse
-          question="3. Any suggestions on how I can improve on my performance?"
-          changeHandler={changeHandler}
-        />
-      </div>
-      <div className="form-group">
-        <TextResponse
-          question="4. Any suggestions on how I can improve on my performance?"
-          changeHandler={changeHandler}
-        />
-      </div>
-      <div className="form-group">
-        <RatingResponse question="5. On scale of 1 to 10, how would you rate my communication skill?" />
-      </div>
-      <div className="form-group">
-        <button className="btn btn-info btn-block mt-4" type="submit">
-          Submit
-        </button>
-      </div>
-    </Container>
-  );
+
+  ratingHandler = (value, questionId) => {
+    alert(questionId);
+  };
+
+  initializeAnswers = (questions) => {
+    const { surveyId } = this.state;
+    const answers = questions.map((q) => {
+      if (q.type === 'rating') {
+        return { questionId: q.id, surveyId, rating: '' };
+      }
+      return { questionId: q.id, surveyId, comment: '' };
+    });
+    this.setState({ answers });
+  };
+
+  render() {
+    const { surveyId } = this.state;
+    return (
+      <Container>
+        <Query
+          query={GET_SURVEY_DETAILS}
+          variables={{ surveyId }}
+          onCompleted={({ getSurveyDetails: { questions } }) => this.initializeAnswers(questions)}
+        >
+          {({ data, loading, error }) => {
+            if (loading) return <p>Loading....</p>;
+            if (error) return <div>{error.toString()}</div>;
+            const {
+              getSurveyDetails: { title, questions },
+            } = data;
+            return (
+              <>
+                <Title>{title}</Title>
+                { questions.map((q, i) => {
+                  if (q.type === 'rating') {
+                    return (
+                      <div className="form-group" key={q.id}>
+                        <RatingResponse
+                          question={q}
+                          handleRating={this.ratingHandler}
+                          index={i}
+                        />
+                      </div>
+                    );
+                  }
+                  return (
+                    <div className="form-group" key={q.id}>
+                      <TextResponse
+                        question={q}
+                        changeHandler={this.changeHandler}
+                        index={i}
+                      />
+                    </div>
+                  );
+                })}
+                <div className="form-group">
+                  <button className="btn btn-info btn-block mt-4" type="submit">
+                    Submit
+                  </button>
+                </div>
+              </>
+            );
+          }}
+        </Query>
+      </Container>
+    );
+  }
 }

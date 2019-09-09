@@ -104,8 +104,8 @@ class Navigation extends React.Component {
             </div>
           ) : (
             <NavItems>
-              <Link to="/signup">Sign Up</Link>
-              <Link to="/signin">Sign In</Link>
+              <Link to="/register">Sign Up</Link>
+              <Link to="/login">Sign In</Link>
             </NavItems>
           )}
         </div>
