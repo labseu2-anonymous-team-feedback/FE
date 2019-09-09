@@ -21,6 +21,7 @@ import {
   SurveyWrapper,
   InputButtonWrapper,
   DashboardWrapper,
+  UserArrow,
 } from './DashboardStyles';
 
 import {
@@ -92,9 +93,14 @@ export function Dashboard() {
                 <div className="user-status-inner">4 responses</div>
               </UserStatus>
               <UserStatus2>
-                <div className="user-status-inner2">My Surveys</div>
                 <div className="user-status-inner2">
-                  Profile Settings
+                  <span>My Surveys</span>
+                  <UserArrow src={arrow} />
+                </div>
+
+                <div className="user-status-inner2">
+                  <span>Profile Settings</span>
+                  <UserArrow src={arrow} />
                 </div>
               </UserStatus2>
             </UserContainer>

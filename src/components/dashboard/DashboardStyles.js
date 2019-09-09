@@ -120,6 +120,9 @@ export const UserStatus2 = styled.div`
     padding: 0.5rem;
     border: 1px solid grey;
     border-radius: 3px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
   }
 `;
 
@@ -128,6 +131,12 @@ export const UserImg = styled.img`
   display: flex;
   justify-content: center;
 `;
+
+export const UserArrow = styled.img`
+  width: 18%;
+
+`;
+
 
 export const InputText = styled.input`
   border: 2px solid white;
