@@ -132,20 +132,25 @@ export const UserImg = styled.img`
 `;
 
 export const InputText = styled.input`
-  border: 2px solid white;
-  -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
-    0 0 16px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
-    0 0 16px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
-    0 0 16px rgba(0, 0, 0, 0.1);
-  padding: 5px;
-  width: 100%;
-  width: 400px;
-  box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.5);
-  margin: 0 0 9px 0;
-`;
+         border: 2px solid white;
+         -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
+           0 0 16px rgba(0, 0, 0, 0.1);
+         -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
+           0 0 16px rgba(0, 0, 0, 0.1);
+         box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
+           0 0 16px rgba(0, 0, 0, 0.1);
+         padding: 5px;
+         width: 100%;
+         width: 400px;
+         box-sizing: border-box;
+         background: rgba(255, 255, 255, 0.5);
+         margin: 0 0 9px 0;
+
+         @media (max-width: 500px) {
+           width:270px;
+
+         }
+       `;
 
 export const Button = styled.button`
   width: 8em;
@@ -177,19 +182,25 @@ export const MainInputAndButtonWrapper = styled.div`
 `;
 
 export const InputAndButtonWrapper = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
+         display: flex;
+         width: 100%;
+         justify-content: space-between;
 
-  @media (max-width: 700px) {
-    display: flex;
-    flex-direction: column;
-  }
-`;
+         @media (max-width: 700px) {
+           display: flex;
+           flex-direction: column;
+         }
+
+       `;
 
 export const InputButtonWrapper = styled.div`
   width:100%;
   display:flex;
   margin-bottom: 2rem;
-  margin-top: 1rem'
+  margin-top: 1rem;
+
+  @media (max-width: 500px) {
+           padding-right: 2rem;
+         }
+
 `;
