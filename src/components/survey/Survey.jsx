@@ -7,13 +7,13 @@ import {
 export function Survey(props) {
   return (
     <div>
-      {props.data.map( (survey) => (
+      {props.data.map(survey => (
         <IndividualSurvey key={survey.title}>
-          <h3>Survey</h3>
-          {survey.title}
+          <h2>Survey</h2>
           <br />
-          {survey.owner.username}
+          <p>{survey.title}</p>
           <br />
+          <p>{survey.owner.username}</p>
           <br />
           <SurveyButton>View More</SurveyButton>
         </IndividualSurvey>

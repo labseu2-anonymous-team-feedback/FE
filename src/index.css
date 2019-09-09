@@ -142,12 +142,6 @@ img {
   max-width: 100%;
 }
 
-p {
-  font-size: 1.2em;
-  line-height: 1.0em;
-  color: #333;
-}
-
 
 
 body {
@@ -160,6 +154,7 @@ body {
   background: #f3f7f9;
   font-family: 'Miriam Libre', sans-serif;
   line-height: 1;
+
 }
 
 
@@ -184,7 +179,3 @@ code {
   background-color: #92c619;
   border-radius: 5px;
 }
-
-
-
-
