@@ -79,6 +79,12 @@ export const UserContainer = styled.div`
     padding-bottom: 1.3rem;
   }
 
+  @media (max-width: 1400px) {
+    display: flex;
+    width: 85%;
+    padding: 1rem;
+  }
+
   @media (max-width: 800px) {
     display: flex;
     width: 65%;
