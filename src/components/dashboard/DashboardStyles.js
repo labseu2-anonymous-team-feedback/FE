@@ -159,18 +159,18 @@ export const InputText = styled.input`
 `;
 
 export const Button = styled.button`
-  width: 8em;
-  height: 2.5em;
-  color: #fff;
-  background: #3ba7c9;
-  padding: 1px;
-  border: 2px solid #494949 !important;
-  border-radius: 3px;
+         width: 8em;
+         height: 2.5em;
+         color: #fff;
+         background: #1a81ff;
+         padding: 1px;
+         border: 2px solid #494949 !important;
+         border-radius: 3px;
 
-  &:hover {
-    background-color: lightgrey;
-  }
-`;
+         &:hover {
+           background-color: lightgrey;
+         }
+       `;
 
 export const IndividualSurvey = styled.div`
   border: 1px solid black;
