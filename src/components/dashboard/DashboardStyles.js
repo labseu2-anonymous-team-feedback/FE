@@ -191,6 +191,13 @@ export const InputText = styled.input`
   background: rgba(255, 255, 255, 0.5);
   margin: 0 0 9px 0;
 
+  &:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgba(81, 203, 238, 1);
+  }
+
   @media (max-width: 500px) {
     width: 270px;
   }
@@ -212,11 +219,14 @@ export const Button = styled.button`
 
 export const IndividualSurvey = styled.div`
   border: 1px solid black;
-  border-radius: 3px;
   max-width: 100%;
   padding: 1rem;
   margin-bottom: 1.5rem;
   background-color: #94c1f7;
+  -webkit-border-radius: 4px 3px 6px 10px;
+  -moz-border-radius: 4px 3px 6px 10px;
+  -o-border-radius: 4px 3px 6px 10px;
+  border-radius: 4px 3px 6px 10px;
 
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
     0 6px 6px rgba(0, 0, 0, 0.23);
