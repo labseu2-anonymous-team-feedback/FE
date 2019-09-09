@@ -88,6 +88,7 @@ class Feedback extends React.Component {
 
   submitHandler = async (e) => {
     e.preventDefault();
+
     const { client } = this.props;
     const { answers } = this.state;
     const isValid = this.validateInput();
@@ -100,7 +101,7 @@ class Feedback extends React.Component {
         });
         if (data) {
           toast.success('Feedback sent, Thank you 😍');
-          this.setState({ isLoading: false });
+          this.setState({ isLoading: false, answers: [] });
         }
       } catch (error) {
         toast.error('An error occurred trying to save your response');
