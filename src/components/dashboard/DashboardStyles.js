@@ -20,9 +20,6 @@ export const UserWrapper = styled.div`
          }
 
 
-
-
-
        `;
 
 export const DashboardWrapper = styled.div`
@@ -81,6 +78,13 @@ export const UserContainer = styled.div`
            display: flex;
            width: 70%;
            padding: 1rem;
+         }
+
+         @media (max-width: 520px) {
+           display: flex;
+           width: 85%;
+           padding: 1rem;
+           margin-top: 1.5rem;
          }
        `;
 
