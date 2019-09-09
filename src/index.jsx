@@ -43,7 +43,11 @@ const client = new ApolloClient({
 ReactDOM.render(
   <ApolloProvider client={client}>
     <App />
-    <ToastContainer autoClose={3000} position="top-right" hideProgressBar />
+    <ToastContainer
+      autoClose={3000}
+      position="top-right"
+      hideProgressBar
+    />
   </ApolloProvider>,
   document.getElementById('root'),
 );
