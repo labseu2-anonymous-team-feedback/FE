@@ -1,19 +1,26 @@
 import styled from 'styled-components';
 
 export const DashboardContainer = styled.section`
-  margin: 0 auto;
   display: flex;
+  justify-content: flex-start;
   background: #ececec;
-  box-sizing: border-box;
   padding-top: 5rem;
 `;
 
 export const UserWrapper = styled.div`
-  width: 80%;
+  width: 30%;
   padding: 1rem;
-  margin-top: 2.5rem;
+  margin-top: 3.5rem;
 
-  @media (max-width: 700px) {
+  @media (max-width: 1150px) {
+    width: 50%;
+  }
+
+  @media (max-width: 980px) {
+    width: 50%;
+  }
+
+  @media (max-width: 780px) {
     display: flex;
     width: 95%;
     padding: 1rem;
@@ -46,7 +53,7 @@ export const SurveyWrapper = styled.div`
   padding: 1rem;
   padding-top: 4rem;
   display: flex;
-  width: 90%;
+  width: 50%;
   justify-content: flex-start;
 
   @media (max-width: 1200px) {
@@ -61,7 +68,7 @@ export const SurveyInputWrapper = styled.div`
 
 export const UserContainer = styled.div`
   display: flex;
-  width: 50%;
+  width: 80%;
   flex-direction: column;
   background: #ffff;
   padding: 1rem;
@@ -219,7 +226,6 @@ export const Button = styled.button`
 
 export const IndividualSurvey = styled.div`
   border: 1px solid black;
-  max-width: 100%;
   padding: 1rem;
   margin-bottom: 1.5rem;
   background-color: #94c1f7;
