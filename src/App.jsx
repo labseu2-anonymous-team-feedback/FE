@@ -7,6 +7,7 @@ import PrivateRoute from './components/common/PrivateRoute';
 import Footer from './components/common/Footer';
 import Spinner from './components/common/Spinner';
 import FeedbackResponse from './components/feedback/Feedback';
+import Success from './components/common/success/Success';
 
 const Signup = React.lazy(() => import('./components/auth/signup/Signup'));
 
@@ -54,6 +55,7 @@ function App() {
           <PrivateRoute exact path="/" component={CreateSurvey} />
           <Route exact path="/dashboard" component={userDashboard} />
           <Route path="/take_survey/:surveyId" component={FeedbackResponse} />
+          <Route path="/success" component={Success} />
         </Switch>
       </React.Suspense>
       <Footer />
