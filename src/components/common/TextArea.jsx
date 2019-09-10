@@ -5,7 +5,7 @@ const TextArea = ({
   id, name, value, label, onChange, rows, className,
 }) => (
   <>
-    <label htmlFor={id}>{label}</label>
+    <label htmlFor={id} className="pb-3">{label}</label>
     <textarea
       id={id}
       name={name}
