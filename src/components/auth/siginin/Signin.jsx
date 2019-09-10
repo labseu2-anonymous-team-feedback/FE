@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { withApollo } from 'react-apollo';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { trimError } from '../../../utils';
@@ -50,7 +50,8 @@ function Signin({ client }) {
   }
 
   if (success) {
-    return <Redirect to="/" />;
+    window.location.href = '/';
+    // return <Redirect to="/" />;
   }
 
   return (

@@ -14,7 +14,9 @@ import NewPassword from './components/auth/resetPassword/NewPassword';
 function App() {
   return (
     <Router>
-      <Route exact path="/" component={Navigation} />
+      {/* <Route exact path="/" component={Navigation} /> */}
+      {/* {this.props.auth.isSignedIn === true ? <Navigation /> : ''} */}
+      <Navigation />
       <Route exact path="/verify_account/:verifyToken" component={Navigation} />
       <Route exact path="/register" component={Signup} />
       <Route exact path="/login" component={Signin} />
