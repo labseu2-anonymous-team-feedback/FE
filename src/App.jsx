@@ -31,28 +31,28 @@ function App() {
     <Router>
       <React.Suspense fallback={<Spinner />}>
         <Navigation />
-        <Route
-          exact
-          path="/verify_account/:verifyToken"
-          component={Navigation}
-        />
-        <Route exact path="/register" component={Signup} />
-        <Route exact path="/login" component={Signin} />
-        <Route exact path="/resetPassword" component={ResetPassword} />
-        <Route
-          exact
-          path="/resetPasswordConfirmation"
-          component={ResetPasswordConfirmation}
-        />
-        <Route
-          exact
-          path="/password_reset/:resetToken"
-          component={NewPassword}
-        />
         <Switch>
+          <Route
+            exact
+            path="/verify_account/:verifyToken"
+            component={Navigation}
+          />
+          <Route exact path="/register" component={Signup} />
+          <Route exact path="/login" component={Signin} />
+          <Route exact path="/resetPassword" component={ResetPassword} />
+          <Route
+            exact
+            path="/resetPasswordConfirmation"
+            component={ResetPasswordConfirmation}
+          />
+          <Route
+            exact
+            path="/password_reset/:resetToken"
+            component={NewPassword}
+          />
           <PrivateRoute exact path="/" component={CreateSurvey} />
+          <Route exact path="/dashboard" component={userDashboard} />
         </Switch>
-        <PrivateRoute exact path="/dashboard" component={userDashboard} />
       </React.Suspense>
       <Footer />
     </Router>
