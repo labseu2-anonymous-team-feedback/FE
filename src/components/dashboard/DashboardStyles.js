@@ -31,6 +31,10 @@ export const UserWrapper = styled.div`
     width: 98%;
     padding: 1rem;
   }
+
+  @media (max-width: 300px) {
+    width: 100%;
+  }
 `;
 
 export const DashboardWrapper = styled.div`
@@ -102,6 +106,11 @@ export const UserContainer = styled.div`
   @media (max-width: 400px) {
     display: flex;
     width: 99%;
+    padding: 1rem;
+  }
+
+  @media (max-width: 300px) {
+    width: 120%;
     padding: 1rem;
   }
 `;
@@ -211,6 +220,14 @@ export const InputText = styled.input`
   @media (max-width: 500px) {
     width: 270px;
   }
+
+  @media (max-width: 350px) {
+    width: 240px;
+  }
+
+  @media (max-width: 300px) {
+    width: 180px;
+  }
 `;
 
 export const Button = styled.button`
@@ -258,6 +275,11 @@ export const IndividualSurvey = styled.div`
 
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
     0 6px 6px rgba(0, 0, 0, 0.23);
+
+  @media (max-width: 300px) {
+    width: 130%;
+    padding: 1rem;
+  }
 `;
 
 export const MainInputAndButtonWrapper = styled.div`
