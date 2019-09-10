@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { withApollo } from 'react-apollo';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-import { trimError } from '../../../utils';
+import { trimError, isLoggedIn } from '../../../utils';
 import { LOGIN_MUTATION } from '../../../graphql/mutations';
 import GoogleButton from '../../../assets/images/google-button.png';
 import StyledSignin from './StyledSignin';
@@ -17,6 +17,11 @@ function Signin({ client }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setLoading] = useState(false);
+
+  const isSignedIn = isLoggedIn();
+  if (isSignedIn) {
+    return <Redirect to="/" />;
+  }
 
   const { mutate } = client;
 

@@ -31,6 +31,10 @@ export const UserWrapper = styled.div`
     width: 98%;
     padding: 1rem;
   }
+
+  @media (max-width: 300px) {
+    width: 100%;
+  }
 `;
 
 export const DashboardWrapper = styled.div`
@@ -86,21 +90,15 @@ export const UserContainer = styled.div`
     padding: 1rem;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 780px) {
     display: flex;
-    width: 70%;
-    padding: 1rem;
-  }
-
-  @media (max-width: 700px) {
-    display: flex;
-    width: 65%;
+    width: 60%;
     padding: 1rem;
   }
 
   @media (max-width: 520px) {
     display: flex;
-    width: 85%;
+    width: 80%;
     padding: 1rem;
     margin-top: 1.5rem;
   }
@@ -108,6 +106,11 @@ export const UserContainer = styled.div`
   @media (max-width: 400px) {
     display: flex;
     width: 99%;
+    padding: 1rem;
+  }
+
+  @media (max-width: 300px) {
+    width: 120%;
     padding: 1rem;
   }
 `;
@@ -139,28 +142,28 @@ export const UserStatus = styled.div`
 `;
 
 export const UserStatus2 = styled.div`
-  padding: 0.5rem;
-  border-radius: 3px;
+         padding: 0.5rem;
+         border-radius: 3px;
 
-  .user-status-inner2 {
-    background-color: #b8d5fa;
-    padding: 0.5rem;
-    border: 1px solid grey;
-    border-radius: 3px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-overflow: ellipsis;
+         .user-status-inner2 {
+           background-color: #cfedfe;
+           padding: 0.5rem;
+           border: 1px solid grey;
+           border-radius: 3px;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           text-overflow: ellipsis;
 
-    @media (max-width: 400px) {
-      width: 110%;
-    }
-  }
+           @media (max-width: 400px) {
+             width: 110%;
+           }
+         }
 
-  @media (max-width: 400px) {
-    padding: 1.5rem;
-  }
-`;
+         @media (max-width: 400px) {
+           padding: 1.5rem;
+         }
+       `;
 
 export const UserImg = styled.img`
   width: 40%;
@@ -217,54 +220,67 @@ export const InputText = styled.input`
   @media (max-width: 500px) {
     width: 270px;
   }
+
+  @media (max-width: 350px) {
+    width: 240px;
+  }
+
+  @media (max-width: 300px) {
+    width: 180px;
+  }
 `;
 
 export const Button = styled.button`
-  width: 8em;
-  height: 2.5em;
-  color: #fff;
-  background: #338fff;
-  padding: 1px;
-  border: 2px solid #494949 !important;
-  border-radius: 3px;
-  -webkit-font-smoothing: inherit;
-  cursor: pointer;
+         width: 8em;
+         height: 2.5em;
+         color: #fff;
+         background: #14799e;
+         padding: 1px;
+         border: 2px solid #494949 !important;
+         border-radius: 3px;
+         -webkit-font-smoothing: inherit;
+         cursor: pointer;
 
-  &:hover {
-    background-color: lightgrey;
-  }
-`;
+         &:hover {
+           background-color: #ffc247;
+         }
+       `;
 
 export const SurveyButton = styled.button`
-  width: 7em;
-  height: 2em;
-  color: #fff;
-  background: #338fff;
-  padding: 1px;
-  border: 2px solid #494949 !important;
-  border-radius: 3px;
-  -webkit-font-smoothing: inherit;
-  cursor: pointer;
+         width: 7em;
+         height: 2em;
+         color: #fff;
+         background: #14799e;
+         padding: 1px;
+         border: 2px solid #494949 !important;
+         border-radius: 3px;
+         -webkit-font-smoothing: inherit;
+         cursor: pointer;
 
-  &:hover {
-    background-color: lightgrey;
-  }
-`;
+         &:hover {
+           background-color: #ffc247;
+         }
+       `;
 
 export const IndividualSurvey = styled.div`
-  border: 1px solid black;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  background-color: #94c1f7;
-  -webkit-border-radius: 4px 3px 6px 10px;
-  -moz-border-radius: 4px 3px 6px 10px;
-  -o-border-radius: 4px 3px 6px 10px;
-  border-radius: 4px 3px 6px 10px;
-  text-overflow: ellipsis;
+         border: 1px solid black;
+         padding: 1rem;
+         margin-bottom: 1.5rem;
+         background-color: #CFEDFE;
+         -webkit-border-radius: 4px 3px 6px 10px;
+         -moz-border-radius: 4px 3px 6px 10px;
+         -o-border-radius: 4px 3px 6px 10px;
+         border-radius: 4px 3px 6px 10px;
+         text-overflow: ellipsis;
 
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
-    0 6px 6px rgba(0, 0, 0, 0.23);
-`;
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+           0 6px 6px rgba(0, 0, 0, 0.23);
+
+         @media (max-width: 300px) {
+           width: 130%;
+           padding: 1rem;
+         }
+       `;
 
 export const MainInputAndButtonWrapper = styled.div`
   display: flex;
@@ -277,7 +293,7 @@ export const InputAndButtonWrapper = styled.div`
   width: 100%;
   justify-content: space-between;
 
-  @media (max-width: 700px) {
+  @media (max-width: 730px) {
     display: flex;
     flex-direction: column;
   }
