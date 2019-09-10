@@ -5,6 +5,7 @@ import { withApollo } from 'react-apollo';
 import Navigation from './components/common/Navigation';
 import PrivateRoute from './components/common/PrivateRoute';
 import Footer from './components/common/Footer';
+import Spinner from './components/common/Spinner';
 
 const Signup = React.lazy(() => import('./components/auth/signup/Signup'));
 
@@ -28,7 +29,7 @@ const NewPassword = React.lazy(() =>
 function App() {
   return (
     <Router>
-      <React.Suspense fallback={<p>Please wait</p>}>
+      <React.Suspense fallback={<Spinner />}>
         <Navigation />
         <Route
           exact
