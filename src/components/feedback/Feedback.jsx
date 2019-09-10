@@ -90,7 +90,7 @@ class Feedback extends React.Component {
   submitHandler = async (e) => {
     e.preventDefault();
     const userId = getUserIdFromToken();
-    const { client } = this.props;
+    const { client, history } = this.props;
     const { answers, surveyId } = this.state;
     const feedbackData = { surveyId, ...(userId && { userId }), responses: answers };
     const isValid = this.validateInput();
@@ -104,6 +104,7 @@ class Feedback extends React.Component {
         if (data) {
           toast.success('Feedback sent, Thank you 😍');
           this.setState({ isLoading: false, answers: [] });
+          history.push('/success');
         }
       } catch (error) {
         toast.error('An error occurred trying to save your response 😔');
@@ -181,6 +182,9 @@ Feedback.propTypes = {
   }).isRequired,
   client: propTypes.shape({
     mutate: propTypes.func.isRequired,
+  }).isRequired,
+  history: propTypes.shape({
+    push: propTypes.func.isRequired,
   }).isRequired,
 };
 
