@@ -17,7 +17,18 @@ query getUserSurveys {
     }
   }
 }
-
+`;
+const GET_SURVEY_DETAILS = gql`
+  query getSurveyDetails($surveyId: String!) {
+    getSurveyDetails(surveyId: $surveyId) {
+      title
+      questions {
+        id
+        question
+        type
+      }
+    }
+  }
 `;
 
-export { IS_LOGGED_IN, GET_SURVEYS };
+export { IS_LOGGED_IN, GET_SURVEYS, GET_SURVEY_DETAILS };
