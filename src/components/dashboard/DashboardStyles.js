@@ -86,21 +86,15 @@ export const UserContainer = styled.div`
     padding: 1rem;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 780px) {
     display: flex;
-    width: 70%;
-    padding: 1rem;
-  }
-
-  @media (max-width: 700px) {
-    display: flex;
-    width: 65%;
+    width: 60%;
     padding: 1rem;
   }
 
   @media (max-width: 520px) {
     display: flex;
-    width: 85%;
+    width: 80%;
     padding: 1rem;
     margin-top: 1.5rem;
   }
