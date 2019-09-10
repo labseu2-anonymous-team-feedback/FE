@@ -12,7 +12,7 @@ import {
 import StyledSignup from './StyledSignup';
 import GoogleButton from '../../../assets/images/google-button.png';
 import TextInput from '../../common/TextInput';
-import { trimError } from '../../../utils';
+import { trimError, isLoggedIn } from '../../../utils';
 import Button from '../../../styles/Button';
 import { LoadIngIcon } from '../../feedback/styles';
 
@@ -35,6 +35,7 @@ class Signup extends Component {
   componentDidMount() {
     const { location } = this.props;
     const { search } = location;
+
     const parsed = queryString.parse(search);
     if (parsed.google) {
       this.mutate({
@@ -105,6 +106,12 @@ class Signup extends Component {
     const { location } = this.props;
     const { search } = location;
     const parsed = queryString.parse(search);
+
+    const isSignedIn = isLoggedIn();
+    if (isSignedIn) {
+      return <Redirect to="/" />;
+    }
+
     if (error) {
       if (trimError(error.message) === 'Validation error') {
         toast(error.graphQLErrors[0].extensions.exception.errors[0].message, {

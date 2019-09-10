@@ -57,6 +57,7 @@ export const Text = styled.p`
   }
   color: #000000;
   width: 100%;
+  padding-bottom: 1rem;
 `;
 
 export const TextArea = styled.textarea`
