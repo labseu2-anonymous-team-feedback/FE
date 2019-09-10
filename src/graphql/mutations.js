@@ -77,7 +77,7 @@ const GOOGLE_AUTH_MUTATION = gql`
 `;
 
 const SAVE_FEEDBACK = gql`
- mutation saveFeedback($input: FeedbackInputArray!) {
+ mutation saveFeedback($input: FeedbackInput!) {
    saveFeedback(input: $input) {
      message
    }

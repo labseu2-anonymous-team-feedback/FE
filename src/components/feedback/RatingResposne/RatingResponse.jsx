@@ -35,7 +35,7 @@ export default function RatingResponse({ question, handleRating, index }) {
         <div className="upper">Excellent</div>
       </Label>
       <Wrapper>
-        {[...new Array(5)].map((_, i) => (
+        {[...new Array(10)].map((_, i) => (
 
           <Rating
             // eslint-disable-next-line react/no-array-index-key

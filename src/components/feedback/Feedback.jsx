@@ -7,6 +7,7 @@ import { SAVE_FEEDBACK } from '../../graphql/mutations';
 import { Container, Title, LoadIngIcon } from './styles';
 import TextResponse from './TextResponse';
 import RatingResponse from './RatingResposne/RatingResponse';
+import { getUserIdFromToken } from '../../utils';
 
 class Feedback extends React.Component {
   constructor(props) {
@@ -62,12 +63,11 @@ class Feedback extends React.Component {
       const {
         getSurveyDetails: { questions },
       } = data;
-      const { surveyId } = this.state;
       const answers = questions.map((q) => {
         if (q.type === 'rating') {
-          return { questionId: q.id, surveyId, rating: '' };
+          return { questionId: q.id, rating: '' };
         }
-        return { questionId: q.id, surveyId, comment: '' };
+        return { questionId: q.id, comment: '' };
       });
       this.setState({ answers });
     }
@@ -88,23 +88,24 @@ class Feedback extends React.Component {
 
   submitHandler = async (e) => {
     e.preventDefault();
-
+    const userId = getUserIdFromToken();
     const { client } = this.props;
-    const { answers } = this.state;
+    const { answers, surveyId } = this.state;
+    const feedbackData = { surveyId, ...(userId && { userId }), responses: answers };
     const isValid = this.validateInput();
     if (isValid) {
       try {
         this.setState({ isLoading: true });
         const { data } = await client.mutate({
           mutation: SAVE_FEEDBACK,
-          variables: { input: { responses: answers } },
+          variables: { input: feedbackData },
         });
         if (data) {
           toast.success('Feedback sent, Thank you 😍');
           this.setState({ isLoading: false, answers: [] });
         }
       } catch (error) {
-        toast.error('An error occurred trying to save your response');
+        toast.error('An error occurred trying to save your response 😔');
         this.setState({ isLoading: false });
       }
     } else {
@@ -158,7 +159,7 @@ class Feedback extends React.Component {
                     type="submit"
                     onClick={this.submitHandler}
                   >
-                    { isLoading ? 'processing... ' : 'Submit' }
+                    { isLoading ? 'Processing... ' : 'Submit' }
                     {isLoading && <LoadIngIcon />}
                   </button>
                 </div>

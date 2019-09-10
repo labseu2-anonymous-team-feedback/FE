@@ -4,20 +4,21 @@ import { FaSpinner } from 'react-icons/fa';
 export const Container = styled.div`
   width: 804px;
   background: #ffffff;
-  margin: 4rem auto;
-  @media (max-width: 500px) {
-    width: 100%;
-  }
+  margin: 8rem auto;
   display: flex;
   flex-direction: column;
-  padding: 68px;
+  padding: 6.8rem;
+  @media (max-width: 500px) {
+    width: 100%;
+    padding: 2.4rem;
+  }
 `;
 
 export const Title = styled.h2`
   font-family: Baloo Thambi;
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 28px;
   text-align: center;
   position: relative;
@@ -48,8 +49,12 @@ export const Text = styled.p`
   font-family: Miriam Libre;
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 24px;
+  @media (min-width: 499px) and (max-width: 768px) {
+    font-size: 32px;
+    line-height: 48px;
+  }
   color: #000000;
   width: 100%;
 `;

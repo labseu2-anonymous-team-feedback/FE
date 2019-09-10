@@ -13,15 +13,15 @@ export const Label = styled.div`
   align-items: center;
   justify-content: space-between;
   div:first-of-type {
-    color: red;
+    color: #E02F3A;
   }
   div:nth-of-type(2) {
-    color: green;
+    color: #76A80B;
   }
 `;
 
 export const Wrapper = styled.div`
-  border: 1px solid #43bccd;
+  border: 1px solid #00B8D1;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -43,12 +43,12 @@ export const RatingWrapper = styled.div`
     cursor: pointer;
   }
   &.selected {
-    background: #43bccd;
+    background: #00B8D1;
     color: white;
     transition: background-color 0.2s ease-in-out;
   }
   @media (max-width: 500px) {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
   }
 `;

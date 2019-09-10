@@ -26,4 +26,17 @@ const trimError = (error) => {
   return response;
 };
 
+export const getUserIdFromToken = () => {
+  try {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const { __uuid } = jwtDecode(token);
+      return __uuid;
+    }
+    return null;
+  } catch (error) {
+    return null;
+  }
+};
+
 export { isLoggedIn, trimError };
