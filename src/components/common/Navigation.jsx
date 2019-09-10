@@ -52,7 +52,7 @@ class Navigation extends React.Component {
     }
   }
 
-  logout = (e) => {
+  logout = e => {
     e.preventDefault();
     localStorage.clear();
     this.setState({ user: null });
@@ -82,7 +82,9 @@ class Navigation extends React.Component {
                   <div id="user-nav-div-left">
                     <img alt="avatar" src={avatar} />
                     <div className="user-info">
-                      <span id="username-nav-span">{user.username}</span>
+                      <span id="username-nav-span">
+                        {user.username}
+                      </span>
                       <Triangle id="triangle-nav" />
                     </div>
                   </div>
@@ -94,7 +96,11 @@ class Navigation extends React.Component {
                   <Link className="dropdown-item" to="/dashboard">
                     Dashboard
                   </Link>
-                  <a className="dropdown-item" href="##" onClick={this.logout}>
+                  <a
+                    className="dropdown-item"
+                    href="##"
+                    onClick={this.logout}
+                  >
                     Logout
                   </a>
                 </div>
