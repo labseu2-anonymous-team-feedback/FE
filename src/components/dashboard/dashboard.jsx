@@ -26,11 +26,7 @@ import {
   UserSettings,
 } from './DashboardStyles';
 
-import {
-  NavigationNav,
-  Triangle,
-  NavItems,
-} from '../common/NavBarStyles';
+import { NavigationNav, Triangle, NavItems } from '../common/NavBarStyles';
 import { Survey } from '../survey/Survey';
 
 export function Dashboard() {

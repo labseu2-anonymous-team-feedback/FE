@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { withApollo } from 'react-apollo';
 import jwtDecode from 'jwt-decode';
 import { toast } from 'react-toastify';
@@ -24,7 +24,6 @@ class Navigation extends React.Component {
       match: { params },
     } = this.props;
     const { client } = this.props;
-
     if (params && params.verifyToken) {
       client
         .mutate({
@@ -62,55 +61,55 @@ class Navigation extends React.Component {
 
   render() {
     const { user } = this.state;
-    return (
-      <NavigationNav className="navbar fixed-top navbar-dark white scrolling-navbar">
-        <div className="logo-div">
-          <Link to="/">
-            <img alt="logo" src={logo} className="logo" />
-          </Link>
-        </div>
-        <div className="auth-links">
-          {user ? (
-            <div className="dropdown">
-              <div
-                id="user-nav-div"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <div id="user-nav-div-left">
-                  <img alt="avatar" src={avatar} />
-                  <div className="user-info">
-                    <span id="username-nav-span">
-                      {user.username.length > 12
-                        ? `${user.username.substring(0, 12)}...`
-                        : user.username}
-                    </span>
+    if (user) {
+      return (
+        <NavigationNav className="navbar fixed-top navbar-dark white scrolling-navbar">
+          <div className="logo-div">
+            <Link to="/">
+              <img alt="logo" src={logo} className="logo" />
+            </Link>
+          </div>
+          <div className="auth-links">
+            {user ? (
+              <div className="dropdown">
+                <button
+                  type="button"
+                  id="user-nav-div"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <div id="user-nav-div-left">
+                    <img alt="avatar" src={avatar} />
+                    <div className="user-info">
+                      <span id="username-nav-span">{user.username}</span>
+                      <Triangle id="triangle-nav" />
+                    </div>
                   </div>
+                </button>
+                <div
+                  className="dropdown-menu dropdown-menu-right border-0 z-depth-1"
+                  aria-labelledby="user-nav-div"
+                >
+                  <Link className="dropdown-item" to="/dashboard">
+                    Dashboard
+                  </Link>
+                  <a className="dropdown-item" href="##" onClick={this.logout}>
+                    Logout
+                  </a>
                 </div>
-                <Triangle id="triangle-nav" />
               </div>
-              <div
-                className="dropdown-menu dropdown-menu-right border-0 z-depth-1"
-                aria-labelledby="user-nav-div"
-              >
-                <a className="dropdown-item" href="##">
-                  Dashboard
-                </a>
-                <a className="dropdown-item" href="##" onClick={this.logout}>
-                  Logout
-                </a>
-              </div>
-            </div>
-          ) : (
-            <NavItems>
-              <Link to="/signup">Sign Up</Link>
-              <Link to="/signin">Sign In</Link>
-            </NavItems>
-          )}
-        </div>
-      </NavigationNav>
-    );
+            ) : (
+              <NavItems>
+                <Link to="/register">Sign Up</Link>
+                <Link to="/login">Sign In</Link>
+              </NavItems>
+            )}
+          </div>
+        </NavigationNav>
+      );
+    }
+    return '';
   }
 }
 
@@ -125,4 +124,4 @@ Navigation.propTypes = {
   }).isRequired,
 };
 
-export default withApollo(Navigation);
+export default withRouter(withApollo(Navigation));

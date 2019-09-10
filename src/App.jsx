@@ -1,40 +1,36 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { withApollo } from 'react-apollo';
 
 import Navigation from './components/common/Navigation';
 import PrivateRoute from './components/common/PrivateRoute';
+import Footer from './components/common/Footer';
+import Spinner from './components/common/Spinner';
 
-const Signup = React.lazy(() =>
-  import('./components/auth/signup/Signup'));
+const Signup = React.lazy(() => import('./components/auth/signup/Signup'));
 
-const Signin = React.lazy(() =>
-  import('./components/auth/siginin/Signin'));
+const Signin = React.lazy(() => import('./components/auth/siginin/Signin'));
 
 const userDashboard = React.lazy(() =>
-  import('./components/dashboard/Dashboard'));
+  import('./components/dashboard/Dashboard'),);
 
 const CreateSurvey = React.lazy(() =>
-  import('./components/survey/CreateSurvey'));
+  import('./components/survey/CreateSurvey'),);
 
 const ResetPassword = React.lazy(() =>
-  import('./components/auth/resetPassword/ResetPassword'));
+  import('./components/auth/resetPassword/ResetPassword'),);
 
 const ResetPasswordConfirmation = React.lazy(() =>
-  import('./components/auth/resetPassword/ResetPasswordConfirmation'));
+  import('./components/auth/resetPassword/ResetPasswordConfirmation'),);
 
 const NewPassword = React.lazy(() =>
-  import('./components/auth/resetPassword/NewPassword'));
+  import('./components/auth/resetPassword/NewPassword'),);
 
 function App() {
   return (
     <Router>
-      <React.Suspense fallback={<p>Please wait</p>}>
-        <Route exact path="/" component={Navigation} />
+      <React.Suspense fallback={<Spinner />}>
+        <Navigation />
         <Route
           exact
           path="/verify_account/:verifyToken"
@@ -42,11 +38,7 @@ function App() {
         />
         <Route exact path="/register" component={Signup} />
         <Route exact path="/login" component={Signin} />
-        <Route
-          exact
-          path="/resetPassword"
-          component={ResetPassword}
-        />
+        <Route exact path="/resetPassword" component={ResetPassword} />
         <Route
           exact
           path="/resetPasswordConfirmation"
@@ -62,6 +54,7 @@ function App() {
         </Switch>
         <Route exact path="/dashboard" component={userDashboard} />
       </React.Suspense>
+      <Footer />
     </Router>
   );
 }
