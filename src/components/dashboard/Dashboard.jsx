@@ -27,7 +27,7 @@ import {
 import { Survey } from '../survey/Survey';
 
 export function Dashboard() {
-  const { data, loading, error } = useQuery(GET_SURVEYS);
+  const { data, loading } = useQuery(GET_SURVEYS);
   if (data.getUserSurveys) {
     return (
       <DashboardContainer>

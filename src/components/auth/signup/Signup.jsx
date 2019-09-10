@@ -14,6 +14,7 @@ import GoogleButton from '../../../assets/images/google-button.png';
 import TextInput from '../../common/TextInput';
 import { trimError } from '../../../utils';
 import Button from '../../../styles/Button';
+import { LoadIngIcon } from '../../feedback/styles';
 
 class Signup extends Component {
   constructor(props) {
@@ -56,8 +57,8 @@ class Signup extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     const {
-      username, email, password, confirmPassword,
-    } = this.state;
+ username, email, password, confirmPassword 
+} = this.state;
 
     if (password !== confirmPassword) {
       toast('Passwords do not match', {
@@ -175,6 +176,7 @@ class Signup extends Component {
           <div className="d-flex justify-content-around" />
           <Button className="btn btn-block my-4" type="submit">
             {isLoading ? 'processing... ' : 'Sign Up'}
+            {isLoading && <LoadIngIcon />}
           </Button>
           <div className="dividerContainer">
             <div className="divider">
