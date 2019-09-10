@@ -57,8 +57,8 @@ class Signup extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     const {
- username, email, password, confirmPassword 
-} = this.state;
+      username, email, password, confirmPassword,
+    } = this.state;
 
     if (password !== confirmPassword) {
       toast('Passwords do not match', {
