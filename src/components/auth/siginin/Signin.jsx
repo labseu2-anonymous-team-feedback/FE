@@ -9,6 +9,7 @@ import GoogleButton from '../../../assets/images/google-button.png';
 import StyledSignin from './StyledSignin';
 import TextInput from '../../common/TextInput';
 import Button from '../../../styles/Button';
+import { LoadIngIcon } from '../../feedback/styles';
 
 function Signin({ client }) {
   const [error, setError] = useState(false);
@@ -86,6 +87,7 @@ function Signin({ client }) {
         <div className="form-group my-4">
           <Button className="btn btn-block" type="submit">
             {isLoading ? 'processing... ' : 'Sign In'}
+            {isLoading && <LoadIngIcon />}
           </Button>
         </div>
 
