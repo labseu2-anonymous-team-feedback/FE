@@ -60,7 +60,7 @@ function App() {
         <Switch>
           <PrivateRoute exact path="/" component={CreateSurvey} />
         </Switch>
-        <Route exact path="/dashboard" component={userDashboard} />
+        <PrivateRoute exact path="/dashboard" component={userDashboard} />
       </React.Suspense>
     </Router>
   );
