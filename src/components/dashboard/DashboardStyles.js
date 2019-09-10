@@ -293,7 +293,7 @@ export const InputAndButtonWrapper = styled.div`
   width: 100%;
   justify-content: space-between;
 
-  @media (max-width: 700px) {
+  @media (max-width: 730px) {
     display: flex;
     flex-direction: column;
   }
