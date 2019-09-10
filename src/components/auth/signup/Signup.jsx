@@ -24,6 +24,7 @@ class Signup extends Component {
       confirmPassword: '',
       error: '',
       data: '',
+      isLoading: false,
     };
 
     this.mutate = props.client.mutate;
@@ -53,7 +54,6 @@ class Signup extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-
     const {
       username, email, password, confirmPassword,
     } = this.state;
@@ -75,6 +75,7 @@ class Signup extends Component {
         className: 'toast-error',
       });
     } else {
+      this.setState({ isLoading: true });
       this.mutate({
         mutation: CREATE_ACCOUNT,
         variables: {
@@ -83,8 +84,8 @@ class Signup extends Component {
           password,
         },
       })
-        .then((res) => this.setState({ data: res }))
-        .catch((err) => this.setState({ error: err }));
+        .then((res) => this.setState({ data: res, isLoading: false }))
+        .catch((err) => this.setState({ error: err, isLoading: false }));
     }
   };
 
@@ -96,6 +97,7 @@ class Signup extends Component {
       confirmPassword,
       error,
       data,
+      isLoading,
     } = this.state;
 
     const { location } = this.props;
@@ -171,7 +173,7 @@ class Signup extends Component {
           </div>
           <div className="d-flex justify-content-around" />
           <button className="btn btn-info btn-block my-4" type="submit">
-            Sign Up
+            {isLoading ? 'processing... ' : 'Sign Up'}
           </button>
           <div className="dividerContainer">
             <div className="divider">

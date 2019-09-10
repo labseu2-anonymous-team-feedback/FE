@@ -14,10 +14,13 @@ function Signin({ client }) {
   const [success, setSuccess] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setLoading] = useState(false);
 
   const { mutate } = client;
 
   const onSubmit = async (e) => {
+    setLoading(true);
+
     try {
       e.preventDefault();
       const res = await mutate({
@@ -27,11 +30,13 @@ function Signin({ client }) {
           password,
         },
       });
+      setLoading(false);
 
       localStorage.setItem('token', res.data.userLogin.token);
       localStorage.setItem('username', res.data.userLogin.username);
       setSuccess(true);
     } catch (err) {
+      setLoading(false);
       setError(err);
     }
   };
@@ -51,7 +56,6 @@ function Signin({ client }) {
 
   if (success) {
     window.location.href = '/';
-    // return <Redirect to="/" />;
   }
 
   return (
@@ -80,7 +84,7 @@ function Signin({ client }) {
 
         <div className="form-group my-4">
           <button className="btn btn-info btn-block" type="submit">
-            Sign In
+            {isLoading ? 'processing... ' : 'Sign In'}
           </button>
         </div>
 
