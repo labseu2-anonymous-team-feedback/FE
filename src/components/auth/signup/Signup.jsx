@@ -13,6 +13,7 @@ import StyledSignup from './StyledSignup';
 import GoogleButton from '../../../assets/images/google-button.png';
 import TextInput from '../../common/TextInput';
 import { trimError } from '../../../utils';
+import Button from '../../../styles/Button';
 
 class Signup extends Component {
   constructor(props) {
@@ -172,9 +173,9 @@ class Signup extends Component {
             </div>
           </div>
           <div className="d-flex justify-content-around" />
-          <button className="btn btn-info btn-block my-4" type="submit">
+          <Button className="btn btn-block my-4" type="submit">
             {isLoading ? 'processing... ' : 'Sign Up'}
-          </button>
+          </Button>
           <div className="dividerContainer">
             <div className="divider">
               <hr />

@@ -6,6 +6,7 @@ import { withApollo } from 'react-apollo';
 import { StyledNewPassword } from './StyledResetPassword';
 import TextInput from '../../common/TextInput';
 import { SET_NEW_PASSWORD } from '../../../graphql/mutations';
+import Button from '../../../styles/Button';
 
 class NewPassword extends React.Component {
   constructor(props) {
@@ -90,9 +91,9 @@ class NewPassword extends React.Component {
             required
           />
 
-          <button className="btn btn-info btn-block my-4" type="submit">
+          <Button className="btn btn-block my-4" type="submit">
             Update Password
-          </button>
+          </Button>
         </form>
       </StyledNewPassword>
     );
