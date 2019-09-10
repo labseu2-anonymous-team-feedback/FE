@@ -4,6 +4,7 @@ import { withApollo } from 'react-apollo';
 
 import Navigation from './components/common/Navigation';
 import PrivateRoute from './components/common/PrivateRoute';
+import Footer from './components/common/Footer';
 
 const Signup = React.lazy(() => import('./components/auth/signup/Signup'));
 
@@ -52,6 +53,7 @@ function App() {
         </Switch>
         <Route exact path="/dashboard" component={userDashboard} />
       </React.Suspense>
+      <Footer />
     </Router>
   );
 }
