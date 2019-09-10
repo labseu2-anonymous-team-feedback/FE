@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { withApollo } from 'react-apollo';
 import jwtDecode from 'jwt-decode';
 import { toast } from 'react-toastify';
@@ -24,7 +24,6 @@ class Navigation extends React.Component {
       match: { params },
     } = this.props;
     const { client } = this.props;
-
     if (params && params.verifyToken) {
       client
         .mutate({
@@ -62,6 +61,7 @@ class Navigation extends React.Component {
 
   render() {
     const { user } = this.state;
+
     return (
       <NavigationNav className="navbar fixed-top navbar-dark white scrolling-navbar">
         <div className="logo-div">
@@ -72,7 +72,8 @@ class Navigation extends React.Component {
         <div className="auth-links">
           {user ? (
             <div className="dropdown">
-              <div
+              <button
+                type="button"
                 id="user-nav-div"
                 data-toggle="dropdown"
                 aria-haspopup="true"
@@ -81,22 +82,18 @@ class Navigation extends React.Component {
                 <div id="user-nav-div-left">
                   <img alt="avatar" src={avatar} />
                   <div className="user-info">
-                    <span id="username-nav-span">
-                      {user.username.length > 12
-                        ? `${user.username.substring(0, 12)}...`
-                        : user.username}
-                    </span>
+                    <span id="username-nav-span">{user.username}</span>
+                    <Triangle id="triangle-nav" />
                   </div>
                 </div>
-                <Triangle id="triangle-nav" />
-              </div>
+              </button>
               <div
                 className="dropdown-menu dropdown-menu-right border-0 z-depth-1"
                 aria-labelledby="user-nav-div"
               >
-                <a className="dropdown-item" href="##">
+                <Link className="dropdown-item" to="/dashboard">
                   Dashboard
-                </a>
+                </Link>
                 <a className="dropdown-item" href="##" onClick={this.logout}>
                   Logout
                 </a>
@@ -125,4 +122,4 @@ Navigation.propTypes = {
   }).isRequired,
 };
 
-export default withApollo(Navigation);
+export default withRouter(withApollo(Navigation));

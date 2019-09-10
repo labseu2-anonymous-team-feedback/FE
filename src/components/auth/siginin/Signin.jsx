@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { withApollo } from 'react-apollo';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { trimError } from '../../../utils';
@@ -8,16 +8,20 @@ import { LOGIN_MUTATION } from '../../../graphql/mutations';
 import GoogleButton from '../../../assets/images/google-button.png';
 import StyledSignin from './StyledSignin';
 import TextInput from '../../common/TextInput';
+import Button from '../../../styles/Button';
 
 function Signin({ client }) {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setLoading] = useState(false);
 
   const { mutate } = client;
 
   const onSubmit = async (e) => {
+    setLoading(true);
+
     try {
       e.preventDefault();
       const res = await mutate({
@@ -27,11 +31,13 @@ function Signin({ client }) {
           password,
         },
       });
+      setLoading(false);
 
       localStorage.setItem('token', res.data.userLogin.token);
       localStorage.setItem('username', res.data.userLogin.username);
       setSuccess(true);
     } catch (err) {
+      setLoading(false);
       setError(err);
     }
   };
@@ -50,7 +56,7 @@ function Signin({ client }) {
   }
 
   if (success) {
-    return <Redirect to="/" />;
+    window.location.href = '/';
   }
 
   return (
@@ -78,9 +84,9 @@ function Signin({ client }) {
         />
 
         <div className="form-group my-4">
-          <button className="btn btn-info btn-block" type="submit">
-            Sign In
-          </button>
+          <Button className="btn btn-block" type="submit">
+            {isLoading ? 'processing... ' : 'Sign In'}
+          </Button>
         </div>
 
         <div className="dividerContainer">

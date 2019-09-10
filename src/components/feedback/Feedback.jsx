@@ -8,6 +8,7 @@ import { Container, Title, LoadIngIcon } from './styles';
 import TextResponse from './TextResponse';
 import RatingResponse from './RatingResposne/RatingResponse';
 import { getUserIdFromToken } from '../../utils';
+import Spinner from '../common/Spinner';
 
 class Feedback extends React.Component {
   constructor(props) {
@@ -123,7 +124,7 @@ class Feedback extends React.Component {
           onCompleted={(data) => this.initializeAnswers(data)}
         >
           {({ data, loading, error }) => {
-            if (loading) return <p>Loading....</p>;
+            if (loading) return <Spinner />;
             if (error) return <div>{error.toString()}</div>;
             const {
               getSurveyDetails: { title, questions },
