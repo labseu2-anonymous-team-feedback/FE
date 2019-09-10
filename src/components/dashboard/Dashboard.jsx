@@ -47,7 +47,6 @@ export function Dashboard() {
                   <span>My Surveys</span>
                   <UserArrow src={arrow} />
                 </div>
-
                 <div className="user-status-inner2">
                   <span>Profile Settings</span>
                   <UserSettings src={settings} />
