@@ -231,20 +231,20 @@ export const InputText = styled.input`
 `;
 
 export const Button = styled.button`
-  width: 8em;
-  height: 2.5em;
-  color: #fff;
-  background: #14799E;
-  padding: 1px;
-  border: 2px solid #494949 !important;
-  border-radius: 3px;
-  -webkit-font-smoothing: inherit;
-  cursor: pointer;
+         width: 8em;
+         height: 2.5em;
+         color: #fff;
+         background: #14799e;
+         padding: 1px;
+         border: 2px solid #494949 !important;
+         border-radius: 3px;
+         -webkit-font-smoothing: inherit;
+         cursor: pointer;
 
-  &:hover {
-    background-color: lightgrey;
-  }
-`;
+         &:hover {
+           background-color: #ffc247;
+         }
+       `;
 
 export const SurveyButton = styled.button`
          width: 7em;
@@ -258,7 +258,7 @@ export const SurveyButton = styled.button`
          cursor: pointer;
 
          &:hover {
-           background-color: lightgrey;
+           background-color: #ffc247;
          }
        `;
 
