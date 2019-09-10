@@ -53,7 +53,7 @@ function App() {
             component={NewPassword}
           />
           <PrivateRoute exact path="/" component={CreateSurvey} />
-          <Route exact path="/dashboard" component={userDashboard} />
+          <PrivateRoute exact path="/dashboard" component={userDashboard} />
           <Route path="/take_survey/:surveyId" component={FeedbackResponse} />
           <Route path="/success" component={Success} />
         </Switch>
