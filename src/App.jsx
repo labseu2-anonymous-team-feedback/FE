@@ -9,10 +9,11 @@ import Spinner from './components/common/Spinner';
 import FeedbackResponse from './components/feedback/Feedback';
 import Success from './components/common/success/Success';
 import Response from './components/response/Response';
+import Signin from './components/auth/siginin/Signin';
 
 const Signup = React.lazy(() => import('./components/auth/signup/Signup'));
 
-const Signin = React.lazy(() => import('./components/auth/siginin/Signin'));
+// const Signin = React.lazy(() => import('./components/auth/siginin/Signin'));
 
 const userDashboard = React.lazy(() =>
   import('./components/dashboard/Dashboard'));
