@@ -1,11 +1,43 @@
 import styled from 'styled-components';
 
 export const DashboardContainer = styled.section`
-  display: flex;
-  justify-content: flex-start;
-  background: #f3f7f9;
-  padding-top: 5rem;
-`;
+         display: flex;
+         justify-content: flex-start;
+         background: #f3f7f9;
+         padding-top: 5rem;
+
+
+           font-size: 62.5%;
+
+
+         body {
+           font-size: 1rem;
+         }
+
+         h1,
+         h2 {
+           font-size: 1.5rem;
+         }
+
+         h3,
+         h4 {
+           font-size: 1.2rem;
+         }
+
+         p {
+           font-size: 1.1rem;
+         }
+
+         span {
+           font-size: 1.1rem;
+         }
+
+         button {
+           font-size: 0.9rem;
+         }
+
+
+       `;
 
 export const UserWrapper = styled.div`
   width: 30%;
@@ -213,7 +245,7 @@ export const InputText = styled.input`
     0 0 16px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
     0 0 16px rgba(0, 0, 0, 0.1);
-  padding: 5px;
+  padding: 10px;
   width: 100%;
   width: 400px;
   box-sizing: border-box;
@@ -242,7 +274,7 @@ export const InputText = styled.input`
 
 export const Button = styled.button`
   width: 8em;
-  height: 2.5em;
+  height: 2.7em;
   color: #fff;
   background: #14799e;
   padding: 1px;
@@ -257,8 +289,8 @@ export const Button = styled.button`
 `;
 
 export const SurveyButton = styled.button`
-  width: 7em;
-  height: 2em;
+  width: 6.7em;
+  height: 2.5em;
   color: #fff;
   background: #14799e;
   padding: 1px;
