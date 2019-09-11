@@ -66,7 +66,7 @@ export function Dashboard() {
               <InputButtonWrapper>
                 <InputAndButtonWrapper>
                   <div>
-                    <InputText type="text" placeholder="text input" />
+                    <InputText type="text" placeholder="" />
                   </div>
                   <div className="button-survey">
                     <Button>Add Survey</Button>

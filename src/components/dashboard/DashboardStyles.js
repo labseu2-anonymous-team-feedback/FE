@@ -6,9 +6,7 @@ export const DashboardContainer = styled.section`
          background: #f3f7f9;
          padding-top: 5rem;
 
-
-           font-size: 62.5%;
-
+         font-size: 62.5%;
 
          body {
            font-size: 1rem;
@@ -35,6 +33,7 @@ export const DashboardContainer = styled.section`
          button {
            font-size: 0.9rem;
          }
+
 
 
        `;
@@ -238,43 +237,46 @@ export const ShareLink = styled.img`
 `;
 
 export const InputText = styled.input`
-  border: 2px solid white;
-  -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
-    0 0 16px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
-    0 0 16px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
-    0 0 16px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  width: 100%;
-  width: 400px;
-  box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.5);
-  margin: 0 0 9px 0;
+         border: 2px solid white;
+         -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
+           0 0 16px rgba(0, 0, 0, 0.1);
+         -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
+           0 0 16px rgba(0, 0, 0, 0.1);
+         box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
+           0 0 16px rgba(0, 0, 0, 0.1);
+         padding: 10px;
+         width: 100%;
+         width: 400px;
+         box-sizing: border-box;
+         background: rgba(255, 255, 255, 0.5);
+         margin: 0 0 9px 0;
 
-  &:focus {
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    padding: 3px 0px 3px 3px;
-    margin: 5px 1px 3px 0px;
-    border: 1px solid rgba(81, 203, 238, 1);
-  }
+         &:focus {
+           box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+           padding: 8px 0px 8px 8px;
+           margin: 5px 1px 3px 0px;
+           border: 1px solid rgba(81, 203, 238, 1);
+           font-size: 1.5em;
+         }
 
-  @media (max-width: 500px) {
-    width: 270px;
-  }
 
-  @media (max-width: 350px) {
-    width: 240px;
-  }
 
-  @media (max-width: 300px) {
-    width: 180px;
-  }
-`;
+         @media (max-width: 500px) {
+           width: 270px;
+         }
+
+         @media (max-width: 350px) {
+           width: 240px;
+         }
+
+         @media (max-width: 300px) {
+           width: 180px;
+         }
+       `;
 
 export const Button = styled.button`
-  width: 8em;
-  height: 2.7em;
+  width: 8.7em;
+  height: 2.8em;
   color: #fff;
   background: #14799e;
   padding: 1px;
