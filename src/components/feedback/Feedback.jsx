@@ -10,7 +10,7 @@ import RatingResponse from './RatingResponse/RatingResponse';
 import Spinner from '../common/Spinner';
 import { getUserIdFromToken } from '../../utils';
 
-class Feedback extends React.Component {
+export class Feedback extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -196,7 +196,7 @@ class Feedback extends React.Component {
 Feedback.propTypes = {
   match: propTypes.shape({
     params: propTypes.shape({
-      surveyId: propTypes.string.isRequired,
+      surveyId: propTypes.string,
     }),
   }).isRequired,
   client: propTypes.shape({

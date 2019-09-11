@@ -1,3 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<OptionSelect /> renders the OptionSelect component correctly 1`] = `ShallowWrapper {}`;
+exports[`<OptionSelect /> renders the OptionSelect component correctly 1`] = `
+<Fragment>
+  <label
+    className="pb-3"
+    htmlFor="type"
+  />
+  <select>
+    <option
+      disabled={true}
+      value=""
+    >
+      Choose option
+    </option>
+  </select>
+</Fragment>
+`;

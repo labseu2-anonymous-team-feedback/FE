@@ -1,3 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Signup /> renders the Signup component correctly 1`] = `ShallowWrapper {}`;
+exports[`<Signup /> renders the Signup component correctly 1`] = `
+<ApolloConsumer>
+  <Component />
+</ApolloConsumer>
+`;

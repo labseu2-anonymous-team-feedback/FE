@@ -1,3 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TextInput /> renders the TextInput component correctly 1`] = `ShallowWrapper {}`;
+exports[`<TextInput /> renders the TextInput component correctly 1`] = `
+<Fragment>
+  <label
+    className="d-flex pb-3"
+  />
+  <input
+    className="form-control mb-4"
+    required={true}
+    type="text"
+  />
+</Fragment>
+`;

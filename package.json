@@ -16,6 +16,7 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "graphql": "^14.5.0",
     "graphql-tag": "^2.10.1",
+    "jest-styled-components": "^6.3.3",
     "jwt-decode": "^2.2.0",
     "prop-types": "^15.7.2",
     "query-string": "^6.8.2",
@@ -34,8 +35,16 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "coverage": "react-scripts test --env=jsdom --watchAll=false --coverage",
+    "coverage": "react-scripts test --update-snapshot --env=jsdom --watchAll=false --coverage",
     "coveralls": "npm run coverage && cat coverage/lcov.info | coveralls"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -54,6 +63,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
+    "enzyme-to-json": "^3.4.0",
     "eslint": "^6.2.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
