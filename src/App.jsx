@@ -9,25 +9,32 @@ import Spinner from './components/common/Spinner';
 import FeedbackResponse from './components/feedback/Feedback';
 import Success from './components/common/success/Success';
 import Response from './components/response/Response';
+import Signin from './components/auth/siginin/Signin';
+import Signup from './components/auth/signup/Signup';
+import userDashboard from './components/dashboard/Dashboard';
+import CreateSurvey from './components/survey/CreateSurvey';
+import ResetPassword from './components/auth/resetPassword/ResetPassword';
+import ResetPasswordConfirmation from './components/auth/resetPassword/ResetPasswordConfirmation';
+import NewPassword from './components/auth/resetPassword/NewPassword';
 
-const Signup = React.lazy(() => import('./components/auth/signup/Signup'));
+// const Signup = React.lazy(() => import('./components/auth/signup/Signup'));
 
-const Signin = React.lazy(() => import('./components/auth/siginin/Signin'));
+// const Signin = React.lazy(() => import('./components/auth/siginin/Signin'));
 
-const userDashboard = React.lazy(() =>
-  import('./components/dashboard/Dashboard'));
+// const userDashboard = React.lazy(() =>
+//   import('./components/dashboard/Dashboard'));
 
-const CreateSurvey = React.lazy(() =>
-  import('./components/survey/CreateSurvey'));
+// const CreateSurvey = React.lazy(() =>
+//   import('./components/survey/CreateSurvey'));
 
-const ResetPassword = React.lazy(() =>
-  import('./components/auth/resetPassword/ResetPassword'));
+// const ResetPassword = React.lazy(() =>
+//   import('./components/auth/resetPassword/ResetPassword'));
 
-const ResetPasswordConfirmation = React.lazy(() =>
-  import('./components/auth/resetPassword/ResetPasswordConfirmation'));
+// const ResetPasswordConfirmation = React.lazy(() =>
+//   import('./components/auth/resetPassword/ResetPasswordConfirmation'));
 
-const NewPassword = React.lazy(() =>
-  import('./components/auth/resetPassword/NewPassword'));
+// const NewPassword = React.lazy(() =>
+//   import('./components/auth/resetPassword/NewPassword'));
 
 function App() {
   return (
