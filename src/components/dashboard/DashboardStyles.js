@@ -272,7 +272,7 @@ export const SurveyButton = styled.button`
 `;
 
 export const IndividualSurvey = styled.div`
-  border: 1px solid black;
+  border: 1px solid lightgray;
   padding: 1rem;
   margin-bottom: 2.5rem;
   background-color: #cfedfe;
