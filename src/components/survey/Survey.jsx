@@ -3,6 +3,7 @@ import {
   IndividualSurvey,
   SurveyButton,
 } from '../dashboard/DashboardStyles';
+import { SurveyDetails } from './SurveyDetails';
 
 export function Survey(props) {
   return (
@@ -10,13 +11,14 @@ export function Survey(props) {
       {props.data.length > 0 ? (
         props.data.map(survey => (
           <IndividualSurvey key={survey.title}>
-            <h2>Survey</h2>
-            <br />
             <p>{survey.title}</p>
             <br />
             <p>{survey.owner.username}</p>
             <br />
+            <p>{survey.id}</p>
+            <br />
             <SurveyButton>View More</SurveyButton>
+            <SurveyDetails />
           </IndividualSurvey>
         ))
       ) : (
