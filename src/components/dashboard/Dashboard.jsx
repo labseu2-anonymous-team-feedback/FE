@@ -38,18 +38,23 @@ export function Dashboard() {
               <UserIcon>
                 <UserImg src={avatar} alt="" />
               </UserIcon>
-              <span className="avatar-name">Petar</span>
+              <p className="avatar-name">Petar</p>
               <UserStatus>
-                <div className="user-status-inner">9 surveys</div>
-                <div className="user-status-inner">4 responses</div>
+                <div className="user-status-inner">
+                  <p>9 surveys</p>
+                </div>
+                <div className="user-status-inner">
+                  {' '}
+                  <p> 4 responses</p>
+                </div>
               </UserStatus>
               <UserStatus2>
                 <div className="user-status-inner2">
-                  <span>My Surveys</span>
+                  <p>My Surveys</p>
                   <UserArrow src={arrow} />
                 </div>
                 <div className="user-status-inner2">
-                  <span>Profile Settings</span>
+                  <p>Profile Settings</p>
                   <UserSettings src={settings} />
                 </div>
               </UserStatus2>

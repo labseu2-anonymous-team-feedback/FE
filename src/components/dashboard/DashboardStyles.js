@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const DashboardContainer = styled.section`
   display: flex;
   justify-content: flex-start;
-  background: #ececec;
+  background:  #f3f7f9;
   padding-top: 5rem;
 `;
 
@@ -142,28 +142,28 @@ export const UserStatus = styled.div`
 `;
 
 export const UserStatus2 = styled.div`
-         padding: 0.5rem;
-         border-radius: 3px;
+  padding: 0.5rem;
+  border-radius: 3px;
 
-         .user-status-inner2 {
-           background-color: #cfedfe;
-           padding: 0.5rem;
-           border: 1px solid grey;
-           border-radius: 3px;
-           display: flex;
-           justify-content: space-between;
-           align-items: center;
-           text-overflow: ellipsis;
+  .user-status-inner2 {
+    background-color: #cfedfe;
+    padding: 0.5rem;
+    border: 1px solid grey;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-overflow: ellipsis;
 
-           @media (max-width: 400px) {
-             width: 110%;
-           }
-         }
+    @media (max-width: 400px) {
+      width: 110%;
+    }
+  }
 
-         @media (max-width: 400px) {
-           padding: 1.5rem;
-         }
-       `;
+  @media (max-width: 400px) {
+    padding: 1.5rem;
+  }
+`;
 
 export const UserImg = styled.img`
   width: 40%;
@@ -192,6 +192,15 @@ export const UserSettings = styled.img`
 
   @media (max-width: 400px) {
     width: 30%;
+  }
+`;
+
+export const ShareLink = styled.img`
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.4);
+    transition: 0.2s;
   }
 `;
 
@@ -231,56 +240,60 @@ export const InputText = styled.input`
 `;
 
 export const Button = styled.button`
-         width: 8em;
-         height: 2.5em;
-         color: #fff;
-         background: #14799e;
-         padding: 1px;
-         border: 2px solid #494949 !important;
-         border-radius: 3px;
-         -webkit-font-smoothing: inherit;
-         cursor: pointer;
+  width: 8em;
+  height: 2.5em;
+  color: #fff;
+  background: #14799e;
+  padding: 1px;
+  border: 2px solid #494949 !important;
+  border-radius: 3px;
+  -webkit-font-smoothing: inherit;
+  cursor: pointer;
 
-         &:hover {
-           background-color: #ffc247;
-         }
-       `;
+  &:hover {
+    background-color: #ffc247;
+  }
+`;
 
 export const SurveyButton = styled.button`
-         width: 7em;
-         height: 2em;
-         color: #fff;
-         background: #14799e;
-         padding: 1px;
-         border: 2px solid #494949 !important;
-         border-radius: 3px;
-         -webkit-font-smoothing: inherit;
-         cursor: pointer;
+  width: 7em;
+  height: 2em;
+  color: #fff;
+  background: #14799e;
+  padding: 1px;
+  border: 2px solid #494949 !important;
+  border-radius: 3px;
+  -webkit-font-smoothing: inherit;
+  cursor: pointer;
 
-         &:hover {
-           background-color: #ffc247;
-         }
-       `;
+  &:hover {
+    background-color: #ffc247;
+  }
+`;
 
 export const IndividualSurvey = styled.div`
-         border: 1px solid black;
-         padding: 1rem;
-         margin-bottom: 1.5rem;
-         background-color: #CFEDFE;
-         -webkit-border-radius: 4px 3px 6px 10px;
-         -moz-border-radius: 4px 3px 6px 10px;
-         -o-border-radius: 4px 3px 6px 10px;
-         border-radius: 4px 3px 6px 10px;
-         text-overflow: ellipsis;
+  border: 1px solid black;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: #cfedfe;
+  -webkit-border-radius: 4px 3px 6px 10px;
+  -moz-border-radius: 4px 3px 6px 10px;
+  -o-border-radius: 4px 3px 6px 10px;
+  border-radius: 4px 3px 6px 10px;
+  text-overflow: ellipsis;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+    0 6px 6px rgba(0, 0, 0, 0.23);
 
-         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
-           0 6px 6px rgba(0, 0, 0, 0.23);
+  .TitleAndShare {
+    display: flex;
+    justify-content: space-between;
+  }
 
-         @media (max-width: 300px) {
-           width: 130%;
-           padding: 1rem;
-         }
-       `;
+  @media (max-width: 300px) {
+    width: 130%;
+    padding: 1rem;
+  }
+`;
 
 export const MainInputAndButtonWrapper = styled.div`
   display: flex;
