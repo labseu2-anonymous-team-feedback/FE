@@ -62,7 +62,7 @@ function Signin({ client }) {
   }
 
   if (success) {
-    window.location.href = '/';
+    window.location.reload();
   }
 
   return (
