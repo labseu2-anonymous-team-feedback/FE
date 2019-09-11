@@ -200,7 +200,7 @@ export const ShareLink = styled.img`
   cursor: pointer;
 
   &:hover {
-    transform: scale(1.4);
+    transform: scale(1.5);
     transition: 0.2s;
   }
 `;
