@@ -12,11 +12,11 @@ import Spinner from '../common/Spinner';
 class Feedback extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      surveyId: '',
+      survey: null,
       answers: [],
       isLoading: false,
+      error: null,
     };
   }
 
