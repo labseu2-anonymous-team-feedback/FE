@@ -261,11 +261,11 @@ export const InputText = styled.input`
            border-radius: 3px;
          }
 
-         @media (max-width: 500px) {
-           width: 270px;
+         @media (max-width: 560px) {
+           width: 300px;
          }
 
-         @media (max-width: 350px) {
+         @media (max-width: 380px) {
            width: 240px;
          }
 
