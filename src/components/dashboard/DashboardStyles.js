@@ -290,6 +290,12 @@ export const Button = styled.button`
   }
 `;
 
+
+export const SurveyButtonWrapper = styled.div`
+padding: 0.5rem;
+
+`;
+
 export const SurveyButton = styled.button`
   width: 6.7em;
   height: 2.5em;
@@ -305,6 +311,7 @@ export const SurveyButton = styled.button`
     background-color: #ffc247;
   }
 `;
+
 
 export const IndividualSurvey = styled.div`
   border: 1px solid lightgray;

@@ -4,6 +4,7 @@ import {
   IndividualSurvey,
   SurveyButton,
   ShareLink,
+  SurveyButtonWrapper,
 } from '../dashboard/DashboardStyles';
 
 export function Survey(props) {
@@ -20,7 +21,9 @@ export function Survey(props) {
               <p>{survey.owner.username}</p>
               <p>{survey.id}</p>
             </div>
-            <SurveyButton>View More</SurveyButton>
+            <SurveyButtonWrapper>
+              <SurveyButton>View More</SurveyButton>
+            </SurveyButtonWrapper>
           </IndividualSurvey>
         ))
       ) : (
