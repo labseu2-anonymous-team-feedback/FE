@@ -1,5 +1,5 @@
 import React from 'react';
-import { Query, withApollo } from 'react-apollo';
+import { withApollo } from 'react-apollo';
 import propTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { GET_SURVEY_DETAILS } from '../../graphql/queries';
@@ -7,6 +7,7 @@ import { SAVE_FEEDBACK } from '../../graphql/mutations';
 import { Container, Title, LoadIngIcon } from './styles';
 import TextResponse from './TextResponse';
 import RatingResponse from './RatingResponse/RatingResponse';
+import Spinner from '../common/Spinner';
 
 class Feedback extends React.Component {
   constructor(props) {
