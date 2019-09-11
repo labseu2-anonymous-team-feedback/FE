@@ -5,7 +5,7 @@ import ProfileImage from './ProfileImage';
 import SideNavItem from './SideNavItem';
 import {
   tabletMaxWidth, white, mediumSpace1, extraLargeSpace, smallSpace, largeSpace,
-  mediumSpace4,
+  mediumSpace3,
 } from '../../styles/variables';
 import { sidebarIcons, sidebarTexts } from '../../assets/icons/icons';
 
@@ -29,7 +29,8 @@ const StyledSidebar = styled.aside`
   min-height: 86vh;
   width: 15rem;
   padding: ${mediumSpace1} ${mediumSpace1};
-  margin: ${mediumSpace4} 0 0 0;
+  margin: ${mediumSpace3} 0 0 0;
+  position: fixed;
 
   display: flex;
   flex-direction: column;
