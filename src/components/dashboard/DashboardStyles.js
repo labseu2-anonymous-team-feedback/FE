@@ -1,42 +1,39 @@
 import styled from 'styled-components';
 
 export const DashboardContainer = styled.section`
-         display: flex;
-         justify-content: flex-start;
-         background: #f3f7f9;
-         padding-top: 5rem;
+  display: flex;
+  justify-content: flex-start;
+  background: #f3f7f9;
+  padding-top: 5rem;
 
-         font-size: 62.5%;
+  font-size: 62.5%;
 
-         body {
-           font-size: 1rem;
-         }
+  body {
+    font-size: 1rem;
+  }
 
-         h1,
-         h2 {
-           font-size: 1.5rem;
-         }
+  h1,
+  h2 {
+    font-size: 1.5rem;
+  }
 
-         h3,
-         h4 {
-           font-size: 1.2rem;
-         }
+  h3,
+  h4 {
+    font-size: 1.2rem;
+  }
 
-         p {
-           font-size: 1.1rem;
-         }
+  p {
+    font-size: 1.1rem;
+  }
 
-         span {
-           font-size: 1.1rem;
-         }
+  span {
+    font-size: 1.1rem;
+  }
 
-         button {
-           font-size: 0.9rem;
-         }
-
-
-
-       `;
+  button {
+    font-size: 0.9rem;
+  }
+`;
 
 export const UserWrapper = styled.div`
   width: 30%;
@@ -102,50 +99,50 @@ export const SurveyInputWrapper = styled.div`
 `;
 
 export const UserContainer = styled.div`
-         display: flex;
-         width: 80%;
-         flex-direction: column;
-         background: #ffff;
-         padding: 1rem;
-         border-radius: 3px;
-         text-overflow: ellipsis;
-         border: 1px solid lightgray;
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  background: #ffff;
+  padding: 1rem;
+  border-radius: 3px;
+  text-overflow: ellipsis;
+  border: 1px solid lightgray;
 
-         .avatar-name {
-           text-align: center;
-           padding-bottom: 1.3rem;
-         }
+  .avatar-name {
+    text-align: center;
+    padding-bottom: 1.3rem;
+  }
 
-         @media (max-width: 1400px) {
-           display: flex;
-           width: 88%;
-           padding: 1rem;
-         }
+  @media (max-width: 1400px) {
+    display: flex;
+    width: 88%;
+    padding: 1rem;
+  }
 
-         @media (max-width: 780px) {
-           display: flex;
-           width: 60%;
-           padding: 1rem;
-         }
+  @media (max-width: 780px) {
+    display: flex;
+    width: 60%;
+    padding: 1rem;
+  }
 
-         @media (max-width: 520px) {
-           display: flex;
-           width: 80%;
-           padding: 1rem;
-           margin-top: 1.5rem;
-         }
+  @media (max-width: 520px) {
+    display: flex;
+    width: 80%;
+    padding: 1rem;
+    margin-top: 1.5rem;
+  }
 
-         @media (max-width: 400px) {
-           display: flex;
-           width: 99%;
-           padding: 1rem;
-         }
+  @media (max-width: 400px) {
+    display: flex;
+    width: 99%;
+    padding: 1rem;
+  }
 
-         @media (max-width: 300px) {
-           width: 120%;
-           padding: 1rem;
-         }
-       `;
+  @media (max-width: 300px) {
+    width: 120%;
+    padding: 1rem;
+  }
+`;
 
 export const UserIcon = styled.div`
   display: flex;
@@ -160,16 +157,27 @@ export const UserStatus = styled.div`
   padding: 0.5rem;
   margin-left: 0.2rem;
   justify-content: space-around;
-  border: 1px solid lightgray;
-  width: 96%;
+  border: 2px solid lightgray;
+  width: 97%;
   border-radius: 3px;
 
   .user-status-inner {
     display: flex;
     width: 200px;
-    padding: 0.2rem;
+    padding: 0.5rem;
     flex-wrap: wrap;
     text-overflow: ellipsis;
+  }
+
+  .user-status-inner1 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+    padding: 0.5rem;
+    flex-wrap: wrap;
+
+    text-overflow: ellipsis;
+    border-left: 2px solid lightgray;
   }
 `;
 
@@ -237,42 +245,42 @@ export const ShareLink = styled.img`
 `;
 
 export const InputText = styled.input`
-         border: 2px solid white;
-         -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
-           0 0 16px rgba(0, 0, 0, 0.1);
-         -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
-           0 0 16px rgba(0, 0, 0, 0.1);
-         box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
-           0 0 16px rgba(0, 0, 0, 0.1);
-         padding: 10px;
-         width: 100%;
-         width: 400px;
-         box-sizing: border-box;
-         background: rgba(255, 255, 255, 0.5);
-         margin: 0 0 2px 0;
-         border-radius: 3px;
+  border: 2px solid white;
+  -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
+    0 0 16px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
+    0 0 16px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
+    0 0 16px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 100%;
+  width: 400px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.5);
+  margin: 0 0 2px 0;
+  border-radius: 3px;
 
-         &:focus {
-           box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-           padding: 8px 0px 8px 8px;
-           margin: 3px 1px 3px 0px;
-           border: 1px solid rgba(81, 203, 238, 1);
-           font-size: 1.5em;
-           border-radius: 3px;
-         }
+  &:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    padding: 8px 0px 8px 8px;
+    margin: 3px 1px 3px 0px;
+    border: 1px solid rgba(81, 203, 238, 1);
+    font-size: 1.5em;
+    border-radius: 3px;
+  }
 
-         @media (max-width: 560px) {
-           width: 300px;
-         }
+  @media (max-width: 560px) {
+    width: 300px;
+  }
 
-         @media (max-width: 380px) {
-           width: 240px;
-         }
+  @media (max-width: 380px) {
+    width: 240px;
+  }
 
-         @media (max-width: 300px) {
-           width: 180px;
-         }
-       `;
+  @media (max-width: 300px) {
+    width: 180px;
+  }
+`;
 
 export const Button = styled.button`
   width: 8.7em;
@@ -290,10 +298,8 @@ export const Button = styled.button`
   }
 `;
 
-
 export const SurveyButtonWrapper = styled.div`
-padding: 0.5rem;
-
+  padding: 0.5rem;
 `;
 
 export const SurveyButton = styled.button`
@@ -312,35 +318,36 @@ export const SurveyButton = styled.button`
   }
 `;
 
-
 export const IndividualSurvey = styled.div`
-  border: 1px solid lightgray;
-  padding: 1rem;
-  margin-bottom: 2.5rem;
-  background-color: #cfedfe;
-  -webkit-border-radius: 4px 3px 6px 10px;
-  -moz-border-radius: 4px 3px 6px 10px;
-  -o-border-radius: 4px 3px 6px 10px;
-  border-radius: 4px 3px 6px 10px;
-  text-overflow: ellipsis;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
-    0 6px 6px rgba(0, 0, 0, 0.23);
+         border: 1px solid lightgray;
+         overflow: hidden;
+         text-overflow: ellipsis;
+         padding: 1rem;
+         margin-bottom: 2.5rem;
+         background-color: #cfedfe;
+         -webkit-border-radius: 4px 3px 6px 10px;
+         -moz-border-radius: 4px 3px 6px 10px;
+         -o-border-radius: 4px 3px 6px 10px;
+         border-radius: 4px 3px 6px 10px;
+         text-overflow: ellipsis;
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+           0 6px 6px rgba(0, 0, 0, 0.23);
 
-  .Owner {
-    padding: 1rem;
-  }
+         .Owner {
+           padding: 1rem;
+         }
 
-  .TitleAndShare {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-  }
+         .TitleAndShare {
+           display: flex;
+           justify-content: space-between;
+           padding: 1rem;
+         }
 
-  @media (max-width: 300px) {
-    width: 130%;
-    padding: 1rem;
-  }
-`;
+         @media (max-width: 300px) {
+           width: 130%;
+           padding: 1rem;
+         }
+       `;
 
 export const MainInputAndButtonWrapper = styled.div`
   display: flex;

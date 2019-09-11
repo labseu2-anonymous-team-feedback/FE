@@ -43,7 +43,8 @@ export function Dashboard() {
                 <div className="user-status-inner">
                   <p>9 surveys</p>
                 </div>
-                <div className="user-status-inner">
+                <div className="vertical"></div>
+                <div className="user-status-inner1">
                   {' '}
                   <p> 4 responses</p>
                 </div>
