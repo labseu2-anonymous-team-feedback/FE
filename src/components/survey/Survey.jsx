@@ -6,7 +6,6 @@ import {
   ShareLink,
 } from '../dashboard/DashboardStyles';
 
-
 export function Survey(props) {
   return (
     <div>
@@ -17,10 +16,10 @@ export function Survey(props) {
               <h2>{survey.title}</h2>
               <ShareLink src={link} />
             </div>
-            <p>{survey.owner.username}</p>
-            <br />
-            <p>{survey.id}</p>
-            <br />
+            <div className="Owner">
+              <p>{survey.owner.username}</p>
+              <p>{survey.id}</p>
+            </div>
             <SurveyButton>View More</SurveyButton>
           </IndividualSurvey>
         ))

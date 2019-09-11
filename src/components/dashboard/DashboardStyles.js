@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const DashboardContainer = styled.section`
   display: flex;
   justify-content: flex-start;
-  background:  #f3f7f9;
+  background: #f3f7f9;
   padding-top: 5rem;
 `;
 
@@ -274,7 +274,7 @@ export const SurveyButton = styled.button`
 export const IndividualSurvey = styled.div`
   border: 1px solid black;
   padding: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
   background-color: #cfedfe;
   -webkit-border-radius: 4px 3px 6px 10px;
   -moz-border-radius: 4px 3px 6px 10px;
@@ -284,9 +284,14 @@ export const IndividualSurvey = styled.div`
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
     0 6px 6px rgba(0, 0, 0, 0.23);
 
+  .Owner {
+    padding: 1rem;
+  }
+
   .TitleAndShare {
     display: flex;
     justify-content: space-between;
+    padding: 1rem;
   }
 
   @media (max-width: 300px) {
