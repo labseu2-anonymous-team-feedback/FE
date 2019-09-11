@@ -8,6 +8,7 @@ import { Container, Title, LoadIngIcon } from './styles';
 import TextResponse from './TextResponse';
 import RatingResponse from './RatingResponse/RatingResponse';
 import Spinner from '../common/Spinner';
+import { getUserIdFromToken } from '../../utils';
 
 class Feedback extends React.Component {
   constructor(props) {
@@ -103,22 +104,33 @@ class Feedback extends React.Component {
 
   submitHandler = async (e) => {
     e.preventDefault();
-    const { client } = this.props;
-    const { answers } = this.state;
+    const userId = getUserIdFromToken();
+    const { client, history } = this.props;
+    const {
+      answers,
+      survey: { id },
+    } = this.state;
+    const responses = answers.filter((ans) => ans.rating || ans.comment);
+    const feedbackData = {
+      surveyId: id,
+      ...(userId && { userId }),
+      responses,
+    };
     const isValid = this.validateInput();
     if (isValid) {
       try {
         this.setState({ isLoading: true });
         const { data } = await client.mutate({
           mutation: SAVE_FEEDBACK,
-          variables: { input: { responses: answers } },
+          variables: { input: feedbackData },
         });
         if (data) {
           toast.success('Feedback sent, Thank you 😍');
-          this.setState({ isLoading: false, answers });
+          this.setState({ isLoading: false, answers: [] });
+          history.push('/success');
         }
       } catch (error) {
-        toast.error('An error occurred trying to save your response');
+        toast.error('An error occurred trying to save your response 😔');
         this.setState({ isLoading: false });
       }
     } else {
@@ -190,6 +202,9 @@ Feedback.propTypes = {
   client: propTypes.shape({
     mutate: propTypes.func.isRequired,
     query: propTypes.func.isRequired,
+  }).isRequired,
+  history: propTypes.shape({
+    push: propTypes.func.isRequired,
   }).isRequired,
 };
 
