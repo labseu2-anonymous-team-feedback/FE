@@ -14,7 +14,7 @@ const SidebarContainer = () => (
   <StyledSidebar>
     <ProfileImage name="Bob Stone" image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1m1DOmfCTW5yaJjjehDNcrTnJlFaph-ZADDYsCsyzwDJWS_6z" />
     <div className="nav-items">
-      <SideNavItem text={sidebarTexts.surveys} icon={sidebarIcons.surveys} path="/surveys" />
+      <SideNavItem text={sidebarTexts.surveys} icon={sidebarIcons.surveys} path="/dashboard" />
       <SideNavItem
         text={sidebarTexts.settings}
         icon={sidebarIcons.settings}
