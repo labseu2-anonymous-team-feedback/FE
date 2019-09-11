@@ -7,6 +7,7 @@ import { AddButton, Container } from './SurveyStyles';
 
 import { CREATE_NEW_SURVEY } from '../../graphql/mutations';
 import TextInput from '../common/TextInput';
+import Button from '../../styles/Button';
 
 class CreateSurvey extends Component {
   constructor(props) {
@@ -149,9 +150,9 @@ class CreateSurvey extends Component {
                 <Divider size={30} />
 
                 <div className="form-group">
-                  <button className="btn btn-info btn-block" type="submit">
+                  <Button className="btn btn-block" type="submit">
                     Save Survey
-                  </button>
+                  </Button>
                 </div>
               </form>
             )}

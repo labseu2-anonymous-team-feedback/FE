@@ -6,7 +6,7 @@ function TextInput({
 }) {
   return (
     <>
-      <label htmlFor={id} className="d-flex">
+      <label htmlFor={id} className="d-flex pb-3">
         {title}
       </label>
       <input

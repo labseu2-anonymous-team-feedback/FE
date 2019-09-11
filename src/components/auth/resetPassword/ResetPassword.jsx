@@ -5,6 +5,7 @@ import { toast } from 'react-toastify'; // eslint-disable-line
 import ResetPasswordDiv from './StyledResetPassword';
 import TextInput from '../../common/TextInput';
 import { SEND_RESET_PASSWORD_EMAIL } from '../../../graphql/mutations';
+import Button from '../../../styles/Button';
 
 function ResetPassword() {
   const [email, setEmail] = useState('');
@@ -58,9 +59,9 @@ function ResetPassword() {
               required
             />
 
-            <button className="btn btn-info btn-block my-4" type="submit">
+            <Button className="btn btn-block my-4" type="submit">
               Reset Password
-            </button>
+            </Button>
 
             <p>
               Back to &nbsp;

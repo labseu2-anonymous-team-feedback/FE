@@ -18,7 +18,9 @@ PrivateRoute.defaultProps = {
 
 PrivateRoute.propTypes = {
   exact: PropTypes.bool,
-  component: PropTypes.func.isRequired,
+  component: PropTypes.shape({
+    _ctor: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default PrivateRoute;

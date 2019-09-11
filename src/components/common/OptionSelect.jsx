@@ -5,7 +5,7 @@ const OptionSelect = ({
   name, value, label, options, className, onChange,
 }) => (
   <>
-    <label htmlFor="type">{label}</label>
+    <label htmlFor="type" className="pb-3">{label}</label>
     <select name={name} value={value} className={className} onChange={onChange}>
       <option value="" disabled>
         Choose option
