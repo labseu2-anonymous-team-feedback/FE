@@ -58,17 +58,13 @@ class Feedback extends React.Component {
     this.setState({ answers: updatedAnswers });
   };
 
-  initializeAnswers = (data) => {
-    if (data) {
-      const {
-        getSurveyDetails: { questions },
-      } = data;
-      const { surveyId } = this.state;
+  initializeAnswers = (questions) => {
+    if (questions) {
       const answers = questions.map((q) => {
         if (q.type === 'rating') {
-          return { questionId: q.id, surveyId, rating: '' };
+          return { questionId: q.id, rating: '' };
         }
-        return { questionId: q.id, surveyId, comment: '' };
+        return { questionId: q.id, comment: '' };
       });
       this.setState({ answers });
     }
