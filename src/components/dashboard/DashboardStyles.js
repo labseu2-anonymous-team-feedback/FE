@@ -249,17 +249,17 @@ export const InputText = styled.input`
          width: 400px;
          box-sizing: border-box;
          background: rgba(255, 255, 255, 0.5);
-         margin: 0 0 9px 0;
+         margin: 0 0 2px 0;
+         border-radius: 3px;
 
          &:focus {
            box-shadow: 0 0 5px rgba(81, 203, 238, 1);
            padding: 8px 0px 8px 8px;
-           margin: 5px 1px 3px 0px;
+           margin: 3px 1px 3px 0px;
            border: 1px solid rgba(81, 203, 238, 1);
            font-size: 1.5em;
+           border-radius: 3px;
          }
-
-
 
          @media (max-width: 500px) {
            width: 270px;
