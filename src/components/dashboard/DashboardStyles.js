@@ -71,49 +71,50 @@ export const SurveyInputWrapper = styled.div`
 `;
 
 export const UserContainer = styled.div`
-  display: flex;
-  width: 80%;
-  flex-direction: column;
-  background: #ffff;
-  padding: 1rem;
-  border-radius: 3px;
-  text-overflow: ellipsis;
+         display: flex;
+         width: 80%;
+         flex-direction: column;
+         background: #ffff;
+         padding: 1rem;
+         border-radius: 3px;
+         text-overflow: ellipsis;
+         border: 1px solid lightgray;
 
-  .avatar-name {
-    text-align: center;
-    padding-bottom: 1.3rem;
-  }
+         .avatar-name {
+           text-align: center;
+           padding-bottom: 1.3rem;
+         }
 
-  @media (max-width: 1400px) {
-    display: flex;
-    width: 88%;
-    padding: 1rem;
-  }
+         @media (max-width: 1400px) {
+           display: flex;
+           width: 88%;
+           padding: 1rem;
+         }
 
-  @media (max-width: 780px) {
-    display: flex;
-    width: 60%;
-    padding: 1rem;
-  }
+         @media (max-width: 780px) {
+           display: flex;
+           width: 60%;
+           padding: 1rem;
+         }
 
-  @media (max-width: 520px) {
-    display: flex;
-    width: 80%;
-    padding: 1rem;
-    margin-top: 1.5rem;
-  }
+         @media (max-width: 520px) {
+           display: flex;
+           width: 80%;
+           padding: 1rem;
+           margin-top: 1.5rem;
+         }
 
-  @media (max-width: 400px) {
-    display: flex;
-    width: 99%;
-    padding: 1rem;
-  }
+         @media (max-width: 400px) {
+           display: flex;
+           width: 99%;
+           padding: 1rem;
+         }
 
-  @media (max-width: 300px) {
-    width: 120%;
-    padding: 1rem;
-  }
-`;
+         @media (max-width: 300px) {
+           width: 120%;
+           padding: 1rem;
+         }
+       `;
 
 export const UserIcon = styled.div`
   display: flex;
