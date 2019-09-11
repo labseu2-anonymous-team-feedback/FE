@@ -27,7 +27,7 @@ class Feedback extends React.Component {
       },
     } = this.props;
     if (surveyId) {
-      this.setState({ surveyId });
+      this.fetchSurvey(surveyId);
     }
   }
 
