@@ -10,7 +10,6 @@ class ResultSort extends Component {
 
   render() {
     const { questions } = this.props;
-console.log('==========', questions);
     return (
       <div>
         <Chart data={questions} />
