@@ -87,6 +87,24 @@ class Feedback extends React.Component {
     return !!isValid;
   };
 
+  fetchSurvey = async (surveyId) => {
+    const { client } = this.props;
+    this.setState({ isLoading: true });
+    try {
+      const { loading, data } = await client.query({
+        query: GET_SURVEY_DETAILS,
+        variables: { surveyId },
+      });
+      if (!loading && data) {
+        const survey = data.getSurveyDetails;
+        this.setState({ survey, isLoading: false });
+        this.initializeAnswers(survey.questions);
+      }
+    } catch (error) {
+      this.setState({ error: error.message });
+    }
+  };
+
   submitHandler = async (e) => {
     e.preventDefault();
     const { client } = this.props;
@@ -175,6 +193,7 @@ Feedback.propTypes = {
   }).isRequired,
   client: propTypes.shape({
     mutate: propTypes.func.isRequired,
+    query: propTypes.func.isRequired,
   }).isRequired,
 };
 
