@@ -9,36 +9,11 @@ class ResultSort extends Component {
   }
 
   render() {
-    const { answers } = this.props;
-    const { question } = this.props;
-    const processedData = (arr1, arr2) => {
-      const sortData = [];
-      arr1.map((ques) => arr2.map((ans) => {
-        if (ques.id === ans.questionId) {
-          sortData.push({
-            ...ques,
-            surveyId: ans.surveyId,
-            questionId: ques.id,
-            answerId: ans.id,
-            comment: ans.comment,
-            rating: ans.rating,
-          });
-        }
-      }));
-      return sortData;
-    };
-
-    const sortedAnswers = processedData(question, answers);
+    const { questions } = this.props;
+console.log('==========', questions);
     return (
-    //   sortedAnswers.map((ans) => (
-    //     <div key={ans.answerId}>
-    //       {ans.comment}
-    //       {ans.rating}
-    //       {ans.type}
-    //     </div>
-    //   ))
       <div>
-        <Chart data={sortedAnswers} />
+        <Chart data={questions} />
       </div>
     );
   }
