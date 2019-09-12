@@ -22,6 +22,7 @@
     "query-string": "^6.8.2",
     "react": "^16.9.0",
     "react-apollo": "^3.0.1",
+    "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.9.0",
     "react-icons": "^3.7.0",
     "react-preloading-component": "0.0.5",

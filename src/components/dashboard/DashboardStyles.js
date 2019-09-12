@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const DashboardContainer = styled.section`
+
          display: flex;
-         justify-content: flex-start;
          background: #f3f7f9;
          padding-top: 5rem;
          -webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.1);
