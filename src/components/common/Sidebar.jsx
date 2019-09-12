@@ -4,17 +4,28 @@ import styled from 'styled-components';
 import ProfileImage from './ProfileImage';
 import SideNavItem from './SideNavItem';
 import {
-  tabletMaxWidth, white, mediumSpace1, extraLargeSpace, smallSpace, largeSpace,
+  tabletMaxWidth,
+  white,
+  mediumSpace1,
+  extraLargeSpace,
+  smallSpace,
+  largeSpace,
   mediumSpace3,
 } from '../../styles/variables';
 import { sidebarIcons, sidebarTexts } from '../../assets/icons/icons';
 
-
 const SidebarContainer = () => (
   <StyledSidebar>
-    <ProfileImage name="Bob Stone" image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1m1DOmfCTW5yaJjjehDNcrTnJlFaph-ZADDYsCsyzwDJWS_6z" />
+    <ProfileImage
+      name="Bob Stone"
+      image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1m1DOmfCTW5yaJjjehDNcrTnJlFaph-ZADDYsCsyzwDJWS_6z"
+    />
     <div className="nav-items">
-      <SideNavItem text={sidebarTexts.surveys} icon={sidebarIcons.surveys} path="/dashboard" />
+      <SideNavItem
+        text={sidebarTexts.surveys}
+        icon={sidebarIcons.surveys}
+        path="/dashboard"
+      />
       <SideNavItem
         text={sidebarTexts.settings}
         icon={sidebarIcons.settings}

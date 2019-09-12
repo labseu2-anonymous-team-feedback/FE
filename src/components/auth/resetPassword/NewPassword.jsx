@@ -8,7 +8,7 @@ import TextInput from '../../common/TextInput';
 import { SET_NEW_PASSWORD } from '../../../graphql/mutations';
 import Button from '../../../styles/Button';
 
-class NewPassword extends React.Component {
+export class NewPassword extends React.Component {
   constructor(props) {
     super(props);
 

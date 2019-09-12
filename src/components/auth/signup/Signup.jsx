@@ -16,7 +16,7 @@ import { trimError, isLoggedIn } from '../../../utils';
 import Button from '../../../styles/Button';
 import { LoadIngIcon } from '../../feedback/styles';
 
-class Signup extends Component {
+export class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -86,8 +86,7 @@ class Signup extends Component {
           email,
           password,
         },
-      })
-        .then((res) => this.setState({ data: res, isLoading: false }))
+      }).then((res) => this.setState({ data: res, isLoading: false }))
         .catch((err) => this.setState({ error: err, isLoading: false }));
     }
   };
@@ -181,7 +180,7 @@ class Signup extends Component {
             </div>
           </div>
           <div className="d-flex justify-content-around" />
-          <Button className="btn btn-block my-4" type="submit">
+          <Button className="btn btn-block my-4" id="me" type="submit">
             {isLoading ? 'processing... ' : 'Sign Up'}
             {isLoading && <LoadIngIcon />}
           </Button>

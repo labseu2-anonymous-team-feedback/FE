@@ -6,6 +6,7 @@ exports[`<Question /> renders the Question component correctly 1`] = `
 >
   <styled.button
     className="remove-question"
+    id="closeQuestion"
     onClick={[Function]}
     type="button"
   >

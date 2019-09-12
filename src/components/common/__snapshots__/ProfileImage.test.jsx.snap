@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProfileImage /> renders the ProfileImage component correctly 1`] = `
+<styled.div>
+  <div>
+    <img
+      alt=""
+      src={
+        Object {
+          "push": [MockFunction],
+        }
+      }
+    />
+  </div>
+  <p>
+    <Component />
+  </p>
+</styled.div>
+`;
