@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from './styles';
-import image from '../../../assets/images/success-image.png';
+import image from '../../../assets/images/success.svg';
 
 function Success() {
   return (
@@ -12,7 +12,7 @@ function Success() {
         </p>
       </div>
       <div>
-        <img src={image} alt="success" />
+        <img src={image} alt="success" load="lazy" />
       </div>
     </Container>
   );

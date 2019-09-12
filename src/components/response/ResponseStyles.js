@@ -3,10 +3,10 @@ import { tabletMaxWidth } from '../../styles/variables';
 
 
 export const Container = styled.div`
-  margin: 8rem auto;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  width: 60%;
+  width: 100%;
+  margin-top: 3rem;
+  margin-left: 15rem;
+  margin-bottom: 10rem;
 
   @media (max-width: 700px) {
     width: 100% !important;
