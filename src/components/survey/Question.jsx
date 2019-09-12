@@ -26,6 +26,7 @@ const Question = ({
     <Close
       type="button"
       className="remove-question"
+      id="closeQuestion"
       onClick={() => removeQuestion(index)}
     >
       ✕
