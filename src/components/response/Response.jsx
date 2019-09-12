@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withApollo } from 'react-apollo';
-import { Container, MainContainer } from './ResponseStyles';
-import SideBar from '../common/Sidebar';
+import DashboardLayout from '../common/DashboardLayout';
 import Divider from '../../styles/Divider';
 import { GET_SURVEY_FEEDBACK } from '../../graphql/queries';
 import ResultSort from './ResultSort';
@@ -46,19 +45,14 @@ class Response extends Component {
 
   render() {
     const { survey } = this.state;
-    // const { title, questions } = survey;
     return (
-      <MainContainer>
-        <SideBar />
-        <Container className="container">
-          <h1 className="text-center create-survey-title f-1">
-            {survey && survey.title}
-          </h1>
-          <Divider size={30} />
-          {survey && survey.questions && <ResultSort questions={survey.questions} />}
-        </Container>
-      </MainContainer>
-
+      <DashboardLayout>
+        <h1 className="text-center create-survey-title f-1">
+          {survey && survey.title}
+        </h1>
+        <Divider size={30} />
+        {survey && survey.questions && <ResultSort questions={survey.questions} />}
+      </DashboardLayout>
     );
   }
 }

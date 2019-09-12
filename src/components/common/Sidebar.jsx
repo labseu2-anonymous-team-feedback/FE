@@ -3,10 +3,7 @@ import styled from 'styled-components';
 
 import ProfileImage from './ProfileImage';
 import SideNavItem from './SideNavItem';
-import {
-  tabletMaxWidth, white, mediumSpace1, extraLargeSpace, smallSpace, largeSpace,
-  mediumSpace3,
-} from '../../styles/variables';
+import { tabletMaxWidth, white, mediumSpace1, mediumSpace3 } from '../../styles/variables';
 import { sidebarIcons, sidebarTexts } from '../../assets/icons/icons';
 
 

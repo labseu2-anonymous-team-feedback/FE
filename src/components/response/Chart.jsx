@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import * as V from 'victory';
 import {
-  white, extraSmallSpace, mediumSpace1, mediumSpace3, body1, body2, fadedBlue,
+  white, extraSmallSpace, mediumSpace3, body1, body2, fadedBlue,
 } from '../../styles/variables';
 
 class Chart extends Component {
