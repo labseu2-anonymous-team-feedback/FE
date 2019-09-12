@@ -1,68 +1,37 @@
 import styled from 'styled-components';
 
 export const DashboardContainer = styled.section`
+  display: flex;
+  background: #f3f7f9;
+  padding-top: 5rem;
+  -webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.1);
 
-         display: flex;
-         background: #f3f7f9;
-         padding-top: 5rem;
-         -webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.1);
+  font-size: 62.5%;
 
-         font-size: 62.5%;
-
-         body {
-           font-size: 1rem;
-         }
-
-         h1,
-         h2 {
-           font-size: 1.5rem;
-         }
-
-         h3,
-         h4 {
-           font-size: 1.2rem;
-         }
-
-         p {
-           font-size: 1.1rem;
-         }
-
-         span {
-           font-size: 1.1rem;
-         }
-
-         button {
-           font-size: 0.9rem;
-         }
-       `;
-
-export const UserWrapper = styled.div`
-  width: 30%;
-  padding: 1rem;
-  margin-top: 3.5rem;
-
-  @media (max-width: 1150px) {
-    width: 50%;
+  body {
+    font-size: 1rem;
   }
 
-  @media (max-width: 980px) {
-    width: 50%;
+  h1,
+  h2 {
+    font-size: 1.5rem;
   }
 
-  @media (max-width: 780px) {
-    display: flex;
-    width: 95%;
-    padding: 1rem;
+  h3,
+  h4 {
+    font-size: 1.2rem;
   }
 
-  @media (max-width: 400px) {
-    display: flex;
-    width: 98%;
-    padding: 1rem;
+  p {
+    font-size: 1.1rem;
   }
 
-  @media (max-width: 300px) {
-    width: 100%;
+  span {
+    font-size: 1.1rem;
+  }
+
+  button {
+    font-size: 0.9rem;
   }
 `;
 
@@ -97,143 +66,6 @@ export const SurveyWrapper = styled.div`
 
 export const SurveyInputWrapper = styled.div`
   width: 100%;
-`;
-
-export const UserContainer = styled.div`
-  display: flex;
-  width: 80%;
-  flex-direction: column;
-  background: #ffff;
-  padding: 1rem;
-  border-radius: 3px;
-  text-overflow: ellipsis;
-  border: 1px solid lightgray;
-
-  .avatar-name {
-    text-align: center;
-    padding-bottom: 1.3rem;
-  }
-
-  @media (max-width: 1400px) {
-    display: flex;
-    width: 88%;
-    padding: 1rem;
-  }
-
-  @media (max-width: 780px) {
-    display: flex;
-    width: 60%;
-    padding: 1rem;
-  }
-
-  @media (max-width: 520px) {
-    display: flex;
-    width: 80%;
-    padding: 1rem;
-    margin-top: 1.5rem;
-  }
-
-  @media (max-width: 400px) {
-    display: flex;
-    width: 99%;
-    padding: 1rem;
-  }
-
-  @media (max-width: 300px) {
-    width: 120%;
-    padding: 1rem;
-  }
-`;
-
-export const UserIcon = styled.div`
-  display: flex;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  justify-content: center;
-  background: #ffff;
-`;
-
-export const UserStatus = styled.div`
-  display: flex;
-  padding: 0.5rem;
-  margin-left: 0.2rem;
-  justify-content: space-around;
-  border: 2px solid lightgray;
-  width: 97%;
-  border-radius: 3px;
-
-  .user-status-inner {
-    display: flex;
-    width: 200px;
-    padding: 0.5rem;
-    flex-wrap: wrap;
-    text-overflow: ellipsis;
-  }
-
-  .user-status-inner1 {
-    display: flex;
-    flex-wrap: wrap;
-    width: 200px;
-    padding: 0.5rem;
-    flex-wrap: wrap;
-
-    text-overflow: ellipsis;
-    border-left: 2px solid lightgray;
-  }
-`;
-
-export const UserStatus2 = styled.div`
-  padding: 0.5rem;
-  border-radius: 3px;
-
-  .user-status-inner2 {
-    background-color: #cfedfe;
-    padding: 0.5rem;
-    border: 1px solid grey;
-    border-radius: 3px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-overflow: ellipsis;
-
-    @media (max-width: 400px) {
-      width: 110%;
-    }
-  }
-
-  @media (max-width: 400px) {
-    padding: 1.5rem;
-  }
-`;
-
-export const UserImg = styled.img`
-  width: 40%;
-  display: flex;
-  justify-content: center;
-`;
-
-export const UserArrow = styled.img`
-  width: 20%;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  @media (max-width: 400px) {
-    width: 30%;
-  }
-`;
-
-export const UserSettings = styled.img`
-  width: 20%;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  @media (max-width: 400px) {
-    width: 30%;
-  }
 `;
 
 export const ShareLink = styled.img`

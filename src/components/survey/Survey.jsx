@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import jwt from 'jsonwebtoken';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { toast } from 'react-toastify';
@@ -20,10 +21,12 @@ export function Survey(props) {
     setCopied(false);
   }
 
+  const { data } = props;
+
   return (
     <div>
-      {props.data.length > 0 ? (
-        props.data.map(survey => {
+      {data.length > 0 ? (
+        data.map((survey) => {
           const token = jwt.sign({ surveyId: survey.id }, 'secret', {
             expiresIn: 60 * 60,
           });
@@ -55,5 +58,10 @@ export function Survey(props) {
     </div>
   );
 }
+
+Survey.propTypes = {
+  data: PropTypes.objectOf(PropTypes.object).isRequired,
+  data: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired
+};
 
 export default Survey;
