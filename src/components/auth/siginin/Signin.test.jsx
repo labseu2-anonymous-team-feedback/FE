@@ -6,7 +6,6 @@ import { Signin } from './Signin';
 
 describe('<Signin />', () => {
   const props = {
-    mutate: jest.mock(),
     location: { search: jest.mock() },
     client: { mutate: jest.fn(), query: jest.fn() },
     history: { push: jest.fn() },
@@ -24,5 +23,20 @@ describe('<Signin />', () => {
   //   const instance = wrapper.instance();
   //   sinon.spy(instance, 'onChange');
   //   expect(instance.onChange).toBeDefined();
+  // });
+  // it('should call onSubmit function', () => {
+  //   const event = { target: { name: 'pollName', value: 'spam' } };
+  //   const mockState = {
+  //     isSignedIn: true,
+  //   };
+  //   const wrapper = shallow(<Signin {...props} />);
+  //   // wrapper.instance().onChange(event);
+  //   wrapper.setState({ ...mockState });
+  //   const instance = wrapper.instance();
+  //   expect(instance.state).toEqual(mockState);
+  //   // sinon.spy(wrapper.instance(), 'onSubmit');
+  //   // wrapper.instance().onSubmit(event);
+  //   // expect(wrapper.instance().onSubmit.calledOnce).toEqual(true);
+  //   // expect(wrapper.instance().onSubmit.calledWith(event));
   // });
 });

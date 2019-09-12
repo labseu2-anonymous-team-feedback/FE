@@ -86,8 +86,7 @@ export class Signup extends Component {
           email,
           password,
         },
-      })
-        .then((res) => this.setState({ data: res, isLoading: false }))
+      }).then((res) => this.setState({ data: res, isLoading: false }))
         .catch((err) => this.setState({ error: err, isLoading: false }));
     }
   };
