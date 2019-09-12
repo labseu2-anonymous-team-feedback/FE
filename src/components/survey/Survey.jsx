@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import jwt from 'jsonwebtoken';
 import link from '../../assets/images/link.svg';
 import {
   IndividualSurvey,
@@ -8,6 +9,15 @@ import {
 } from '../dashboard/DashboardStyles';
 
 export function Survey(props) {
+  const generateLink = id => {
+    const data = { surveyId: id };
+    const token = jwt.sign(data, 'secret', { expiresIn: 60 * 60 });
+    const url = `http://localhost:3000/survey/${token}`;
+    console.log(token);
+    console.log(url);
+  };
+
+
   return (
     <div>
       {props.data.length > 0 ? (
@@ -15,7 +25,10 @@ export function Survey(props) {
           <IndividualSurvey key={survey.title}>
             <div className="TitleAndShare">
               <h2>{survey.title}</h2>
-              <ShareLink src={link} />
+              <ShareLink
+                onClick={() => generateLink(survey.id)}
+                src={link}
+              />
             </div>
             <div className="Owner">
               <p>{survey.owner.username}</p>

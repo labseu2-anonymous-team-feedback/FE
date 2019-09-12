@@ -16,6 +16,7 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "graphql": "^14.5.0",
     "graphql-tag": "^2.10.1",
+    "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
     "prop-types": "^15.7.2",
     "query-string": "^6.8.2",

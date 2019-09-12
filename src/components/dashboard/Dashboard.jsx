@@ -5,6 +5,7 @@ import arrow from '../../assets/images/arrow.svg';
 import settings from '../../assets/images/settings.svg';
 
 import { GET_SURVEYS } from '../../graphql/queries';
+import SidebarContainer from '../common/Sidebar';
 import {
   DashboardContainer,
   UserWrapper,
@@ -33,35 +34,7 @@ export function Dashboard() {
     return (
       <DashboardContainer>
         <DashboardWrapper>
-          <UserWrapper>
-            <UserContainer>
-              <UserIcon>
-                <UserImg src={avatar} alt="" />
-              </UserIcon>
-              <p className="avatar-name">Petar</p>
-              <UserStatus>
-                <div className="user-status-inner">
-                  <p>9 surveys</p>
-                </div>
-                <div className="vertical"></div>
-                <div className="user-status-inner1">
-                  {' '}
-                  <p> 4 responses</p>
-                </div>
-              </UserStatus>
-              <UserStatus2>
-                <div className="user-status-inner2">
-                  <p>My Surveys</p>
-                  <UserArrow src={arrow} />
-                </div>
-                <div className="user-status-inner2">
-                  <p>Profile Settings</p>
-                  <UserSettings src={settings} />
-                </div>
-              </UserStatus2>
-            </UserContainer>
-          </UserWrapper>
-
+          <SidebarContainer />
           <SurveyWrapper>
             <SurveyInputWrapper>
               <InputButtonWrapper>
