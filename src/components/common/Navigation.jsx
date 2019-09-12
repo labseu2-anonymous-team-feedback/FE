@@ -94,7 +94,7 @@ class Navigation extends React.Component {
                 <Link className="dropdown-item" to="/dashboard">
                   Dashboard
                 </Link>
-                <a className="dropdown-item" href="##" onClick={this.logout}>
+                <a className="dropdown-item" id="logoutButton" href="##" onClick={this.logout}>
                   Logout
                 </a>
               </div>

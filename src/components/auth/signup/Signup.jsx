@@ -181,7 +181,7 @@ class Signup extends Component {
             </div>
           </div>
           <div className="d-flex justify-content-around" />
-          <Button className="btn btn-block my-4" type="submit">
+          <Button className="btn btn-block my-4" id="me" type="submit">
             {isLoading ? 'processing... ' : 'Sign Up'}
             {isLoading && <LoadIngIcon />}
           </Button>
