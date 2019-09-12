@@ -7,17 +7,38 @@ const IS_LOGGED_IN = gql`
   }
 `;
 
+const GET_SURVEY_FEEDBACK = gql`
+query getFeedback ($surveyId: String!) {
+  getSurveyFeedback(surveyId: $surveyId){
+    title
+    questions{
+      id
+      type
+      question
+      feedbacks{
+        id
+        rating
+        comment
+      }
+    }
+  }
+}
+`;
+
 const GET_SURVEYS = qql`
 query getUserSurveys {
   getUserSurveys{
+    id
     title
     owner{
       username
       email
     }
+
   }
 }
 `;
+
 const GET_SURVEY_DETAILS = gql`
   query getSurveyDetails($surveyId: String!) {
     getSurveyDetails(surveyId: $surveyId) {
@@ -32,4 +53,6 @@ const GET_SURVEY_DETAILS = gql`
   }
 `;
 
-export { IS_LOGGED_IN, GET_SURVEYS, GET_SURVEY_DETAILS };
+export {
+  IS_LOGGED_IN, GET_SURVEYS, GET_SURVEY_DETAILS, GET_SURVEY_FEEDBACK,
+};

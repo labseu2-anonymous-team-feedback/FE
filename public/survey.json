@@ -1,0 +1,27 @@
+{
+  "data": {
+    "getUserSurveys": [
+      {
+        "id": "a0ed0c14-3f16-40fb-b345-3e2013394038",
+        "title": "My Personal Perfromance",
+        "questions": [
+          {
+            "id": "c5e83dd5-7870-4848-9f81-fb4a66aa7c8c",
+            "question": "how do I behave in public",
+            "type": "text"
+          },
+          {
+            "id": "e794bbb9-81a4-49d0-b023-644b4bddce1f",
+            "question": "how does my code look",
+            "type": "rating"
+          },
+          {
+            "id": "5166a28a-2876-4173-bed8-2e3357c02d15",
+            "question": "Should I go for lunch",
+            "type": "rating"
+          }
+        ]
+      }
+    ]
+  }
+}
