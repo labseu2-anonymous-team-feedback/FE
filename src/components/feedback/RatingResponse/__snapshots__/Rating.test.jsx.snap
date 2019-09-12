@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Rating /> should render correctly 1`] = `
+<styled.div
+  className="rating"
+  onClick={[Function]}
+>
+  <span
+    className="circle"
+  />
+  <span
+    className="number"
+  >
+    2
+  </span>
+</styled.div>
+`;

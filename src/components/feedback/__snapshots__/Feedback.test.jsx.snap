@@ -3,5 +3,14 @@
 exports[`<Feedback /> renders the Feedback component correctly 1`] = `
 <styled.div>
   <Spinner />
+  <p>
+    Oops! Something went wrong
+    <span
+      aria-label="sad emoji"
+      role="img"
+    >
+      😔
+    </span>
+  </p>
 </styled.div>
 `;
