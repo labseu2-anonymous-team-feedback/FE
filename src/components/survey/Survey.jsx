@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import jwt from 'jsonwebtoken';
+import { toast } from 'react-toastify';
 import link from '../../assets/images/link.svg';
 import {
   IndividualSurvey,
@@ -15,6 +16,7 @@ export function Survey(props) {
     const url = `http://localhost:3000/survey/${token}`;
     console.log(token);
     console.log(url);
+    toast(`link has been copied to clipboard`, { className: 'toast-success' });
   };
 
 
