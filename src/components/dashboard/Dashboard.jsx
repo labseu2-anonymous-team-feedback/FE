@@ -5,6 +5,7 @@ import arrow from '../../assets/images/arrow.svg';
 import settings from '../../assets/images/settings.svg';
 
 import { GET_SURVEYS } from '../../graphql/queries';
+import SidebarContainer from '../common/Sidebar';
 import {
   DashboardContainer,
   UserWrapper,
@@ -28,39 +29,18 @@ import { Survey } from '../survey/Survey';
 
 export function Dashboard() {
   const { data, loading } = useQuery(GET_SURVEYS);
+
   if (data.getUserSurveys) {
     return (
       <DashboardContainer>
         <DashboardWrapper>
-          <UserWrapper>
-            <UserContainer>
-              <UserIcon>
-                <UserImg src={avatar} alt="" />
-              </UserIcon>
-              <span className="avatar-name">Petar</span>
-              <UserStatus>
-                <div className="user-status-inner">9 surveys</div>
-                <div className="user-status-inner">4 responses</div>
-              </UserStatus>
-              <UserStatus2>
-                <div className="user-status-inner2">
-                  <span>My Surveys</span>
-                  <UserArrow src={arrow} />
-                </div>
-                <div className="user-status-inner2">
-                  <span>Profile Settings</span>
-                  <UserSettings src={settings} />
-                </div>
-              </UserStatus2>
-            </UserContainer>
-          </UserWrapper>
-
+          <SidebarContainer />
           <SurveyWrapper>
             <SurveyInputWrapper>
               <InputButtonWrapper>
                 <InputAndButtonWrapper>
                   <div>
-                    <InputText type="text" placeholder="text input" />
+                    <InputText type="text" placeholder="" />
                   </div>
                   <div className="button-survey">
                     <Button>Add Survey</Button>
