@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { black, body1, fadedBlue } from '../../styles/variables';
 
@@ -10,6 +11,11 @@ const ProfileImage = ({ name, image }) => (
     <p>{name}</p>
   </StyledImage>
 );
+
+ProfileImage.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+};
 
 const StyledImage = styled.div`
 	margin: 0 auto;
