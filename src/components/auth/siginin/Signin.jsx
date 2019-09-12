@@ -11,7 +11,7 @@ import TextInput from '../../common/TextInput';
 import Button from '../../../styles/Button';
 import { LoadIngIcon } from '../../feedback/styles';
 
-function Signin({ client }) {
+export function Signin({ client }) {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [email, setEmail] = useState('');
@@ -67,7 +67,7 @@ function Signin({ client }) {
 
   return (
     <StyledSignin>
-      <form className="text-center  p-4" action="#!" onSubmit={onSubmit}>
+      <form id="signinForm" className="text-center  p-4" onSubmit={onSubmit}>
         <p className="h4 mb-4 f-1">Sign In</p>
 
         <TextInput

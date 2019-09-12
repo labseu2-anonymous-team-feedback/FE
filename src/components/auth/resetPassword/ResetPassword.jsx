@@ -7,7 +7,7 @@ import TextInput from '../../common/TextInput';
 import { SEND_RESET_PASSWORD_EMAIL } from '../../../graphql/mutations';
 import Button from '../../../styles/Button';
 
-function ResetPassword() {
+export function ResetPassword() {
   const [email, setEmail] = useState('');
   const [redirectReset, setRedirectReset] = useState(false);
 

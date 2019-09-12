@@ -1,7 +1,352 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Signup /> renders the Signup component correctly 1`] = `
-<ApolloConsumer>
-  <Component />
-</ApolloConsumer>
+<styled.div>
+  <form
+    action="#!"
+    className="text-center p-5"
+    onSubmit={[Function]}
+  >
+    <p
+      className="h4 mb-4 f-1"
+    >
+      Sign Up
+    </p>
+    <TextInput
+      id="username"
+      name="username"
+      onChange={[Function]}
+      required={true}
+      title="Username"
+      type="text"
+      value=""
+    />
+    <TextInput
+      id="email"
+      name="email"
+      onChange={[Function]}
+      required={true}
+      title="Email"
+      type="email"
+      value=""
+    />
+    <div
+      className="d-flex justify-content-between passwordContainerDiv"
+    >
+      <div
+        className="passwordContainer"
+      >
+        <TextInput
+          id="password"
+          name="password"
+          onChange={[Function]}
+          required={true}
+          title="Password"
+          type="password"
+          value=""
+        />
+      </div>
+      <div
+        className="passwordContainer"
+      >
+        <TextInput
+          id="confirmPassword"
+          name="confirmPassword"
+          onChange={[Function]}
+          required={true}
+          title="Confirm Password"
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="d-flex justify-content-around"
+    />
+    <styled.button
+      className="btn btn-block my-4"
+      id="me"
+      type="submit"
+    >
+      Sign Up
+    </styled.button>
+    <div
+      className="dividerContainer"
+    >
+      <div
+        className="divider"
+      >
+        <hr />
+      </div>
+      <p
+        className="font-weight-bold text-muted"
+      >
+        OR
+      </p>
+      <div
+        className="divider"
+      >
+        <hr />
+      </div>
+    </div>
+    <div
+      className="d-flex optionalLoginContainer"
+    >
+      <a
+        href="https://anonymous-feedback-app.herokuapp.com/google"
+      >
+        <img
+          alt="Sign up with google"
+          src="google-button.png"
+        />
+      </a>
+    </div>
+    <p>
+      Already have an account?  
+      <Link
+        to="/login"
+      >
+        <u>
+          Sign In
+        </u>
+      </Link>
+    </p>
+  </form>
+</styled.div>
+`;
+
+exports[`<Signup /> should redirect if isSignedin is true 1`] = `
+<styled.div>
+  <form
+    action="#!"
+    className="text-center p-5"
+    onSubmit={[Function]}
+  >
+    <p
+      className="h4 mb-4 f-1"
+    >
+      Sign Up
+    </p>
+    <TextInput
+      id="username"
+      name="username"
+      onChange={[Function]}
+      required={true}
+      title="Username"
+      type="text"
+      value=""
+    />
+    <TextInput
+      id="email"
+      name="email"
+      onChange={[Function]}
+      required={true}
+      title="Email"
+      type="email"
+      value=""
+    />
+    <div
+      className="d-flex justify-content-between passwordContainerDiv"
+    >
+      <div
+        className="passwordContainer"
+      >
+        <TextInput
+          id="password"
+          name="password"
+          onChange={[Function]}
+          required={true}
+          title="Password"
+          type="password"
+          value=""
+        />
+      </div>
+      <div
+        className="passwordContainer"
+      >
+        <TextInput
+          id="confirmPassword"
+          name="confirmPassword"
+          onChange={[Function]}
+          required={true}
+          title="Confirm Password"
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="d-flex justify-content-around"
+    />
+    <styled.button
+      className="btn btn-block my-4"
+      id="me"
+      type="submit"
+    >
+      Sign Up
+    </styled.button>
+    <div
+      className="dividerContainer"
+    >
+      <div
+        className="divider"
+      >
+        <hr />
+      </div>
+      <p
+        className="font-weight-bold text-muted"
+      >
+        OR
+      </p>
+      <div
+        className="divider"
+      >
+        <hr />
+      </div>
+    </div>
+    <div
+      className="d-flex optionalLoginContainer"
+    >
+      <a
+        href="https://anonymous-feedback-app.herokuapp.com/google"
+      >
+        <img
+          alt="Sign up with google"
+          src="google-button.png"
+        />
+      </a>
+    </div>
+    <p>
+      Already have an account?  
+      <Link
+        to="/login"
+      >
+        <u>
+          Sign In
+        </u>
+      </Link>
+    </p>
+  </form>
+</styled.div>
+`;
+
+exports[`<Signup /> should reload if registration is successfull 1`] = `
+<Redirect
+  to="/"
+/>
+`;
+
+exports[`<Signup /> should show error message 1`] = `
+<styled.div>
+  <form
+    action="#!"
+    className="text-center p-5"
+    onSubmit={[Function]}
+  >
+    <p
+      className="h4 mb-4 f-1"
+    >
+      Sign Up
+    </p>
+    <TextInput
+      id="username"
+      name="username"
+      onChange={[Function]}
+      required={true}
+      title="Username"
+      type="text"
+      value=""
+    />
+    <TextInput
+      id="email"
+      name="email"
+      onChange={[Function]}
+      required={true}
+      title="Email"
+      type="email"
+      value=""
+    />
+    <div
+      className="d-flex justify-content-between passwordContainerDiv"
+    >
+      <div
+        className="passwordContainer"
+      >
+        <TextInput
+          id="password"
+          name="password"
+          onChange={[Function]}
+          required={true}
+          title="Password"
+          type="password"
+          value=""
+        />
+      </div>
+      <div
+        className="passwordContainer"
+      >
+        <TextInput
+          id="confirmPassword"
+          name="confirmPassword"
+          onChange={[Function]}
+          required={true}
+          title="Confirm Password"
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="d-flex justify-content-around"
+    />
+    <styled.button
+      className="btn btn-block my-4"
+      id="me"
+      type="submit"
+    >
+      Sign Up
+    </styled.button>
+    <div
+      className="dividerContainer"
+    >
+      <div
+        className="divider"
+      >
+        <hr />
+      </div>
+      <p
+        className="font-weight-bold text-muted"
+      >
+        OR
+      </p>
+      <div
+        className="divider"
+      >
+        <hr />
+      </div>
+    </div>
+    <div
+      className="d-flex optionalLoginContainer"
+    >
+      <a
+        href="https://anonymous-feedback-app.herokuapp.com/google"
+      >
+        <img
+          alt="Sign up with google"
+          src="google-button.png"
+        />
+      </a>
+    </div>
+    <p>
+      Already have an account?  
+      <Link
+        to="/login"
+      >
+        <u>
+          Sign In
+        </u>
+      </Link>
+    </p>
+  </form>
+</styled.div>
 `;
