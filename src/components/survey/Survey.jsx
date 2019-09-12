@@ -1,14 +1,11 @@
 import React from 'react';
-import {
-  IndividualSurvey,
-  SurveyButton,
-} from '../dashboard/DashboardStyles';
+import { IndividualSurvey, SurveyButton } from '../dashboard/DashboardStyles';
 
 export function Survey(props) {
   return (
     <div>
       {props.data.length > 0 ? (
-        props.data.map(survey => (
+        props.data.map((survey) => (
           <IndividualSurvey key={survey.title}>
             <h2>Survey</h2>
             <br />
