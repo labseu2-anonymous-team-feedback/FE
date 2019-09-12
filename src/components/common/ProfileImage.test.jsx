@@ -5,10 +5,8 @@ import ProfileImage from './ProfileImage';
 
 describe('<ProfileImage />', () => {
   const props = {
-    handleChangeQuestion: jest.fn(),
-    removeQuestion: jest.fn(),
-    question: jest.mock(),
-    history: { push: jest.fn() },
+    name: jest.mock(),
+    image: { push: jest.fn() },
   };
 
   it('renders the ProfileImage component correctly', () => {
