@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import * as d3 from 'd3';
+import * as V from 'victory';
 import {
   white, extraSmallSpace, mediumSpace1, mediumSpace3, body1, body2, fadedBlue,
 } from '../../styles/variables';
-
-const svgWidth = 650;
-const svgHeight = 400;
-const margin = {
-  top: 20, right: 5, bottom: 20, left: 35,
-};
 
 class Chart extends Component {
   constructor(props) {
@@ -19,27 +13,49 @@ class Chart extends Component {
 
   render() {
     const { data } = this.props;
-
+    const { VictoryBar, VictoryChart, VictoryTheme } = V;
     return (
       data.map((ques, i) => {
         if (ques.type === 'rating') {
-          const extent = d3.extent(ques.feedbacks, (d) => Number(d.rating));
-          const xScale = d3.scaleLinear().domain(extent).range([0, svgWidth]);
-          const yScale = d3.scaleLinear().domain(extent).range([svgHeight, 0]);
-          const bars = ques.feedbacks.map((d) => ({
-            x: xScale(d.rating),
-            y: yScale(d.rating),
-            height: svgHeight - yScale(d.rating),
+          const { feedbacks } = ques;
+          let freq = [];
+          freq = [...new Array(10)].map((item, index) => {
+            let count = 0;
+            feedbacks.forEach((feedback, i) => {
+              if (Number(feedback.rating) === index + 1) {
+                count += 1;
+              }
+            });
+            return count;
+          });// freq
+          const xRange = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+          const processedData = (frequency, rating) => rating.map((rate, i) => ({
+            rating: rate,
+            freq: frequency[i],
           }));
-          console.log(bars);
+          const dataPlot = processedData(freq, xRange);
+
           return (
             <div key={ques.id}>
               <StyledHeader>{ques.question}</StyledHeader>
-              <StyledSvg width={svgWidth} height={svgHeight}>
-                {bars.map((d, i) => (
-                  <rect x={d.x} y={d.y} width={30} height={svgHeight - d.height} key={i} />
-                ))}
-              </StyledSvg>
+              <StyledDiv>
+                <VictoryChart
+                  style={{ parent: { maxWidth: '70%' } }}
+                // adding the material theme provided with Victory
+                  theme={VictoryTheme.material}
+                >
+                  <VictoryBar
+                    style={{ data: { fill: '#6bafe8' } }}
+                    alignment="start"
+                    data={dataPlot}
+        // data accessor for x values
+                    x="rating"
+        // data accessor for y values
+                    y="freq"
+                  />
+                </VictoryChart>
+              </StyledDiv>
+
             </div>
           );
         }
@@ -50,7 +66,7 @@ class Chart extends Component {
               {
               ques.feedbacks.map((feedback) => (
                 <div key={feedback.id}>
-                  <p>{feedback.comment}</p>
+                  {feedback.comment && <Paragraph>{feedback.comment}</Paragraph>}
                 </div>
               ))
             }
@@ -68,14 +84,21 @@ const StyledHeader = styled.h4`
 margin: ${mediumSpace3} 0 ${extraSmallSpace} 0;
 font-size: ${body1}
 `;
-const StyledSvg = styled.svg`
+const StyledDiv = styled.div`
+display: flex;
+justify-content: center;
 background-color: ${white};
+width: 75%;
 `;
 const TextBox = styled.div`
 font-size: ${body2};
 background-color: ${white};
 min-height: ${extraSmallSpace};
 width: 75%;
+`;
+
+const Paragraph = styled.p`
+border: 1px solid ${fadedBlue};
 padding: ${extraSmallSpace} ${extraSmallSpace};
 `;
 
