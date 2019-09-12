@@ -2,6 +2,8 @@
 
 exports[`<Signup /> renders the Signup component correctly 1`] = `ShallowWrapper {}`;
 
+exports[`<Signup /> should redirect if isSignedin is true 1`] = `ShallowWrapper {}`;
+
 exports[`<Signup /> should reload if registration is successfull 1`] = `ShallowWrapper {}`;
 
 exports[`<Signup /> should show error message 1`] = `ShallowWrapper {}`;
