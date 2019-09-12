@@ -1,23 +1,23 @@
 import React from 'react';
-import { Query, withApollo } from 'react-apollo';
+import { withApollo } from 'react-apollo';
 import propTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { GET_SURVEY_DETAILS } from '../../graphql/queries';
 import { SAVE_FEEDBACK } from '../../graphql/mutations';
 import { Container, Title, LoadIngIcon } from './styles';
 import TextResponse from './TextResponse';
-import RatingResponse from './RatingResposne/RatingResponse';
-import { getUserIdFromToken } from '../../utils';
+import RatingResponse from './RatingResponse/RatingResponse';
 import Spinner from '../common/Spinner';
+import { getUserIdFromToken } from '../../utils';
 
-class Feedback extends React.Component {
+export class Feedback extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      surveyId: '',
+      survey: null,
       answers: [],
       isLoading: false,
+      error: null,
     };
   }
 
@@ -28,7 +28,7 @@ class Feedback extends React.Component {
       },
     } = this.props;
     if (surveyId) {
-      this.setState({ surveyId });
+      this.fetchSurvey(surveyId);
     }
   }
 
@@ -59,11 +59,8 @@ class Feedback extends React.Component {
     this.setState({ answers: updatedAnswers });
   };
 
-  initializeAnswers = (data) => {
-    if (data) {
-      const {
-        getSurveyDetails: { questions },
-      } = data;
+  initializeAnswers = (questions) => {
+    if (questions) {
       const answers = questions.map((q) => {
         if (q.type === 'rating') {
           return { questionId: q.id, rating: '' };
@@ -87,12 +84,38 @@ class Feedback extends React.Component {
     return !!isValid;
   };
 
+  fetchSurvey = async (surveyId) => {
+    const { client } = this.props;
+    this.setState({ isLoading: true });
+    try {
+      const { loading, data } = await client.query({
+        query: GET_SURVEY_DETAILS,
+        variables: { surveyId },
+      });
+      if (!loading && data) {
+        const survey = data.getSurveyDetails;
+        this.setState({ survey, isLoading: false });
+        this.initializeAnswers(survey.questions);
+      }
+    } catch (error) {
+      this.setState({ error: error.message });
+    }
+  };
+
   submitHandler = async (e) => {
     e.preventDefault();
     const userId = getUserIdFromToken();
     const { client, history } = this.props;
-    const { answers, surveyId } = this.state;
-    const feedbackData = { surveyId, ...(userId && { userId }), responses: answers };
+    const {
+      answers,
+      survey: { id },
+    } = this.state;
+    const responses = answers.filter((ans) => ans.rating || ans.comment);
+    const feedbackData = {
+      surveyId: id,
+      ...(userId && { userId }),
+      responses,
+    };
     const isValid = this.validateInput();
     if (isValid) {
       try {
@@ -116,59 +139,55 @@ class Feedback extends React.Component {
   };
 
   render() {
-    const { surveyId, isLoading } = this.state;
+    const { survey, isLoading, error } = this.state;
     return (
       <Container>
-        <Query
-          query={GET_SURVEY_DETAILS}
-          variables={{ surveyId }}
-          onCompleted={(data) => this.initializeAnswers(data)}
-        >
-          {({ data, loading, error }) => {
-            if (loading) return <Spinner />;
-            if (error) return <div>{error.toString()}</div>;
-            const {
-              getSurveyDetails: { title, questions },
-            } = data;
-            return (
-              <>
-                <Title>{title}</Title>
-                {questions.map((q, i) => {
-                  if (q.type === 'rating') {
-                    return (
-                      <div className="form-group" key={q.id}>
-                        <RatingResponse
-                          question={q}
-                          handleRating={this.ratingHandler}
-                          index={i}
-                        />
-                      </div>
-                    );
-                  }
-                  return (
-                    <div className="form-group" key={q.id}>
-                      <TextResponse
-                        question={q}
-                        changeHandler={this.changeHandler}
-                        index={i}
-                      />
-                    </div>
-                  );
-                })}
-                <div className="form-group">
-                  <button
-                    className="btn btn-info btn-block mt-4"
-                    type="submit"
-                    onClick={this.submitHandler}
-                  >
-                    { isLoading ? 'Processing... ' : 'Submit' }
-                    {isLoading && <LoadIngIcon />}
-                  </button>
+        {isLoading && <Spinner />}
+        {error && (
+          <p>
+            Oops! Something went wrong
+            <span role="img" aria-label="sad emoji">
+              😔
+            </span>
+          </p>
+        )}
+        {survey && (
+          <>
+            <Title>{survey.title}</Title>
+            {survey.questions.map((q, i) => {
+              if (q.type === 'rating') {
+                return (
+                  <div className="form-group" key={q.id}>
+                    <RatingResponse
+                      question={q}
+                      handleRating={this.ratingHandler}
+                      index={i}
+                    />
+                  </div>
+                );
+              }
+              return (
+                <div className="form-group" key={q.id}>
+                  <TextResponse
+                    question={q}
+                    changeHandler={this.changeHandler}
+                    index={i}
+                  />
                 </div>
-              </>
-            );
-          }}
-        </Query>
+              );
+            })}
+            <div className="form-group">
+              <button
+                className="btn btn-info btn-block mt-4"
+                type="submit"
+                onClick={this.submitHandler}
+              >
+                {isLoading ? 'Processing... ' : 'Submit'}
+                {isLoading && <LoadIngIcon />}
+              </button>
+            </div>
+          </>
+        )}
       </Container>
     );
   }
@@ -177,11 +196,12 @@ class Feedback extends React.Component {
 Feedback.propTypes = {
   match: propTypes.shape({
     params: propTypes.shape({
-      surveyId: propTypes.string.isRequired,
+      surveyId: propTypes.string,
     }),
   }).isRequired,
   client: propTypes.shape({
     mutate: propTypes.func.isRequired,
+    query: propTypes.func.isRequired,
   }).isRequired,
   history: propTypes.shape({
     push: propTypes.func.isRequired,

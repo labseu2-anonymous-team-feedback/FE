@@ -100,7 +100,7 @@ describe('<Signup />', () => {
       data: 'Login successfull',
       isLoading: '',
     };
-    const wrapper = shallow(<Signup {...props} />); 
+    const wrapper = shallow(<Signup {...props} />);
 
     wrapper.setState({ ...mockState });
 

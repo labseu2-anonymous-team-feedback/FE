@@ -43,6 +43,7 @@ const GET_SURVEY_DETAILS = gql`
   query getSurveyDetails($surveyId: String!) {
     getSurveyDetails(surveyId: $surveyId) {
       title
+      id
       questions {
         id
         question
