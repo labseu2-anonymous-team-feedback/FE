@@ -16,7 +16,7 @@ import { trimError, isLoggedIn } from '../../../utils';
 import Button from '../../../styles/Button';
 import { LoadIngIcon } from '../../feedback/styles';
 
-class Signup extends Component {
+export class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {

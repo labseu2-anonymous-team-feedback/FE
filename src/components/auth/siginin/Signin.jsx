@@ -11,7 +11,7 @@ import TextInput from '../../common/TextInput';
 import Button from '../../../styles/Button';
 import { LoadIngIcon } from '../../feedback/styles';
 
-function Signin({ client }) {
+export function Signin({ client }) {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [email, setEmail] = useState('');
