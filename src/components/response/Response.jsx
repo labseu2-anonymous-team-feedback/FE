@@ -23,21 +23,9 @@ class Response extends Component {
         params: { surveyId },
       },
     } = this.props;
-    console.log(surveyId);
     this.setState({ surveyId });
 
     this.getSurveyDetails(surveyId);
-    // Promise.all([
-    //   fetch(`${process.env.PUBLIC_URL || ''}/survey.json`),
-    //   fetch(`${process.env.PUBLIC_URL || ''}/feedback.json`),
-    // ])
-    //   .then((responses) => Promise.all(responses.map((resp) => resp.json())))
-    //   .then(([survey, feedback]) => {
-    //     const surveyFeedback = feedback.data.getSurveyFeedback;
-    //     this.setState({ answers: surveyFeedback });
-    //     const userSurvey = survey.data.getUserSurveys;
-    //     this.setState({ selectedSurvey: userSurvey[0] });
-    //   });
   }
 
   getSurveyDetails= async (surveyId) => {
