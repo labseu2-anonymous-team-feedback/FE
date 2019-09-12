@@ -13,7 +13,9 @@ class Chart extends Component {
 
   render() {
     const { data } = this.props;
-    const { VictoryBar, VictoryChart, VictoryTheme } = V;
+    const {
+      VictoryBar, VictoryChart, VictoryTheme, VictoryLegend,
+    } = V;
     return (
       data.map((ques, i) => {
         if (ques.type === 'rating') {
@@ -44,6 +46,19 @@ class Chart extends Component {
                 // adding the material theme provided with Victory
                   theme={VictoryTheme.material}
                 >
+                  <VictoryLegend
+                    x={5}
+                    y={8}
+                    title="Graph"
+                    titleOrientation="left"
+                    gutter={5}
+                    orientation="horizontal"
+                    style={{ border: { stroke: 'black' }, title: { fontSize: 5 } }}
+                    data={[
+                      { name: 'rating(x)', symbol: { fill: '#6bafe8' } },
+                      { name: 'Frequency(y)', symbol: { fill: '#6bafe8' } },
+                    ]}
+                  />
                   <VictoryBar
                     style={{ data: { fill: '#6bafe8' } }}
                     alignment="start"
