@@ -1,19 +1,10 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import avatar from '../../assets/images/avatar-default.png';
-import arrow from '../../assets/images/arrow.svg';
-import settings from '../../assets/images/settings.svg';
 
 import { GET_SURVEYS } from '../../graphql/queries';
 import SidebarContainer from '../common/Sidebar';
 import {
   DashboardContainer,
-  UserWrapper,
-  UserContainer,
-  UserStatus,
-  UserStatus2,
-  UserIcon,
-  UserImg,
   Button,
   InputText,
   SurveyInputWrapper,
@@ -21,8 +12,6 @@ import {
   SurveyWrapper,
   InputButtonWrapper,
   DashboardWrapper,
-  UserArrow,
-  UserSettings,
 } from './DashboardStyles';
 
 import { Survey } from '../survey/Survey';
