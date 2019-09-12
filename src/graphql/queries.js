@@ -28,14 +28,17 @@ query getFeedback ($surveyId: String!) {
 const GET_SURVEYS = qql`
 query getUserSurveys {
   getUserSurveys{
+    id
     title
     owner{
       username
       email
     }
+
   }
 }
 `;
+
 const GET_SURVEY_DETAILS = gql`
   query getSurveyDetails($surveyId: String!) {
     getSurveyDetails(surveyId: $surveyId) {
