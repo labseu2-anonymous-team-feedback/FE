@@ -17,7 +17,7 @@ import DashboardLayout from '../common/DashboardLayout';
 export function Dashboard() {
   const { data, loading } = useQuery(GET_SURVEYS);
 
-  if (data.getUserSurveys) {
+  if (data && data.getUserSurveys) {
     return (
       <DashboardLayout>
         <SurveyWrapper>
