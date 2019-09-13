@@ -5,34 +5,6 @@ export const DashboardContainer = styled.section`
   background: #f3f7f9;
   padding-top: 5rem;
   -webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.1);
-
-  font-size: 62.5%;
-
-  body {
-    font-size: 1rem;
-  }
-
-  h1,
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  h3,
-  h4 {
-    font-size: 1.2rem;
-  }
-
-  p {
-    font-size: 1.1rem;
-  }
-
-  span {
-    font-size: 1.1rem;
-  }
-
-  button {
-    font-size: 0.9rem;
-  }
 `;
 
 export const DashboardWrapper = styled.div`
