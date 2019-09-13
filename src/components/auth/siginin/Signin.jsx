@@ -18,6 +18,10 @@ export function Signin({ client }) {
   const [password, setPassword] = useState('');
   const [isLoading, setLoading] = useState(false);
 
+  if (success) {
+    window.location.reload();
+  }
+
   const isSignedIn = isLoggedIn();
   if (isSignedIn) {
     return <Redirect to="/" />;
@@ -59,10 +63,6 @@ export function Signin({ client }) {
       });
     }
     setError(false);
-  }
-
-  if (success) {
-    window.location.reload();
   }
 
   return (

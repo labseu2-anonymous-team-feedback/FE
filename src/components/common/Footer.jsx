@@ -11,14 +11,14 @@ export default function Footer() {
   const isSignedIn = isLoggedIn();
   if (isSignedIn) {
     return (
-      <StyledFooter className="font-small darken-3 fixed-bottom">
+      <StyledFooter className="font-small darken-3 fixed-bottom mt-5">
         <div className="footer-copyright text-center py-3">
           ©
           {' '}
           {new Date().getFullYear()}
           {' '}
 Copyright:
-          <a href="##"> Anonymous Team Feedback</a>
+          <a href="https://anonymous-team-feeedback.herokuapp.com"> Anonymous Team Feedback</a>
         </div>
       </StyledFooter>
     );
