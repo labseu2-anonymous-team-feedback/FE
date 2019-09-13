@@ -12,10 +12,11 @@ const SidebarContainer = () => (
     />
     <div className="nav-items">
       <SideNavItem
-        text={sidebarTexts.surveys}
-        icon={sidebarIcons.surveys}
-        path="/dashboard"
+        text={sidebarTexts.create_survey}
+        icon={sidebarIcons.create_survey}
+        path="/create_survey"
       />
+
       <SideNavItem
         text={sidebarTexts.settings}
         icon={sidebarIcons.settings}

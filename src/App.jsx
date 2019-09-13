@@ -17,19 +17,21 @@ const Signup = React.lazy(() => import('./components/auth/signup/Signup'));
 const Signin = React.lazy(() => import('./components/auth/siginin/Signin'));
 
 const userDashboard = React.lazy(() =>
-  import('./components/dashboard/Dashboard'));
+  import('./components/dashboard/Dashboard'),);
 
 const CreateSurvey = React.lazy(() =>
-  import('./components/survey/CreateSurvey'));
+  import('./components/survey/CreateSurvey'),);
+
+const Survey = React.lazy(() => import('./components/survey/Survey'));
 
 const ResetPassword = React.lazy(() =>
-  import('./components/auth/resetPassword/ResetPassword'));
+  import('./components/auth/resetPassword/ResetPassword'),);
 
 const ResetPasswordConfirmation = React.lazy(() =>
-  import('./components/auth/resetPassword/ResetPasswordConfirmation'));
+  import('./components/auth/resetPassword/ResetPasswordConfirmation'),);
 
 const NewPassword = React.lazy(() =>
-  import('./components/auth/resetPassword/NewPassword'));
+  import('./components/auth/resetPassword/NewPassword'),);
 
 function App() {
   return (
@@ -56,8 +58,9 @@ function App() {
             path="/password_reset/:resetToken"
             component={NewPassword}
           />
-          <PrivateRoute exact path="/" component={CreateSurvey} />
-          <PrivateRoute exact path="/dashboard" component={userDashboard} />
+          <PrivateRoute exact path="/create_survey" component={CreateSurvey} />
+          <PrivateRoute exact path="/view_survey" component={Survey} />
+          <PrivateRoute exact path="/" component={userDashboard} />
           <Route path="/take_survey/:surveyId" component={FeedbackResponse} />
           <Route path="/success" component={Success} />
           <Route exact path="/survey/:surveyId" component={Response} />

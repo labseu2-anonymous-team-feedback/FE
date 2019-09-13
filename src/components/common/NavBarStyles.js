@@ -22,7 +22,8 @@ export const NavigationNav = styled.nav`
             height: 65%;
             
             .logo {
-                height: 100%;
+
+                height: 50px;
                 @media (max-width: 575px) {
                     height: 100%;
                 }
@@ -74,7 +75,6 @@ export const NavigationNav = styled.nav`
 
             .user-info {
                 display: flex;
-                flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 flex: 3;

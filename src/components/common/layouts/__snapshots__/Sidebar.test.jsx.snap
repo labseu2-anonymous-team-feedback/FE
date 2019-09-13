@@ -10,9 +10,9 @@ exports[`<Sidebar /> renders the Sidebar component correctly 1`] = `
     className="nav-items"
   >
     <SideNavItem
-      icon="menu_book"
-      path="/dashboard"
-      text="My Survey"
+      icon="add_circle_outline"
+      path="/create_survey"
+      text="Create Survey"
     />
     <SideNavItem
       icon="settings"

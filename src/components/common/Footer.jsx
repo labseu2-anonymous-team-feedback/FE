@@ -18,7 +18,7 @@ export default function Footer() {
           {new Date().getFullYear()}
           {' '}
 Copyright:
-          <a href="##"> Anonymous Team Feedback</a>
+          <a href="https://anonymous-team-feeedback.herokuapp.com"> Anonymous Team Feedback</a>
         </div>
       </StyledFooter>
     );

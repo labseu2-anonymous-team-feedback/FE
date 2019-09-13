@@ -12,9 +12,10 @@ import {
 import { Survey } from '../survey/Survey';
 import DashboardLayout from '../common/layouts/DashboardLayout';
 import Divider from '../../styles/Divider';
+import Spinner from '../common/Spinner';
 
 export function Dashboard() {
-  const { data, loading } = useQuery(GET_SURVEYS);
+  const { data } = useQuery(GET_SURVEYS);
 
   if (data && data.getUserSurveys) {
     return (
@@ -26,7 +27,7 @@ export function Dashboard() {
           </div>
           <div className="actions-div">
             <input type="text" id="search" placeholder="Search..." />
-            <SurveyButton to="/">Add Survey</SurveyButton>
+            <SurveyButton to="/create_survey">Add Survey</SurveyButton>
           </div>
         </SurveyPageHeader>
         <DashboardDivider />
@@ -36,7 +37,7 @@ export function Dashboard() {
       </DashboardLayout>
     );
   }
-  return <div>{loading}</div>;
+  return <Spinner />;
 }
 
 export default Dashboard;
