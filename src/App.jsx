@@ -10,6 +10,7 @@ import FeedbackResponse from './components/feedback/Feedback';
 import Success from './components/common/success/Success';
 import Response from './components/response/Response';
 import DashboardLayout from './components/common/layouts/DashboardLayout';
+import NotFound from './components/common/error/NotFound';
 
 const Signup = React.lazy(() => import('./components/auth/signup/Signup'));
 
@@ -60,6 +61,7 @@ function App() {
           <Route path="/take_survey/:surveyId" component={FeedbackResponse} />
           <Route path="/success" component={Success} />
           <Route exact path="/survey/:surveyId" component={Response} />
+          <Route exact component={NotFound} />
         </Switch>
       </React.Suspense>
       <Footer />
