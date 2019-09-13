@@ -56,8 +56,8 @@ function App() {
             path="/password_reset/:resetToken"
             component={NewPassword}
           />
-          <PrivateRoute exact path="/" component={CreateSurvey} />
-          <PrivateRoute exact path="/dashboard" component={userDashboard} />
+          <PrivateRoute exact path="/create_survey" component={CreateSurvey} />
+          <PrivateRoute exact path="/" component={userDashboard} />
           <Route path="/take_survey/:surveyId" component={FeedbackResponse} />
           <Route path="/success" component={Success} />
           <Route exact path="/survey/:surveyId" component={Response} />

@@ -14,7 +14,7 @@ const SidebarContainer = () => (
       <SideNavItem
         text={sidebarTexts.surveys}
         icon={sidebarIcons.surveys}
-        path="/dashboard"
+        path="/create_survey"
       />
       <SideNavItem
         text={sidebarTexts.settings}
