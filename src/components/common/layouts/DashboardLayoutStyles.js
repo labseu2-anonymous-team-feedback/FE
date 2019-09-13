@@ -68,7 +68,7 @@ export const StyledNavItem = styled.div`
   }
 
   &:hover a {
-    color: blue;
+    color: #3BA7C9;
     background: #dbf2ff;
   }
 `;

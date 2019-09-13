@@ -17,7 +17,7 @@ export function Survey(props) {
 	}
 
 	const { data } = props;
-
+	console.log(data);
 	return (
 		<div>
 			{data.length > 0 ? (
@@ -38,7 +38,8 @@ export function Survey(props) {
 							<div className="survey-actions">
 								<div className="questions">
 									<Link to={`/take_survey/${survey.id}`}>
-										({data.questions ? data.questions.length : '0'} Questions)
+										{survey.questions ? survey.questions.length : '0'}{' '}
+										Question(s)
 									</Link>
 								</div>
 								<SurveyButton to={`/survey/${survey.id}`}>
