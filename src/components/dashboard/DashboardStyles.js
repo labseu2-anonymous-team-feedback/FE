@@ -1,186 +1,134 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const DashboardContainer = styled.section`
+
+export const DashboardDivider = styled.div`
+    width: 96%;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 2rem auto 0rem;
+`;
+
+export const SurveyPageHeader = styled.div`
+  width: 100%;
   display: flex;
-  background: #f3f7f9;
-  padding-top: 5rem;
-  -webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
 
-  font-size: 62.5%;
-
-  body {
-    font-size: 1rem;
+  .title-div {
+    padding: 2rem 1rem 1rem 1rem;
+    text-align: center;
   }
 
-  h1,
-  h2 {
-    font-size: 1.5rem;
-  }
+  .actions-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 3rem;
 
-  h3,
-  h4 {
-    font-size: 1.2rem;
-  }
+    input#search {
+      font-size: 1rem;
+      width: 25rem;
+      padding: .4em;
+      padding-left: 1em;
+      border-radius: 2rem;
+      border: 1px solid transparent;
+      outline: none;
+      background: #bdc4c7;
+      border: 1px solid #bdc4c7;
+      font-style: italic;
 
-  p {
-    font-size: 1.1rem;
-  }
-
-  span {
-    font-size: 1.1rem;
-  }
-
-  button {
-    font-size: 0.9rem;
+      &:focus {
+        background: #a7aeb1;
+      }
+    }
   }
 `;
 
-export const DashboardWrapper = styled.div`
-  width: 80%;
-  display: flex;
-  margin: 0 auto;
+export const StyledSurvey = styled.div`
+  flex-grow: 1;
+  width: 33rem;
+  background-color: #f1faff;
+  margin: 1rem;
+  border-radius: 5px;
+  position: relative;
 
-  @media (max-width: 1200px) {
-    display: flex;
-    width: 80%;
+  .survey-title {
+    width: 75%;
+    padding: 1rem;
   }
 
-  @media (max-width: 1150px) {
+  .copy-btn-div {
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    font-size: .8rem;
+    margin: .325rem;
+    padding: .325rem;
+    color: #444;
+    
+    &:hover {
+      cursor: pointer;
+      color: #3BA7C9;
+      border-bottom: 1px solid #3BA7C9;
+    }
+
+    i {
+      font-size: 1rem;
+    }
+
+    .btn-link-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .survey-actions {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    padding: .4rem 1rem 1rem;
+    justify-content: space-between;
+
+    .questions {
+      font-size: .9rem;
+      a {
+        text-decoration: none;
+        color: #444;
+        &:hover {
+        color: #3BA7C9;
+        cursor: pointer;
+      }
+      }
+      
+      
+    }
   }
 `;
 
-export const SurveyWrapper = styled.div`
-  padding: 1rem;
-  padding-top: 4rem;
+
+export const SurveyContent = styled.div`
   display: flex;
-  width: 50%;
-  justify-content: flex-start;
-
-  @media (max-width: 1200px) {
-    display: flex;
-    width: 80%;
-  }
-`;
-
-export const SurveyInputWrapper = styled.div`
+  flex-wrap: wrap;
+  padding-top: 2rem;
   width: 100%;
 `;
 
-export const ShareLink = styled.img`
-  cursor: pointer;
+export const SurveyButton = styled(Link)`
+  font-size: 1rem;
+  padding: .3em 1em;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  outline: none;
+  background: #3BA7C9;
+  white-space: nowrap;
 
   &:hover {
-    transform: scale(1.5);
-    transition: 0.2s;
+    background: #2b839e;
+    color: white;
   }
 `;
 
-export const InputText = styled.input`
-  border: 2px solid white;
-  -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
-    0 0 16px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
-    0 0 16px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
-    0 0 16px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  width: 100%;
-  width: 400px;
-  box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.5);
-  margin: 0 0 2px 0;
-  border-radius: 3px;
-
-  &:focus {
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    padding: 8px 0px 8px 8px;
-    margin: 3px 1px 3px 0px;
-    border: 1px solid rgba(81, 203, 238, 1);
-    font-size: 1.5em;
-    border-radius: 3px;
-  }
-
-  @media (max-width: 560px) {
-    width: 300px;
-  }
-
-  @media (max-width: 380px) {
-    width: 240px;
-  }
-
-  @media (max-width: 300px) {
-    width: 180px;
-  }
-`;
-
-export const Button = styled.button`
-  width: 8.7em;
-  height: 2.8em;
-  color: #fff;
-  background: #14799e;
-  padding: 1px;
-  border: 2px solid #494949 !important;
-  border-radius: 3px;
-  -webkit-font-smoothing: inherit;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #ffc247;
-  }
-`;
-
-export const SurveyButtonWrapper = styled.div`
-  padding: 0.5rem;
-`;
-
-export const SurveyButton = styled.button`
-  width: 6.7em;
-  height: 2.5em;
-  color: #fff;
-  background: #14799e;
-  padding: 1px;
-  border: 2px solid #494949 !important;
-  border-radius: 3px;
-  -webkit-font-smoothing: inherit;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #ffc247;
-  }
-`;
-
-export const IndividualSurvey = styled.div`
-         border: 1px solid lightgray;
-         overflow: hidden;
-         text-overflow: ellipsis;
-         padding: 1rem;
-         margin-bottom: 2.5rem;
-         background-color: #cfedfe;
-         -webkit-border-radius: 4px 3px 6px 10px;
-         -moz-border-radius: 4px 3px 6px 10px;
-         -o-border-radius: 4px 3px 6px 10px;
-         border-radius: 4px 3px 6px 10px;
-         text-overflow: ellipsis;
-         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
-           0 6px 6px rgba(0, 0, 0, 0.23);
-
-         .Owner {
-           padding: 1rem;
-         }
-
-         .TitleAndShare {
-           display: flex;
-           justify-content: space-between;
-           padding: 1rem;
-         }
-
-         @media (max-width: 300px) {
-           width: 130%;
-           padding: 1rem;
-         }
-       `;
 
 export const MainInputAndButtonWrapper = styled.div`
   display: flex;

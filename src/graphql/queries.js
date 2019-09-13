@@ -34,6 +34,9 @@ query getUserSurveys {
       username
       email
     }
+    questions { 
+      id
+    }
 
   }
 }

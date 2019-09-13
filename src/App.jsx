@@ -9,7 +9,7 @@ import Spinner from './components/common/Spinner';
 import FeedbackResponse from './components/feedback/Feedback';
 import Success from './components/common/success/Success';
 import Response from './components/response/Response';
-import DashboardLayout from './components/common/DashboardLayout';
+import DashboardLayout from './components/common/layouts/DashboardLayout';
 import NotFound from './components/common/error/NotFound';
 
 const Signup = React.lazy(() => import('./components/auth/signup/Signup'));
