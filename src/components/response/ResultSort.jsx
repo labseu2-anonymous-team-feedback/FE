@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import Chart from './Chart';
+import { extraLargeSpace } from '../../styles/variables';
 
 
 class ResultSort extends Component {
@@ -11,11 +13,18 @@ class ResultSort extends Component {
   render() {
     const { questions } = this.props;
     return (
-      <div>
+      <ResultContainer>
         <Chart data={questions} />
-      </div>
+      </ResultContainer>
     );
   }
 }
+
+const ResultContainer = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+margin: 0 0 0 ${extraLargeSpace};
+`;
 
 export default ResultSort;
