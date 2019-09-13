@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import {
@@ -11,6 +12,12 @@ const SideNavItem = ({ icon, text, path }) => (
     <NavLink to={path} activeClassName="active-nav"><span>{text}</span></NavLink>
   </StyledNavItem>
 );
+
+SideNavItem.propTypes = {
+  icon: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+};
 
 const StyledNavItem = styled.div`
     a {
