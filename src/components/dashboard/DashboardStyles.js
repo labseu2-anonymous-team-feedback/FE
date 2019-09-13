@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 
 
+export const DashboardDivider = styled.div`
+    width: 96%;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 2rem auto 0rem;
+`;
+
 export const SurveyPageHeader = styled.div`
   width: 100%;
   display: flex;
@@ -75,19 +82,25 @@ export const StyledSurvey = styled.div`
     }
   }
 
-  .Owner {
-    padding: 1rem;
-  }
-
-  .TitleAndShare {
+  .survey-actions {
     display: flex;
+    align-items: center;
+    padding: .4rem 1rem 1rem;
     justify-content: space-between;
-    padding: 1rem;
-  }
 
-  @media (max-width: 300px) {
-    width: 130%;
-    padding: 1rem;
+    .questions {
+      font-size: .9rem;
+      a {
+        text-decoration: none;
+        color: #444;
+        &:hover {
+        color: #3BA7C9;
+        cursor: pointer;
+      }
+      }
+      
+      
+    }
   }
 `;
 

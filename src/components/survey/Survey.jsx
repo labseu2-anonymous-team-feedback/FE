@@ -1,14 +1,10 @@
 /* eslint-disable */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { toast } from 'react-toastify';
-import link from '../../assets/images/link.svg';
-import {
-	StyledSurvey,
-	SurveyButton,
-	ShareLink,
-} from '../dashboard/DashboardStyles';
+import { StyledSurvey, SurveyButton } from '../dashboard/DashboardStyles';
 
 export function Survey(props) {
 	const [copied, setCopied] = useState(false);
@@ -39,7 +35,14 @@ export function Survey(props) {
 									</div>
 								</CopyToClipboard>
 							</div>
-							<SurveyButton>View More</SurveyButton>
+							<div className="survey-actions">
+								<div className="questions">
+									<Link to="/">
+										({data.questions ? data.questions.length : '0'} Questions)
+									</Link>
+								</div>
+								<SurveyButton>View More</SurveyButton>
+							</div>
 						</StyledSurvey>
 					);
 				})

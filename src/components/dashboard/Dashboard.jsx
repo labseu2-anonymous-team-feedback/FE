@@ -6,6 +6,7 @@ import {
   SurveyPageHeader,
   SurveyButton,
   SurveyContent,
+  DashboardDivider,
 } from './DashboardStyles';
 
 import { Survey } from '../survey/Survey';
@@ -28,10 +29,8 @@ export function Dashboard() {
             <SurveyButton>Add Survey</SurveyButton>
           </div>
         </SurveyPageHeader>
-
+        <DashboardDivider />
         <SurveyContent>
-          <Survey data={data.getUserSurveys} />
-          <Survey data={data.getUserSurveys} />
           <Survey data={data.getUserSurveys} />
         </SurveyContent>
       </DashboardLayout>
