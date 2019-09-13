@@ -16,6 +16,24 @@ export const SurveyPageHeader = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 1rem 3rem;
+
+    input#search {
+      font-size: 1rem;
+      width: 25rem;
+      padding: .4em;
+      padding-left: 1em;
+      border-radius: 2rem;
+      border: 1px solid transparent;
+      outline: none;
+      background: #bdc4c7;
+      border: 1px solid #bdc4c7;
+      font-style: italic;
+
+      &:focus {
+        background: #a7aeb1;
+      }
+    } 
+
   }
 `;
 export const ShareLink = styled.img`
@@ -27,43 +45,6 @@ export const ShareLink = styled.img`
   }
 `;
 
-export const InputText = styled.input`
-  border: 2px solid white;
-  -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
-    0 0 16px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
-    0 0 16px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
-    0 0 16px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  width: 100%;
-  width: 400px;
-  box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.5);
-  margin: 0 0 2px 0;
-  border-radius: 3px;
-
-  &:focus {
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    padding: 8px 0px 8px 8px;
-    margin: 3px 1px 3px 0px;
-    border: 1px solid rgba(81, 203, 238, 1);
-    font-size: 1.5em;
-    border-radius: 3px;
-  }
-
-  @media (max-width: 560px) {
-    width: 300px;
-  }
-
-  @media (max-width: 380px) {
-    width: 240px;
-  }
-
-  @media (max-width: 300px) {
-    width: 180px;
-  }
-`;
 
 export const Button = styled.button`
   width: 8.7em;
