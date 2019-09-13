@@ -5,6 +5,7 @@ import { GET_SURVEYS } from '../../graphql/queries';
 import {
   SurveyPageHeader,
   SurveyButton,
+  SurveyContent,
 } from './DashboardStyles';
 
 import { Survey } from '../survey/Survey';
@@ -28,9 +29,11 @@ export function Dashboard() {
           </div>
         </SurveyPageHeader>
 
-        <div className="surveys-wrapper">
+        <SurveyContent>
           <Survey data={data.getUserSurveys} />
-        </div>
+          <Survey data={data.getUserSurveys} />
+          <Survey data={data.getUserSurveys} />
+        </SurveyContent>
       </DashboardLayout>
     );
   }

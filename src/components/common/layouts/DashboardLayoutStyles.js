@@ -13,7 +13,6 @@ export const MainContainer = styled.div`
 
 export const Container = styled.div`
   flex: 8;
-  border: 1px solid green;
   overflow-y: scroll;
   padding: 0px !important;
 

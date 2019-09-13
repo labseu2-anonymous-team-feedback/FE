@@ -36,6 +36,68 @@ export const SurveyPageHeader = styled.div`
   }
 `;
 
+export const StyledSurvey = styled.div`
+  flex-grow: 1;
+  width: 33rem;
+  background-color: #f1faff;
+  margin: 1rem;
+  border-radius: 5px;
+  position: relative;
+
+  .survey-title {
+    width: 75%;
+    padding: 1rem;
+  }
+
+  .copy-btn-div {
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    font-size: .8rem;
+    margin: .325rem;
+    padding: .325rem;
+    color: #444;
+    
+    &:hover {
+      cursor: pointer;
+      color: #3BA7C9;
+      border-bottom: 1px solid #3BA7C9;
+    }
+
+    i {
+      font-size: 1rem;
+    }
+
+    .btn-link-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .Owner {
+    padding: 1rem;
+  }
+
+  .TitleAndShare {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  @media (max-width: 300px) {
+    width: 130%;
+    padding: 1rem;
+  }
+`;
+
+
+export const SurveyContent = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  width: 100%;
+`;
 
 export const SurveyButton = styled.button`
   font-size: 1rem;
@@ -45,52 +107,13 @@ export const SurveyButton = styled.button`
   border-radius: 5px;
   outline: none;
   background: #3BA7C9;
+  white-space: nowrap;
 
   &:hover {
     background: #2b839e;
   }
 `;
 
-
-export const ShareLink = styled.img`
-  cursor: pointer;
-
-  &:hover {
-    transform: scale(1.5);
-    transition: 0.2s;
-  }
-`;
-
-export const IndividualSurvey = styled.div`
-         border: 1px solid lightgray;
-         overflow: hidden;
-         text-overflow: ellipsis;
-         padding: 1rem;
-         margin-bottom: 2.5rem;
-         background-color: #cfedfe;
-         -webkit-border-radius: 4px 3px 6px 10px;
-         -moz-border-radius: 4px 3px 6px 10px;
-         -o-border-radius: 4px 3px 6px 10px;
-         border-radius: 4px 3px 6px 10px;
-         text-overflow: ellipsis;
-         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
-           0 6px 6px rgba(0, 0, 0, 0.23);
-
-         .Owner {
-           padding: 1rem;
-         }
-
-         .TitleAndShare {
-           display: flex;
-           justify-content: space-between;
-           padding: 1rem;
-         }
-
-         @media (max-width: 300px) {
-           width: 130%;
-           padding: 1rem;
-         }
-       `;
 
 export const MainInputAndButtonWrapper = styled.div`
   display: flex;
