@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 
 export const DashboardDivider = styled.div`
@@ -112,7 +113,7 @@ export const SurveyContent = styled.div`
   width: 100%;
 `;
 
-export const SurveyButton = styled.button`
+export const SurveyButton = styled(Link)`
   font-size: 1rem;
   padding: .3em 1em;
   color: white;
@@ -124,6 +125,7 @@ export const SurveyButton = styled.button`
 
   &:hover {
     background: #2b839e;
+    color: white;
   }
 `;
 

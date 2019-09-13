@@ -37,11 +37,13 @@ export function Survey(props) {
 							</div>
 							<div className="survey-actions">
 								<div className="questions">
-									<Link to="/">
+									<Link to={`/take_survey/${survey.id}`}>
 										({data.questions ? data.questions.length : '0'} Questions)
 									</Link>
 								</div>
-								<SurveyButton>View More</SurveyButton>
+								<SurveyButton to={`/survey/${survey.id}`}>
+									View Details
+								</SurveyButton>
 							</div>
 						</StyledSurvey>
 					);
