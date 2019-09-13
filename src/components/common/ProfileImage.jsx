@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { black, body1, fadedBlue } from '../../styles/variables';
 
 const ProfileImage = ({ name, image }) => (
   <StyledImage>
@@ -18,30 +17,32 @@ ProfileImage.propTypes = {
 };
 
 const StyledImage = styled.div`
-	margin: 0 auto;
+	width: 100%;
+	height: 12rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 
 	div {
-		border-radius: 50%;
-		border: 3px solid ${fadedBlue};
-		width: 5rem;
-		height: 5rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
 		img {
-			border-radius: inherit;
-			width: inherit;
-			height: inherit;
+			width: 50%;
+			border-radius: 50%;
 		}
 	}
 
 	p {
+		width: 100%;
+		padding: 0.5rem;
 		text-align: center;
-		color: ${black};
-		font-size: ${body1};
-		font-weight: 600;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.2rem;
 	}
 `;
 
