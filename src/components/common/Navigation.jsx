@@ -1,27 +1,27 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
-import { withApollo } from 'react-apollo';
-import jwtDecode from 'jwt-decode';
-import { toast } from 'react-toastify';
-import logo from '../../assets/images/logo.png';
-import avatar from '../../assets/images/avatar-default.png';
-import { NavigationNav, Triangle, NavItems } from './NavBarStyles';
-import { VERIFY_ACCOUNT } from '../../graphql/mutations';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link, withRouter } from "react-router-dom";
+import { withApollo } from "react-apollo";
+import jwtDecode from "jwt-decode";
+import { toast } from "react-toastify";
+import logo from "../../assets/images/logo.png";
+import avatar from "../../assets/images/avatar-default.png";
+import { NavigationNav, Triangle, NavItems } from "./NavBarStyles";
+import { VERIFY_ACCOUNT } from "../../graphql/mutations";
 
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      user: null,
+      user: null
     };
   }
 
   componentDidMount() {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     const {
-      match: { params },
+      match: { params }
     } = this.props;
     const { client } = this.props;
     if (params && params.verifyToken) {
@@ -29,17 +29,17 @@ class Navigation extends React.Component {
         .mutate({
           mutation: VERIFY_ACCOUNT,
           variables: {
-            token: params.verifyToken,
-          },
+            token: params.verifyToken
+          }
         })
         .then(() => {
-          toast('Account verified successfully', {
-            className: 'toast-success',
+          toast("Account verified successfully", {
+            className: "toast-success"
           });
         })
         .catch(() => {
-          toast('Failed to verify account', {
-            className: 'toast-error',
+          toast("Failed to verify account", {
+            className: "toast-error"
           });
         });
     }
@@ -52,7 +52,7 @@ class Navigation extends React.Component {
     }
   }
 
-  logout = (e) => {
+  logout = e => {
     e.preventDefault();
     localStorage.clear();
     this.setState({ user: null });
@@ -91,10 +91,12 @@ class Navigation extends React.Component {
                 className="dropdown-menu dropdown-menu-right border-0 z-depth-1"
                 aria-labelledby="user-nav-div"
               >
-                <Link className="dropdown-item" to="/dashboard">
-                  Dashboard
-                </Link>
-                <a className="dropdown-item" id="logoutButton" href="##" onClick={this.logout}>
+                <a
+                  className="dropdown-item"
+                  id="logoutButton"
+                  href="##"
+                  onClick={this.logout}
+                >
                   Logout
                 </a>
               </div>
@@ -114,12 +116,12 @@ class Navigation extends React.Component {
 Navigation.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      verifyToken: PropTypes.string,
-    }),
+      verifyToken: PropTypes.string
+    })
   }).isRequired,
   client: PropTypes.shape({
-    mutate: PropTypes.func.isRequired,
-  }).isRequired,
+    mutate: PropTypes.func.isRequired
+  }).isRequired
 };
 
 export default withRouter(withApollo(Navigation));
