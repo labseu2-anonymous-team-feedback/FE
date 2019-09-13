@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import ProfileImage from './ProfileImage';
 import SideNavItem from './SideNavItem';
 import {
-  tabletMaxWidth, white, mediumSpace1, mediumSpace3,
+  tabletMaxWidth,
+  white,
+  mediumSpace1,
 } from '../../styles/variables';
 import { sidebarIcons, sidebarTexts } from '../../assets/icons/icons';
 
@@ -31,36 +33,33 @@ const SidebarContainer = () => (
 );
 
 const StyledSidebar = styled.aside`
-  min-height: 86vh;
-  width: 15rem;
-  padding: ${mediumSpace1} ${mediumSpace1};
-  margin: ${mediumSpace3} 0 0 0;
-  position: fixed;
+	min-height: calc(100vh - 100px);
+	width: 15rem;
 
-  display: flex;
-  flex-direction: column;
-  background-color: ${white};
+	display: flex;
+	flex-direction: column;
+	background-color: ${white};
 
-  .nav-items {
-    padding: ${mediumSpace1} 0;
-  }
+	.nav-items {
+		padding: ${mediumSpace1} 0;
+	}
 
-  .empty-div {
-    flex-grow: 1;
-  }
+	.empty-div {
+		flex-grow: 1;
+	}
 
-  .grey-logo {
-    margin: 0 auto;
-    width: 70%;
+	.grey-logo {
+		margin: 0 auto;
+		width: 70%;
 
-    img {
-      width: 100%;
-    }
-  }
+		img {
+			width: 100%;
+		}
+	}
 
-  @media only screen and (max-width: ${tabletMaxWidth}) {
-    display: none;
-  }
+	@media only screen and (max-width: ${tabletMaxWidth}) {
+		display: none;
+	}
 `;
 
 export default SidebarContainer;
