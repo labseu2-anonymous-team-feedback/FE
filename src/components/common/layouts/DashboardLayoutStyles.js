@@ -15,6 +15,7 @@ export const Container = styled.div`
   flex: 8;
   border: 1px solid green;
   overflow-y: scroll;
+  padding: 0px !important;
 
   @media (max-width: 700px) {
     width: 100% !important;

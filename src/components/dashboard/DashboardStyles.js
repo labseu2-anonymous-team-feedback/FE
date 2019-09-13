@@ -1,73 +1,23 @@
 import styled from 'styled-components';
 
-export const DashboardContainer = styled.section`
-  display: flex;
-  background: #f3f7f9;
-  padding-top: 5rem;
-  -webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.1);
 
-  font-size: 62.5%;
-
-  body {
-    font-size: 1rem;
-  }
-
-  h1,
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  h3,
-  h4 {
-    font-size: 1.2rem;
-  }
-
-  p {
-    font-size: 1.1rem;
-  }
-
-  span {
-    font-size: 1.1rem;
-  }
-
-  button {
-    font-size: 0.9rem;
-  }
-`;
-
-export const DashboardWrapper = styled.div`
-  width: 80%;
-  display: flex;
-  margin: 0 auto;
-
-  @media (max-width: 1200px) {
-    display: flex;
-    width: 80%;
-  }
-
-  @media (max-width: 1150px) {
-    display: flex;
-    flex-direction: column;
-  }
-`;
-
-export const SurveyWrapper = styled.div`
-  padding: 1rem;
-  padding-top: 4rem;
-  display: flex;
-  width: 50%;
-  justify-content: flex-start;
-
-  @media (max-width: 1200px) {
-    display: flex;
-    width: 80%;
-  }
-`;
-
-export const SurveyInputWrapper = styled.div`
+export const SurveyPageHeader = styled.div`
   width: 100%;
-`;
+  display: flex;
+  flex-direction: column;
 
+  .title-div {
+    padding: 2rem 1rem 1rem 1rem;
+    text-align: center;
+  }
+
+  .actions-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+  }
+`;
 export const ShareLink = styled.img`
   cursor: pointer;
 
