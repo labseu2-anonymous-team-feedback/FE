@@ -5,10 +5,6 @@ export const MainContainer = styled.div`
   display: flex;
   margin-top: 100px;
   height: calc(100vh - 100px);
-  /* position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px; */
 
   @media only screen and (max-width: ${tabletMaxWidth}) {
     flex-direction: column;
@@ -40,7 +36,11 @@ export const StyledSidebar = styled.aside`
 	display: flex;
 	flex-direction: column;
   background: white;
-  border: 1px solid red;
+  
+
+  .nav-items {
+    border-top: 1px solid #cfedfe;
+  }
 
 	@media only screen and (max-width: ${tabletMaxWidth}) {
 		display: none;

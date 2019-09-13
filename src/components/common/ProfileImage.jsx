@@ -43,6 +43,7 @@ const StyledImage = styled.div`
 		align-items: center;
 		justify-content: center;
 		font-size: 1.2rem;
+		color: #444;
 	}
 `;
 
