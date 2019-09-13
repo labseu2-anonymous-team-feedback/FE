@@ -3,9 +3,8 @@ import { useQuery } from '@apollo/react-hooks';
 
 import { GET_SURVEYS } from '../../graphql/queries';
 import {
-  Button,
-  InputText,
   SurveyPageHeader,
+  SurveyButton,
 } from './DashboardStyles';
 
 import { Survey } from '../survey/Survey';
@@ -24,12 +23,8 @@ export function Dashboard() {
             <Divider />
           </div>
           <div className="actions-div">
-            <div>
-              <input type="text" id="search" placeholder="Search..." />
-            </div>
-            <div className="button-survey">
-              <Button>Add Survey</Button>
-            </div>
+            <input type="text" id="search" placeholder="Search..." />
+            <SurveyButton>Add Survey</SurveyButton>
           </div>
         </SurveyPageHeader>
 

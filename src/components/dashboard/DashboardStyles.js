@@ -32,53 +32,32 @@ export const SurveyPageHeader = styled.div`
       &:focus {
         background: #a7aeb1;
       }
-    } 
-
+    }
   }
 `;
+
+
+export const SurveyButton = styled.button`
+  font-size: 1rem;
+  padding: .3em 1em;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  outline: none;
+  background: #3BA7C9;
+
+  &:hover {
+    background: #2b839e;
+  }
+`;
+
+
 export const ShareLink = styled.img`
   cursor: pointer;
 
   &:hover {
     transform: scale(1.5);
     transition: 0.2s;
-  }
-`;
-
-
-export const Button = styled.button`
-  width: 8.7em;
-  height: 2.8em;
-  color: #fff;
-  background: #14799e;
-  padding: 1px;
-  border: 2px solid #494949 !important;
-  border-radius: 3px;
-  -webkit-font-smoothing: inherit;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #ffc247;
-  }
-`;
-
-export const SurveyButtonWrapper = styled.div`
-  padding: 0.5rem;
-`;
-
-export const SurveyButton = styled.button`
-  width: 6.7em;
-  height: 2.5em;
-  color: #fff;
-  background: #14799e;
-  padding: 1px;
-  border: 2px solid #494949 !important;
-  border-radius: 3px;
-  -webkit-font-smoothing: inherit;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #ffc247;
   }
 `;
 
