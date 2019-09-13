@@ -1,8 +1,8 @@
-import React from 'react';
-import ProfileImage from '../ProfileImage';
-import SideNavItem from './SideNavItem';
-import { sidebarIcons, sidebarTexts } from '../../../assets/icons/icons';
-import { StyledSidebar } from './DashboardLayoutStyles';
+import React from "react";
+import ProfileImage from "../ProfileImage";
+import SideNavItem from "./SideNavItem";
+import { sidebarIcons, sidebarTexts } from "../../../assets/icons/icons";
+import { StyledSidebar } from "./DashboardLayoutStyles";
 
 const SidebarContainer = () => (
   <StyledSidebar>
@@ -12,10 +12,11 @@ const SidebarContainer = () => (
     />
     <div className="nav-items">
       <SideNavItem
-        text={sidebarTexts.surveys}
-        icon={sidebarIcons.surveys}
+        text={sidebarTexts.create_survey}
+        icon={sidebarIcons.create_survey}
         path="/create_survey"
       />
+
       <SideNavItem
         text={sidebarTexts.settings}
         icon={sidebarIcons.settings}

@@ -28,7 +28,7 @@ export function Survey(props) {
 							<div className="copy-btn-div">
 								<CopyToClipboard text={url} onCopy={() => setCopied(true)}>
 									<div className="btn-link-wrapper">
-										<i class="fas fa-link"></i>
+										<i className="fas fa-link"></i>
 										&nbsp;
 										<span>Get invite link</span>
 									</div>
