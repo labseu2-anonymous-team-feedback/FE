@@ -1,18 +1,18 @@
-import React from "react";
-import { useQuery } from "@apollo/react-hooks";
+import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
 
-import { GET_SURVEYS } from "../../graphql/queries";
+import { GET_SURVEYS } from '../../graphql/queries';
 import {
   SurveyPageHeader,
   SurveyButton,
   SurveyContent,
-  DashboardDivider
-} from "./DashboardStyles";
+  DashboardDivider,
+} from './DashboardStyles';
 
-import { Survey } from "../survey/Survey";
-import DashboardLayout from "../common/layouts/DashboardLayout";
-import Divider from "../../styles/Divider";
-import Spinner from "../common/Spinner";
+import { Survey } from '../survey/Survey';
+import DashboardLayout from '../common/layouts/DashboardLayout';
+import Divider from '../../styles/Divider';
+import Spinner from '../common/Spinner';
 
 export function Dashboard() {
   const { data } = useQuery(GET_SURVEYS);

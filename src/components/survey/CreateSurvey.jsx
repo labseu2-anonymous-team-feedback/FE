@@ -1,49 +1,49 @@
-import React, { Component } from "react";
-import { Mutation } from "react-apollo";
-import { toast } from "react-toastify";
+import React, { Component } from 'react';
+import { Mutation } from 'react-apollo';
+import { toast } from 'react-toastify';
 
-import DashboardLayout from "../common/layouts/DashboardLayout";
-import Divider from "../../styles/Divider";
-import Question from "./Question";
-import { AddButton, Container } from "./SurveyStyles";
+import DashboardLayout from '../common/layouts/DashboardLayout';
+import Divider from '../../styles/Divider';
+import Question from './Question';
+import { AddButton, Container } from './SurveyStyles';
 
-import { CREATE_NEW_SURVEY } from "../../graphql/mutations";
-import TextInput from "../common/TextInput";
-import Button from "../../styles/Button";
+import { CREATE_NEW_SURVEY } from '../../graphql/mutations';
+import TextInput from '../common/TextInput';
+import Button from '../../styles/Button';
 
 class CreateSurvey extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      title: "",
-      questions: []
+      title: '',
+      questions: [],
     };
   }
 
   handleChangeQuestion = (index, e) => {
     const { name, value } = e.target;
 
-    this.setState(prev => ({
+    this.setState((prev) => ({
       questions: prev.questions.map((q, i) => {
         if (index === i) {
           return {
             ...q,
-            [name]: value
+            [name]: value,
           };
         }
         return q;
-      })
+      }),
     }));
   };
 
-  removeQuestion = index => {
-    this.setState(prev => ({
-      questions: prev.questions.filter((current, i) => index !== i)
+  removeQuestion = (index) => {
+    this.setState((prev) => ({
+      questions: prev.questions.filter((current, i) => index !== i),
     }));
   };
 
-  handleChangeSurvey = e => {
+  handleChangeSurvey = (e) => {
     this.setState({ title: e.target.value });
   };
 
@@ -54,55 +54,55 @@ class CreateSurvey extends Component {
         <Container className="container">
           <div className="col-md survey-row">
             <Mutation mutation={CREATE_NEW_SURVEY}>
-              {createNewSurvey => (
+              {(createNewSurvey) => (
                 <form
                   className="p-5"
                   action="#!"
-                  onSubmit={e => {
+                  onSubmit={(e) => {
                     e.preventDefault();
                     let questionsAreValid = true;
 
-                    questions.forEach(q => {
+                    questions.forEach((q) => {
                       if (!q.question) {
-                        toast("Please provide all questions", {
-                          className: "toast-error"
+                        toast('Please provide all questions', {
+                          className: 'toast-error',
                         });
                         questionsAreValid = false;
                       }
                       if (!q.type) {
-                        toast("Please specify a type for all questions", {
-                          className: "toast-error"
+                        toast('Please specify a type for all questions', {
+                          className: 'toast-error',
                         });
                         questionsAreValid = false;
                       }
                       if (q.question && q.question.length < 5) {
                         toast(
-                          "Each question must be at least 5 characters long",
-                          { className: "toast-error" }
+                          'Each question must be at least 5 characters long',
+                          { className: 'toast-error' },
                         );
                         questionsAreValid = false;
                       }
                     });
 
                     if (!title) {
-                      toast("Survey title required", {
-                        className: "toast-error"
+                      toast('Survey title required', {
+                        className: 'toast-error',
                       });
                     } else if (questionsAreValid) {
                       createNewSurvey({
-                        variables: { input: { title, questions } }
+                        variables: { input: { title, questions } },
                       });
-                      toast("Survey created successfully", {
-                        className: "toast-success"
+                      toast('Survey created successfully', {
+                        className: 'toast-success',
                       });
                       this.setState({
-                        title: "",
+                        title: '',
                         questions: [
                           {
-                            question: "",
-                            type: ""
-                          }
-                        ]
+                            question: '',
+                            type: '',
+                          },
+                        ],
                       });
                     }
                   }}
@@ -139,12 +139,12 @@ class CreateSurvey extends Component {
                         type="button"
                         className="btn btn-light"
                         onClick={() => {
-                          this.setState(prev => ({
+                          this.setState((prev) => ({
                             ...prev,
                             questions: prev.questions.concat({
-                              question: "",
-                              type: ""
-                            })
+                              question: '',
+                              type: '',
+                            }),
                           }));
                         }}
                       >
