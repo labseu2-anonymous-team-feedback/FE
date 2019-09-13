@@ -5,6 +5,7 @@ export const DashboardContainer = styled.section`
   background: #f3f7f9;
   padding-top: 5rem;
   -webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.1);
+
 `;
 
 export const DashboardWrapper = styled.div`
@@ -57,7 +58,7 @@ export const InputText = styled.input`
     0 0 16px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
     0 0 16px rgba(0, 0, 0, 0.1);
-  padding: 10px;
+  padding: 9px;
   width: 100%;
   width: 400px;
   box-sizing: border-box;
@@ -67,10 +68,7 @@ export const InputText = styled.input`
 
   &:focus {
     box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    padding: 8px 0px 8px 8px;
-    margin: 3px 1px 3px 0px;
     border: 1px solid rgba(81, 203, 238, 1);
-    font-size: 1.5em;
     border-radius: 3px;
   }
 
