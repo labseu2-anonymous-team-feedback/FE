@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, MainContainer } from '../response/ResponseStyles';
+import { Container, MainContainer } from './DashboardLayoutStyles';
 import SideBar from './Sidebar';
 
 

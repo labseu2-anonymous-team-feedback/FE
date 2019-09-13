@@ -11,7 +11,7 @@ export default function Footer() {
   const isSignedIn = isLoggedIn();
   if (isSignedIn) {
     return (
-      <StyledFooter className="font-small darken-3 fixed-bottom">
+      <StyledFooter className="font-small darken-3">
         <div className="footer-copyright text-center py-3">
           ©
           {' '}
