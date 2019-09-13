@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { toast } from 'react-toastify';
-import { StyledSurvey, SurveyButton } from '../dashboard/DashboardStyles';
+import { StyledSurvey, SurveyButton, StyledSurveyContainer } from '../dashboard/DashboardStyles';
 
 export function Survey(props) {
 	const [copied, setCopied] = useState(false);
@@ -18,7 +18,7 @@ export function Survey(props) {
 
 	const { data } = props;
 	return (
-		<div>
+		<StyledSurveyContainer>
 			{data.length > 0 ? (
 				data.map((survey) => {
 					const url = `http://localhost:3000/take_survey/${survey.id}`;
@@ -36,7 +36,7 @@ export function Survey(props) {
 							</div>
 							<div className="survey-actions">
 								<div className="questions">
-									<Link to={`/take_survey/${survey.id}`}>
+									<Link to={`/survey/${survey.id}`}>
 										{survey.questions ? survey.questions.length : '0'}{' '}
 										Question(s)
 									</Link>
@@ -51,7 +51,7 @@ export function Survey(props) {
 			) : (
 				<h1>There are no surveys for this user</h1>
 			)}
-		</div>
+		</StyledSurveyContainer>
 	);
 }
 

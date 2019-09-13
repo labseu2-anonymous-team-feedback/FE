@@ -44,13 +44,25 @@ export const SurveyPageHeader = styled.div`
   }
 `;
 
+export const StyledSurveyContainer = styled.div`
+  display: flex;
+  width: 100%;
+
+  @media (max-width: 950px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+`;
+
 export const StyledSurvey = styled.div`
   flex-grow: 1;
-  width: 33rem;
+  width: 25rem;
   background-color: #f1faff;
   margin: 1rem;
   border-radius: 5px;
   position: relative;
+
 
   .survey-title {
     width: 75%;
