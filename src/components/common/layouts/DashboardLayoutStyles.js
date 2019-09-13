@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { tabletMaxWidth } from '../../styles/variables';
+import { tabletMaxWidth } from '../../../styles/variables';
 
 export const MainContainer = styled.div`
   display: flex;

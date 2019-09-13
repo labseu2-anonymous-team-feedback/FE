@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ProfileImage from './ProfileImage';
+import ProfileImage from '../ProfileImage';
 import SideNavItem from './SideNavItem';
 import {
   tabletMaxWidth,
   white,
   mediumSpace1,
-} from '../../styles/variables';
-import { sidebarIcons, sidebarTexts } from '../../assets/icons/icons';
+} from '../../../styles/variables';
+import { sidebarIcons, sidebarTexts } from '../../../assets/icons/icons';
 
 const SidebarContainer = () => (
   <StyledSidebar>

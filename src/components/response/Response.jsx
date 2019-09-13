@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { withApollo } from 'react-apollo';
-import DashboardLayout from '../common/DashboardLayout';
 import Divider from '../../styles/Divider';
 import { GET_SURVEY_FEEDBACK } from '../../graphql/queries';
 import ResultSort from './ResultSort';
+import DashboardLayout from '../common/layouts/DashboardLayout';
 
 
 class Response extends Component {

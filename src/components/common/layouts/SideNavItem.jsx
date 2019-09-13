@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import {
   smallSpace, mediumSpace2, black, blue,
-} from '../../styles/variables';
+} from '../../../styles/variables';
 
 const SideNavItem = ({ icon, text, path }) => (
   <StyledNavItem>

@@ -12,7 +12,7 @@ import {
 } from './DashboardStyles';
 
 import { Survey } from '../survey/Survey';
-import DashboardLayout from '../common/DashboardLayout';
+import DashboardLayout from '../common/layouts/DashboardLayout';
 
 export function Dashboard() {
   const { data, loading } = useQuery(GET_SURVEYS);
