@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import propTypes from 'prop-types';
 import styled from 'styled-components';
 import Chart from './Chart';
 import { extraLargeSpace } from '../../styles/variables';
@@ -26,5 +27,9 @@ flex-direction: column;
 justify-content: center;
 margin: 0 0 0 ${extraLargeSpace};
 `;
+
+ResultSort.propTypes = {
+  questions: propTypes.arrayOf(propTypes.object).isRequired,
+};
 
 export default ResultSort;
