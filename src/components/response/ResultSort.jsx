@@ -5,7 +5,7 @@ import Chart from './Chart';
 import { extraLargeSpace } from '../../styles/variables';
 
 
-class ResultSort extends Component {
+export class ResultSort extends Component {
   constructor(props) {
     super(props);
     this.state = {};
