@@ -36,6 +36,24 @@ export const StyledSidebar = styled.aside`
 	display: flex;
 	flex-direction: column;
   background: white;
+
+  @media (max-width: 960px) {
+    flex: 3;
+  }
+  
+  @media (max-width: 770px) {
+    position: fixed;
+    max-width: 0px;
+    overflow: hidden;
+
+    &.active {
+      position: fixed;
+      z-index: 100;
+      height: calc(100vh - 100px);
+      max-width: 400px;
+      transition: max-width .4s ease-in-out;
+    }
+  }
   
 
   .nav-items {

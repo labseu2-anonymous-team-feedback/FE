@@ -26,7 +26,7 @@ export function Dashboard() {
             <Divider />
           </div>
           <div className="actions-div">
-            <input type="text" id="search" placeholder="Search..." />
+            {/* <input type="text" id="search" placeholder="Search..." /> */}
             <SurveyButton to="/create_survey">Add Survey</SurveyButton>
           </div>
         </SurveyPageHeader>
