@@ -8,7 +8,7 @@ import ResultSort from './ResultSort';
 import DashboardLayout from '../dashboard/layouts/DashboardLayout';
 
 
-class Response extends Component {
+export class Response extends Component {
   constructor(props) {
     super(props);
     this.state = {
