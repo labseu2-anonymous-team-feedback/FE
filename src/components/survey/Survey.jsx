@@ -8,7 +8,6 @@ import { StyledSurvey, SurveyButton, StyledSurveyContainer } from '../dashboard/
 
 export function Survey(props) {
 	const [copied, setCopied] = useState(false);
-console.log('=======', window.location.origin)
 	if (copied) {
 		toast('link has been copied to clipboard', {
 			className: 'toast-success',
@@ -21,7 +20,7 @@ console.log('=======', window.location.origin)
 		<StyledSurveyContainer>
 			{data.length > 0 ? (
 				data.map((survey) => {
-					const url = `${window.location.origin}/{take_survey}/${survey.id}`;
+					const url = `${window.location.origin}/take_survey/${survey.id}`;
 					return (
 						<StyledSurvey key={survey.title}>
 							<h2 className="survey-title">{survey.title}</h2>
