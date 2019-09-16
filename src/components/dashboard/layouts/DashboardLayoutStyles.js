@@ -59,10 +59,6 @@ export const StyledSidebar = styled.aside`
   .nav-items {
     border-top: 1px solid #cfedfe;
   }
-
-	@media only screen and (max-width: ${tabletMaxWidth}) {
-		display: none;
-	}
 `;
 
 export const StyledNavItem = styled.div`

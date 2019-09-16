@@ -11,6 +11,20 @@ export const NavigationNav = styled.nav`
         height: 70px;
     }
 
+    .fa-bars {
+        font-size: 2.5rem;
+        position: absolute;
+        right: 2rem;
+        top: 2rem;
+        color: #3BA7C9;
+        display: none;
+        cursor: pointer;
+        
+        @media (max-width: 770px) {
+            display: block;
+        }
+    }
+
     .logo-div {
         height: 100%;
         flex: 1;
@@ -39,6 +53,10 @@ export const NavigationNav = styled.nav`
         flex: 1;
         display: flex;
         justify-content: flex-end;
+
+        @media (max-width: 770px) {
+            display: none;
+        }
 
         img {
             height: 40px;

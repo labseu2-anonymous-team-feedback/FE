@@ -64,12 +64,13 @@ class Navigation extends React.Component {
 
     return (
       <NavigationNav className="navbar fixed-top navbar-dark white scrolling-navbar">
+        <i className="fas fa-bars" />
         <div className="logo-div">
           <Link to="/">
             <img alt="logo" src={logo} className="logo" />
           </Link>
         </div>
-        <div className="auth-links">
+        <div className="auth-links" >
           {user ? (
             <div className="dropdown">
               <button
