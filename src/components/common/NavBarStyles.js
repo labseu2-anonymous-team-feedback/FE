@@ -7,9 +7,6 @@ export const NavigationNav = styled.nav`
     padding: 0px !important;
     box-shadow: 0 5px 50px -20px rgba(0,0,0,0.1);
 
-    @media (max-width: 575px) {
-        height: 70px;
-    }
 
     .fa-bars {
         font-size: 2.5rem;

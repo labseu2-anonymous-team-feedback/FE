@@ -11,6 +11,7 @@ import Success from './components/common/success/Success';
 import Response from './components/response/Response';
 import NotFound from './components/common/error/NotFound';
 import DashboardLayout from './components/dashboard/layouts/DashboardLayout';
+import ContextProvider from './Provider';
 
 const Signup = React.lazy(() => import('./components/auth/signup/Signup'));
 
@@ -37,35 +38,37 @@ function App() {
   return (
     <Router>
       <React.Suspense fallback={<Spinner />}>
-        <Navigation />
-        <Switch>
-          <Route
-            exact
-            path="/verify_account/:verifyToken"
-            component={Navigation}
-          />
-          <Route exact path="/layout" component={DashboardLayout} />
-          <Route exact path="/register" component={Signup} />
-          <Route exact path="/login" component={Signin} />
-          <Route exact path="/resetPassword" component={ResetPassword} />
-          <Route
-            exact
-            path="/resetPasswordConfirmation"
-            component={ResetPasswordConfirmation}
-          />
-          <Route
-            exact
-            path="/password_reset/:resetToken"
-            component={NewPassword}
-          />
-          <PrivateRoute exact path="/create_survey" component={CreateSurvey} />
-          <PrivateRoute exact path="/view_survey" component={Survey} />
-          <PrivateRoute exact path="/" component={userDashboard} />
-          <Route path="/take_survey/:surveyId" component={FeedbackResponse} />
-          <Route path="/success" component={Success} />
-          <Route exact path="/survey/:surveyId" component={Response} />
-          <Route exact component={NotFound} />
-        </Switch>
+        <ContextProvider>
+          <Navigation />
+          <Switch>
+            <Route
+              exact
+              path="/verify_account/:verifyToken"
+              component={Navigation}
+            />
+            <Route exact path="/layout" component={DashboardLayout} />
+            <Route exact path="/register" component={Signup} />
+            <Route exact path="/login" component={Signin} />
+            <Route exact path="/resetPassword" component={ResetPassword} />
+            <Route
+              exact
+              path="/resetPasswordConfirmation"
+              component={ResetPasswordConfirmation}
+            />
+            <Route
+              exact
+              path="/password_reset/:resetToken"
+              component={NewPassword}
+            />
+            <PrivateRoute exact path="/create_survey" component={CreateSurvey} />
+            <PrivateRoute exact path="/view_survey" component={Survey} />
+            <PrivateRoute exact path="/" component={userDashboard} />
+            <Route path="/take_survey/:surveyId" component={FeedbackResponse} />
+            <Route path="/success" component={Success} />
+            <Route exact path="/survey/:surveyId" component={Response} />
+            <Route exact component={NotFound} />
+          </Switch>
+        </ContextProvider>
       </React.Suspense>
       <Footer />
     </Router>

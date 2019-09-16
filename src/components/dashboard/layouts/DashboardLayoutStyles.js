@@ -43,15 +43,19 @@ export const StyledSidebar = styled.aside`
   
   @media (max-width: 770px) {
     position: fixed;
-    max-width: 0px;
     overflow: hidden;
+    transform: translateX(-15rem);
+    transition: transform .2s ease-in;
 
     &.active {
       position: fixed;
+      transform: translateX(0rem);
       z-index: 100;
       height: calc(100vh - 100px);
-      max-width: 400px;
-      transition: max-width .4s ease-in-out;
+      transition: transform .2s ease-in;
+      border: 1px solid #cfedfe;
+      border-left: none;
+      border-top: none;
     }
   }
   

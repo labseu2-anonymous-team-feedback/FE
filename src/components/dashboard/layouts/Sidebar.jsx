@@ -4,6 +4,7 @@ import ProfileImage from '../../common/ProfileImage';
 import SideNavItem from './SideNavItem';
 import { sidebarIcons, sidebarTexts } from '../../../assets/icons/icons';
 import { StyledSidebar } from './DashboardLayoutStyles';
+import { MyContext } from '../../../Provider';
 
 class SidebarContainer extends React.Component {
   constructor(props) {
@@ -26,26 +27,33 @@ class SidebarContainer extends React.Component {
   render() {
     const { user } = this.state;
     return (
-      <StyledSidebar>
-        <ProfileImage
-          name={user && user.username}
-          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1m1DOmfCTW5yaJjjehDNcrTnJlFaph-ZADDYsCsyzwDJWS_6z"
-        />
-        <div className="nav-items">
-          <SideNavItem
-            text={sidebarTexts.create_survey}
-            icon={sidebarIcons.create_survey}
-            path="/create_survey"
-          />
+      <MyContext.Consumer>
+        {(context) => {
+          console.log(context.sidebarOpen);
+          return (
+            <StyledSidebar className={context.sidebarOpen ? 'active' : ''}>
+              <ProfileImage
+                name={user && user.username}
+                image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1m1DOmfCTW5yaJjjehDNcrTnJlFaph-ZADDYsCsyzwDJWS_6z"
+              />
+              <div className="nav-items" role="presentation" onClick={context.toggleSidebar}>
+                <SideNavItem
+                  text={sidebarTexts.create_survey}
+                  icon={sidebarIcons.create_survey}
+                  path="/create_survey"
+                />
 
-          <SideNavItem
-            text={sidebarTexts.settings}
-            icon={sidebarIcons.settings}
-            path="/profile"
-          />
-        </div>
-        <div className="empty-div" />
-      </StyledSidebar>
+                <SideNavItem
+                  text={sidebarTexts.settings}
+                  icon={sidebarIcons.settings}
+                  path="/profile"
+                />
+              </div>
+              <div className="empty-div" />
+            </StyledSidebar>
+          );
+        }}
+      </MyContext.Consumer>
     );
   }
 }
