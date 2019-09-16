@@ -9,29 +9,29 @@ import Spinner from './components/common/Spinner';
 import FeedbackResponse from './components/feedback/Feedback';
 import Success from './components/common/success/Success';
 import Response from './components/response/Response';
-import DashboardLayout from './components/common/layouts/DashboardLayout';
 import NotFound from './components/common/error/NotFound';
+import DashboardLayout from './components/dashboard/layouts/DashboardLayout';
 
 const Signup = React.lazy(() => import('./components/auth/signup/Signup'));
 
 const Signin = React.lazy(() => import('./components/auth/siginin/Signin'));
 
 const userDashboard = React.lazy(() =>
-  import('./components/dashboard/Dashboard'),);
+  import('./components/dashboard/Dashboard'));
 
 const CreateSurvey = React.lazy(() =>
-  import('./components/survey/CreateSurvey'),);
+  import('./components/survey/CreateSurvey'));
 
-const Survey = React.lazy(() => import('./components/survey/Survey'));
+const Survey = React.lazy(() => import('./components/dashboard/Survey'));
 
 const ResetPassword = React.lazy(() =>
-  import('./components/auth/resetPassword/ResetPassword'),);
+  import('./components/auth/resetPassword/ResetPassword'));
 
 const ResetPasswordConfirmation = React.lazy(() =>
-  import('./components/auth/resetPassword/ResetPasswordConfirmation'),);
+  import('./components/auth/resetPassword/ResetPasswordConfirmation'));
 
 const NewPassword = React.lazy(() =>
-  import('./components/auth/resetPassword/NewPassword'),);
+  import('./components/auth/resetPassword/NewPassword'));
 
 function App() {
   return (

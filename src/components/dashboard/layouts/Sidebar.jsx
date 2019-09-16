@@ -1,6 +1,6 @@
 import React from 'react';
 import jwtDecode from 'jwt-decode';
-import ProfileImage from '../ProfileImage';
+import ProfileImage from '../../common/ProfileImage';
 import SideNavItem from './SideNavItem';
 import { sidebarIcons, sidebarTexts } from '../../../assets/icons/icons';
 import { StyledSidebar } from './DashboardLayoutStyles';

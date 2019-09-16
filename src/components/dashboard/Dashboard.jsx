@@ -9,8 +9,8 @@ import {
   DashboardDivider,
 } from './DashboardStyles';
 
-import { Survey } from '../survey/Survey';
-import DashboardLayout from '../common/layouts/DashboardLayout';
+import Survey from './Survey';
+import DashboardLayout from './layouts/DashboardLayout';
 import Divider from '../../styles/Divider';
 import Spinner from '../common/Spinner';
 
