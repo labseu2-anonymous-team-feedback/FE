@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 import Divider from '../../styles/Divider';
 import Question from './Question';
-import { AddButton, Container } from './SurveyStyles';
+import { AddButton, Container, CancelButton } from './SurveyStyles';
 
 import { CREATE_NEW_SURVEY } from '../../graphql/mutations';
 import TextInput from '../common/TextInput';
@@ -105,6 +105,7 @@ class CreateSurvey extends Component {
                   }
                 }}
               >
+                <CancelButton to="/">Cancel</CancelButton>
                 <h1 className="text-center create-survey-title f-1">
                   Create a Survey
                 </h1>

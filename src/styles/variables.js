@@ -1,4 +1,5 @@
 export const mainColor = '#63BEFF';
+export const mainColorHover = '#58A6DE';
 
 //= ===== COLOR VARIABLES ======//
 export const blue = '#0076ff';
