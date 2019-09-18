@@ -44,16 +44,13 @@ class Navigation extends React.Component {
           });
         });
     }
-    console.log('1=====', token);
+
     if (token) {
       const user = jwtDecode(token);
-      console.log('2=====', user);
       this.setState({ user });
     } else {
-      // this.setState({ user: null });
       setTimeout(() => {
         const tokenAwaited = localStorage.getItem('token');
-        console.log('4===', tokenAwaited);
         const user = jwtDecode(tokenAwaited);
         this.setState({ user });
       }, 2000);
@@ -69,7 +66,7 @@ class Navigation extends React.Component {
 
   render() {
     const { user } = this.state;
-    console.log('3======', this.state);
+
     return (
       <MyContext.Consumer>
         {(context) => (
