@@ -1,28 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
-import { withApollo } from 'react-apollo';
-import jwtDecode from 'jwt-decode';
-import { toast } from 'react-toastify';
-import logo from '../../assets/images/logo.png';
-import avatar from '../../assets/images/avatar-default.png';
-import { NavigationNav, Triangle, NavItems } from './NavBarStyles';
-import { VERIFY_ACCOUNT } from '../../graphql/mutations';
-import { MyContext } from '../../Provider';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link, withRouter } from "react-router-dom";
+import { withApollo } from "react-apollo";
+import jwtDecode from "jwt-decode";
+import { toast } from "react-toastify";
+import logo from "../../assets/images/logo.png";
+import avatar from "../../assets/images/avatar-default.png";
+import { NavigationNav, Triangle, NavItems } from "./NavBarStyles";
+import { VERIFY_ACCOUNT } from "../../graphql/mutations";
+import { MyContext } from "../../Provider";
 
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      user: null,
+      user: null
     };
   }
 
   componentDidMount() {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     const {
-      match: { params },
+      match: { params }
     } = this.props;
     const { client } = this.props;
     if (params && params.verifyToken) {
@@ -30,35 +30,37 @@ class Navigation extends React.Component {
         .mutate({
           mutation: VERIFY_ACCOUNT,
           variables: {
-            token: params.verifyToken,
-          },
+            token: params.verifyToken
+          }
         })
         .then(() => {
-          toast('Account verified successfully', {
-            className: 'toast-success',
+          toast("Account verified successfully", {
+            className: "toast-success"
           });
         })
         .catch(() => {
-          toast('Failed to verify account', {
-            className: 'toast-error',
+          toast("Failed to verify account", {
+            className: "toast-error"
           });
         });
-    } 
-    console.log('1=====', token);
+    }
+    console.log("1=====", token);
     if (token) {
       const user = jwtDecode(token);
-      console.log('2=====', user);
+      console.log("2=====", user);
       this.setState({ user });
     } else {
       this.setState({ user: null });
+      setTimeout(() => {
+        const tokenAwaited = localStorage.getItem("token");
+        console.log('4===', tokenAwaited)
+        const user = jwtDecode(tokenAwaited);
+        this.setState({ user });
+      }, 1000);
     }
-
-    setTimeout(() => {
-      console.log('4=======', localStorage.getItem('token'));
-    }, 2000);
   }
 
-  logout = (e) => {
+  logout = e => {
     e.preventDefault();
     localStorage.clear();
     this.setState({ user: null });
@@ -67,10 +69,10 @@ class Navigation extends React.Component {
 
   render() {
     const { user } = this.state;
-    console.log('3======', this.state);
+    console.log("3======", this.state);
     return (
       <MyContext.Consumer>
-        {(context) => (
+        {context => (
           <NavigationNav className="navbar fixed-top navbar-dark white scrolling-navbar">
             <i className="fas fa-bars" onClick={context.toggleSidebar} />
             <div className="logo-div">
@@ -127,12 +129,12 @@ class Navigation extends React.Component {
 Navigation.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      verifyToken: PropTypes.string,
-    }),
+      verifyToken: PropTypes.string
+    })
   }).isRequired,
   client: PropTypes.shape({
-    mutate: PropTypes.func.isRequired,
-  }).isRequired,
+    mutate: PropTypes.func.isRequired
+  }).isRequired
 };
 
 export default withRouter(withApollo(Navigation));
