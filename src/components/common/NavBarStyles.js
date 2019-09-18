@@ -7,8 +7,19 @@ export const NavigationNav = styled.nav`
     padding: 0px !important;
     box-shadow: 0 5px 50px -20px rgba(0,0,0,0.1);
 
-    @media (max-width: 575px) {
-        height: 70px;
+
+    .fa-bars {
+        font-size: 2.5rem;
+        position: absolute;
+        right: 2rem;
+        top: 2rem;
+        color: #3BA7C9;
+        display: none;
+        cursor: pointer;
+        
+        @media (max-width: 770px) {
+            display: block;
+        }
     }
 
     .logo-div {
@@ -39,6 +50,10 @@ export const NavigationNav = styled.nav`
         flex: 1;
         display: flex;
         justify-content: flex-end;
+
+        @media (max-width: 770px) {
+            display: none;
+        }
 
         img {
             height: 40px;

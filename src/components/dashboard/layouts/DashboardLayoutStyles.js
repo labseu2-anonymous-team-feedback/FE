@@ -36,15 +36,33 @@ export const StyledSidebar = styled.aside`
 	display: flex;
 	flex-direction: column;
   background: white;
+
+  @media (max-width: 960px) {
+    flex: 3;
+  }
+  
+  @media (max-width: 770px) {
+    position: fixed;
+    overflow: hidden;
+    transform: translateX(-15rem);
+    transition: transform .2s ease-in;
+
+    &.active {
+      position: fixed;
+      transform: translateX(0rem);
+      z-index: 100;
+      height: calc(100vh - 100px);
+      transition: transform .2s ease-in;
+      border: 1px solid #cfedfe;
+      border-left: none;
+      border-top: none;
+    }
+  }
   
 
   .nav-items {
     border-top: 1px solid #cfedfe;
   }
-
-	@media only screen and (max-width: ${tabletMaxWidth}) {
-		display: none;
-	}
 `;
 
 export const StyledNavItem = styled.div`
