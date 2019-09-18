@@ -9,6 +9,7 @@ import { AddButton, Container, CancelButton } from './SurveyStyles';
 import { CREATE_NEW_SURVEY } from '../../graphql/mutations';
 import TextInput from '../common/TextInput';
 import Button from '../../styles/Button';
+import DashboardLayout from '../dashboard/layouts/DashboardLayout';
 
 class CreateSurvey extends Component {
   constructor(props) {
