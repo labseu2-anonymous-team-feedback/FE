@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import { toast } from 'react-toastify';
 
-import DashboardLayout from '../common/layouts/DashboardLayout';
 import Divider from '../../styles/Divider';
 import Question from './Question';
 import { AddButton, Container } from './SurveyStyles';
@@ -10,6 +9,7 @@ import { AddButton, Container } from './SurveyStyles';
 import { CREATE_NEW_SURVEY } from '../../graphql/mutations';
 import TextInput from '../common/TextInput';
 import Button from '../../styles/Button';
+import DashboardLayout from '../dashboard/layouts/DashboardLayout';
 
 class CreateSurvey extends Component {
   constructor(props) {

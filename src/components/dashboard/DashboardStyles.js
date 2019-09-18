@@ -7,6 +7,11 @@ export const DashboardDivider = styled.div`
     height: 1px;
     background: #e0e0e0;
     margin: 2rem auto 0rem;
+
+
+  @media (max-width: 960px) {
+    margin: 1rem auto 0rem;
+  }
 `;
 
 export const SurveyPageHeader = styled.div`
@@ -22,25 +27,8 @@ export const SurveyPageHeader = styled.div`
   .actions-div {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 1rem 3rem;
-
-    input#search {
-      font-size: 1rem;
-      width: 25rem;
-      padding: .4em;
-      padding-left: 1em;
-      border-radius: 2rem;
-      border: 1px solid transparent;
-      outline: none;
-      background: #bdc4c7;
-      border: 1px solid #bdc4c7;
-      font-style: italic;
-
-      &:focus {
-        background: #a7aeb1;
-      }
-    }
+    justify-content: flex-end;
+    padding-right: 1rem;
   }
 `;
 
@@ -48,7 +36,7 @@ export const StyledSurveyContainer = styled.div`
   display: flex;
   width: 100%;
 
-  @media (max-width: 950px) {
+  @media (max-width: 960px) {
     flex-direction: column;
     align-items: center;
   }
@@ -63,6 +51,9 @@ export const StyledSurvey = styled.div`
   border-radius: 5px;
   position: relative;
 
+  @media (max-width: 960px) {
+    width: 96%;
+  }
 
   .survey-title {
     width: 75%;
@@ -107,12 +98,10 @@ export const StyledSurvey = styled.div`
         text-decoration: none;
         color: #444;
         &:hover {
-        color: #3BA7C9;
-        cursor: pointer;
+          color: #3BA7C9;
+          cursor: pointer;
+        }
       }
-      }
-      
-      
     }
   }
 `;

@@ -3,7 +3,7 @@ import { withApollo } from 'react-apollo';
 import Divider from '../../styles/Divider';
 import { GET_SURVEY_FEEDBACK } from '../../graphql/queries';
 import ResultSort from './ResultSort';
-import DashboardLayout from '../common/layouts/DashboardLayout';
+import DashboardLayout from '../dashboard/layouts/DashboardLayout';
 
 
 class Response extends Component {
