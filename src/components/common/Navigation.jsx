@@ -43,7 +43,7 @@ class Navigation extends React.Component {
             className: 'toast-error',
           });
         });
-    }
+    } 
     console.log('1=====', token);
     if (token) {
       const user = jwtDecode(token);
