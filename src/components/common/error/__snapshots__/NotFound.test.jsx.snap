@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotFound /> renders the NotFound component correctly 1`] = `
+<styled.div>
+  <div>
+    <img
+      alt="Page Not Found"
+      load="lazy"
+      src="404.svg"
+    />
+  </div>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    <MdKeyboardBackspace />
+    <span>
+      Home
+    </span>
+  </button>
+</styled.div>
+`;

@@ -22,6 +22,12 @@ module.exports = {
   rules: {
     "import/prefer-default-export": 0,
     "linebreak-style": 0,
+    "react/prefer-stateless-function": 0,
+    "implicit-arrow-linebreak": 0,
+    "no-tabs": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/destructuring-assignment": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/label-has-associated-control": [
       "error",
       {

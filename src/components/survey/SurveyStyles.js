@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
+import { mainColor, mainColorHover } from '../../styles/variables';
+
 export const AddButton = styled.button`
   font-size: 1.5rem;
   border-radius: 50%;
@@ -97,5 +100,21 @@ export const Close = styled.button`
     background: #db8a74;
     color: white;
     transition: all 0.25s ease-in-out;
+  }
+`;
+
+export const CancelButton = styled(Link)`
+  font-size: 1rem;
+  padding: .3em 1em;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  outline: none;
+  background: ${mainColor};
+  white-space: nowrap;
+
+  &:hover {
+    background: ${mainColorHover};
+    color: white;
   }
 `;

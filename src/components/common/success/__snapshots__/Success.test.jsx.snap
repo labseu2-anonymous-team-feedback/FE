@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Success /> renders the Success component correctly 1`] = `
+<styled.div>
+  <div>
+    <p>
+      Thank you for taking your time to respond to the survey, the effort is greatly appreciated
+    </p>
+  </div>
+  <div>
+    <img
+      alt="success"
+      load="lazy"
+      src="success.svg"
+    />
+  </div>
+</styled.div>
+`;

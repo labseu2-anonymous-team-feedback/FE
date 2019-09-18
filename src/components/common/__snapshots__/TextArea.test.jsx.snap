@@ -1,3 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TextArea /> renders the TextArea component correctly 1`] = `ShallowWrapper {}`;
+exports[`<TextArea /> renders the TextArea component correctly 1`] = `
+<Fragment>
+  <label
+    className="pb-3"
+  />
+  <textarea />
+</Fragment>
+`;

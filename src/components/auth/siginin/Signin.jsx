@@ -3,21 +3,35 @@ import { withApollo } from 'react-apollo';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-import { trimError } from '../../../utils';
+import { trimError, isLoggedIn } from '../../../utils';
 import { LOGIN_MUTATION } from '../../../graphql/mutations';
 import GoogleButton from '../../../assets/images/google-button.png';
 import StyledSignin from './StyledSignin';
 import TextInput from '../../common/TextInput';
+import Button from '../../../styles/Button';
+import { LoadIngIcon } from '../../feedback/styles';
 
-function Signin({ client }) {
+export function Signin({ client }) {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setLoading] = useState(false);
+
+  if (success) {
+    window.location.reload();
+  }
+
+  const isSignedIn = isLoggedIn();
+  if (isSignedIn) {
+    return <Redirect to="/" />;
+  }
 
   const { mutate } = client;
 
   const onSubmit = async (e) => {
+    setLoading(true);
+
     try {
       e.preventDefault();
       const res = await mutate({
@@ -27,11 +41,13 @@ function Signin({ client }) {
           password,
         },
       });
+      setLoading(false);
 
       localStorage.setItem('token', res.data.userLogin.token);
       localStorage.setItem('username', res.data.userLogin.username);
       setSuccess(true);
     } catch (err) {
+      setLoading(false);
       setError(err);
     }
   };
@@ -49,13 +65,9 @@ function Signin({ client }) {
     setError(false);
   }
 
-  if (success) {
-    return <Redirect to="/" />;
-  }
-
   return (
     <StyledSignin>
-      <form className="text-center  p-4" action="#!" onSubmit={onSubmit}>
+      <form id="signinForm" className="text-center  p-4" onSubmit={onSubmit}>
         <p className="h4 mb-4 f-1">Sign In</p>
 
         <TextInput
@@ -78,9 +90,10 @@ function Signin({ client }) {
         />
 
         <div className="form-group my-4">
-          <button className="btn btn-info btn-block" type="submit">
-            Sign In
-          </button>
+          <Button className="btn btn-block" type="submit">
+            {isLoading ? 'processing... ' : 'Sign In'}
+            {isLoading && <LoadIngIcon />}
+          </Button>
         </div>
 
         <div className="dividerContainer">

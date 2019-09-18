@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import { toast } from 'react-toastify';
+import { Redirect } from 'react-router-dom';
+
 import Divider from '../../styles/Divider';
 import Question from './Question';
-import { AddButton, Container } from './SurveyStyles';
+import { AddButton, Container, CancelButton } from './SurveyStyles';
 
 import { CREATE_NEW_SURVEY } from '../../graphql/mutations';
 import TextInput from '../common/TextInput';
+import Button from '../../styles/Button';
 
 class CreateSurvey extends Component {
   constructor(props) {
@@ -15,6 +18,7 @@ class CreateSurvey extends Component {
     this.state = {
       title: '',
       questions: [],
+      redirectToIndex: false,
     };
   }
 
@@ -45,7 +49,8 @@ class CreateSurvey extends Component {
   };
 
   render() {
-    const { title, questions } = this.state;
+    const { title, questions, redirectToIndex } = this.state;
+    if (redirectToIndex) return <Redirect to="/" />;
     return (
       <Container className="container">
         <div className="col-md survey-row">
@@ -72,7 +77,10 @@ class CreateSurvey extends Component {
                       questionsAreValid = false;
                     }
                     if (q.question && q.question.length < 5) {
-                      toast('Each question must be at least 5 characters long', { className: 'toast-error' });
+                      toast(
+                        'Each question must be at least 5 characters long',
+                        { className: 'toast-error' },
+                      );
                       questionsAreValid = false;
                     }
                   });
@@ -88,18 +96,11 @@ class CreateSurvey extends Component {
                     toast('Survey created successfully', {
                       className: 'toast-success',
                     });
-                    this.setState({
-                      title: '',
-                      questions: [
-                        {
-                          question: '',
-                          type: '',
-                        },
-                      ],
-                    });
+                    this.setState({ redirectToIndex: true });
                   }
                 }}
               >
+                <CancelButton to="/">Cancel</CancelButton>
                 <h1 className="text-center create-survey-title f-1">
                   Create a Survey
                 </h1>
@@ -149,9 +150,9 @@ class CreateSurvey extends Component {
                 <Divider size={30} />
 
                 <div className="form-group">
-                  <button className="btn btn-info btn-block" type="submit">
+                  <Button className="btn btn-block" type="submit">
                     Save Survey
-                  </button>
+                  </Button>
                 </div>
               </form>
             )}

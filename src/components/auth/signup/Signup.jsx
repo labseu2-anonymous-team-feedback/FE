@@ -12,9 +12,11 @@ import {
 import StyledSignup from './StyledSignup';
 import GoogleButton from '../../../assets/images/google-button.png';
 import TextInput from '../../common/TextInput';
-import { trimError } from '../../../utils';
+import { trimError, isLoggedIn } from '../../../utils';
+import Button from '../../../styles/Button';
+import { LoadIngIcon } from '../../feedback/styles';
 
-class Signup extends Component {
+export class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,6 +26,7 @@ class Signup extends Component {
       confirmPassword: '',
       error: '',
       data: '',
+      isLoading: false,
     };
 
     this.mutate = props.client.mutate;
@@ -32,6 +35,7 @@ class Signup extends Component {
   componentDidMount() {
     const { location } = this.props;
     const { search } = location;
+
     const parsed = queryString.parse(search);
     if (parsed.google) {
       this.mutate({
@@ -53,7 +57,6 @@ class Signup extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-
     const {
       username, email, password, confirmPassword,
     } = this.state;
@@ -75,6 +78,7 @@ class Signup extends Component {
         className: 'toast-error',
       });
     } else {
+      this.setState({ isLoading: true });
       this.mutate({
         mutation: CREATE_ACCOUNT,
         variables: {
@@ -82,9 +86,8 @@ class Signup extends Component {
           email,
           password,
         },
-      })
-        .then((res) => this.setState({ data: res }))
-        .catch((err) => this.setState({ error: err }));
+      }).then((res) => this.setState({ data: res, isLoading: false }))
+        .catch((err) => this.setState({ error: err, isLoading: false }));
     }
   };
 
@@ -96,11 +99,18 @@ class Signup extends Component {
       confirmPassword,
       error,
       data,
+      isLoading,
     } = this.state;
 
     const { location } = this.props;
     const { search } = location;
     const parsed = queryString.parse(search);
+
+    const isSignedIn = isLoggedIn();
+    if (isSignedIn) {
+      return <Redirect to="/" />;
+    }
+
     if (error) {
       if (trimError(error.message) === 'Validation error') {
         toast(error.graphQLErrors[0].extensions.exception.errors[0].message, {
@@ -170,9 +180,10 @@ class Signup extends Component {
             </div>
           </div>
           <div className="d-flex justify-content-around" />
-          <button className="btn btn-info btn-block my-4" type="submit">
-            Sign Up
-          </button>
+          <Button className="btn btn-block my-4" id="me" type="submit">
+            {isLoading ? 'processing... ' : 'Sign Up'}
+            {isLoading && <LoadIngIcon />}
+          </Button>
           <div className="dividerContainer">
             <div className="divider">
               <hr />

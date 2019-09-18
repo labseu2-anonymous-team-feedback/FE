@@ -1,3 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Question /> renders the Question component correctly 1`] = `ShallowWrapper {}`;
+exports[`<Question /> renders the Question component correctly 1`] = `
+<styled.div
+  className="z-depth-1"
+>
+  <styled.button
+    className="remove-question"
+    id="closeQuestion"
+    onClick={[Function]}
+    type="button"
+  >
+    ✕
+  </styled.button>
+  <TextArea
+    className="form-control mb-4"
+    id="question"
+    label="Question"
+    name="question"
+    onChange={[Function]}
+    rows="3"
+  />
+  <OptionSelect
+    className="browser-default custom-select mb-4"
+    id="type"
+    label="Question type"
+    name="type"
+    onChange={[Function]}
+    options={
+      Array [
+        Object {
+          "name": "Text",
+          "value": "text",
+        },
+        Object {
+          "name": "Rating",
+          "value": "rating",
+        },
+      ]
+    }
+  />
+</styled.div>
+`;

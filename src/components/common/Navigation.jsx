@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { withApollo } from 'react-apollo';
 import jwtDecode from 'jwt-decode';
 import { toast } from 'react-toastify';
@@ -8,6 +8,7 @@ import logo from '../../assets/images/logo.png';
 import avatar from '../../assets/images/avatar-default.png';
 import { NavigationNav, Triangle, NavItems } from './NavBarStyles';
 import { VERIFY_ACCOUNT } from '../../graphql/mutations';
+import { MyContext } from '../../Provider';
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -24,7 +25,6 @@ class Navigation extends React.Component {
       match: { params },
     } = this.props;
     const { client } = this.props;
-
     if (params && params.verifyToken) {
       client
         .mutate({
@@ -49,7 +49,11 @@ class Navigation extends React.Component {
       const user = jwtDecode(token);
       this.setState({ user });
     } else {
-      this.setState({ user: null });
+      setTimeout(() => {
+        const tokenAwaited = localStorage.getItem('token');
+        const user = jwtDecode(tokenAwaited);
+        this.setState({ user });
+      }, 2000);
     }
   }
 
@@ -62,54 +66,59 @@ class Navigation extends React.Component {
 
   render() {
     const { user } = this.state;
+
     return (
-      <NavigationNav className="navbar fixed-top navbar-dark white scrolling-navbar">
-        <div className="logo-div">
-          <Link to="/">
-            <img alt="logo" src={logo} className="logo" />
-          </Link>
-        </div>
-        <div className="auth-links">
-          {user ? (
-            <div className="dropdown">
-              <div
-                id="user-nav-div"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <div id="user-nav-div-left">
-                  <img alt="avatar" src={avatar} />
-                  <div className="user-info">
-                    <span id="username-nav-span">
-                      {user.username.length > 12
-                        ? `${user.username.substring(0, 12)}...`
-                        : user.username}
-                    </span>
+      <MyContext.Consumer>
+        {(context) => (
+          <NavigationNav className="navbar fixed-top navbar-dark white scrolling-navbar">
+            <i className="fas fa-bars" onClick={context.toggleSidebar} />
+            <div className="logo-div">
+              <Link to="/">
+                <img alt="logo" src={logo} className="logo" />
+              </Link>
+            </div>
+            <div className="auth-links">
+              {user ? (
+                <div className="dropdown">
+                  <button
+                    type="button"
+                    id="user-nav-div"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <div id="user-nav-div-left">
+                      <img alt="avatar" src={avatar} />
+                      <div className="user-info">
+                        <span id="username-nav-span">{user.username}</span>
+                        <Triangle id="triangle-nav" />
+                      </div>
+                    </div>
+                  </button>
+                  <div
+                    className="dropdown-menu dropdown-menu-right border-0 z-depth-1"
+                    aria-labelledby="user-nav-div"
+                  >
+                    <a
+                      className="dropdown-item"
+                      id="logoutButton"
+                      href="##"
+                      onClick={this.logout}
+                    >
+                      Logout
+                    </a>
                   </div>
                 </div>
-                <Triangle id="triangle-nav" />
-              </div>
-              <div
-                className="dropdown-menu dropdown-menu-right border-0 z-depth-1"
-                aria-labelledby="user-nav-div"
-              >
-                <a className="dropdown-item" href="##">
-                  Dashboard
-                </a>
-                <a className="dropdown-item" href="##" onClick={this.logout}>
-                  Logout
-                </a>
-              </div>
+              ) : (
+                <NavItems>
+                  <Link to="/register">Sign Up</Link>
+                  <Link to="/login">Sign In</Link>
+                </NavItems>
+              )}
             </div>
-          ) : (
-            <NavItems>
-              <Link to="/signup">Sign Up</Link>
-              <Link to="/signin">Sign In</Link>
-            </NavItems>
-          )}
-        </div>
-      </NavigationNav>
+          </NavigationNav>
+        )}
+      </MyContext.Consumer>
     );
   }
 }
@@ -125,4 +134,4 @@ Navigation.propTypes = {
   }).isRequired,
 };
 
-export default withApollo(Navigation);
+export default withRouter(withApollo(Navigation));
