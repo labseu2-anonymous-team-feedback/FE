@@ -53,6 +53,7 @@ class Navigation extends React.Component {
       this.setState({ user: null });
       setTimeout(() => {
         const tokenAwaited = localStorage.getItem("token");
+        console.log('4===', tokenAwaited)
         const user = jwtDecode(tokenAwaited);
         this.setState({ user });
       }, 1000);
