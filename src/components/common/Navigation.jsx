@@ -49,7 +49,11 @@ class Navigation extends React.Component {
       const user = jwtDecode(token);
       this.setState({ user });
     } else {
-      this.setState({ user: null });
+      setTimeout(() => {
+        const tokenAwaited = localStorage.getItem('token');
+        const user = jwtDecode(tokenAwaited);
+        this.setState({ user });
+      }, 2000);
     }
   }
 
@@ -65,57 +69,55 @@ class Navigation extends React.Component {
 
     return (
       <MyContext.Consumer>
-        {(context) => {
-          return (
-            <NavigationNav className="navbar fixed-top navbar-dark white scrolling-navbar">
-              <i className="fas fa-bars" onClick={context.toggleSidebar} />
-              <div className="logo-div">
-                <Link to="/">
-                  <img alt="logo" src={logo} className="logo" />
-                </Link>
-              </div>
-              <div className="auth-links">
-                {user ? (
-                  <div className="dropdown">
-                    <button
-                      type="button"
-                      id="user-nav-div"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <div id="user-nav-div-left">
-                        <img alt="avatar" src={avatar} />
-                        <div className="user-info">
-                          <span id="username-nav-span">{user.username}</span>
-                          <Triangle id="triangle-nav" />
-                        </div>
+        {(context) => (
+          <NavigationNav className="navbar fixed-top navbar-dark white scrolling-navbar">
+            <i className="fas fa-bars" onClick={context.toggleSidebar} />
+            <div className="logo-div">
+              <Link to="/">
+                <img alt="logo" src={logo} className="logo" />
+              </Link>
+            </div>
+            <div className="auth-links">
+              {user ? (
+                <div className="dropdown">
+                  <button
+                    type="button"
+                    id="user-nav-div"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <div id="user-nav-div-left">
+                      <img alt="avatar" src={avatar} />
+                      <div className="user-info">
+                        <span id="username-nav-span">{user.username}</span>
+                        <Triangle id="triangle-nav" />
                       </div>
-                    </button>
-                    <div
-                      className="dropdown-menu dropdown-menu-right border-0 z-depth-1"
-                      aria-labelledby="user-nav-div"
-                    >
-                      <a
-                        className="dropdown-item"
-                        id="logoutButton"
-                        href="##"
-                        onClick={this.logout}
-                      >
-                        Logout
-                      </a>
                     </div>
+                  </button>
+                  <div
+                    className="dropdown-menu dropdown-menu-right border-0 z-depth-1"
+                    aria-labelledby="user-nav-div"
+                  >
+                    <a
+                      className="dropdown-item"
+                      id="logoutButton"
+                      href="##"
+                      onClick={this.logout}
+                    >
+                      Logout
+                    </a>
                   </div>
-                ) : (
-                  <NavItems>
-                    <Link to="/register">Sign Up</Link>
-                    <Link to="/login">Sign In</Link>
-                  </NavItems>
-                )}
-              </div>
-            </NavigationNav>
-          );
-        }}
+                </div>
+              ) : (
+                <NavItems>
+                  <Link to="/register">Sign Up</Link>
+                  <Link to="/login">Sign In</Link>
+                </NavItems>
+              )}
+            </div>
+          </NavigationNav>
+        )}
       </MyContext.Consumer>
     );
   }
