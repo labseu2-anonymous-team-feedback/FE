@@ -4,11 +4,14 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { toast } from 'react-toastify';
-import { StyledSurvey, SurveyButton, StyledSurveyContainer } from '../dashboard/DashboardStyles';
+import {
+	StyledSurvey,
+	SurveyButton,
+	StyledSurveyContainer,
+} from './DashboardStyles';
 
-export function Survey(props) {
+const Survey = (props) => {
 	const [copied, setCopied] = useState(false);
-
 	if (copied) {
 		toast('link has been copied to clipboard', {
 			className: 'toast-success',
@@ -21,7 +24,7 @@ export function Survey(props) {
 		<StyledSurveyContainer>
 			{data.length > 0 ? (
 				data.map((survey) => {
-					const url = `http://localhost:3000/take_survey/${survey.id}`;
+					const url = `${window.location.origin}/take_survey/${survey.id}`;
 					return (
 						<StyledSurvey key={survey.title}>
 							<h2 className="survey-title">{survey.title}</h2>
@@ -53,7 +56,7 @@ export function Survey(props) {
 			)}
 		</StyledSurveyContainer>
 	);
-}
+};
 
 Survey.propTypes = {
 	data: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
