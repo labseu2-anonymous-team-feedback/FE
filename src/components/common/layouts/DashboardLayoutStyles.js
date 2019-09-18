@@ -12,12 +12,13 @@ export const MainContainer = styled.div`
 `;
 
 export const Container = styled.div`
-  flex: 8;
-  overflow-y: scroll;
-  padding: 0px !important;
+ display:flex;
+  width: 70%;
+  padding: 0px;
+  flex-wrap:wrap;
 
   @media (max-width: 700px) {
-    width: 100% !important;
+    width: 100%;
     padding: 0rem;
     margin: 4.5rem auto;
   }
@@ -30,13 +31,13 @@ export const Container = styled.div`
 `;
 
 export const StyledSidebar = styled.aside`
-  flex: 2;
+
 	min-height: calc(100vh - 100px);
 	width: 15rem;
 	display: flex;
 	flex-direction: column;
   background: white;
-  
+
 
   .nav-items {
     border-top: 1px solid #cfedfe;

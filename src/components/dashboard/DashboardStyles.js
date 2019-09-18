@@ -77,7 +77,7 @@ export const StyledSurvey = styled.div`
     margin: .325rem;
     padding: .325rem;
     color: #444;
-    
+
     &:hover {
       cursor: pointer;
       color: #3BA7C9;
@@ -111,8 +111,8 @@ export const StyledSurvey = styled.div`
         cursor: pointer;
       }
       }
-      
-      
+
+
     }
   }
 `;
