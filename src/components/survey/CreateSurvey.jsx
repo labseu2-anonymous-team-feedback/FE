@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import { toast } from 'react-toastify';
+import { Redirect } from 'react-router-dom';
 
 import Divider from '../../styles/Divider';
 import Question from './Question';
-import { AddButton, Container } from './SurveyStyles';
+import { AddButton, Container, CancelButton } from './SurveyStyles';
 
 import { CREATE_NEW_SURVEY } from '../../graphql/mutations';
 import TextInput from '../common/TextInput';
@@ -18,6 +19,7 @@ class CreateSurvey extends Component {
     this.state = {
       title: '',
       questions: [],
+      redirectToIndex: false,
     };
   }
 
@@ -48,124 +50,116 @@ class CreateSurvey extends Component {
   };
 
   render() {
-    const { title, questions } = this.state;
+    const { title, questions, redirectToIndex } = this.state;
+    if (redirectToIndex) return <Redirect to="/" />;
     return (
-      <DashboardLayout>
-        <Container className="container">
-          <div className="col-md survey-row">
-            <Mutation mutation={CREATE_NEW_SURVEY}>
-              {(createNewSurvey) => (
-                <form
-                  className="p-5"
-                  action="#!"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    let questionsAreValid = true;
+      <Container className="container">
+        <div className="col-md survey-row">
+          <Mutation mutation={CREATE_NEW_SURVEY}>
+            {(createNewSurvey) => (
+              <form
+                className="p-5"
+                action="#!"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  let questionsAreValid = true;
 
-                    questions.forEach((q) => {
-                      if (!q.question) {
-                        toast('Please provide all questions', {
-                          className: 'toast-error',
-                        });
-                        questionsAreValid = false;
-                      }
-                      if (!q.type) {
-                        toast('Please specify a type for all questions', {
-                          className: 'toast-error',
-                        });
-                        questionsAreValid = false;
-                      }
-                      if (q.question && q.question.length < 5) {
-                        toast(
-                          'Each question must be at least 5 characters long',
-                          { className: 'toast-error' },
-                        );
-                        questionsAreValid = false;
-                      }
-                    });
-
-                    if (!title) {
-                      toast('Survey title required', {
+                  questions.forEach((q) => {
+                    if (!q.question) {
+                      toast('Please provide all questions', {
                         className: 'toast-error',
                       });
-                    } else if (questionsAreValid) {
-                      createNewSurvey({
-                        variables: { input: { title, questions } },
+                      questionsAreValid = false;
+                    }
+                    if (!q.type) {
+                      toast('Please specify a type for all questions', {
+                        className: 'toast-error',
                       });
-                      toast('Survey created successfully', {
-                        className: 'toast-success',
-                      });
-                      this.setState({
-                        title: '',
-                        questions: [
-                          {
+                      questionsAreValid = false;
+                    }
+                    if (q.question && q.question.length < 5) {
+                      toast(
+                        'Each question must be at least 5 characters long',
+                        { className: 'toast-error' },
+                      );
+                      questionsAreValid = false;
+                    }
+                  });
+
+                  if (!title) {
+                    toast('Survey title required', {
+                      className: 'toast-error',
+                    });
+                  } else if (questionsAreValid) {
+                    createNewSurvey({
+                      variables: { input: { title, questions } },
+                    });
+                    toast('Survey created successfully', {
+                      className: 'toast-success',
+                    });
+                    this.setState({ redirectToIndex: true });
+                  }
+                }}
+              >
+                <CancelButton to="/">Cancel</CancelButton>
+                <h1 className="text-center create-survey-title f-1">
+                  Create a Survey
+                </h1>
+                <Divider size={30} />
+                <TextInput
+                  title="Survey Title"
+                  id="title"
+                  value={title}
+                  name={title}
+                  onChange={this.handleChangeSurvey}
+                />
+
+                <div>
+                  <h2 className="questions-title f-1">Survey Questions</h2>
+                  <Divider size={30} />
+
+                  {questions.map((question, index) => (
+                    <Question
+                      key={index.toString()}
+                      question={question.question}
+                      type={question.type}
+                      index={index}
+                      handleChangeQuestion={this.handleChangeQuestion}
+                      removeQuestion={this.removeQuestion}
+                    />
+                  ))}
+
+                  <div className="text-center">
+                    <AddButton
+                      type="button"
+                      className="btn btn-light"
+                      onClick={() => {
+                        this.setState((prev) => ({
+                          ...prev,
+                          questions: prev.questions.concat({
                             question: '',
                             type: '',
-                          },
-                        ],
-                      });
-                    }
-                  }}
-                >
-                  <h1 className="text-center create-survey-title f-1">
-                    Create a Survey
-                  </h1>
-                  <Divider size={30} />
-                  <TextInput
-                    title="Survey Title"
-                    id="title"
-                    value={title}
-                    name={title}
-                    onChange={this.handleChangeSurvey}
-                  />
-
-                  <div>
-                    <h2 className="questions-title f-1">Survey Questions</h2>
-                    <Divider size={30} />
-
-                    {questions.map((question, index) => (
-                      <Question
-                        key={index.toString()}
-                        question={question.question}
-                        type={question.type}
-                        index={index}
-                        handleChangeQuestion={this.handleChangeQuestion}
-                        removeQuestion={this.removeQuestion}
-                      />
-                    ))}
-
-                    <div className="text-center">
-                      <AddButton
-                        type="button"
-                        className="btn btn-light"
-                        onClick={() => {
-                          this.setState((prev) => ({
-                            ...prev,
-                            questions: prev.questions.concat({
-                              question: '',
-                              type: '',
-                            }),
-                          }));
-                        }}
-                      >
-                        +
-                      </AddButton>
-                    </div>
+                          }),
+                        }));
+                      }}
+                    >
+                      +
+                    </AddButton>
                   </div>
+                </div>
 
-                  <Divider size={30} />
+                <Divider size={30} />
 
-                  <div className="form-group">
-                    <Button className="btn btn-block" type="submit">
-                      Save Survey
-                    </Button>
-                  </div>
-                </form>
-              )}
-            </Mutation>
-          </div>
-        </Container>
-      </DashboardLayout>
+                <div className="form-group">
+                  <Button className="btn btn-block" type="submit">
+                    Save Survey
+                  </Button>
+                </div>
+              </form>
+            )}
+          </Mutation>
+        </div>
+      </Container>
     );
   }
 }

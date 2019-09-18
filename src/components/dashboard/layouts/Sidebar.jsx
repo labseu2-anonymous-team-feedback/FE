@@ -42,12 +42,6 @@ class SidebarContainer extends React.Component {
                   icon={sidebarIcons.create_survey}
                   path="/create_survey"
                 />
-
-                <SideNavItem
-                  text={sidebarTexts.settings}
-                  icon={sidebarIcons.settings}
-                  path="/profile"
-                />
               </div>
               <div className="empty-div" />
             </StyledSidebar>
