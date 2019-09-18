@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import { toast } from 'react-toastify';
+import { Redirect } from 'react-router-dom';
 
 import Divider from '../../styles/Divider';
 import Question from './Question';
@@ -17,6 +18,7 @@ class CreateSurvey extends Component {
     this.state = {
       title: '',
       questions: [],
+      redirectToIndex: false,
     };
   }
 
@@ -47,7 +49,8 @@ class CreateSurvey extends Component {
   };
 
   render() {
-    const { title, questions } = this.state;
+    const { title, questions, redirectToIndex } = this.state;
+    if (redirectToIndex) return <Redirect to="/" />;
     return (
       <Container className="container">
         <div className="col-md survey-row">
@@ -93,15 +96,7 @@ class CreateSurvey extends Component {
                     toast('Survey created successfully', {
                       className: 'toast-success',
                     });
-                    this.setState({
-                      title: '',
-                      questions: [
-                        {
-                          question: '',
-                          type: '',
-                        },
-                      ],
-                    });
+                    this.setState({ redirectToIndex: true });
                   }
                 }}
               >
