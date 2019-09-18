@@ -1,8 +1,8 @@
 import React from 'react';
-import ProfileImage from '../ProfileImage';
+import ProfileImage from '../reusable/ProfileImage';
 import SideNavItem from './SideNavItem';
-import { sidebarIcons, sidebarTexts } from '../../../assets/icons/icons';
-import { StyledSidebar } from './DashboardLayoutStyles';
+import { sidebarIcons, sidebarTexts } from '../assets/icons/icons';
+import { StyledSidebar } from './SidebarStyles';
 
 const SidebarContainer = () => (
   <StyledSidebar>

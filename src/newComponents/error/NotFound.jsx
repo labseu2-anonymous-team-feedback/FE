@@ -2,8 +2,8 @@ import React from 'react';
 import { MdKeyboardBackspace } from 'react-icons/md';
 import propTypes from 'prop-types';
 
-import { Container } from './styles';
-import image from '../../../assets/images/404.svg';
+import { Container } from '../dashboard/DashboardLayoutStyles';
+import image from '../assets/images/404.svg';
 
 function NotFound(props) {
   const goHome = (e) => {
