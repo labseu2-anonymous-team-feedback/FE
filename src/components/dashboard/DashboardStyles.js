@@ -45,8 +45,8 @@ export const StyledSurveyContainer = styled.div`
 `;
 
 export const StyledSurvey = styled.div`
-  flex-grow: 1;
-  width: 25rem;
+  /* flex-grow: 1; */
+  width: 44%;
   background-color: #f1faff;
   margin: 1rem;
   border-radius: 5px;
