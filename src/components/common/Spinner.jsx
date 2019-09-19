@@ -3,7 +3,7 @@ import { Triple } from 'react-preloading-component';
 import styled from 'styled-components';
 
 const StyledSpinner = styled.div`
-  margin: 3rem 0;
+  margin: 10rem 0;
 `;
 
 export default function Spinner() {
