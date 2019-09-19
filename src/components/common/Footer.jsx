@@ -3,8 +3,17 @@ import styled from 'styled-components';
 import { isLoggedIn } from '../../utils';
 
 const StyledFooter = styled.footer`
-  background-color: #d9eaf7;
-  color: #63beff;
+  background-color: #f7f7f7;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  > * {
+    color: #444;
+  }
+  a {
+    color: #444;
+    text-decoration: underline;
+  }
 `;
 
 export default function Footer() {
