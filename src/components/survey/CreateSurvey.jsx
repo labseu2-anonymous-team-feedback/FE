@@ -50,7 +50,10 @@ class CreateSurvey extends Component {
 
   render() {
     const { title, questions, redirectToIndex } = this.state;
-    if (redirectToIndex) return (window.location.href = "/");
+    if (redirectToIndex) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <Container className="container">
         <div className="col-md survey-row">
