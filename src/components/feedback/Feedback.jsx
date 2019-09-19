@@ -98,6 +98,7 @@ export class Feedback extends React.Component {
         this.initializeAnswers(survey.questions);
       }
     } catch (error) {
+      console.log(error);
       this.setState({ error: error.message });
     }
   };
