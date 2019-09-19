@@ -36,9 +36,18 @@ export const StyledSidebar = styled.aside`
 	display: flex;
 	flex-direction: column;
   background: white;
+  z-index: 100;
+
 
   @media (max-width: 960px) {
     flex: 3;
+  }
+
+  #logout {
+    display: none;
+    @media (max-width: 770px) {
+      display: block;
+    }
   }
   
   @media (max-width: 770px) {

@@ -12,6 +12,7 @@ class ContextProvider extends React.Component {
 
   render() {
     const { sidebarOpen } = this.state;
+    const { children } = this.props; // eslint-disable-line
     return (
       <MyContext.Provider
         value={{
@@ -19,12 +20,18 @@ class ContextProvider extends React.Component {
           toggleSidebar: () => {
             this.setState({ sidebarOpen: !sidebarOpen });
           },
+          logout: (e) => {
+            e.preventDefault();
+            localStorage.clear();
+            window.location.reload();
+          },
         }}
       >
-        {this.props.children}
+        {children}
       </MyContext.Provider>
     );
   }
 }
+
 
 export default ContextProvider;
