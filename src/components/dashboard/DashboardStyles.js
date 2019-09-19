@@ -35,6 +35,7 @@ export const SurveyPageHeader = styled.div`
 export const StyledSurveyContainer = styled.div`
   display: flex;
   width: 100%;
+  flex-wrap: wrap;
 
   @media (max-width: 960px) {
     flex-direction: column;
@@ -50,7 +51,7 @@ export const StyledSurvey = styled.div`
   margin: 1rem;
   border-radius: 5px;
   position: relative;
-
+  
   @media (max-width: 960px) {
     width: 96%;
   }

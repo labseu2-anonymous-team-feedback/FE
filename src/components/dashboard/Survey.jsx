@@ -26,7 +26,7 @@ const Survey = (props) => {
 				data.map((survey) => {
 					const url = `${window.location.origin}/take_survey/${survey.id}`;
 					return (
-						<StyledSurvey key={survey.title}>
+						<StyledSurvey key={survey.id}>
 							<h2 className="survey-title">{survey.title}</h2>
 							<div className="copy-btn-div">
 								<CopyToClipboard text={url} onCopy={() => setCopied(true)}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
+import { withRouter } from 'react-router-dom';
 
 import { GET_SURVEYS } from '../../graphql/queries';
 import {
@@ -40,4 +41,4 @@ export function Dashboard() {
   return <Spinner />;
 }
 
-export default Dashboard;
+export default withRouter(Dashboard);
