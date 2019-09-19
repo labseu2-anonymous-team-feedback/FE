@@ -28,34 +28,31 @@ class SidebarContainer extends React.Component {
     const { user } = this.state;
     return (
       <MyContext.Consumer>
-        {(context) => {
-          console.log(context.sidebarOpen);
-          return (
-            <StyledSidebar className={context.sidebarOpen ? 'active' : ''}>
-              <ProfileImage
-                name={user && user.username}
-                image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1m1DOmfCTW5yaJjjehDNcrTnJlFaph-ZADDYsCsyzwDJWS_6z"
+        {(context) => (
+          <StyledSidebar className={context.sidebarOpen ? 'active' : ''}>
+            <ProfileImage
+              name={user && user.username}
+              image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1m1DOmfCTW5yaJjjehDNcrTnJlFaph-ZADDYsCsyzwDJWS_6z"
+            />
+            <div className="nav-items" role="presentation" onClick={context.toggleSidebar}>
+              <SideNavItem
+                text={sidebarTexts.create_survey}
+                icon={sidebarIcons.create_survey}
+                path="/create_survey"
               />
-              <div className="nav-items" role="presentation" onClick={context.toggleSidebar}>
+
+              <div id="logout" role="presentation" onClick={context.logout}>
                 <SideNavItem
-                  text={sidebarTexts.create_survey}
-                  icon={sidebarIcons.create_survey}
-                  path="/create_survey"
+                  text="Logout"
+                  icon={sidebarIcons.logout}
+                  path="/"
                 />
-
-                <div id="logout" role="presentation" onClick={context.logout}>
-                  <SideNavItem
-                    text="Logout"
-                    icon={sidebarIcons.logout}
-                    path="/"
-                  />
-                </div>
-
               </div>
-              <div className="empty-div" />
-            </StyledSidebar>
-          );
-        }}
+
+            </div>
+            <div className="empty-div" />
+          </StyledSidebar>
+        )}
       </MyContext.Consumer>
     );
   }
