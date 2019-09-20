@@ -118,3 +118,14 @@ export const CancelButton = styled(Link)`
     color: white;
   }
 `;
+
+export const ButtonGroup = styled.div`
+  display: flex;
+  justify-content: space-between;
+  button {
+    flex-basis: 48%;
+  }
+  button:nth-of-type(2) {
+    background-color: #FF6938;
+  }
+`;

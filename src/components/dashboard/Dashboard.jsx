@@ -53,4 +53,4 @@ export function Dashboard() {
   return <Spinner />;
 }
 
-export default Dashboard;
+export default withRouter(Dashboard);
