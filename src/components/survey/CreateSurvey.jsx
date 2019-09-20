@@ -55,7 +55,7 @@ class CreateSurvey extends Component {
       <Container className="container">
         <div className="col-md survey-row">
           <Mutation mutation={CREATE_NEW_SURVEY}>
-            {(createNewSurvey) => (
+            {(createNewSurvey, { data, loading, error }) => (
               <form
                 className="p-5"
                 action="#!"
@@ -96,7 +96,9 @@ class CreateSurvey extends Component {
                     toast('Survey created successfully', {
                       className: 'toast-success',
                     });
-                    this.setState({ redirectToIndex: true });
+                    if (!loading) {
+                      this.setState({ redirectToIndex: true });
+                    }
                   }
                 }}
               >

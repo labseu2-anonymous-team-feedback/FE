@@ -1,5 +1,5 @@
-import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import React, { useEffect, useState } from 'react';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 
 import { GET_SURVEYS } from '../../graphql/queries';
 import {
@@ -16,8 +16,21 @@ import Spinner from '../common/Spinner';
 
 export function Dashboard() {
   const { data } = useQuery(GET_SURVEYS);
+  // const [surveys, setSurveys] = useState(data);
+  // debugger;
+
+
+  // useEffect(() => {
+  //   // const { data } = useQuery(GET_SURVEYS);
+  //   // setTimeout(() => {
+  //   //   window.location.reload();
+  //   // }, 1000);
+
+  //   // debugger;
+  // }, []);
 
   if (data && data.getUserSurveys) {
+    // debugger;
     return (
       <DashboardLayout>
         <SurveyPageHeader>
