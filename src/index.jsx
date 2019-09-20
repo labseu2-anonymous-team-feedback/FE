@@ -14,7 +14,6 @@ import * as serviceWorker from './serviceWorker';
 
 const httpLink = createHttpLink({
   uri: 'https://anonymous-feedback-app.herokuapp.com/graphql',
-  // uri: 'http://localhost:4000/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {

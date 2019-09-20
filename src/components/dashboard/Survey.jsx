@@ -59,7 +59,7 @@ const Survey = (props) => {
 };
 
 Survey.propTypes = {
-	data: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
+	data: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.any)).isRequired,
 };
 
 export default Survey;
