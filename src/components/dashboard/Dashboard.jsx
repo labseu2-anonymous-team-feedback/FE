@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
+import { withRouter } from 'react-router-dom';
 
 import { GET_SURVEYS } from '../../graphql/queries';
 import {
@@ -19,15 +20,9 @@ export function Dashboard() {
   // const [surveys, setSurveys] = useState(data);
   // debugger;
 
-
-  // useEffect(() => {
-  //   // const { data } = useQuery(GET_SURVEYS);
-  //   // setTimeout(() => {
-  //   //   window.location.reload();
-  //   // }, 1000);
-
-  //   // debugger;
-  // }, []);
+  // useEffect(() => () => {
+  //     console.log('unmounted');
+  //   });
 
   if (data && data.getUserSurveys) {
     // debugger;
