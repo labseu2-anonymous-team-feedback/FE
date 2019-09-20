@@ -57,22 +57,7 @@ class CreateSurvey extends Component {
   };
 
   updateCache = (cache, { data: { createNewSurvey } }) => {
-    const { getUserSurveys } = cache.readQuery({ query: qql`
-      query getUserSurveys {
-        getUserSurveys{
-          id
-          title
-          owner{
-            username
-            email
-          }
-          questions { 
-            id
-          }
-      
-        }
-      }
-      ` });
+    const { getUserSurveys } = cache.readQuery({ query: GET_SURVEYS });
       cache.writeQuery({
         query: GET_SURVEYS,
         data: {
