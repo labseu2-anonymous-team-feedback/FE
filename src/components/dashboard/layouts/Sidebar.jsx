@@ -34,7 +34,11 @@ class SidebarContainer extends React.Component {
               name={user && user.username}
               image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1m1DOmfCTW5yaJjjehDNcrTnJlFaph-ZADDYsCsyzwDJWS_6z"
             />
-            <div className="nav-items" role="presentation" onClick={context.toggleSidebar}>
+            <div
+              className="nav-items"
+              role="presentation"
+              onClick={context.toggleSidebar}
+            >
               <SideNavItem
                 text={sidebarTexts.create_survey}
                 icon={sidebarIcons.create_survey}
@@ -48,7 +52,6 @@ class SidebarContainer extends React.Component {
                   path="/"
                 />
               </div>
-
             </div>
             <div className="empty-div" />
           </StyledSidebar>

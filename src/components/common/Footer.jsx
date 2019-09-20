@@ -6,6 +6,7 @@ const StyledFooter = styled.footer`
   background-color: #f7f7f7;
   position: fixed;
   bottom: 0;
+  height: 56px;
   width: 100%;
   > * {
     color: #444;
