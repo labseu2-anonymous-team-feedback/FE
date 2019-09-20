@@ -51,8 +51,10 @@ class Navigation extends React.Component {
     } else {
       setTimeout(() => {
         const tokenAwaited = localStorage.getItem('token');
-        const user = jwtDecode(tokenAwaited);
-        this.setState({ user });
+        if (tokenAwaited) {
+          const user = jwtDecode(tokenAwaited);
+          this.setState({ user });
+        }
       }, 2000);
     }
   }
@@ -71,7 +73,11 @@ class Navigation extends React.Component {
       <MyContext.Consumer>
         {(context) => (
           <NavigationNav className="navbar fixed-top navbar-dark white scrolling-navbar">
-            <i className="fas fa-bars" role="presentation" onClick={context.toggleSidebar} />
+            <i
+              className="fas fa-bars"
+              role="presentation"
+              onClick={context.toggleSidebar}
+            />
             <div className="logo-div">
               <Link to="/">
                 <img alt="logo" src={logo} className="logo" />

@@ -35,6 +35,7 @@ export const SurveyPageHeader = styled.div`
 export const StyledSurveyContainer = styled.div`
   display: flex;
   width: 100%;
+  flex-wrap: wrap;
 
   @media (max-width: 960px) {
     flex-direction: column;
@@ -44,13 +45,13 @@ export const StyledSurveyContainer = styled.div`
 `;
 
 export const StyledSurvey = styled.div`
-  flex-grow: 1;
-  width: 25rem;
+  /* flex-grow: 1; */
+  width: 44%;
   background-color: #f1faff;
   margin: 1rem;
   border-radius: 5px;
   position: relative;
-
+  
   @media (max-width: 960px) {
     width: 96%;
   }

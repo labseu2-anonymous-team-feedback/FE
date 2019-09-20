@@ -10,9 +10,11 @@ const ProfileImage = ({ name, image }) => (
     <p>{name}</p>
   </StyledImage>
 );
-
+ProfileImage.defaultProps = {
+  name: '',
+};
 ProfileImage.propTypes = {
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   image: PropTypes.string.isRequired,
 };
 

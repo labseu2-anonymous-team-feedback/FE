@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import { toast } from 'react-toastify';
 import { Redirect } from 'react-router-dom';
+import propTypes from 'prop-types';
 
 import Divider from '../../styles/Divider';
 import Question from './Question';
-import { AddButton, Container, CancelButton } from './SurveyStyles';
+import { AddButton, Container, ButtonGroup } from './SurveyStyles';
 
 import { CREATE_NEW_SURVEY } from '../../graphql/mutations';
 import TextInput from '../common/TextInput';
@@ -48,9 +49,16 @@ class CreateSurvey extends Component {
     this.setState({ title: e.target.value });
   };
 
+  cancelSurvey = () => {
+    this.props.history.push('/');
+  };
+
   render() {
     const { title, questions, redirectToIndex } = this.state;
-    if (redirectToIndex) return <Redirect to="/" />;
+    if (redirectToIndex) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <Container className="container">
         <div className="col-md survey-row">
@@ -100,7 +108,6 @@ class CreateSurvey extends Component {
                   }
                 }}
               >
-                <CancelButton to="/">Cancel</CancelButton>
                 <h1 className="text-center create-survey-title f-1">
                   Create a Survey
                 </h1>
@@ -149,10 +156,19 @@ class CreateSurvey extends Component {
 
                 <Divider size={30} />
 
-                <div className="form-group">
-                  <Button className="btn btn-block" type="submit">
-                    Save Survey
-                  </Button>
+                <div className="form-group ctrl">
+                  <ButtonGroup>
+                    <Button className="btn btn-block" type="submit">
+                      Save Survey
+                    </Button>
+                    <Button
+                      className="btn btn-block"
+                      type="button"
+                      onClick={this.cancelSurvey}
+                    >
+                      Cancel
+                    </Button>
+                  </ButtonGroup>
                 </div>
               </form>
             )}
@@ -163,4 +179,9 @@ class CreateSurvey extends Component {
   }
 }
 
+CreateSurvey.propTypes = {
+  history: propTypes.shape({
+    push: propTypes.func.isRequired,
+  }).isRequired,
+};
 export default CreateSurvey;
