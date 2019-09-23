@@ -5,7 +5,6 @@ import SideNavItem from './SideNavItem';
 import { sidebarIcons, sidebarTexts } from '../../../assets/icons/icons';
 import { StyledSidebar } from './DashboardLayoutStyles';
 import { MyContext } from '../../../Provider';
-import avatar from '../../../assets/images/avatar-default.png';
 
 class SidebarContainer extends React.Component {
   constructor(props) {
@@ -33,7 +32,7 @@ class SidebarContainer extends React.Component {
           <StyledSidebar className={context.sidebarOpen ? 'active' : ''}>
             <ProfileImage
               name={user && user.username}
-              image={avatar}
+              image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1m1DOmfCTW5yaJjjehDNcrTnJlFaph-ZADDYsCsyzwDJWS_6z"
             />
             <div
               className="nav-items"

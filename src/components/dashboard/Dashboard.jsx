@@ -16,13 +16,7 @@ import Divider from '../../styles/Divider';
 import Spinner from '../common/Spinner';
 
 export function Dashboard() {
-  const { data } = useQuery(
-    GET_SURVEYS,
-    {
-      fetchPolicy: 'no-cache',
-    },
-  );
-  console.log(data);
+  const { data } = useQuery(GET_SURVEYS);
 
   if (data && data.getUserSurveys) {
     return (

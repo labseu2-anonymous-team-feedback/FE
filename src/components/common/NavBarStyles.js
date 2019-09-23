@@ -56,7 +56,6 @@ export const NavigationNav = styled.nav`
         }
 
         img {
-            border-radius: 100%;
             height: 40px;
             width: 40px !important;
 
