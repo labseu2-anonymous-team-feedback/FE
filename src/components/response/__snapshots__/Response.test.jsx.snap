@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Response /> renders the Response component correctly 1`] = `
+<DashboardLayout>
+  <Spinner />
+  <h1
+    className="text-center create-survey-title f-1"
+  />
+  <styled.div
+    size={30}
+  />
+</DashboardLayout>
+`;
