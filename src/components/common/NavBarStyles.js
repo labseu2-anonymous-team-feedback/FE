@@ -13,7 +13,7 @@ export const NavigationNav = styled.nav`
         position: absolute;
         right: 2rem;
         top: 2rem;
-        color: #3BA7C9;
+        color: ${mainColor};
         display: none;
         cursor: pointer;
         
