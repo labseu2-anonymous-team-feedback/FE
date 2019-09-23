@@ -7,7 +7,7 @@ import {
   bodyHero,
 } from '../../styles/variables';
 
-class Chart extends Component {
+export class Chart extends Component {
   constructor(props) {
     super(props);
     this.state = {};
