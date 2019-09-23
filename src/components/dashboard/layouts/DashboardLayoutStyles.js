@@ -11,9 +11,12 @@ export const MainContainer = styled.div`
   }
 `;
 
+
 export const Container = styled.div`
   padding: 0px !important;
-
+  overflow-y: scroll;
+   -ms-overflow-style: none;  // IE 10+
+  scrollbar-width: none;
   @media (max-width: 700px) {
     width: 100% !important;
     padding: 0rem;
@@ -25,11 +28,14 @@ export const Container = styled.div`
     margin: 0rem auto;
     border: 1px solid transparent;
   }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const StyledSidebar = styled.aside`
 	width: 22rem;
-	min-height: calc(100vh - 100px);
+	min-height: 100%;
 	display: flex;
 	flex-direction: column;
   background: white;
