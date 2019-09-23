@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { mainColor, mainColorHover } from '../../styles/variables';
 
 
 export const DashboardDivider = styled.div`
@@ -45,67 +46,70 @@ export const StyledSurveyContainer = styled.div`
 `;
 
 export const StyledSurvey = styled.div`
-  /* flex-grow: 1; */
-  width: 44%;
-  background-color: #f1faff;
-  margin: 1rem;
-  border-radius: 5px;
-  position: relative;
-  
-  @media (max-width: 960px) {
-    width: 96%;
-  }
+         /* flex-grow: 1; */
+         width: 44%;
+         background-color: #ffff;
+         margin: 1rem;
+         border-radius: 5px;
+         position: relative;
 
-  .survey-title {
-    width: 75%;
-    padding: 1rem;
-  }
+         @media (max-width: 960px) {
+           width: 96%;
+         }
 
-  .copy-btn-div {
-    position: absolute;
-    top: 0rem;
-    right: 0rem;
-    font-size: .8rem;
-    margin: .325rem;
-    padding: .325rem;
-    color: #444;
-    
-    &:hover {
-      cursor: pointer;
-      color: #3BA7C9;
-      border-bottom: 1px solid #3BA7C9;
-    }
+         .survey-title {
+           width: 75%;
+           padding: 1rem;
+           white-space: nowrap;
+           overflow: hidden;
+           text-overflow: ellipsis;
+         }
 
-    i {
-      font-size: 1rem;
-    }
+         .copy-btn-div {
+           position: absolute;
+           top: 0rem;
+           right: 0rem;
+           font-size: 0.8rem;
+           margin: 0.325rem;
+           padding: 0.325rem;
+           color: #444;
 
-    .btn-link-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
+           &:hover {
+             cursor: pointer;
+             color: ${mainColorHover};
+             border-bottom: 1px solid #3ba7c9;
+           }
 
-  .survey-actions {
-    display: flex;
-    align-items: center;
-    padding: .4rem 1rem 1rem;
-    justify-content: space-between;
+           i {
+             font-size: 1rem;
+           }
 
-    .questions {
-      font-size: .9rem;
-      a {
-        text-decoration: none;
-        color: #444;
-        &:hover {
-          color: #3BA7C9;
-          cursor: pointer;
-        }
-      }
-    }
-  }
-`;
+           .btn-link-wrapper {
+             display: flex;
+             align-items: center;
+             justify-content: center;
+           }
+         }
+
+         .survey-actions {
+           display: flex;
+           align-items: center;
+           padding: 0.4rem 1rem 1rem;
+           justify-content: space-between;
+
+           .questions {
+             font-size: 0.9rem;
+             a {
+               text-decoration: none;
+               color: #444;
+               &:hover {
+                 color: ${mainColorHover};
+                 cursor: pointer;
+               }
+             }
+           }
+         }
+       `;
 
 
 export const SurveyContent = styled.div`
@@ -116,20 +120,21 @@ export const SurveyContent = styled.div`
 `;
 
 export const SurveyButton = styled(Link)`
-  font-size: 1rem;
-  padding: .3em 1em;
-  color: white;
-  border: 1px solid transparent;
-  border-radius: 5px;
-  outline: none;
-  background: #3BA7C9;
-  white-space: nowrap;
+         font-size: 1rem;
+         padding: 0.3em 1em;
+         color: white;
+         border: 1px solid transparent;
+         border-radius: 5px;
+         outline: none;
+         background: ${mainColor};
+         white-space: nowrap;
 
-  &:hover {
-    background: #2b839e;
-    color: white;
-  }
-`;
+
+         &:hover {
+           background: ${mainColorHover};
+           color: white;
+         }
+       `;
 
 
 export const MainInputAndButtonWrapper = styled.div`

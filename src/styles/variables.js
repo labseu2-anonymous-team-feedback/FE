@@ -8,6 +8,7 @@ export const slateGrey = '#97A2B9';
 export const fadedBlue = '#E6EBF9';
 export const lightGrey = '#F9F9F9';
 export const white = '#FFFFFF';
+export const dark = '#444';
 
 
 //= ===== MEDIA QUERY VARIABLES ======//
