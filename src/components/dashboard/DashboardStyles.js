@@ -131,7 +131,6 @@ export const SurveyButton = styled(Link)`
 
 
          &:hover {
-           background: ${mainColorHover};
            color: white;
          }
        `;
