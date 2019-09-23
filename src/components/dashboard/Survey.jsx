@@ -44,7 +44,7 @@ const Survey = (props) => {
 										Question(s)
 									</Link>
 								</div>
-								<SurveyButton to={`/survey/${survey.id}`}>
+								<SurveyButton className="btn" to={`/survey/${survey.id}`}>
 									View Details
 								</SurveyButton>
 							</div>
