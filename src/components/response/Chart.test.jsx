@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import { Chart } from './Chart';
+import renderer from 'react-test-renderer';
+import Chart from './Chart';
 
 
 const mockProps = {
@@ -48,7 +49,14 @@ beforeAll(() => {
   wrapper = shallow(<Chart {...mockProps} />);
 });
 describe('<Chart />', () => {
-  it.only('renders the chart component correctly', () => {
+  it('renders the chart component correctly', () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('renders NoFeedBack if feedback is empty', () => {
+    const nofeedback = renderer.create(
+      <Chart {...mockProps} />,
+    ).toJSON();
+    expect(nofeedback).toMatchSnapshot();
   });
 });

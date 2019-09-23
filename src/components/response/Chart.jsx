@@ -7,7 +7,7 @@ import {
   bodyHero,
 } from '../../styles/variables';
 
-export class Chart extends Component {
+class Chart extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -15,7 +15,6 @@ export class Chart extends Component {
 
   render() {
     const { data } = this.props;
-    console.log('=====', data);
     const {
       VictoryBar, VictoryChart, VictoryTheme, VictoryLegend,
     } = V;
