@@ -12,7 +12,6 @@ import { CREATE_NEW_SURVEY } from '../../graphql/mutations';
 import TextInput from '../common/TextInput';
 import Button from '../../styles/Button';
 import { GET_SURVEYS } from '../../graphql/queries';
-import qql from 'graphql-tag';
 
 
 class CreateSurvey extends Component {
@@ -58,14 +57,14 @@ class CreateSurvey extends Component {
 
   updateCache = (cache, { data: { createNewSurvey } }) => {
     const { getUserSurveys } = cache.readQuery({ query: GET_SURVEYS });
-      cache.writeQuery({
-        query: GET_SURVEYS,
-        data: {
-          getUserSurveys: getUserSurveys.concat(createNewSurvey)
-        }
-      })
-      this.setState({ redirectToIndex: true });
-    }
+    cache.writeQuery({
+      query: GET_SURVEYS,
+      data: {
+        getUserSurveys: getUserSurveys.concat(createNewSurvey),
+      },
+    });
+    this.setState({ redirectToIndex: true });
+  }
 
   render() {
     const { title, questions, redirectToIndex } = this.state;

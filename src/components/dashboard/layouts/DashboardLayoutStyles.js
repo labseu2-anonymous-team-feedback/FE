@@ -12,7 +12,6 @@ export const MainContainer = styled.div`
 `;
 
 export const Container = styled.div`
-  overflow-y: scroll;
   padding: 0px !important;
 
   @media (max-width: 700px) {
