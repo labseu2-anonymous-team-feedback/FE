@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { withApollo } from 'react-apollo';
-import propTypes from 'prop-types';
 import Divider from '../../styles/Divider';
-import Spinner from '../common/Spinner';
 import { GET_SURVEY_FEEDBACK } from '../../graphql/queries';
 import ResultSort from './ResultSort';
 import DashboardLayout from '../dashboard/layouts/DashboardLayout';
 
 
-export class Response extends Component {
+class Response extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,6 +31,7 @@ export class Response extends Component {
     const {
       client,
     } = this.props;
+    // console.log(client);
     this.setState({ loading: true });
     const { data, loading } = await client.query({
       query: GET_SURVEY_FEEDBACK, variables: { surveyId },
@@ -41,13 +40,13 @@ export class Response extends Component {
       const survey = data.getSurveyFeedback;
       this.setState({ survey, loading });
     }
+    // console.log(data);
   }
 
   render() {
-    const { survey, loading } = this.state;
+    const { survey } = this.state;
     return (
       <DashboardLayout>
-        {loading && <Spinner />}
         <h1 className="text-center create-survey-title f-1">
           {survey && survey.title}
         </h1>
@@ -58,17 +57,5 @@ export class Response extends Component {
   }
 }
 
-
-Response.propTypes = {
-  match: propTypes.shape({
-    params: propTypes.shape({
-      surveyId: propTypes.string,
-    }),
-  }).isRequired,
-  client: propTypes.shape({
-    mutate: propTypes.func.isRequired,
-    query: propTypes.func.isRequired,
-  }).isRequired,
-};
 
 export default withApollo(Response);
