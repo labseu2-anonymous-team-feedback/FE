@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ResultSort /> renders the ResultSort component correctly 1`] = `
+<styled.div>
+  <Chart
+    data={
+      Array [
+        Object {
+          "feedbacks": Array [
+            Object {
+              "comment": null,
+              "id": 1,
+              "rating": "7",
+            },
+            Object {
+              "comment": "It's been quite incredible",
+              "id": 2,
+              "rating": null,
+            },
+          ],
+          "id": 1,
+          "question": "What do you say about my overall usefulness in the team for the past 4 months?",
+          "type": "text",
+        },
+        Object {
+          "feedbacks": Array [
+            Object {
+              "comment": "It's been quite incredible",
+              "id": 1,
+              "rating": null,
+            },
+            Object {
+              "comment": null,
+              "id": 2,
+              "rating": 3,
+            },
+          ],
+          "id": 2,
+          "question": "What do you say about my overall usefulness in the team for the past 4 months?",
+          "type": "text",
+        },
+      ]
+    }
+  />
+</styled.div>
+`;
