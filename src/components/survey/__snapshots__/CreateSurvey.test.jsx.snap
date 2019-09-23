@@ -1,156 +1,155 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CreateSurvey /> renders the CreateSurvey component correctly 1`] = `
-<DashboardLayout>
-  <styled.div
-    className="container"
+<styled.div
+  className="container"
+>
+  <div
+    className="col-md survey-row"
   >
-    <div
-      className="col-md survey-row"
-    >
-      <Mutation
-        mutation={
-          Object {
-            "definitions": Array [
-              Object {
-                "directives": Array [],
-                "kind": "OperationDefinition",
-                "name": Object {
-                  "kind": "Name",
-                  "value": "createNewSurvey",
-                },
-                "operation": "mutation",
-                "selectionSet": Object {
-                  "kind": "SelectionSet",
-                  "selections": Array [
-                    Object {
-                      "alias": undefined,
-                      "arguments": Array [
-                        Object {
-                          "kind": "Argument",
+    <Mutation
+      mutation={
+        Object {
+          "definitions": Array [
+            Object {
+              "directives": Array [],
+              "kind": "OperationDefinition",
+              "name": Object {
+                "kind": "Name",
+                "value": "createNewSurvey",
+              },
+              "operation": "mutation",
+              "selectionSet": Object {
+                "kind": "SelectionSet",
+                "selections": Array [
+                  Object {
+                    "alias": undefined,
+                    "arguments": Array [
+                      Object {
+                        "kind": "Argument",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "input",
+                        },
+                        "value": Object {
+                          "kind": "Variable",
                           "name": Object {
                             "kind": "Name",
                             "value": "input",
                           },
-                          "value": Object {
-                            "kind": "Variable",
-                            "name": Object {
-                              "kind": "Name",
-                              "value": "input",
-                            },
+                        },
+                      },
+                    ],
+                    "directives": Array [],
+                    "kind": "Field",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "createNewSurvey",
+                    },
+                    "selectionSet": Object {
+                      "kind": "SelectionSet",
+                      "selections": Array [
+                        Object {
+                          "alias": undefined,
+                          "arguments": Array [],
+                          "directives": Array [],
+                          "kind": "Field",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "id",
+                          },
+                          "selectionSet": undefined,
+                        },
+                        Object {
+                          "alias": undefined,
+                          "arguments": Array [],
+                          "directives": Array [],
+                          "kind": "Field",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "title",
+                          },
+                          "selectionSet": undefined,
+                        },
+                        Object {
+                          "alias": undefined,
+                          "arguments": Array [],
+                          "directives": Array [],
+                          "kind": "Field",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "questions",
+                          },
+                          "selectionSet": Object {
+                            "kind": "SelectionSet",
+                            "selections": Array [
+                              Object {
+                                "alias": undefined,
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "question",
+                                },
+                                "selectionSet": undefined,
+                              },
+                              Object {
+                                "alias": undefined,
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "type",
+                                },
+                                "selectionSet": undefined,
+                              },
+                            ],
                           },
                         },
                       ],
-                      "directives": Array [],
-                      "kind": "Field",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "createNewSurvey",
-                      },
-                      "selectionSet": Object {
-                        "kind": "SelectionSet",
-                        "selections": Array [
-                          Object {
-                            "alias": undefined,
-                            "arguments": Array [],
-                            "directives": Array [],
-                            "kind": "Field",
-                            "name": Object {
-                              "kind": "Name",
-                              "value": "id",
-                            },
-                            "selectionSet": undefined,
-                          },
-                          Object {
-                            "alias": undefined,
-                            "arguments": Array [],
-                            "directives": Array [],
-                            "kind": "Field",
-                            "name": Object {
-                              "kind": "Name",
-                              "value": "title",
-                            },
-                            "selectionSet": undefined,
-                          },
-                          Object {
-                            "alias": undefined,
-                            "arguments": Array [],
-                            "directives": Array [],
-                            "kind": "Field",
-                            "name": Object {
-                              "kind": "Name",
-                              "value": "questions",
-                            },
-                            "selectionSet": Object {
-                              "kind": "SelectionSet",
-                              "selections": Array [
-                                Object {
-                                  "alias": undefined,
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "question",
-                                  },
-                                  "selectionSet": undefined,
-                                },
-                                Object {
-                                  "alias": undefined,
-                                  "arguments": Array [],
-                                  "directives": Array [],
-                                  "kind": "Field",
-                                  "name": Object {
-                                    "kind": "Name",
-                                    "value": "type",
-                                  },
-                                  "selectionSet": undefined,
-                                },
-                              ],
-                            },
-                          },
-                        ],
-                      },
-                    },
-                  ],
-                },
-                "variableDefinitions": Array [
-                  Object {
-                    "defaultValue": undefined,
-                    "directives": Array [],
-                    "kind": "VariableDefinition",
-                    "type": Object {
-                      "kind": "NonNullType",
-                      "type": Object {
-                        "kind": "NamedType",
-                        "name": Object {
-                          "kind": "Name",
-                          "value": "SurveyInput",
-                        },
-                      },
-                    },
-                    "variable": Object {
-                      "kind": "Variable",
-                      "name": Object {
-                        "kind": "Name",
-                        "value": "input",
-                      },
                     },
                   },
                 ],
               },
-            ],
-            "kind": "Document",
-            "loc": Object {
-              "end": 176,
-              "start": 0,
+              "variableDefinitions": Array [
+                Object {
+                  "defaultValue": undefined,
+                  "directives": Array [],
+                  "kind": "VariableDefinition",
+                  "type": Object {
+                    "kind": "NonNullType",
+                    "type": Object {
+                      "kind": "NamedType",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "SurveyInput",
+                      },
+                    },
+                  },
+                  "variable": Object {
+                    "kind": "Variable",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "input",
+                    },
+                  },
+                },
+              ],
             },
-          }
+          ],
+          "kind": "Document",
+          "loc": Object {
+            "end": 176,
+            "start": 0,
+          },
         }
-      >
-        <Component />
-      </Mutation>
-    </div>
-  </styled.div>
-</DashboardLayout>
+      }
+      update={[Function]}
+    >
+      <Component />
+    </Mutation>
+  </div>
+</styled.div>
 `;
