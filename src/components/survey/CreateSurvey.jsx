@@ -13,7 +13,6 @@ import TextInput from '../common/TextInput';
 import Button from '../../styles/Button';
 import { GET_SURVEYS } from '../../graphql/queries';
 
-
 class CreateSurvey extends Component {
   constructor(props) {
     super(props);
