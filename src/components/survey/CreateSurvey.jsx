@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { Redirect } from 'react-router-dom';
 import propTypes from 'prop-types';
 
+import qql from 'graphql-tag';
 import Divider from '../../styles/Divider';
 import Question from './Question';
 import { AddButton, Container, ButtonGroup } from './SurveyStyles';
