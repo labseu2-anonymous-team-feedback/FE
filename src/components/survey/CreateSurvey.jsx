@@ -12,6 +12,8 @@ import { AddButton, Container, ButtonGroup } from './SurveyStyles';
 import { CREATE_NEW_SURVEY } from '../../graphql/mutations';
 import TextInput from '../common/TextInput';
 import Button from '../../styles/Button';
+import { GET_SURVEYS } from '../../graphql/queries';
+
 
 class CreateSurvey extends Component {
   constructor(props) {
@@ -54,6 +56,17 @@ class CreateSurvey extends Component {
     this.props.history.push('/');
   };
 
+  updateCache = (cache, { data: { createNewSurvey } }) => {
+    const { getUserSurveys } = cache.readQuery({ query: GET_SURVEYS });
+    cache.writeQuery({
+      query: GET_SURVEYS,
+      data: {
+        getUserSurveys: getUserSurveys.concat(createNewSurvey),
+      },
+    });
+    this.setState({ redirectToIndex: true });
+  }
+
   render() {
     const { title, questions, redirectToIndex } = this.state;
     if (redirectToIndex) {
@@ -63,7 +76,7 @@ class CreateSurvey extends Component {
     return (
       <Container className="container">
         <div className="col-md survey-row">
-          <Mutation mutation={CREATE_NEW_SURVEY}>
+          <Mutation mutation={CREATE_NEW_SURVEY} update={this.updateCache}>
             {(createNewSurvey) => (
               <form
                 className="p-5"
@@ -105,7 +118,6 @@ class CreateSurvey extends Component {
                     toast('Survey created successfully', {
                       className: 'toast-success',
                     });
-                    this.setState({ redirectToIndex: true });
                   }
                 }}
               >
