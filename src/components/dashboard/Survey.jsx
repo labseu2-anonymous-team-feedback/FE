@@ -52,7 +52,7 @@ const Survey = (props) => {
 					);
 				})
 			) : (
-				<h1>There are no surveys for this user</h1>
+				<h4>There are no surveys for this user</h4>
 			)}
 		</StyledSurveyContainer>
 	);

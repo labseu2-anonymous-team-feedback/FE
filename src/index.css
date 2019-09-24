@@ -152,7 +152,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* background          : #f3f7f9; */
   background :#f4f4f4;
-  font-family            : 'Miriam Libre', sans-serif;
 }
 
 
@@ -164,7 +163,7 @@ code {
 }
 
 .f-1 {
-  font-family: 'Baloo Thambi', cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   color      : #636262;
 }
 
