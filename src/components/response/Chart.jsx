@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import propTypes from 'prop-types';
 import * as V from 'victory';
 import {
   white, extraSmallSpace, mediumSpace3, body1, body2, fadedBlue,
   bodyHero,
 } from '../../styles/variables';
 
-export class Chart extends Component {
+class Chart extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -19,7 +18,7 @@ export class Chart extends Component {
       VictoryBar, VictoryChart, VictoryTheme, VictoryLegend,
     } = V;
     let empty = 0;
-    data.forEach((ques) => {
+    data.forEach((ques, i) => {
       if (ques.feedbacks.length === 0) {
         empty += 1;
       }
@@ -35,13 +34,13 @@ export class Chart extends Component {
       );
     }
     return (
-      data.map((ques) => {
+      data.map((ques, i) => {
         if (ques.type === 'rating') {
           const { feedbacks } = ques;
           let freq = [];
           freq = [...new Array(10)].map((item, index) => {
             let count = 0;
-            feedbacks.forEach((feedback) => {
+            feedbacks.forEach((feedback, i) => {
               if (Number(feedback.rating) === index + 1) {
                 count += 1;
               }
@@ -143,8 +142,4 @@ background-color: ${white};
 width: 75%;
 height: 30vh;
 `;
-
-Chart.propTypes = {
-  data: propTypes.arrayOf(propTypes.object).isRequired,
-};
 export default Chart;

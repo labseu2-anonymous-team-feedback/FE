@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { Redirect } from 'react-router-dom';
 import propTypes from 'prop-types';
 
+import qql from 'graphql-tag';
 import Divider from '../../styles/Divider';
 import Question from './Question';
 import { AddButton, Container, ButtonGroup } from './SurveyStyles';
@@ -11,9 +12,6 @@ import { AddButton, Container, ButtonGroup } from './SurveyStyles';
 import { CREATE_NEW_SURVEY } from '../../graphql/mutations';
 import TextInput from '../common/TextInput';
 import Button from '../../styles/Button';
-import { GET_SURVEYS } from '../../graphql/queries';
-import qql from 'graphql-tag';
-
 
 class CreateSurvey extends Component {
   constructor(props) {
@@ -56,17 +54,6 @@ class CreateSurvey extends Component {
     this.props.history.push('/');
   };
 
-  updateCache = (cache, { data: { createNewSurvey } }) => {
-    const { getUserSurveys } = cache.readQuery({ query: GET_SURVEYS });
-      cache.writeQuery({
-        query: GET_SURVEYS,
-        data: {
-          getUserSurveys: getUserSurveys.concat(createNewSurvey)
-        }
-      })
-      this.setState({ redirectToIndex: true });
-    }
-
   render() {
     const { title, questions, redirectToIndex } = this.state;
     if (redirectToIndex) {
@@ -76,7 +63,7 @@ class CreateSurvey extends Component {
     return (
       <Container className="container">
         <div className="col-md survey-row">
-          <Mutation mutation={CREATE_NEW_SURVEY} update={this.updateCache}>
+          <Mutation mutation={CREATE_NEW_SURVEY}>
             {(createNewSurvey) => (
               <form
                 className="p-5"
@@ -118,6 +105,7 @@ class CreateSurvey extends Component {
                     toast('Survey created successfully', {
                       className: 'toast-success',
                     });
+                    this.setState({ redirectToIndex: true });
                   }
                 }}
               >
@@ -172,14 +160,14 @@ class CreateSurvey extends Component {
                 <div className="form-group ctrl">
                   <ButtonGroup>
                     <Button className="btn btn-block" type="submit">
-                      Save Survey
+                      Cancel
                     </Button>
                     <Button
                       className="btn btn-block"
                       type="button"
                       onClick={this.cancelSurvey}
                     >
-                      Cancel
+                      Save Survey
                     </Button>
                   </ButtonGroup>
                 </div>
