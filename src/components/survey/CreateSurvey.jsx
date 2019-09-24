@@ -160,14 +160,14 @@ class CreateSurvey extends Component {
                 <div className="form-group ctrl">
                   <ButtonGroup>
                     <Button className="btn btn-block" type="submit">
-                      Cancel
+                      Save Survey
                     </Button>
                     <Button
                       className="btn btn-block"
                       type="button"
                       onClick={this.cancelSurvey}
                     >
-                      Save Survey
+                      Cancel
                     </Button>
                   </ButtonGroup>
                 </div>
