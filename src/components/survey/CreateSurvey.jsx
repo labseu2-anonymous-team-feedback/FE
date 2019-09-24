@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 import { Redirect } from 'react-router-dom';
 import propTypes from 'prop-types';
 
-import qql from 'graphql-tag';
 import Divider from '../../styles/Divider';
 import Question from './Question';
 import { AddButton, Container, ButtonGroup } from './SurveyStyles';
@@ -13,7 +12,6 @@ import { CREATE_NEW_SURVEY } from '../../graphql/mutations';
 import TextInput from '../common/TextInput';
 import Button from '../../styles/Button';
 import { GET_SURVEYS } from '../../graphql/queries';
-
 
 class CreateSurvey extends Component {
   constructor(props) {
