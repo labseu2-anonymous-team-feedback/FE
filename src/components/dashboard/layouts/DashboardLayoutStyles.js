@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { tabletMaxWidth } from '../../../styles/variables';
+import { tabletMaxWidth, dark, mainColor } from '../../../styles/variables';
 
 export const MainContainer = styled.div`
   display: flex;
@@ -47,7 +47,7 @@ export const StyledSidebar = styled.aside`
       display: block;
     }
   }
-  
+
   @media (max-width: 770px) {
     position: fixed;
     overflow: hidden;
@@ -65,7 +65,7 @@ export const StyledSidebar = styled.aside`
       border-top: none;
     }
   }
-  
+
 
   .nav-items {
     border-top: 1px solid #cfedfe;
@@ -88,12 +88,12 @@ export const StyledNavItem = styled.div`
     padding-left: 1.4rem;
     border-bottom: 1px solid #cfedfe;
     text-decoration: none;
-    color: #444;
+    color: ${dark};
     line-height: 1.4rem;
   }
 
   &:hover a {
-    color: #3BA7C9;
+    color: ${mainColor};
     background: #dbf2ff;
   }
 `;
