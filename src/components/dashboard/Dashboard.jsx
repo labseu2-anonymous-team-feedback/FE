@@ -28,7 +28,7 @@ export function Dashboard() {
           </div>
           <div className="actions-div">
             {/* <input type="text" id="search" placeholder="Search..." /> */}
-            <SurveyButton to="/create_survey">Add Survey</SurveyButton>
+            <SurveyButton className="btn" to="/create_survey">Add Survey</SurveyButton>
           </div>
         </SurveyPageHeader>
         <DashboardDivider />
