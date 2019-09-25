@@ -116,6 +116,7 @@ const StyledHeader = styled.h4`
   font-size: ${body1};
 `;
 const StyledDiv = styled.div`
+  border: 1px solid ${fadedBlue};
   display: flex;
   justify-content: center;
   background-color: ${white};
