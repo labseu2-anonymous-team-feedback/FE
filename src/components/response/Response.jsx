@@ -64,10 +64,10 @@ class Response extends Component {
 const BackButton = styled(SurveyButton)`
   margin: 1rem 0 1rem 1rem;
 
-  margin: 1rem 0 1rem ${extraLargeSpace};
+  margin: 1rem 0 2rem ${extraLargeSpace};
 
   @media (max-width: 767px) {
-    margin: 1rem 0 1rem 1rem;
+    margin: 1rem 0 2rem 1rem;
   }
 `;
 
