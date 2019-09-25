@@ -66,7 +66,7 @@ class Chart extends Component {
             <StyledHeader>{ques.question}</StyledHeader>
             <StyledDiv>
               <VictoryChart
-                style={{ parent: { maxWidth: "70%" } }}
+                style={{ parent: { maxWidth: "90%" } }}
                 // adding the material theme provided with Victory
                 theme={VictoryTheme.material}
               >
