@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { withApollo } from 'react-apollo';
+import styled from 'styled-components';
 import Divider from '../../styles/Divider';
 import { GET_SURVEY_FEEDBACK } from '../../graphql/queries';
 import ResultSort from './ResultSort';
 import DashboardLayout from '../dashboard/layouts/DashboardLayout';
+import { SurveyButton } from '../dashboard/DashboardStyles';
+import { extraLargeSpace } from "../../styles/variables";
 
 
 class Response extends Component {
@@ -52,10 +55,21 @@ class Response extends Component {
         </h1>
         <Divider size={30} />
         {survey && survey.questions && <ResultSort questions={survey.questions} />}
+        <CancelButton className="btn" to="/">Cancel</CancelButton>
       </DashboardLayout>
     );
   }
 }
+
+const CancelButton = styled(SurveyButton)`
+  margin: 1rem 0 1rem 1rem;
+
+  margin: 1rem 0 1rem ${extraLargeSpace};
+
+  @media (max-width: 767px) {
+    margin: 1rem 0 1rem 1rem;
+  }
+`;
 
 
 export default withApollo(Response);
