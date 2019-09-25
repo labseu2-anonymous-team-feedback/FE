@@ -11,21 +11,21 @@ export const MainContainer = styled.div`
   }
 `;
 
-
 export const Container = styled.div`
   padding: 0px !important;
   overflow-y: scroll;
-   -ms-overflow-style: none;  // IE 10+
+  -ms-overflow-style: none; // IE 10+
   scrollbar-width: none;
+  margin: 0 auto;
   @media (max-width: 700px) {
     width: 100% !important;
     padding: 0rem;
-    margin: 4.5rem auto;
+    margin: 0 auto;
   }
 
   @media (max-width: 575px) {
     width: 100%;
-    margin: 0rem auto;
+    margin: 4.5rem auto;
     border: 1px solid transparent;
   }
   &::-webkit-scrollbar {
@@ -34,13 +34,12 @@ export const Container = styled.div`
 `;
 
 export const StyledSidebar = styled.aside`
-	width: 22rem;
-	min-height: 100%;
-	display: flex;
-	flex-direction: column;
+  width: 22rem;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
   background: white;
   z-index: 100;
-
 
   @media (max-width: 960px) {
     flex: 3;
@@ -57,20 +56,19 @@ export const StyledSidebar = styled.aside`
     position: fixed;
     overflow: hidden;
     transform: translateX(-22rem);
-    transition: transform .25s ease-in;
+    transition: transform 0.25s ease-in;
 
     &.active {
       position: fixed;
       transform: translateX(0rem);
       z-index: 100;
       height: calc(100vh - 100px);
-      transition: transform .25s ease-in;
+      transition: transform 0.25s ease-in;
       border: 1px solid #cfedfe;
       border-left: none;
       border-top: none;
     }
   }
-
 
   .nav-items {
     border-top: 1px solid #cfedfe;
