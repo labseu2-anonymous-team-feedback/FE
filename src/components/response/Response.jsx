@@ -50,9 +50,9 @@ class Response extends Component {
     const { survey } = this.state;
     return (
       <DashboardLayout>
-        <h1 className="text-center create-survey-title f-1">
+        <H1 className="text-center create-survey-title f-1">
           {survey && survey.title}
-        </h1>
+        </H1>
         <Divider size={30} />
         {survey && survey.questions && <ResultSort questions={survey.questions} />}
         <CancelButton className="btn" to="/">Cancel</CancelButton>
@@ -69,6 +69,10 @@ const CancelButton = styled(SurveyButton)`
   @media (max-width: 767px) {
     margin: 1rem 0 1rem 1rem;
   }
+`;
+
+const H1 = styled.h1`
+    margin-top: 2rem;
 `;
 
 
