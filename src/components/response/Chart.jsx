@@ -120,12 +120,20 @@ const StyledDiv = styled.div`
   justify-content: center;
   background-color: ${white};
   width: 75%;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `;
 const TextBox = styled.div`
   font-size: ${body2};
   background-color: ${white};
   min-height: ${extraSmallSpace};
   width: 75%;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
 const Paragraph = styled.p`

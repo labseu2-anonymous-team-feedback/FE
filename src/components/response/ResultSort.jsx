@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import Chart from './Chart';
-import { extraLargeSpace } from '../../styles/variables';
-
+import React, { Component } from "react";
+import styled from "styled-components";
+import Chart from "./Chart";
+import { extraLargeSpace } from "../../styles/variables";
 
 class ResultSort extends Component {
   constructor(props) {
@@ -21,10 +20,14 @@ class ResultSort extends Component {
 }
 
 const ResultContainer = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-margin: 0 0 0 ${extraLargeSpace};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 0 0 ${extraLargeSpace};
+
+  @media (max-width: 767px) {
+    margin: 0 1rem 0 1rem;
+  }
 `;
 
 export default ResultSort;
