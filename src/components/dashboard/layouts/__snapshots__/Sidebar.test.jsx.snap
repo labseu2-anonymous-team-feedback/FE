@@ -1,7 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Sidebar /> renders the Sidebar component correctly 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<styled.aside>
+  <ProfileImage
+    image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1m1DOmfCTW5yaJjjehDNcrTnJlFaph-ZADDYsCsyzwDJWS_6z"
+    name="Bob Stone"
+  />
+  <div
+    className="nav-items"
+  >
+    <SideNavItem
+      icon="add_circle_outline"
+      path="/create_survey"
+      text="Create Survey"
+    />
+    <SideNavItem
+      icon="settings"
+      path="/profile"
+      text="Profile Settings"
+    />
+  </div>
+  <div
+    className="empty-div"
+  />
+</styled.aside>
 `;

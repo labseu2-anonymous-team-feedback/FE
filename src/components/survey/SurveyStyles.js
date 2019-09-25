@@ -125,7 +125,7 @@ export const ButtonGroup = styled.div`
   button {
     flex-basis: 48%;
   }
-  button:nth-of-type(2) {
+  button:nth-of-type(1) {
     background-color: #FF6938;
   }
 `;

@@ -8,7 +8,7 @@ import Footer from './components/common/Footer';
 import Spinner from './components/common/Spinner';
 import FeedbackResponse from './components/feedback/Feedback';
 import Success from './components/common/success/Success';
-import { Response } from './components/response/Response';
+import Response from './components/response/Response';
 import NotFound from './components/common/error/NotFound';
 import DashboardLayout from './components/dashboard/layouts/DashboardLayout';
 import ContextProvider from './Provider';

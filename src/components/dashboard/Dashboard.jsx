@@ -16,13 +16,7 @@ import Divider from '../../styles/Divider';
 import Spinner from '../common/Spinner';
 
 export function Dashboard() {
-  const { data } = useQuery(
-    GET_SURVEYS,
-    {
-      fetchPolicy: 'no-cache',
-    },
-  );
-  console.log(data);
+  const { data } = useQuery(GET_SURVEYS);
 
   if (data && data.getUserSurveys) {
     return (
@@ -34,7 +28,7 @@ export function Dashboard() {
           </div>
           <div className="actions-div">
             {/* <input type="text" id="search" placeholder="Search..." /> */}
-            <SurveyButton to="/create_survey">Add Survey</SurveyButton>
+            <SurveyButton className="btn" to="/create_survey">Add Survey</SurveyButton>
           </div>
         </SurveyPageHeader>
         <DashboardDivider />
