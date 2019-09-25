@@ -66,7 +66,7 @@ class Chart extends Component {
             <StyledHeader>{ques.question}</StyledHeader>
             <StyledDiv>
               <VictoryChart
-                style={{ parent: { maxWidth: "70%" } }}
+                style={{ parent: { maxWidth: "90%" } }}
                 // adding the material theme provided with Victory
                 theme={VictoryTheme.material}
               >
@@ -116,16 +116,25 @@ const StyledHeader = styled.h4`
   font-size: ${body1};
 `;
 const StyledDiv = styled.div`
+  border: 1px solid ${fadedBlue};
   display: flex;
   justify-content: center;
   background-color: ${white};
   width: 75%;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `;
 const TextBox = styled.div`
   font-size: ${body2};
   background-color: ${white};
   min-height: ${extraSmallSpace};
   width: 75%;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
 const Paragraph = styled.p`
@@ -133,6 +142,7 @@ const Paragraph = styled.p`
   padding: ${extraSmallSpace} ${extraSmallSpace};
 `;
 const NoFeedback = styled.div`
+  border: 1px solid ${fadedBlue};
   display: flex;
   justify-content: center;
   align-items: center;
