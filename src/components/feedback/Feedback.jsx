@@ -20,6 +20,8 @@ export class Feedback extends React.Component {
       isLoading: false,
       error: null,
       isDuplicate: false,
+      redirect: false,
+      message: ""
     };
   }
 
@@ -121,6 +123,14 @@ export class Feedback extends React.Component {
       answers,
       survey: { id },
     } = this.state;
+
+    if (this.state.survey.owner.id === userId) {
+      this.setState({
+        ...this.state, 
+        redirect: true,
+        message: "You cannot respond to a survey you created",
+      });
+    }
     const responses = answers.filter((ans) => ans.rating || ans.comment);
     const feedbackData = {
       surveyId: id,
@@ -152,10 +162,13 @@ export class Feedback extends React.Component {
 
   render() {
     const {
-      survey, isLoading, error, isDuplicate,
+      survey, isLoading, error, isDuplicate, redirect, message
     } = this.state;
     if (isDuplicate) {
       return <ErrorPage message="You have already responded to this survey" />;
+    }
+    if (redirect) {
+      return <ErrorPage message={message} />;
     }
     return (
       <Container>
