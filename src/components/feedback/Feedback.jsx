@@ -124,13 +124,6 @@ export class Feedback extends React.Component {
       survey: { id },
     } = this.state;
 
-    if (this.state.survey.owner.id === userId) {
-      this.setState({
-        ...this.state, 
-        redirect: true,
-        message: "You cannot respond to a survey you created",
-      });
-    }
     const responses = answers.filter((ans) => ans.rating || ans.comment);
     const feedbackData = {
       surveyId: id,
@@ -171,9 +164,7 @@ export class Feedback extends React.Component {
     if (isDuplicate) {
       return <ErrorPage message="You have already responded to this survey." />;
     }
-    if (redirect) {
-      return <ErrorPage message={message} />;
-    }
+
     return (
       <Container>
         {isLoading && <Spinner />}
