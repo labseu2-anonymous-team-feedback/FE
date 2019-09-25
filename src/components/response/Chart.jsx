@@ -142,6 +142,7 @@ const Paragraph = styled.p`
   padding: ${extraSmallSpace} ${extraSmallSpace};
 `;
 const NoFeedback = styled.div`
+  border: 1px solid ${fadedBlue};
   display: flex;
   justify-content: center;
   align-items: center;
