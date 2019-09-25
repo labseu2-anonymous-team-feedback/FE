@@ -154,8 +154,12 @@ export class Feedback extends React.Component {
     const {
       survey, isLoading, error, isDuplicate,
     } = this.state;
+    const userId = getUserIdFromToken();
+    if (userId && survey && userId === survey.owner.id) {
+      return <ErrorPage message="You cannot respond to your own survey." />;
+    }
     if (isDuplicate) {
-      return <ErrorPage message="You have already responded to this survey" />;
+      return <ErrorPage message="You have already responded to this survey." />;
     }
     return (
       <Container>
