@@ -52,6 +52,9 @@ const GET_SURVEY_DETAILS = gql`
         question
         type
       }
+      owner {
+        id
+      }
     }
   }
 `;
