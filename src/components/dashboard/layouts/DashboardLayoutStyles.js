@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { tabletMaxWidth, dark, mainColor } from "../../../styles/variables";
+import styled from 'styled-components';
+import { tabletMaxWidth, dark, mainColor } from '../../../styles/variables';
 
 export const MainContainer = styled.div`
   display: flex;
