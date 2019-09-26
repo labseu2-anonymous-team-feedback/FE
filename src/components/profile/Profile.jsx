@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import icon from '../../assets/images/icon.svg';
-import { MainContainer, ProfileImg, ProfileButton } from './ProfileStyles';
+import { MainContainer, ProfileImg, ProfileButton, ProfileWrapper } from './ProfileStyles';
+import DashboardLayout from '../dashboard/layouts/DashboardLayout';
 
 export class Profile extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ export class Profile extends Component {
       user: null,
     };
   }
+
 
   componentDidMount() {
     const token = localStorage.getItem('token');
@@ -23,12 +25,10 @@ export class Profile extends Component {
   render() {
     const { user } = this.state;
     return (
-      <MainContainer>
-        <div className="container">
+      <DashboardLayout>
+        <ProfileWrapper>
           <ProfileImg src={icon} />
-          <div className="leftbox">
-            <nav />
-          </div>
+
           <div className="rightbox">
             <div className="profile">
               <h1>Personal Info</h1>
@@ -75,8 +75,9 @@ export class Profile extends Component {
               <p>About the User</p>
             </div>
           </div>
-        </div>
-      </MainContainer>
+        </ProfileWrapper>
+          
+      </DashboardLayout>
     );
   }
 }

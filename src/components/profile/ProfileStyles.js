@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 
+export const ProfileWrapper = styled.div`
+  border: 2px dashed green;
+`;
 export const MainContainer = styled.section`
-  padding-top: 70px;
+  margin-top: 100px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 900px;
   border: 2px dashed red;
 
   @media (max-width: 820px) {
@@ -44,27 +47,6 @@ export const MainContainer = styled.section`
     }
   }
 
-  .container {
-    display: flex;
-    justify-content: space-between;
-    background: #ffffff;
-    width: 650px;
-    height: 600px;
-    margin: 0 auto;
-    box-shadow: 2px 5px 10px rgba(119, 119, 119, 0.5);
-
-    @media (max-width: 580px) {
-      width: 98%;
-      height: 75%;
-    }
-
-    @media (max-width: 415px) {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-  }
 
   .profile {
     display: flex;
@@ -165,15 +147,6 @@ export const MainContainer = styled.section`
       padding-top: 0.5rem;
     }
   }
-
-  .leftbox {
-    ${''}
-    width: 15%;
-    height: 110%;
-    background: #63beff;
-    ${''}
-  }
-
   .rightbox {
     width: 60%;
     height: 100%;
