@@ -8,10 +8,11 @@ import Footer from './components/common/Footer';
 import Spinner from './components/common/Spinner';
 import FeedbackResponse from './components/feedback/Feedback';
 import Success from './components/common/success/Success';
-import { Response } from './components/response/Response';
+import Response from './components/response/Response';
 import NotFound from './components/common/error/NotFound';
 import DashboardLayout from './components/dashboard/layouts/DashboardLayout';
 import ContextProvider from './Provider';
+
 
 const Signup = React.lazy(() => import('./components/auth/signup/Signup'));
 
@@ -19,6 +20,9 @@ const Signin = React.lazy(() => import('./components/auth/siginin/Signin'));
 
 const userDashboard = React.lazy(() =>
   import('./components/dashboard/Dashboard'));
+
+const ProfileSettings = React.lazy(() =>
+  import('./components/profile/Profile'));
 
 const CreateSurvey = React.lazy(() =>
   import('./components/survey/CreateSurvey'));
@@ -63,6 +67,7 @@ function App() {
             <PrivateRoute exact path="/create_survey" component={CreateSurvey} />
             <PrivateRoute exact path="/view_survey" component={Survey} />
             <PrivateRoute exact path="/" component={userDashboard} />
+            <PrivateRoute exact path="/profile" component={ProfileSettings} />
             <Route path="/take_survey/:surveyId" component={FeedbackResponse} />
             <Route path="/success" component={Success} />
             <Route exact path="/survey/:surveyId" component={Response} />
