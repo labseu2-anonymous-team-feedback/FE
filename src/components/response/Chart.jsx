@@ -101,9 +101,9 @@ class Chart extends Component {
           <StyledHeader>{ques.question}</StyledHeader>
           <TextBox>
             {ques.feedbacks.map((feedback) => (
-              <div key={feedback.id}>
+              <ParagraphDiv key={feedback.id}>
                 {feedback.comment && <Paragraph>{feedback.comment}</Paragraph>}
-              </div>
+              </ParagraphDiv>
             ))}
           </TextBox>
         </div>
@@ -117,7 +117,6 @@ const StyledHeader = styled.h4`
   font-size: ${body1};
 `;
 const StyledDiv = styled.div`
-  border: 1px solid ${fadedBlue};
   display: flex;
   justify-content: center;
   background-color: ${white};
@@ -138,12 +137,18 @@ const TextBox = styled.div`
   }
 `;
 
+const ParagraphDiv = styled.div`
+  border-bottom: 1px solid ${fadedBlue};
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+`;
+
 const Paragraph = styled.p`
-  border: 1px solid ${fadedBlue};
   padding: ${extraSmallSpace} ${extraSmallSpace};
 `;
 const NoFeedback = styled.div`
-  border: 1px solid ${fadedBlue};
   display: flex;
   justify-content: center;
   align-items: center;

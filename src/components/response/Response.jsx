@@ -55,19 +55,19 @@ class Response extends Component {
         </H1>
         <Divider size={30} />
         {survey && survey.questions && <ResultSort questions={survey.questions} />}
-        <CancelButton className="btn" to="/">Cancel</CancelButton>
+        <BackButton className="btn" to="/">Back</BackButton>
       </DashboardLayout>
     );
   }
 }
 
-const CancelButton = styled(SurveyButton)`
+const BackButton = styled(SurveyButton)`
   margin: 1rem 0 1rem 1rem;
 
-  margin: 1rem 0 1rem ${extraLargeSpace};
+  margin: 1rem 0 2rem ${extraLargeSpace};
 
   @media (max-width: 767px) {
-    margin: 1rem 0 1rem 1rem;
+    margin: 1rem 0 2rem 1rem;
   }
 `;
 
