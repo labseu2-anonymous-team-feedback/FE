@@ -14,6 +14,7 @@ export const MainContainer = styled.section`
 
   @media (max-width: 820px) {
     width: 80%;
+    margin: 0 auto;
   }
 
   @media (max-width: 570px) {
@@ -58,7 +59,7 @@ export const MainContainer = styled.section`
 
     @media (max-width: 580px) {
       width: 98%;
-      height: 90%;
+      height: 75%;
     }
 
     @media (max-width: 415px) {
@@ -70,9 +71,14 @@ export const MainContainer = styled.section`
   .profile {
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
 
     input {
       width: 250px;
+
+      @media (max-width: 415px) {
+        width: 220px;
+      }
     }
 
     .username-box {
@@ -81,6 +87,7 @@ export const MainContainer = styled.section`
       padding-top: 0.5rem;
       input {
         max-width: 300px;
+        min-width: 130px;
         width: 100%;
         box-sizing: border-box;
       }
@@ -96,6 +103,7 @@ export const MainContainer = styled.section`
       padding-top: 0.5rem;
       input {
         max-width: 300px;
+        min-width: 130px;
         width: 100%;
         box-sizing: border-box;
       }
@@ -112,6 +120,7 @@ export const MainContainer = styled.section`
       padding-top: 0.5rem;
       input {
         max-width: 300px;
+        min-width: 130px;
         width: 100%;
         box-sizing: border-box;
       }
