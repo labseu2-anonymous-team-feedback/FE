@@ -16,16 +16,14 @@ export const Container = styled.div`
   overflow-y: scroll;
   -ms-overflow-style: none; // IE 10+
   scrollbar-width: none;
-  margin: 0 auto;
+  margin: 0 auto 2rem;
   @media (max-width: 700px) {
     width: 100% !important;
     padding: 0rem;
-    margin: 0 auto;
   }
 
   @media (max-width: 575px) {
     width: 100%;
-    margin: 0 auto;
     border: 1px solid transparent;
   }
   &::-webkit-scrollbar {
