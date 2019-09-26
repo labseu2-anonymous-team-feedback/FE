@@ -9,6 +9,7 @@ import TextResponse from './TextResponse';
 import RatingResponse from './RatingResponse/RatingResponse';
 import Spinner from '../common/Spinner';
 import { getUserIdFromToken } from '../../utils';
+import ErrorPage from '../common/error/Error';
 
 export class Feedback extends React.Component {
   constructor(props) {
@@ -18,6 +19,9 @@ export class Feedback extends React.Component {
       answers: [],
       isLoading: false,
       error: null,
+      isDuplicate: false,
+      redirect: false,
+      message: ""
     };
   }
 
@@ -28,6 +32,7 @@ export class Feedback extends React.Component {
       },
     } = this.props;
     if (surveyId) {
+      this.isDuplicateResponse(surveyId);
       this.fetchSurvey(surveyId);
     }
   }
@@ -42,6 +47,14 @@ export class Feedback extends React.Component {
   ratingHandler = (value, questionId) => {
     this.updateState(value, questionId, true);
   };
+
+  isDuplicateResponse = (surveyId) => {
+    const storedSurveyId = localStorage.getItem('__svy__');
+
+    if (storedSurveyId && storedSurveyId === surveyId) {
+      this.setState({ isDuplicate: true });
+    }
+  }
 
   updateState = (value, questionId, rating = false) => {
     const { answers } = this.state;
@@ -110,6 +123,7 @@ export class Feedback extends React.Component {
       answers,
       survey: { id },
     } = this.state;
+
     const responses = answers.filter((ans) => ans.rating || ans.comment);
     const feedbackData = {
       surveyId: id,
@@ -127,6 +141,7 @@ export class Feedback extends React.Component {
         if (data) {
           toast.success('Feedback sent, Thank you 😍');
           this.setState({ isLoading: false, answers: [] });
+          localStorage.setItem('__svy__', id);
           history.push('/success');
         }
       } catch (error) {
@@ -139,7 +154,17 @@ export class Feedback extends React.Component {
   };
 
   render() {
-    const { survey, isLoading, error } = this.state;
+    const {
+      survey, isLoading, error, isDuplicate, redirect, message
+    } = this.state;
+    const userId = getUserIdFromToken();
+    if (userId && survey && userId === survey.owner.id) {
+      return <ErrorPage message="You cannot respond to your own survey." />;
+    }
+    if (isDuplicate) {
+      return <ErrorPage message="You have already responded to this survey." />;
+    }
+
     return (
       <Container>
         {isLoading && <Spinner />}

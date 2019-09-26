@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
-import propTypes from 'prop-types';
-import styled from 'styled-components';
-import Chart from './Chart';
-import { extraLargeSpace } from '../../styles/variables';
+import React, { Component } from "react";
+import styled from "styled-components";
+import Chart from "./Chart";
+import { extraLargeSpace } from "../../styles/variables";
 
-
-export class ResultSort extends Component {
+class ResultSort extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -22,14 +20,14 @@ export class ResultSort extends Component {
 }
 
 const ResultContainer = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-margin: 0 0 0 ${extraLargeSpace};
-`;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 0 2rem ${extraLargeSpace};
 
-ResultSort.propTypes = {
-  questions: propTypes.arrayOf(propTypes.object).isRequired,
-};
+  @media (max-width: 767px) {
+    margin: 0 1rem 0 1rem;
+  }
+`;
 
 export default ResultSort;
