@@ -17,7 +17,8 @@ export const MainContainer = styled.section`
   }
 
   @media (max-width: 570px) {
-    width: 50%;
+    width: 80%;
+    height: 70%;
   }
 
   label {
@@ -58,6 +59,11 @@ export const MainContainer = styled.section`
     @media (max-width: 580px) {
       width: 98%;
       height: 90%;
+    }
+
+    @media (max-width: 415px) {
+      display: flex;
+      flex-direction: column;
     }
   }
 
@@ -120,6 +126,10 @@ export const MainContainer = styled.section`
       width: 300px;
       padding: 1rem 0.5rem;
       border-radius: 5px;
+
+      @media (max-width: 570px) {
+        width: 170px;
+      }
 
       .gender-box {
         display: flex;

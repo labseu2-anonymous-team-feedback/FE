@@ -41,7 +41,8 @@ export class Profile extends Component {
               {/* <input type="text" placeholder="Full name" /> */}
               <form>
                 <h2>Birthday</h2>
-                <input type="date" name="bday" />
+                {/* <input type="date" name="bday" /> */}
+                <p>02.09.1990</p>
               </form>
 
               <h2>Gender</h2>
