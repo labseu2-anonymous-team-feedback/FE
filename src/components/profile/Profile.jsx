@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
-import Photo from '../../assets/images/5.jpg';
+import icon from '../../assets/images/icon.svg';
+import { SurveyButton } from '../dashboard/DashboardStyles';
 import {
-  Container,
-  OtherTextInput,
-  InsideContainerLeft,
-  InsideContainerRight,
+  MainContainer,
   ProfileImg,
 } from './ProfileStyles';
 
@@ -31,18 +29,39 @@ export class Profile extends Component {
     const { user } = this.state;
     console.log(user);
     return (
-      <Container>
-        <InsideContainerLeft>
-          <div className="user-photo">
-            <ProfileImg src={Photo} />
+      <MainContainer>
+        <div className="container">
+
+          <ProfileImg src={icon} />
+
+          <div className="leftbox">
+            <nav />
           </div>
-          <h3>John Smith</h3>
-          <span />
-        </InsideContainerLeft>
-        <InsideContainerRight>
-          <OtherTextInput />
-        </InsideContainerRight>
-      </Container>
+          <div className="rightbox">
+            <div className="profile">
+              <h1>Personal Info</h1>
+              <h2>Full Name</h2>
+              <p>John Smith </p>
+              <h2>Birthday</h2>
+              <p>July 21</p>
+              <h2>Gender</h2>
+              <p>Male</p>
+              <h2>Email</h2>
+              <p>
+                example@example.com
+                {' '}
+                <SurveyButton>Update</SurveyButton>
+              </p>
+              <h2>Password </h2>
+              <p>
+                •••••••
+                {' '}
+                <SurveyButton>Update</SurveyButton>
+              </p>
+            </div>
+          </div>
+        </div>
+      </MainContainer>
     );
   }
 }
