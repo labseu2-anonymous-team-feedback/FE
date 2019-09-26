@@ -1,9 +1,4 @@
 import styled from 'styled-components';
-import TextInput from '../common/TextInput';
-
-// export const OtherTextInput = styled(TextInput)`
-//  width: 100px ;
-// `;
 
 export const MainContainer = styled.section`
   padding-top: 70px;
@@ -245,14 +240,19 @@ export const MainContainer = styled.section`
   }
 `;
 
-// export const InsideContainerLeft = styled.div`
-//          padding-top: 100px;
+export const ProfileButton = styled.button`
+  font-size: 1rem;
+  padding: 0.3em 1em;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  outline: none;
+  background: #63beff;
+  white-space: nowrap;
 
-//        `;
-
-// export const InsideContainerRight = styled.div`
-//          padding-top: 100px;
-
-//        `;
+  &:hover {
+    color: white;
+  }
+`;
 
 export const ProfileImg = styled.img``;
