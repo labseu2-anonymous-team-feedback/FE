@@ -15,7 +15,6 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-family: Baloo Thambi;
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
@@ -46,19 +45,19 @@ export const TextResponseWrapper = styled.div`
 `;
 
 export const Text = styled.p`
-  font-family: Miriam Libre;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 24px;
-  @media (min-width: 499px) and (max-width: 768px) {
-    font-size: 32px;
-    line-height: 48px;
-  }
-  color: #000000;
-  width: 100%;
-  padding-bottom: 1rem;
-`;
+         font-family: Verdana, Geneva, Tahoma, sans-serif;
+         font-style: normal;
+         font-weight: normal;
+         font-size: 16px;
+         line-height: 24px;
+         @media (min-width: 499px) and (max-width: 768px) {
+           font-size: 32px;
+           line-height: 48px;
+         }
+         color: #000000;
+         width: 100%;
+         padding-bottom: 1rem;
+       `;
 
 export const TextArea = styled.textarea`
   border: 1px solid #ccc;

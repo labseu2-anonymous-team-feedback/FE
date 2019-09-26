@@ -4,7 +4,6 @@ import { mainColor } from '../../styles/variables';
 export const NavigationNav = styled.nav`
     height: 100px;
     display: flex;
-    padding: 0px !important;
     box-shadow: 0 5px 50px -20px rgba(0,0,0,0.1);
 
 
@@ -16,7 +15,7 @@ export const NavigationNav = styled.nav`
         color: ${mainColor};
         display: none;
         cursor: pointer;
-        
+
         @media (max-width: 770px) {
             display: block;
         }
@@ -31,7 +30,7 @@ export const NavigationNav = styled.nav`
 
         a {
             height: 65%;
-            
+
             .logo {
 
                 height: 50px;
@@ -75,7 +74,7 @@ export const NavigationNav = styled.nav`
             border: none;
             cursor: pointer;
             height: 100%;
-            width: 150px;
+            width: 160px;
 
             @media (max-width: 575px) {
                 width: 120px;
@@ -93,7 +92,6 @@ export const NavigationNav = styled.nav`
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                flex: 3;
                 @media (max-width: 575px) {
                     height: 100%;
                     width: 100%;
@@ -107,7 +105,7 @@ export const NavigationNav = styled.nav`
                 }
             }
             #triangle-nav {
-                transform: translateX(10px);
+                transform: translateX(5px);
             }
     }
 }
@@ -128,7 +126,7 @@ export const NavItems = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     a {
         padding: 1rem;
         color: #212529;
@@ -137,5 +135,5 @@ export const NavItems = styled.div`
             color: #222;
         }
     }
-    
+
 `;
