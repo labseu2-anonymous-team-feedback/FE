@@ -43,6 +43,12 @@ export const StyledSurveyContainer = styled.div`
     align-items: center;
   }
 
+  .no-survey-msg {
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0rem 1rem 0rem;
+  }
+
 `;
 
 export const StyledSurvey = styled.div`

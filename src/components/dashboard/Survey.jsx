@@ -53,7 +53,9 @@ const Survey = props => {
           );
         })
       ) : (
-        <h4>There are no surveys for this user</h4>
+        <div className="no-survey-msg">
+            <h4>There are no surveys for this user</h4>
+        </div>
       )}
     </StyledSurveyContainer>
   );
