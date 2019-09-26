@@ -61,19 +61,25 @@ export class Profile extends Component {
                   </li>
                 </ul>
               </div>
-
+              <h2>Current Username</h2>
+              <div className="username-box">
+                <input type="text" placeholder="Username" />
+                <SurveyButton>Change</SurveyButton>
+              </div>
+              <h2>Current Email</h2>
               <div className="mail-box">
                 <input type="text" placeholder="Email" />
-                <SurveyButton>Update</SurveyButton>
+                <SurveyButton>Change</SurveyButton>
               </div>
+              <h2>Current Password</h2>
               <div className="password-box">
                 <input type="text" placeholder="Password" />
-                <SurveyButton>Update</SurveyButton>
+                <SurveyButton>Change</SurveyButton>
               </div>
-              <div className="text-box">
-                <h2>Bio</h2>
-                <TextArea />
-              </div>
+            </div>
+            <div className="text-box">
+              <h2>Bio</h2>
+              <p>About the User</p>
             </div>
           </div>
         </div>
