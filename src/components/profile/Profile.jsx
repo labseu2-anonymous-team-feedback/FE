@@ -3,10 +3,8 @@ import { withRouter } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import icon from '../../assets/images/icon.svg';
 import { SurveyButton } from '../dashboard/DashboardStyles';
-import {
-  MainContainer,
-  ProfileImg,
-} from './ProfileStyles';
+import { MainContainer, ProfileImg } from './ProfileStyles';
+import TextArea from '../common/TextArea';
 
 export class Profile extends Component {
   constructor(props) {
@@ -43,8 +41,24 @@ export class Profile extends Component {
               <h2>Birthday</h2>
               <p>July 21</p>
               <h2>Gender</h2>
-              <p>Male</p>
-              <h2>Email</h2>
+              {/* <label htmlFor="R1">Male</label>
+              <input type="radio" name="gender" id="R1" value="Male" />
+              <label htmlFor="R1">Female</label>
+              <input type="radio" name="gender" id="R1" value="Female" /> */}
+              <div className="card">
+                <ul>
+                  <li>
+                    <label htmlFor="R1">Male</label>
+                    <input type="radio" name="name" id="one" />
+                  </li>
+
+                  <li>
+                    <label htmlFor="R1">Female</label>
+                    <input type="radio" name="name" id="two" />
+                  </li>
+                </ul>
+              </div>
+
               <div className="mail-box">
                 <input type="text" placeholder="email" />
                 <SurveyButton>Update</SurveyButton>
@@ -53,6 +67,8 @@ export class Profile extends Component {
                 <input type="text" placeholder="password" />
                 <SurveyButton>Update</SurveyButton>
               </div>
+              <label htmlFor="B1">Bio</label>
+              <TextArea />
             </div>
           </div>
         </div>

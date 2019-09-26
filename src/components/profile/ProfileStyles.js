@@ -28,7 +28,7 @@ export const MainContainer = styled.section`
            flex-direction: column;
 
            input {
-             width:300px;
+             width: 300px;
            }
 
            .mail-box {
@@ -48,6 +48,24 @@ export const MainContainer = styled.section`
                width: 300px;
              }
            }
+
+           .card {
+             display: flex;
+             width: 300px;
+             padding: 1rem 0.5rem;
+             border-radius: 5px;
+
+
+           li {
+             display:flex;
+
+           }
+
+           }
+
+
+
+
          }
 
          .leftbox {
