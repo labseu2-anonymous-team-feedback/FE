@@ -65,6 +65,8 @@ export const MainContainer = styled.section`
     @media (max-width: 415px) {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
   }
 
@@ -87,7 +89,7 @@ export const MainContainer = styled.section`
       padding-top: 0.5rem;
       input {
         max-width: 300px;
-        min-width: 130px;
+        min-width: 100px;
         width: 100%;
         box-sizing: border-box;
       }
@@ -103,7 +105,7 @@ export const MainContainer = styled.section`
       padding-top: 0.5rem;
       input {
         max-width: 300px;
-        min-width: 130px;
+        min-width: 100px;
         width: 100%;
         box-sizing: border-box;
       }
@@ -120,7 +122,7 @@ export const MainContainer = styled.section`
       padding-top: 0.5rem;
       input {
         max-width: 300px;
-        min-width: 130px;
+        min-width: 100px;
         width: 100%;
         box-sizing: border-box;
       }
