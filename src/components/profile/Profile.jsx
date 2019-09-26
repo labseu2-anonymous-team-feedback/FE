@@ -37,7 +37,8 @@ export class Profile extends Component {
             <div className="profile">
               <h1>Personal Info</h1>
               <h2>Name</h2>
-              <input type="text" placeholder="Full name" />
+              <p>Guybrush Threepwood </p>
+              {/* <input type="text" placeholder="Full name" /> */}
               <form>
                 <h2>Birthday</h2>
                 <input type="date" name="bday" />
@@ -63,17 +64,17 @@ export class Profile extends Component {
               </div>
               <h2>Current Username</h2>
               <div className="username-box">
-                <input type="text" placeholder="Username" />
+                <input type="text" />
                 <SurveyButton>Change</SurveyButton>
               </div>
               <h2>Current Email</h2>
               <div className="mail-box">
-                <input type="text" placeholder="Email" />
+                <input type="text" />
                 <SurveyButton>Change</SurveyButton>
               </div>
               <h2>Current Password</h2>
               <div className="password-box">
-                <input type="text" placeholder="Password" />
+                <input type="text" />
                 <SurveyButton>Change</SurveyButton>
               </div>
             </div>
