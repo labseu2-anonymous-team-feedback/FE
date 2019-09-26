@@ -30,23 +30,26 @@ export class Profile extends Component {
       <MainContainer>
         <div className="container">
           <ProfileImg src={icon} />
-
           <div className="leftbox">
             <nav />
           </div>
           <div className="rightbox">
             <div className="profile">
               <h1>Personal Info</h1>
+              <h2>Name</h2>
               <input type="text" placeholder="Full name" />
-              <h2>Birthday</h2>
-              <p>July 21</p>
+              <form>
+                <h2>Birthday</h2>
+                <input type="date" name="bday" />
+              </form>
+
               <h2>Gender</h2>
               {/* <label htmlFor="R1">Male</label>
               <input type="radio" name="gender" id="R1" value="Male" />
               <label htmlFor="R1">Female</label>
               <input type="radio" name="gender" id="R1" value="Female" /> */}
-              <div className="card">
-                <ul>
+              <div className="gender-box-wrapper">
+                <ul className="gender-box">
                   <li>
                     <label htmlFor="R1">Male</label>
                     <input type="radio" name="name" id="one" />
@@ -60,15 +63,17 @@ export class Profile extends Component {
               </div>
 
               <div className="mail-box">
-                <input type="text" placeholder="email" />
+                <input type="text" placeholder="Email" />
                 <SurveyButton>Update</SurveyButton>
               </div>
               <div className="password-box">
-                <input type="text" placeholder="password" />
+                <input type="text" placeholder="Password" />
                 <SurveyButton>Update</SurveyButton>
               </div>
-              <label htmlFor="B1">Bio</label>
-              <TextArea />
+              <div className="text-box">
+                <h2>Bio</h2>
+                <TextArea />
+              </div>
             </div>
           </div>
         </div>
