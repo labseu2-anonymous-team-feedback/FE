@@ -8,26 +8,22 @@ import TextInput from '../common/TextInput';
 
 export const MainContainer = styled.section`
          padding-top: 100px;
-         width:900px;
+         display: flex;
+         flex-direction: column;
+         align-items: flex-start;
+         width: 900px;
 
          .container {
-           display:flex;
-           justify-content:space-between;
+           display: flex;
+           justify-content: space-between;
            background: #ffffff;
-           width: 540px;
-           height: 420px;
+           width: 640px;
+           height: 520px;
            margin: 0 auto;
-           position: relative;
-           margin-top: 10%;
            box-shadow: 2px 5px 20px rgba(119, 119, 119, 0.5);
          }
 
-
-
          .leftbox {
-           float: left;
-           top: -5%;
-           left: 5%;
            ${''}
            width: 15%;
            height: 110%;
@@ -35,13 +31,10 @@ export const MainContainer = styled.section`
            box-shadow: 3px 3px 10px rgba(119, 119, 119, 0.5);
          }
 
-
          .rightbox {
-           float: right;
            width: 60%;
            height: 100%;
          }
-
 
          h1 {
            font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -72,7 +65,7 @@ export const MainContainer = styled.section`
              1 0%;
            border-top: 0;
            width: 80%;
-           font-family: 'Montserrat', sans-serif;
+           font-family: Verdana, Geneva, Tahoma, sans-serif;
            font-size: 0.7em;
            padding: 7px 0;
            color: #070707;
@@ -103,9 +96,6 @@ export const MainContainer = styled.section`
            padding: 2px;
            margin: 0;
          }
-
-
-
        `;
 
 
