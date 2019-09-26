@@ -23,6 +23,33 @@ export const MainContainer = styled.section`
            box-shadow: 2px 5px 20px rgba(119, 119, 119, 0.5);
          }
 
+         .profile {
+           display: flex;
+           flex-direction: column;
+
+           input {
+             width:300px;
+           }
+
+           .mail-box {
+             display: flex;
+             justify-content: space-between;
+             padding-top: 0.5rem;
+             input {
+               width: 300px;
+             }
+           }
+
+           .password-box {
+             display: flex;
+             justify-content: space-between;
+             padding-top: 0.5rem;
+             input {
+               width: 300px;
+             }
+           }
+         }
+
          .leftbox {
            ${''}
            width: 15%;
@@ -76,14 +103,14 @@ export const MainContainer = styled.section`
            color: #777777;
          }
 
-         .btn {
+         ${'' /* .btn {
            float: right;
            font-family: Verdana, Geneva, Tahoma, sans-serif;
            text-transform: uppercase;
            font-size: 10px;
            border: none;
            color: #63beff;
-         }
+         } */}
 
          .btn:hover {
            text-decoration: underline;

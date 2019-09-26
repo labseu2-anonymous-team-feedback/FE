@@ -31,7 +31,6 @@ export class Profile extends Component {
     return (
       <MainContainer>
         <div className="container">
-
           <ProfileImg src={icon} />
 
           <div className="leftbox">
@@ -40,24 +39,20 @@ export class Profile extends Component {
           <div className="rightbox">
             <div className="profile">
               <h1>Personal Info</h1>
-              <h2>Full Name</h2>
-              <p>John Smith </p>
+              <input type="text" placeholder="Full name" />
               <h2>Birthday</h2>
               <p>July 21</p>
               <h2>Gender</h2>
               <p>Male</p>
               <h2>Email</h2>
-              <p>
-                example@example.com
-                {' '}
+              <div className="mail-box">
+                <input type="text" placeholder="email" />
                 <SurveyButton>Update</SurveyButton>
-              </p>
-              <h2>Password </h2>
-              <p>
-                •••••••
-                {' '}
+              </div>
+              <div className="password-box">
+                <input type="text" placeholder="password" />
                 <SurveyButton>Update</SurveyButton>
-              </p>
+              </div>
             </div>
           </div>
         </div>
