@@ -6,6 +6,7 @@ export const MainContainer = styled.section`
   flex-direction: column;
   align-items: flex-start;
   width: 900px;
+  border: 2px dashed red;
 
   @media (max-width: 820px) {
     width: 80%;
