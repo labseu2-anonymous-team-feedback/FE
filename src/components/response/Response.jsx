@@ -6,7 +6,6 @@ import { GET_SURVEY_FEEDBACK } from '../../graphql/queries';
 import ResultSort from './ResultSort';
 import DashboardLayout from '../dashboard/layouts/DashboardLayout';
 import { SurveyButton } from '../dashboard/DashboardStyles';
-import { extraLargeSpace } from "../../styles/variables";
 
 
 class Response extends Component {
@@ -50,29 +49,25 @@ class Response extends Component {
     const { survey } = this.state;
     return (
       <DashboardLayout>
+        <BackButton className="btn" to="/">←</BackButton>
         <H1 className="text-center create-survey-title f-1">
           {survey && survey.title}
         </H1>
         <Divider size={30} />
         {survey && survey.questions && <ResultSort questions={survey.questions} />}
-        <BackButton className="btn" to="/">Back</BackButton>
       </DashboardLayout>
     );
   }
 }
 
 const BackButton = styled(SurveyButton)`
-  margin: 1rem 0 1rem 1rem;
-
-  margin: 1rem 0 2rem ${extraLargeSpace};
-
-  @media (max-width: 767px) {
-    margin: 1rem 0 2rem 1rem;
-  }
+  font-size: 1.6rem;
+  margin: 1rem 0 0 1rem;
+  padding: 0 1rem;
 `;
 
 const H1 = styled.h1`
-    margin-top: 2rem;
+    margin-top: 0;
 `;
 
 

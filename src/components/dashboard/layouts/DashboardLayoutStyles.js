@@ -25,7 +25,7 @@ export const Container = styled.div`
 
   @media (max-width: 575px) {
     width: 100%;
-    margin: 4.5rem auto;
+    margin: 0 auto;
     border: 1px solid transparent;
   }
   &::-webkit-scrollbar {
