@@ -28,7 +28,9 @@ class ProfilePage extends Component {
           if (loading) return null;
           if (error) return `Error! ${error}`;
 
-          return <Profile user={data.getUserById} />;
+          if (data) {
+            return <Profile user={data.getUserById} />;
+          }
         }}
       </Query>
     );

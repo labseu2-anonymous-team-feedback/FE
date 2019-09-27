@@ -85,7 +85,7 @@ const SAVE_FEEDBACK = gql`
 `;
 
 const UPDATE_PROFILE = gql`
-  query updateProfile(
+  mutation updateProfile(
     $username: String!
     $email: String!
     $firstName: String!
@@ -93,7 +93,14 @@ const UPDATE_PROFILE = gql`
     $profileImage: String!
     $bio: String!
   ) {
-    updateProfile(userId: $userId) {
+    updateProfile(
+      username: $username
+      email: $email
+      firstName: $firstName
+      lastName: $lastName
+      profileImage: $profileImage
+      bio: $bio
+    ) {
       username
       email
       firstName

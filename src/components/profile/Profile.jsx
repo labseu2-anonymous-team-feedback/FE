@@ -14,18 +14,21 @@ export class Profile extends Component {
     super(props);
 
     this.state = {
-      username: props.user.username,
-      email: props.user.email,
-      firstName: props.user.firstName,
-      lastName: props.user.lastName,
-      bio: props.user.bio
+      id: props.user.id || "",
+      username: props.user.username || "",
+      email: props.user.email || "",
+      firstName: props.user.firstName || "",
+      lastName: props.user.lastName || "",
+      bio: props.user.bio || ""
     };
   }
+  change = e => this.setState({ [e.target.name]: e.target.value });
+
   render() {
     const { firstName, lastName, username, email, bio } = this.state;
     return (
       <Mutation mutation={UPDATE_PROFILE}>
-        {({ loading, error, data }) => {
+        {updateProfile => {
           return (
             <DashboardLayout>
               <ProfileWrapper>
@@ -37,9 +40,25 @@ export class Profile extends Component {
                     <ProfileImg src={icon} />
                   </div>
                   <div className="right-div">
-                    <form action="" method="post" onSubmit={() => {
+                    <form
+                      action=""
+                      method="post"
+                      onSubmit={e => {
+                        e.preventDefault();
+                        console.log(this.state);
 
-                    }}>
+                        updateProfile({
+                          variables: {
+                            firstName,
+                            lastName,
+                            username,
+                            email,
+                            bio,
+                            profileImage: ""
+                          }
+                        });
+                      }}
+                    >
                       <DoubleFields>
                         <div>
                           <TextInput
