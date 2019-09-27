@@ -22,7 +22,7 @@ export class Feedback extends React.Component {
       error: null,
       isDuplicate: false,
       redirect: false,
-      message: ""
+      message: ''
     };
   }
 
@@ -156,7 +156,12 @@ export class Feedback extends React.Component {
 
   render() {
     const {
-      survey, isLoading, error, isDuplicate, redirect, message
+      survey,
+      isLoading,
+      error,
+      isDuplicate,
+      // redirect,
+      // message
     } = this.state;
     const userId = getUserIdFromToken();
     if (userId && survey && userId === survey.owner.id) {
