@@ -62,7 +62,7 @@ const LandingPage = () => (
 
       <div>
         <a
-          href="https://www.linkedin.com/in/jakubmaleta/"
+          href="https://www.linkedin.com/in/awa-melvine-472764102/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -95,7 +95,7 @@ const LandingPage = () => (
       </div>
 
       <div>
-        <a href="##" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/jakubmaleta/" target="_blank" rel="noopener noreferrer">
           <img
             src="https://ca.slack-edge.com/T4JUEB3ME-UJ1A38QBA-c5f8414f6dfc-72"
             alt="Jakub"
