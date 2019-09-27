@@ -55,7 +55,7 @@ class Response extends Component {
         </H1>
         <Divider size={30} />
         {survey && survey.questions && <ResultSort questions={survey.questions} />}
-        <CancelButton className="btn" to="/">Cancel</CancelButton>
+        <CancelButton className="btn" to="/dashboard">Cancel</CancelButton>
       </DashboardLayout>
     );
   }

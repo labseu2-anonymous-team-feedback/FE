@@ -108,7 +108,7 @@ export class Signup extends Component {
 
     const isSignedIn = isLoggedIn();
     if (isSignedIn) {
-      return <Redirect to="/" />;
+      return <Redirect to="/login" />;
     }
 
     if (error) {
