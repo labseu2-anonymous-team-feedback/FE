@@ -40,11 +40,24 @@ const LandingPage = () => (
     <StyledTeamArea>
       <div>
         <img
+          src="https://ca.slack-edge.com/T4JUEB3ME-UETSHCVRC-4044525a12b9-72"
+          alt="Thorben"
+        />
+        <p>
+          <a href="https://github.com/ThorbenBender">Thorben Bender</a>
+        </p>
+        <p>
+          <a href="##">Team Lead</a>
+        </p>
+      </div>
+
+      <div>
+        <img
           src="https://ca.slack-edge.com/T4JUEB3ME-UHZ97G3T6-6744874ab7d9-72"
           alt="Melvine"
         />
         <p>
-          <a href="##">Awa Melvine</a>
+          <a href="https://github.com/AwaMelvine">Awa Melvine</a>
         </p>
         <p>
           <a href="##">Full-stack developer</a>
@@ -57,7 +70,7 @@ const LandingPage = () => (
           alt="Chinedu"
         />
         <p>
-          <a href="##">Chiendu Orie</a>
+          <a href="https://github.com/nedssoft">Chiendu Orie</a>
         </p>
         <p>
           <a href="##">Full-stack developer</a>
@@ -66,11 +79,11 @@ const LandingPage = () => (
 
       <div>
         <img
-          src="https://ca.slack-edge.com/T4JUEB3ME-UHZ97G3T6-6744874ab7d9-72"
-          alt="Melvine"
+          src="https://ca.slack-edge.com/T4JUEB3ME-UJ1A38QBA-c5f8414f6dfc-72"
+          alt="Jakub"
         />
         <p>
-          <a href="##">Awa Melvine</a>
+          <a href="https://github.com/nanoblit">Jakub Maleta</a>
         </p>
         <p>
           <a href="##">Full-stack developer</a>
@@ -79,11 +92,11 @@ const LandingPage = () => (
 
       <div>
         <img
-          src="https://ca.slack-edge.com/T4JUEB3ME-UHZ97G3T6-6744874ab7d9-72"
-          alt="Melvine"
+          src="https://ca.slack-edge.com/T4JUEB3ME-UHQMX3CLS-c7b9a890d94e-72"
+          alt="Ezekiel"
         />
         <p>
-          <a href="##">Awa Melvine</a>
+          <a href="https://github.com/Easybuoy">Ezekiel Ekunola</a>
         </p>
         <p>
           <a href="##">Full-stack developer</a>
@@ -92,11 +105,11 @@ const LandingPage = () => (
 
       <div>
         <img
-          src="https://ca.slack-edge.com/T4JUEB3ME-UHZ97G3T6-6744874ab7d9-72"
-          alt="Melvine"
+          src="https://ca.slack-edge.com/T4JUEB3ME-UHND7CK6E-142effe9cb1c-72"
+          alt="Pascal"
         />
         <p>
-          <a href="##">Awa Melvine</a>
+          <a href="##">Pascal Ulor</a>
         </p>
         <p>
           <a href="##">Full-stack developer</a>
@@ -105,11 +118,11 @@ const LandingPage = () => (
 
       <div>
         <img
-          src="https://ca.slack-edge.com/T4JUEB3ME-UHZ97G3T6-6744874ab7d9-72"
-          alt="Melvine"
+          src="https://ca.slack-edge.com/T4JUEB3ME-UHR82B0LQ-6af7ebe14470-72"
+          alt="Petar"
         />
         <p>
-          <a href="##">Awa Melvine</a>
+          <a href="https://github.com/PressureandTime">Petar Scepanovic</a>
         </p>
         <p>
           <a href="##">Full-stack developer</a>

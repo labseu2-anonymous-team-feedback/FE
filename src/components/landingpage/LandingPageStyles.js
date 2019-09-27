@@ -44,7 +44,7 @@ const StyledDetailsArea = styled.div`
   }
 `;
 
-const StyledTeamArea = styled.div`
+const StyledTeamArea = styled.section`
   display: flex;
   width: 100%;
   flex-wrap: wrap;
