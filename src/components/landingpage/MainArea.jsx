@@ -1,13 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import {
   white,
   smallSpace,
   black,
   bodyHero,
   mediumSpace2,
-  heading1
+  heading1,
 } from '../../styles/variables';
 import Button from '../../styles/Button';
 
