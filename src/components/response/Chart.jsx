@@ -24,7 +24,7 @@ class Chart extends Component {
       VictoryChart,
       VictoryTheme,
       VictoryLegend,
-      VictoryAxis
+      VictoryAxis,
     } = V;
     let empty = 0;
     data.forEach((ques, i) => {
@@ -57,7 +57,7 @@ class Chart extends Component {
         const processedData = (frequency, rating) =>
           rating.map((rate, i) => ({
             rating: rate,
-            freq: frequency[i]
+            freq: frequency[i],
           }));
         const dataPlot = processedData(freq, xRange);
 
@@ -66,6 +66,8 @@ class Chart extends Component {
             <StyledHeader>{ques.question}</StyledHeader>
             <StyledDiv>
               <VictoryChart
+                domainPadding={10}
+
                 style={{ parent: { maxWidth: '90%' } }}
                 // adding the material theme provided with Victory
                 theme={VictoryTheme.material}
@@ -77,6 +79,7 @@ class Chart extends Component {
                   orientation="horizontal"
                   data={[
                     { name: 'x axis - rating', symbol: { fill: '#6bafe8' } },
+
                     {
                       name: 'y axis - number of votes',
                       symbol: { fill: '#6bafe8' }
@@ -88,6 +91,7 @@ class Chart extends Component {
                   dependentAxis
                   tickFormat={x => (Number.isInteger(x) ? x : '')}
                 />
+
                 <VictoryBar
                   style={{ data: { fill: '#6bafe8' } }}
                   data={dataPlot}
@@ -105,10 +109,10 @@ class Chart extends Component {
         <div key={ques.id}>
           <StyledHeader>{ques.question}</StyledHeader>
           <TextBox>
-            {ques.feedbacks.map(feedback => (
-              <div key={feedback.id}>
+            {ques.feedbacks.map((feedback) => (
+              <ParagraphDiv key={feedback.id}>
                 {feedback.comment && <Paragraph>{feedback.comment}</Paragraph>}
-              </div>
+              </ParagraphDiv>
             ))}
           </TextBox>
         </div>
@@ -122,7 +126,6 @@ const StyledHeader = styled.h4`
   font-size: ${body1};
 `;
 const StyledDiv = styled.div`
-  border: 1px solid ${fadedBlue};
   display: flex;
   justify-content: center;
   background-color: ${white};
@@ -143,12 +146,18 @@ const TextBox = styled.div`
   }
 `;
 
+const ParagraphDiv = styled.div`
+  border-bottom: 1px solid ${fadedBlue};
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+`;
+
 const Paragraph = styled.p`
-  border: 1px solid ${fadedBlue};
   padding: ${extraSmallSpace} ${extraSmallSpace};
 `;
 const NoFeedback = styled.div`
-  border: 1px solid ${fadedBlue};
   display: flex;
   justify-content: center;
   align-items: center;

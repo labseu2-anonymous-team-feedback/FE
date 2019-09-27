@@ -21,6 +21,8 @@ export class Feedback extends React.Component {
       isLoading: false,
       error: null,
       isDuplicate: false,
+      redirect: false,
+      message: ""
     };
   }
 
@@ -122,6 +124,7 @@ export class Feedback extends React.Component {
       answers,
       survey: { id }
     } = this.state;
+
     const responses = answers.filter(ans => ans.rating || ans.comment);
     const feedbackData = {
       surveyId: id,
@@ -152,10 +155,18 @@ export class Feedback extends React.Component {
   };
 
   render() {
-    const { survey, isLoading, error, isDuplicate } = this.state;
-    if (isDuplicate) {
-      return <ErrorPage message="You have already responded to this survey" />;
+    const {
+      survey, isLoading, error, isDuplicate, redirect, message
+    } = this.state;
+    const userId = getUserIdFromToken();
+    if (userId && survey && userId === survey.owner.id) {
+      return <ErrorPage message="You cannot respond to your own survey." />;
     }
+
+    if (isDuplicate) {
+      return <ErrorPage message="You have already responded to this survey." />;
+    }
+
     return (
       <Container>
         {isLoading && <Spinner />}
