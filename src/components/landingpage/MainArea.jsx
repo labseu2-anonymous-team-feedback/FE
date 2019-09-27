@@ -8,8 +8,8 @@ import {
   bodyHero,
   mediumSpace2,
   heading1
-} from "../../styles/variables";
-import Button from "../../styles/Button";
+} from '../../styles/variables';
+import Button from '../../styles/Button';
 
 const MainArea = () => (
   <Wrapper>
@@ -83,7 +83,7 @@ const TextArea = styled.div`
 
   ::before,
   ::after {
-    content: "";
+    content: '';
     display: block;
     background: url("../../assets/images/mobile.png");
     position: absolute;
