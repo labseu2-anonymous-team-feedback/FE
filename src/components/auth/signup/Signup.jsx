@@ -130,7 +130,7 @@ export class Signup extends Component {
 
     if (data) {
       toast('Registration successful', { className: 'toast-success' });
-      return <Redirect to="/dashboard" />;
+      return <Redirect to="/login" />;
     }
 
     return (
