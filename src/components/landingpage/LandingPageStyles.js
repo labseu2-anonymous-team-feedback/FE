@@ -49,14 +49,16 @@ const StyledTeamArea = styled.section`
   width: 100%;
   flex-wrap: wrap;
   text-align: center;
-  margin: 1rem;
+  margin-top: 1rem;
+  padding-bottom: 3rem;
   justify-content: center;
 
   a {
     color: #6f6f6f;
     text-decoration: none;
+    
   }
-  
+
   h3 {
     width: 100%;
     color: #62beff;
@@ -74,6 +76,8 @@ const StyledTeamArea = styled.section`
 
     p {
       font-weight: bold;
+      color: #6f6f6f;
+
     }
   }
 `;
