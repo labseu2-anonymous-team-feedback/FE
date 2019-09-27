@@ -1,12 +1,16 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React from 'react';
-import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
 import MainArea from './MainArea';
-import { white } from '../../styles/variables';
+
 import FeedbackVideo from '../../assets/media/feedback.mp4';
-import { StyledDetailsArea, StyledTeamArea } from './LandingPageStyles';
+import {
+  StyledDetailsArea,
+  StyledTeamArea,
+  StyledJoinCommunity,
+} from './LandingPageStyles';
 import styledImageAreaImage from '../../assets/images/giving-feedback.png';
+import Button from '../../styles/Button';
 
 const LandingPage = () => (
   <div>
@@ -40,7 +44,7 @@ const LandingPage = () => (
     <StyledTeamArea>
       <h3>Meet the amazing team behind Anonymous Team Feedback</h3>
       <div>
-        <a href="###" target="_blank" rel="noopener noreferer">
+        <a href="###" target="_blank" rel="noopener noreferrer">
           <img
             src="https://ca.slack-edge.com/T4JUEB3ME-UETSHCVRC-4044525a12b9-72"
             alt="Thorben"
@@ -53,7 +57,7 @@ const LandingPage = () => (
       </div>
 
       <div>
-        <a href="##" target="_blank" rel="noopener noreferer">
+        <a href="##" target="_blank" rel="noopener noreferrer">
           <img
             src="https://ca.slack-edge.com/T4JUEB3ME-UHZ97G3T6-6744874ab7d9-72"
             alt="Melvine"
@@ -83,7 +87,7 @@ const LandingPage = () => (
       </div>
 
       <div>
-        <a href="##" target="_blank" rel="noopener noreferer">
+        <a href="##" target="_blank" rel="noopener noreferrer">
           <img
             src="https://ca.slack-edge.com/T4JUEB3ME-UJ1A38QBA-c5f8414f6dfc-72"
             alt="Jakub"
@@ -113,7 +117,7 @@ const LandingPage = () => (
       </div>
 
       <div>
-        <a href="##" target="_blank" rel="noopener noreferer">
+        <a href="##" target="_blank" rel="noopener noreferrer">
           <img
             src="https://ca.slack-edge.com/T4JUEB3ME-UHND7CK6E-142effe9cb1c-72"
             alt="Pascal"
@@ -126,7 +130,11 @@ const LandingPage = () => (
       </div>
 
       <div>
-        <a href="##" target="_blank" rel="noopener noreferer">
+        <a
+          href="https://www.linkedin.com/in/hiborija/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
             src="https://ca.slack-edge.com/T4JUEB3ME-UHR82B0LQ-6af7ebe14470-72"
             alt="Petar"
@@ -138,6 +146,17 @@ const LandingPage = () => (
         <p>Full-stack developer</p>
       </div>
     </StyledTeamArea>
+
+    <StyledJoinCommunity>
+      <div>
+        <h3>Join Our Community Now</h3>
+
+        <p></p>
+        <Button className="btn btn-block">
+          <Link to="/register">Register Now</Link>
+        </Button>
+      </div>
+    </StyledJoinCommunity>
   </div>
 );
 

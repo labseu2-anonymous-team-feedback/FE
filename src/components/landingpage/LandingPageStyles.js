@@ -82,4 +82,9 @@ const StyledTeamArea = styled.section`
   }
 `;
 
-export { StyledDetailsArea, StyledTeamArea };
+const StyledJoinCommunity = styled.section`
+    width: 100%;
+    text-align: center;
+`;
+
+export { StyledDetailsArea, StyledTeamArea, StyledJoinCommunity };
