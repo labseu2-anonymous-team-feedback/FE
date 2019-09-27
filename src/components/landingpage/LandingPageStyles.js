@@ -7,8 +7,18 @@ const StyledDetailsArea = styled.div`
   width: 100%;
   padding: 2rem 1rem;
 
+  @media (max-width: 1400px) {
+    flex-direction: column;
+  }
+
   .details-content {
     width: 45%;
+
+    @media (max-width: 1400px) {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
 
     h3 {
       color: #62beff;
@@ -22,6 +32,11 @@ const StyledDetailsArea = styled.div`
 
   .details-media {
     width: 50%;
+
+    @media (max-width: 1400px) {
+      width: 100%;
+      margin-top: 2rem;
+    }
 
     video {
       width: 100%;
