@@ -210,7 +210,7 @@ const LandingPage = () => (
       <div>
         <h3>Join Our Community Now</h3>
 
-        <p>Put mission here</p>
+        <p>Receive honest feedback from your team mates with 100% anonymity.</p>
         <div>
           <Link to="/register">
             <Button className="btn btn-block" type="submit">
