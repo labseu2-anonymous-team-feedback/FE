@@ -7,7 +7,7 @@ import FeedbackVideo from '../../assets/media/feedback.mp4';
 import {
   StyledDetailsArea,
   StyledTeamArea,
-  StyledJoinCommunity,
+  StyledJoinCommunity
 } from './LandingPageStyles';
 import styledImageAreaImage from '../../assets/images/giving-feedback.png';
 import Button from '../../styles/Button';
@@ -44,7 +44,11 @@ const LandingPage = () => (
     <StyledTeamArea>
       <h3>Meet the amazing team behind Anonymous Team Feedback</h3>
       <div>
-        <a href="###" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.linkedin.com/in/thorben-bender/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
             src="https://ca.slack-edge.com/T4JUEB3ME-UETSHCVRC-4044525a12b9-72"
             alt="Thorben"
@@ -57,7 +61,11 @@ const LandingPage = () => (
       </div>
 
       <div>
-        <a href="##" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.linkedin.com/in/jakubmaleta/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
             src="https://ca.slack-edge.com/T4JUEB3ME-UHZ97G3T6-6744874ab7d9-72"
             alt="Melvine"
@@ -117,7 +125,11 @@ const LandingPage = () => (
       </div>
 
       <div>
-        <a href="##" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.linkedin.com/in/pascal-ulor/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
             src="https://ca.slack-edge.com/T4JUEB3ME-UHND7CK6E-142effe9cb1c-72"
             alt="Pascal"
@@ -151,10 +163,13 @@ const LandingPage = () => (
       <div>
         <h3>Join Our Community Now</h3>
 
-        <p></p>
-        <Button className="btn btn-block">
+        <p>Put mission here</p>
+        <div>
+        <Button className="btn btn-block" type="submit">
           <Link to="/register">Register Now</Link>
         </Button>
+        </div>
+        
       </div>
     </StyledJoinCommunity>
   </div>

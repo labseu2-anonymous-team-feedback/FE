@@ -56,7 +56,6 @@ const StyledTeamArea = styled.section`
   a {
     color: #6f6f6f;
     text-decoration: none;
-
   }
 
   h3 {
@@ -77,14 +76,41 @@ const StyledTeamArea = styled.section`
     p {
       font-weight: bold;
       color: #6f6f6f;
-
     }
   }
 `;
 
 const StyledJoinCommunity = styled.section`
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  padding: 2rem 0;
+
+  div {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @media (max-width: 700px) {
+      width: 70%;
+    }
+    h3,
+    p {
+      width: 100%;
+      padding: 1rem 0;
+    }
+
+    button {
+      margin: 1rem auto;
+
+      a {
+        text-decoration: none;
+        color: white;
+      }
+    }
+  }
 `;
 
 export { StyledDetailsArea, StyledTeamArea, StyledJoinCommunity };
