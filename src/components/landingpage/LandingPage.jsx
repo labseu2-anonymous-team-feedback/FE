@@ -4,20 +4,17 @@ import { Link } from 'react-router-dom';
 import MainArea from './MainArea';
 
 import FeedbackVideo from '../../assets/media/feedback.mp4';
-<<<<<<< HEAD
 import SampleSurvey from '../../assets/media/Sample Survey.gif';
 import Divider from '../../styles/Divider';
-import StyledDetailsArea from './LandingPageStyles';
-import image from '../../assets/images/giving-feedback.png';
-=======
+// import StyledDetailsArea from './LandingPageStyles';
+
 import {
   StyledDetailsArea,
   StyledTeamArea,
-  StyledJoinCommunity
+  StyledJoinCommunity,
 } from './LandingPageStyles';
 import styledImageAreaImage from '../../assets/images/giving-feedback.png';
 import Button from '../../styles/Button';
->>>>>>> e6e18c30cd5af1ae6a2939eefce4889bded0abd8
 
 const LandingPage = () => (
   <div>
@@ -34,42 +31,45 @@ const LandingPage = () => (
         <h3>Signup </h3>
         <div>
           <p>
-          Users can easily Signup for free by fiiling out the registration form or if they have an
+            Users can easily Signup for free by fiiling out the registration
+            form or if they have an
             <br />
-          active Google account they can just click the google icon to get started.
-
+            active Google account they can just click the google icon to get
+            started.
           </p>
         </div>
-
 
         <h3>Create a Survey </h3>
         <div>
           <p>
-          Signed up users can easily create a survey with as many questions as they like.
+            Signed up users can easily create a survey with as many questions as
+            they like.
             <br />
-          Survey questions can either receive feedback as text or rating.
-
+            Survey questions can either receive feedback as text or rating.
           </p>
         </div>
 
         <h3>Share Survey Link to Co-worker </h3>
         <div>
           <p>
-          On creating a survey users can generate a Share link by clicking the get link icon.
+            On creating a survey users can generate a Share link by clicking the
+            get link icon.
             <br />
-          This link can be shared with as many people as the user pleases. Responses to this
+            This link can be shared with as many people as the user pleases.
+            Responses to this
             <br />
-          survey are received anonymously by the user, thus creating an avenue for honest feedback
-
+            survey are received anonymously by the user, thus creating an avenue
+            for honest feedback
           </p>
         </div>
 
         <h3>Give Feedback Anonymously</h3>
         <div>
           <p>
-          User giving feedback need not create an account or be signed up to the platform.
+            User giving feedback need not create an account or be signed up to
+            the platform.
             <br />
-          All they need do is click the shared link and drop a response.
+            All they need do is click the shared link and drop a response.
           </p>
         </div>
       </div>
@@ -138,7 +138,11 @@ const LandingPage = () => (
       </div>
 
       <div>
-        <a href="https://www.linkedin.com/in/jakubmaleta/" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.linkedin.com/in/jakubmaleta/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
             src="https://ca.slack-edge.com/T4JUEB3ME-UJ1A38QBA-c5f8414f6dfc-72"
             alt="Jakub"
