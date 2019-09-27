@@ -22,29 +22,16 @@ const MainArea = () => (
         </p>
       </div>
 
-      <ButtonsDiv className="buttons-container ">
+      <div className="buttons-container ">
         <Link to="/register">
-          <GetStartedButton className="btn btn-block" type="submit">
+          <Button className="btn btn-block" type="submit">
             Get Started
-          </GetStartedButton>
+          </Button>
         </Link>
-      </ButtonsDiv>
+      </div>
     </TextArea>
   </Wrapper>
 );
-
-const ButtonsDiv = styled.div`
-  @media (max-width: 450px) {
-    margin: 0 !important;
-    width: 100% !important;
-  }
-`;
-
-const GetStartedButton = styled(Button)`
-@media (max-width: 450px) {
-    width: 100%;
-  }
-`;
 
 const Wrapper = styled.div`
   min-height: 76vh;
@@ -119,9 +106,19 @@ const TextArea = styled.div`
   .buttons-container {
     width: 60%;
     margin: 0 auto;
+
+    @media (max-width: 450px) {
+      margin: 0 !important;
+      width: 100% !important;
+    }
+
     button {
       margin-bottom: ${smallSpace};
       margin-right: ${smallSpace};
+
+      @media (max-width: 450px) {
+        width: 100%;
+      }
     }
   }
 `;

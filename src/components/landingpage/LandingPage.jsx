@@ -1,24 +1,33 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React from 'react';
-import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
 import MainArea from './MainArea';
-import { white } from '../../styles/variables';
+
 import FeedbackVideo from '../../assets/media/feedback.mp4';
+<<<<<<< HEAD
 import SampleSurvey from '../../assets/media/Sample Survey.gif';
 import Divider from '../../styles/Divider';
 import StyledDetailsArea from './LandingPageStyles';
 import image from '../../assets/images/giving-feedback.png';
+=======
+import {
+  StyledDetailsArea,
+  StyledTeamArea,
+  StyledJoinCommunity
+} from './LandingPageStyles';
+import styledImageAreaImage from '../../assets/images/giving-feedback.png';
+import Button from '../../styles/Button';
+>>>>>>> e6e18c30cd5af1ae6a2939eefce4889bded0abd8
 
 const LandingPage = () => (
   <div>
     <MainArea />
     <StyledDetailsArea
       style={{
-        backgroundImage: `linear-gradient(to right bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(${image})`,
+        backgroundImage: `linear-gradient(to right bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(${styledImageAreaImage})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: 'center'
       }}
     >
       <div className="details-content">
@@ -74,6 +83,139 @@ const LandingPage = () => (
         </video>
       </div>
     </StyledDetailsArea>
+
+    <StyledTeamArea>
+      <h3>Meet the amazing team behind Anonymous Team Feedback</h3>
+      <div>
+        <a
+          href="https://www.linkedin.com/in/thorben-bender/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="https://ca.slack-edge.com/T4JUEB3ME-UETSHCVRC-4044525a12b9-72"
+            alt="Thorben"
+          />
+        </a>
+        <p>
+          <a href="https://github.com/ThorbenBender">Thorben Bender</a>
+        </p>
+        <p>Team Lead</p>
+      </div>
+
+      <div>
+        <a
+          href="https://www.linkedin.com/in/jakubmaleta/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="https://ca.slack-edge.com/T4JUEB3ME-UHZ97G3T6-6744874ab7d9-72"
+            alt="Melvine"
+          />
+        </a>
+        <p>
+          <a href="https://github.com/AwaMelvine">Awa Melvine</a>
+        </p>
+        <p>Full-stack developer</p>
+      </div>
+
+      <div>
+        <a
+          href="https://www.linkedin.com/in/oriechinedu"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="https://ca.slack-edge.com/T4JUEB3ME-UJ01FL4R3-83dd18af8f1c-72"
+            alt="Chinedu"
+          />
+        </a>
+        <p>
+          <a href="https://github.com/nedssoft">Chiendu Orie</a>
+        </p>
+        <p>Full-stack developer</p>
+      </div>
+
+      <div>
+        <a href="##" target="_blank" rel="noopener noreferrer">
+          <img
+            src="https://ca.slack-edge.com/T4JUEB3ME-UJ1A38QBA-c5f8414f6dfc-72"
+            alt="Jakub"
+          />
+        </a>
+        <p>
+          <a href="https://github.com/nanoblit">Jakub Maleta</a>
+        </p>
+        <p>Full-stack developer</p>
+      </div>
+
+      <div>
+        <a
+          href="https://www.linkedin.com/in/easybuoy/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="https://ca.slack-edge.com/T4JUEB3ME-UHQMX3CLS-c7b9a890d94e-72"
+            alt="Ezekiel"
+          />
+        </a>
+        <p>
+          <a href="https://github.com/Easybuoy">Ezekiel Ekunola</a>
+        </p>
+        <p>Full-stack developer</p>
+      </div>
+
+      <div>
+        <a
+          href="https://www.linkedin.com/in/pascal-ulor/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="https://ca.slack-edge.com/T4JUEB3ME-UHND7CK6E-142effe9cb1c-72"
+            alt="Pascal"
+          />
+        </a>
+        <p>
+          <a href="##">Pascal Ulor</a>
+        </p>
+        <p>Full-stack developer</p>
+      </div>
+
+      <div>
+        <a
+          href="https://www.linkedin.com/in/hiborija/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="https://ca.slack-edge.com/T4JUEB3ME-UHR82B0LQ-6af7ebe14470-72"
+            alt="Petar"
+          />
+        </a>
+        <p>
+          <a href="https://github.com/PressureandTime">Petar Scepanovic</a>
+        </p>
+        <p>Full-stack developer</p>
+      </div>
+    </StyledTeamArea>
+
+    <StyledJoinCommunity>
+      <div>
+        <h3>Join Our Community Now</h3>
+
+        <p>Put mission here</p>
+        <div>
+          <Link to="/register">
+            <Button className="btn btn-block" type="submit">
+              Register Now
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </StyledJoinCommunity>
   </div>
 );
 
