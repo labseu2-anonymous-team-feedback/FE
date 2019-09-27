@@ -67,6 +67,7 @@ class Chart extends Component {
             <StyledDiv>
               <VictoryChart
                 domainPadding={10}
+
                 style={{ parent: { maxWidth: '90%' } }}
                 // adding the material theme provided with Victory
                 theme={VictoryTheme.material}
@@ -78,11 +79,19 @@ class Chart extends Component {
                   orientation="horizontal"
                   data={[
                     { name: 'x axis - rating', symbol: { fill: '#6bafe8' } },
-                    { name: 'y axis - number of votes', symbol: { fill: '#6bafe8' } },
+
+                    {
+                      name: 'y axis - number of votes',
+                      symbol: { fill: '#6bafe8' }
+                    }
                   ]}
                 />
                 <VictoryAxis tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]} />
-                <VictoryAxis dependentAxis tickFormat={(x) => (Number.isInteger(x) ? x : '')} />
+                <VictoryAxis
+                  dependentAxis
+                  tickFormat={x => (Number.isInteger(x) ? x : '')}
+                />
+
                 <VictoryBar
                   style={{ data: { fill: '#6bafe8' } }}
                   data={dataPlot}

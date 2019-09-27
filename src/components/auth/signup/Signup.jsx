@@ -108,7 +108,7 @@ export class Signup extends Component {
 
     const isSignedIn = isLoggedIn();
     if (isSignedIn) {
-      return <Redirect to="/" />;
+      return <Redirect to="/login" />;
     }
 
     if (error) {
@@ -125,12 +125,12 @@ export class Signup extends Component {
 
     if (parsed.google && data) {
       // Don't show toast error if user is signing in with google
-      return <Redirect to="/" />;
+      return <Redirect to="/dashboard" />;
     }
 
     if (data) {
       toast('Registration successful', { className: 'toast-success' });
-      return <Redirect to="/" />;
+      return <Redirect to="/login" />;
     }
 
     return (

@@ -24,7 +24,7 @@ export function Signin({ client }) {
 
   const isSignedIn = isLoggedIn();
   if (isSignedIn) {
-    return <Redirect to="/" />;
+    return <Redirect to="/dashboard" />;
   }
 
   const { mutate } = client;
