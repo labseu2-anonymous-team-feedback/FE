@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import {
   white, smallSpace, black, bodyHero, mediumSpace2, heading1,
@@ -9,15 +10,17 @@ const MainArea = () => (
   <Wrapper>
     <TextArea>
       <div className="text">
-        <h1>Welcome Note</h1>
-        <p>This is text</p>
+        <h1>Anonymous Team Feedback</h1>
+        <p>Improve team performance by giving and receiving feedback anonymously from team-mates</p>
       </div>
 
 
       <div className="buttons-container ">
-        <Button className="btn btn-block" type="submit">
+        <Link to="/register">
+          <Button className="btn btn-block" type="submit">
             Get Started
-        </Button>
+          </Button>
+        </Link>
       </div>
     </TextArea>
   </Wrapper>
@@ -35,6 +38,7 @@ background: ${white};
 `;
 
 const TextArea = styled.div`
+position: relative;
 margin: 0 auto;
 height: 100%;
 width: 30%;
@@ -42,6 +46,25 @@ font-size: 5rem;
 display: flex;
 flex-direction: column;
 justify-content: center;
+
+::before {
+    right: 100%;
+}
+::after {
+    left: 100%;
+}
+
+::before, ::after {
+    content: "";
+    display: block;
+    background: url('../../assets/images/mobile.png');
+    position: absolute;
+    border-top: 1px solid #404545;
+    width: 6.25rem;
+    height: 6rem;
+    top: 50%;
+    margin: 0 15rem;
+}
 
 h1,
   p {
@@ -61,6 +84,7 @@ h1,
     
     text-align: center;
   }
+
 
   .buttons-container {
     width: 60%;

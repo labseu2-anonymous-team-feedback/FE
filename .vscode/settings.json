@@ -1,0 +1,8 @@
+{
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "files.autoSave": "afterDelay",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Night Owl",
+    "editor.fontLigatures": true
+}
