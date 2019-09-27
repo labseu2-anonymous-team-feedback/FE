@@ -51,7 +51,7 @@ class CreateSurvey extends Component {
   };
 
   cancelSurvey = () => {
-    this.props.history.push('/');
+    this.props.history.push('/dashboard');
   };
 
   updateCache = (cache, { data: { createNewSurvey } }) => {

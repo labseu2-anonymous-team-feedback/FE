@@ -49,7 +49,7 @@ class Response extends Component {
     const { survey } = this.state;
     return (
       <DashboardLayout>
-        <BackButton className="btn" to="/">←</BackButton>
+        <BackButton className="btn" to="/dashboard">←</BackButton>
         <H1 className="text-center create-survey-title f-1">
           {survey && survey.title}
         </H1>
