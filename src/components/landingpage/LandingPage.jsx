@@ -165,11 +165,12 @@ const LandingPage = () => (
 
         <p>Put mission here</p>
         <div>
-        <Button className="btn btn-block" type="submit">
-          <Link to="/register">Register Now</Link>
-        </Button>
+          <Link to="/register">
+            <Button className="btn btn-block" type="submit">
+              Register Now
+            </Button>
+          </Link>
         </div>
-        
       </div>
     </StyledJoinCommunity>
   </div>

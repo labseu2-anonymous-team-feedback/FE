@@ -86,6 +86,7 @@ const StyledJoinCommunity = styled.section`
   justify-content: center;
   display: flex;
   padding: 2rem 0;
+  background-color: rgba(54, 112, 198, 0.4);
 
   div {
     width: 50%;
