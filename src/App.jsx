@@ -34,6 +34,9 @@ const ResetPasswordConfirmation = React.lazy(() =>
 const NewPassword = React.lazy(() =>
   import('./components/auth/resetPassword/NewPassword'));
 
+const LandingPage = React.lazy(()=>
+import('./components/landingpage/LandingPage'));
+
 function App() {
   return (
     <Router>
@@ -46,6 +49,7 @@ function App() {
               path="/verify_account/:verifyToken"
               component={Navigation}
             />
+            <Route exact path="/" component={LandingPage} />
             <Route exact path="/layout" component={DashboardLayout} />
             <Route exact path="/register" component={Signup} />
             <Route exact path="/login" component={Signin} />
