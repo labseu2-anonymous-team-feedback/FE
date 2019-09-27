@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledDetailsArea = styled.div`
   display: flex;
   flex-wrap: 'wrap';
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
   padding: 2rem 1rem;
 
