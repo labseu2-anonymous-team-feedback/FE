@@ -52,13 +52,28 @@ const StyledTeamArea = styled.section`
   margin: 1rem;
   justify-content: center;
 
+  a {
+    color: #6f6f6f;
+    text-decoration: none;
+  }
+  
+  h3 {
+    width: 100%;
+    color: #62beff;
+    margin: 1rem 0;
+  }
+
   div {
-      margin: 0 1rem;
+    margin: 0 1rem;
 
     img {
       border-radius: 50%;
       width: 120px;
       height: 120px;
+    }
+
+    p {
+      font-weight: bold;
     }
   }
 `;
