@@ -1,21 +1,28 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import jwtDecode from 'jwt-decode';
-import icon from '../../assets/images/icon.svg';
-import { MainContainer, ProfileImg, ProfileButton, ProfileWrapper } from './ProfileStyles';
-import DashboardLayout from '../dashboard/layouts/DashboardLayout';
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import jwtDecode from "jwt-decode";
+import icon from "../../assets/images/icon.svg";
+import {
+  MainContainer,
+  ProfileImg,
+  ProfileButton,
+  ProfileWrapper,
+  DoubleFields
+} from "./ProfileStyles";
+import DashboardLayout from "../dashboard/layouts/DashboardLayout";
+import TextInput from "../common/TextInput";
+import Button from "../../styles/Button";
 
 export class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null,
+      user: null
     };
   }
 
-
   componentDidMount() {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     if (token) {
       const user = jwtDecode(token);
       this.setState({ user });
@@ -27,56 +34,81 @@ export class Profile extends Component {
     return (
       <DashboardLayout>
         <ProfileWrapper>
-          <ProfileImg src={icon} />
-
-          <div className="rightbox">
-            <div className="profile">
-              <h1>Personal Info</h1>
-              <h2>Name</h2>
-              <p>Guybrush Threepwood </p>
-              {/* <input type="text" placeholder="Full name" /> */}
-              <form>
-                <h2>Birthday</h2>
-                {/* <input type="date" name="bday" /> */}
-                <p>02.09.1990</p>
-              </form>
-              <h2>Gender</h2>
-              <div className="gender-box-wrapper">
-                <ul className="gender-box">
-                  <li>
-                    <label htmlFor="R1">Male</label>
-                    <input type="radio" name="name" id="one" />
-                  </li>
-
-                  <li>
-                    <label htmlFor="R1">Female</label>
-                    <input type="radio" name="name" id="two" />
-                  </li>
-                </ul>
-              </div>
-              <h2>Current Username</h2>
-              <div className="username-box">
-                <input type="text" />
-                <ProfileButton>Change</ProfileButton>
-              </div>
-              <h2>Current Email</h2>
-              <div className="mail-box">
-                <input type="text" />
-                <ProfileButton>Change</ProfileButton>
-              </div>
-              <h2>Current Password</h2>
-              <div className="password-box">
-                <input type="text" />
-                <ProfileButton>Change</ProfileButton>
-              </div>
+          <div className="page-title">
+            <h2>Complete your profile</h2>
+          </div>
+          <div className="page-content">
+            <div className="left-div">
+              <ProfileImg src={icon} />
             </div>
-            <div className="text-box">
-              <h2>Bio</h2>
-              <p>About the User</p>
+            <div className="right-div">
+              <DoubleFields>
+                <div>
+                  <TextInput
+                    title="First Name"
+                    id="firstName"
+                    name="firstName"
+                    type="text"
+                    required
+                  />
+                </div>
+                <div>
+                  <TextInput
+                    title="Last Name"
+                    id="lastName"
+                    name="lastName"
+                    type="text"
+                    required
+                  />
+                </div>
+              </DoubleFields>
+              <TextInput
+                title="Username"
+                id="username"
+                name="username"
+                type="username"
+                required
+              />
+              <TextInput
+                title="Email"
+                id="email"
+                name="email"
+                type="email"
+                required
+              />
+              <TextInput
+                title="Previous Password"
+                id="prevPassword"
+                name="prevPassword"
+                type="password"
+                required
+              />
+              <DoubleFields>
+                <div>
+                  <TextInput
+                    title="New Password"
+                    id="password"
+                    name="password"
+                    type="password"
+                    required
+                  />
+                </div>
+                <div>
+                  <TextInput
+                    title="Confirm New Password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type="password"
+                    required
+                  />
+                </div>
+              </DoubleFields>
+              <Button className="btn btn-block my-4" id="me" type="submit">
+                Update Profile
+              </Button>
             </div>
           </div>
         </ProfileWrapper>
-          
       </DashboardLayout>
     );
   }
