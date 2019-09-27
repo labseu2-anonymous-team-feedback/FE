@@ -1,115 +1,106 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import jwtDecode from "jwt-decode";
+import { Mutation } from "react-apollo";
 import icon from "../../assets/images/icon.svg";
-import {
-  MainContainer,
-  ProfileImg,
-  ProfileButton,
-  ProfileWrapper,
-  DoubleFields
-} from "./ProfileStyles";
+import { ProfileImg, ProfileWrapper, DoubleFields } from "./ProfileStyles";
 import DashboardLayout from "../dashboard/layouts/DashboardLayout";
 import TextInput from "../common/TextInput";
+import TextArea from "../common/TextArea";
 import Button from "../../styles/Button";
 
 export class Profile extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      user: null
+      username: props.user.username,
+      email: props.user.email,
+      firstName: props.user.firstName,
+      lastName: props.user.lastName,
+      bio: props.user.bio
     };
   }
-
-  componentDidMount() {
-    const token = localStorage.getItem("token");
-    if (token) {
-      const user = jwtDecode(token);
-      this.setState({ user });
-    }
-  }
-
   render() {
-    const { user } = this.state;
+    const { firstName, lastName, username, email, bio } = this.state;
     return (
-      <DashboardLayout>
-        <ProfileWrapper>
-          <div className="page-title">
-            <h2>Complete your profile</h2>
-          </div>
-          <div className="page-content">
-            <div className="left-div">
-              <ProfileImg src={icon} />
-            </div>
-            <div className="right-div">
-              <DoubleFields>
-                <div>
-                  <TextInput
-                    title="First Name"
-                    id="firstName"
-                    name="firstName"
-                    type="text"
-                    required
-                  />
+      <Mutation mutation={}>
+        {({ loading, error, data }) => {
+          return (
+            <DashboardLayout>
+              <ProfileWrapper>
+                <div className="page-title">
+                  <h2>Complete your profile</h2>
                 </div>
-                <div>
-                  <TextInput
-                    title="Last Name"
-                    id="lastName"
-                    name="lastName"
-                    type="text"
-                    required
-                  />
+                <div className="page-content">
+                  <div className="left-div">
+                    <ProfileImg src={icon} />
+                  </div>
+                  <div className="right-div">
+                    <DoubleFields>
+                      <div>
+                        <TextInput
+                          title="First Name"
+                          id="firstName"
+                          name="firstName"
+                          value={firstName}
+                          onChange={this.change}
+                          type="text"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <TextInput
+                          title="Last Name"
+                          id="lastName"
+                          name="lastName"
+                          value={lastName}
+                          onChange={this.change}
+                          type="text"
+                          required
+                        />
+                      </div>
+                    </DoubleFields>
+                    <TextInput
+                      title="Username"
+                      id="username"
+                      name="username"
+                      value={username}
+                      onChange={this.change}
+                      type="username"
+                      required
+                    />
+                    <TextInput
+                      title="Email"
+                      id="email"
+                      name="email"
+                      value={email}
+                      onChange={this.change}
+                      type="email"
+                      required
+                    />
+                    <TextArea
+                      label="Bio"
+                      id="bio"
+                      name="bio"
+                      value={bio}
+                      onChange={this.change}
+                      rows="3"
+                      className="form-control mb-4"
+                    />
+                    <Button
+                      className="btn btn-block my-4"
+                      id="me"
+                      type="submit"
+                    >
+                      Update Profile
+                    </Button>
+                  </div>
                 </div>
-              </DoubleFields>
-              <TextInput
-                title="Username"
-                id="username"
-                name="username"
-                type="username"
-                required
-              />
-              <TextInput
-                title="Email"
-                id="email"
-                name="email"
-                type="email"
-                required
-              />
-              <TextInput
-                title="Previous Password"
-                id="prevPassword"
-                name="prevPassword"
-                type="password"
-                required
-              />
-              <DoubleFields>
-                <div>
-                  <TextInput
-                    title="New Password"
-                    id="password"
-                    name="password"
-                    type="password"
-                    required
-                  />
-                </div>
-                <div>
-                  <TextInput
-                    title="Confirm New Password"
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    type="password"
-                    required
-                  />
-                </div>
-              </DoubleFields>
-              <Button className="btn btn-block my-4" id="me" type="submit">
-                Update Profile
-              </Button>
-            </div>
-          </div>
-        </ProfileWrapper>
-      </DashboardLayout>
+              </ProfileWrapper>
+            </DashboardLayout>
+          );
+        }}
+      </Mutation>
     );
   }
 }

@@ -1,5 +1,5 @@
-import { gql } from 'apollo-boost';
-import qql from 'graphql-tag';
+import { gql } from "apollo-boost";
+import qql from "graphql-tag";
 
 const IS_LOGGED_IN = gql`
   query isLoggedIn {
@@ -8,21 +8,21 @@ const IS_LOGGED_IN = gql`
 `;
 
 const GET_SURVEY_FEEDBACK = gql`
-query getFeedback ($surveyId: String!) {
-  getSurveyFeedback(surveyId: $surveyId){
-    title
-    questions{
-      id
-      type
-      question
-      feedbacks{
+  query getFeedback($surveyId: String!) {
+    getSurveyFeedback(surveyId: $surveyId) {
+      title
+      questions {
         id
-        rating
-        comment
+        type
+        question
+        feedbacks {
+          id
+          rating
+          comment
+        }
       }
     }
   }
-}
 `;
 
 const GET_SURVEYS = qql`
@@ -59,6 +59,24 @@ const GET_SURVEY_DETAILS = gql`
   }
 `;
 
+const GET_USER_BY_ID = gql`
+  query getUserById($userId: String!) {
+    getUserById(userId: $userId) {
+      id
+      username
+      email
+      firstName
+      lastName
+      profileImage
+      bio
+    }
+  }
+`;
+
 export {
-  IS_LOGGED_IN, GET_SURVEYS, GET_SURVEY_DETAILS, GET_SURVEY_FEEDBACK,
+  IS_LOGGED_IN,
+  GET_SURVEYS,
+  GET_SURVEY_DETAILS,
+  GET_SURVEY_FEEDBACK,
+  GET_USER_BY_ID
 };
