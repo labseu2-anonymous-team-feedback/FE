@@ -79,7 +79,7 @@ class Navigation extends React.Component {
               onClick={context.toggleSidebar}
             />
             <div className="logo-div">
-              <Link to="/">
+              <Link to="/dashboard">
                 <img alt="logo" src={logo} className="logo" />
               </Link>
             </div>

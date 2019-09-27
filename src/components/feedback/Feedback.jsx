@@ -10,6 +10,7 @@ import RatingResponse from './RatingResponse/RatingResponse';
 import Spinner from '../common/Spinner';
 import { getUserIdFromToken } from '../../utils';
 import ErrorPage from '../common/error/Error';
+import Button from '../../styles/Button';
 
 export class Feedback extends React.Component {
   constructor(props) {
@@ -21,15 +22,15 @@ export class Feedback extends React.Component {
       error: null,
       isDuplicate: false,
       redirect: false,
-      message: ""
+      message: ''
     };
   }
 
   componentDidMount() {
     const {
       match: {
-        params: { surveyId },
-      },
+        params: { surveyId }
+      }
     } = this.props;
     if (surveyId) {
       this.isDuplicateResponse(surveyId);
@@ -39,7 +40,7 @@ export class Feedback extends React.Component {
 
   changeHandler = (event, questionId) => {
     const {
-      target: { value },
+      target: { value }
     } = event;
     this.updateState(value, questionId);
   };
@@ -48,22 +49,22 @@ export class Feedback extends React.Component {
     this.updateState(value, questionId, true);
   };
 
-  isDuplicateResponse = (surveyId) => {
+  isDuplicateResponse = surveyId => {
     const storedSurveyId = localStorage.getItem('__svy__');
 
     if (storedSurveyId && storedSurveyId === surveyId) {
       this.setState({ isDuplicate: true });
     }
-  }
+  };
 
   updateState = (value, questionId, rating = false) => {
     const { answers } = this.state;
-    const answer = answers.find((ans) => ans.questionId === questionId);
+    const answer = answers.find(ans => ans.questionId === questionId);
     const updatedAnswer = {
       ...answer,
-      ...(rating ? { rating: value.toString() } : { comment: value }),
+      ...(rating ? { rating: value.toString() } : { comment: value })
     };
-    const updatedAnswers = answers.map((currentAns) => {
+    const updatedAnswers = answers.map(currentAns => {
       if (currentAns.questionId === questionId) {
         return updatedAnswer;
       }
@@ -72,9 +73,9 @@ export class Feedback extends React.Component {
     this.setState({ answers: updatedAnswers });
   };
 
-  initializeAnswers = (questions) => {
+  initializeAnswers = questions => {
     if (questions) {
-      const answers = questions.map((q) => {
+      const answers = questions.map(q => {
         if (q.type === 'rating') {
           return { questionId: q.id, rating: '' };
         }
@@ -87,7 +88,7 @@ export class Feedback extends React.Component {
   validateInput = () => {
     let isValid = 0;
     const { answers } = this.state;
-    answers.forEach((ans) => {
+    answers.forEach(ans => {
       if ({}.hasOwnProperty.call(ans, 'rating') && ans.rating) {
         isValid += 1;
       } else if ({}.hasOwnProperty.call(ans, 'comment') && ans.comment) {
@@ -97,13 +98,13 @@ export class Feedback extends React.Component {
     return !!isValid;
   };
 
-  fetchSurvey = async (surveyId) => {
+  fetchSurvey = async surveyId => {
     const { client } = this.props;
     this.setState({ isLoading: true });
     try {
       const { loading, data } = await client.query({
         query: GET_SURVEY_DETAILS,
-        variables: { surveyId },
+        variables: { surveyId }
       });
       if (!loading && data) {
         const survey = data.getSurveyDetails;
@@ -115,20 +116,20 @@ export class Feedback extends React.Component {
     }
   };
 
-  submitHandler = async (e) => {
+  submitHandler = async e => {
     e.preventDefault();
     const userId = getUserIdFromToken();
     const { client, history } = this.props;
     const {
       answers,
-      survey: { id },
+      survey: { id }
     } = this.state;
 
-    const responses = answers.filter((ans) => ans.rating || ans.comment);
+    const responses = answers.filter(ans => ans.rating || ans.comment);
     const feedbackData = {
       surveyId: id,
       ...(userId && { userId }),
-      responses,
+      responses
     };
     const isValid = this.validateInput();
     if (isValid) {
@@ -136,7 +137,7 @@ export class Feedback extends React.Component {
         this.setState({ isLoading: true });
         const { data } = await client.mutate({
           mutation: SAVE_FEEDBACK,
-          variables: { input: feedbackData },
+          variables: { input: feedbackData }
         });
         if (data) {
           toast.success('Feedback sent, Thank you 😍');
@@ -155,12 +156,18 @@ export class Feedback extends React.Component {
 
   render() {
     const {
-      survey, isLoading, error, isDuplicate, redirect, message
+      survey,
+      isLoading,
+      error,
+      isDuplicate,
+      // redirect,
+      // message
     } = this.state;
     const userId = getUserIdFromToken();
     if (userId && survey && userId === survey.owner.id) {
       return <ErrorPage message="You cannot respond to your own survey." />;
     }
+
     if (isDuplicate) {
       return <ErrorPage message="You have already responded to this survey." />;
     }
@@ -202,14 +209,14 @@ export class Feedback extends React.Component {
               );
             })}
             <div className="form-group">
-              <button
-                className="btn btn-info btn-block mt-4"
+              <Button
+                className="btn btn-block mt-4"
                 type="submit"
                 onClick={this.submitHandler}
               >
                 {isLoading ? 'Processing... ' : 'Submit'}
                 {isLoading && <LoadIngIcon />}
-              </button>
+              </Button>
             </div>
           </>
         )}
@@ -221,16 +228,16 @@ export class Feedback extends React.Component {
 Feedback.propTypes = {
   match: propTypes.shape({
     params: propTypes.shape({
-      surveyId: propTypes.string,
-    }),
+      surveyId: propTypes.string
+    })
   }).isRequired,
   client: propTypes.shape({
     mutate: propTypes.func.isRequired,
-    query: propTypes.func.isRequired,
+    query: propTypes.func.isRequired
   }).isRequired,
   history: propTypes.shape({
-    push: propTypes.func.isRequired,
-  }).isRequired,
+    push: propTypes.func.isRequired
+  }).isRequired
 };
 
 export default withApollo(Feedback);
