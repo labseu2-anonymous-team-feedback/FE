@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 import {
   white,
   smallSpace,
@@ -22,16 +22,29 @@ const MainArea = () => (
         </p>
       </div>
 
-      <div className="buttons-container ">
+      <ButtonsDiv className="buttons-container ">
         <Link to="/register">
-          <Button className="btn btn-block" type="submit">
+          <GetStartedButton className="btn btn-block" type="submit">
             Get Started
-          </Button>
+          </GetStartedButton>
         </Link>
-      </div>
+      </ButtonsDiv>
     </TextArea>
   </Wrapper>
 );
+
+const ButtonsDiv = styled.div`
+  @media (max-width: 450px) {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+`;
+
+const GetStartedButton = styled(Button)`
+@media (max-width: 450px) {
+    width: 100%;
+  }
+`;
 
 const Wrapper = styled.div`
   min-height: 76vh;
@@ -53,6 +66,14 @@ const TextArea = styled.div`
   flex-direction: column;
   justify-content: center;
 
+  @media (max-width: 1200px) {
+    width: 60%;
+  }
+
+  @media (max-width: 800px) {
+    width: 80%;
+  }
+
   ::before {
     right: 100%;
   }
@@ -64,13 +85,17 @@ const TextArea = styled.div`
   ::after {
     content: '';
     display: block;
-    background: url('../../assets/images/mobile.png');
+    background: url("../../assets/images/mobile.png");
     position: absolute;
     border-top: 1px solid #404545;
     width: 6.25rem;
     height: 6rem;
     top: 50%;
     margin: 0 15rem;
+
+    @media (max-width: 1200px) {
+      display: none;
+    }
   }
 
   h1,
