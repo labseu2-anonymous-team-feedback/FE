@@ -68,7 +68,7 @@ class CreateSurvey extends Component {
   render() {
     const { title, questions, redirectToIndex } = this.state;
     if (redirectToIndex) {
-      return <Redirect to="/" />;
+      return <Redirect to="/dashboard" />;
     }
 
     return (
