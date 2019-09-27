@@ -5,17 +5,18 @@ import styled from 'styled-components';
 import MainArea from './MainArea';
 import { white } from '../../styles/variables';
 import FeedbackVideo from '../../assets/media/feedback.mp4';
-import StyledDetailsArea from './LandingPageStyles';
-import image from '../../assets/images/giving-feedback.png';
+import { StyledDetailsArea, StyledTeamArea } from './LandingPageStyles';
+import styledImageAreaImage from '../../assets/images/giving-feedback.png';
+
 const LandingPage = () => (
   <div>
     <MainArea />
     <StyledDetailsArea
       style={{
-        backgroundImage: `linear-gradient(to right bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(${image})`,
+        backgroundImage: `linear-gradient(to right bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(${styledImageAreaImage})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: 'center'
       }}
     >
       <div className="details-content">
@@ -35,6 +36,86 @@ const LandingPage = () => (
         </video>
       </div>
     </StyledDetailsArea>
+
+    <StyledTeamArea>
+      <div>
+        <img
+          src="https://ca.slack-edge.com/T4JUEB3ME-UHZ97G3T6-6744874ab7d9-72"
+          alt="Melvine"
+        />
+        <p>
+          <a href="##">Awa Melvine</a>
+        </p>
+        <p>
+          <a href="##">Full-stack developer</a>
+        </p>
+      </div>
+
+      <div>
+        <img
+          src="https://ca.slack-edge.com/T4JUEB3ME-UJ01FL4R3-83dd18af8f1c-72"
+          alt="Chinedu"
+        />
+        <p>
+          <a href="##">Chiendu Orie</a>
+        </p>
+        <p>
+          <a href="##">Full-stack developer</a>
+        </p>
+      </div>
+
+      <div>
+        <img
+          src="https://ca.slack-edge.com/T4JUEB3ME-UHZ97G3T6-6744874ab7d9-72"
+          alt="Melvine"
+        />
+        <p>
+          <a href="##">Awa Melvine</a>
+        </p>
+        <p>
+          <a href="##">Full-stack developer</a>
+        </p>
+      </div>
+
+      <div>
+        <img
+          src="https://ca.slack-edge.com/T4JUEB3ME-UHZ97G3T6-6744874ab7d9-72"
+          alt="Melvine"
+        />
+        <p>
+          <a href="##">Awa Melvine</a>
+        </p>
+        <p>
+          <a href="##">Full-stack developer</a>
+        </p>
+      </div>
+
+      <div>
+        <img
+          src="https://ca.slack-edge.com/T4JUEB3ME-UHZ97G3T6-6744874ab7d9-72"
+          alt="Melvine"
+        />
+        <p>
+          <a href="##">Awa Melvine</a>
+        </p>
+        <p>
+          <a href="##">Full-stack developer</a>
+        </p>
+      </div>
+
+      <div>
+        <img
+          src="https://ca.slack-edge.com/T4JUEB3ME-UHZ97G3T6-6744874ab7d9-72"
+          alt="Melvine"
+        />
+        <p>
+          <a href="##">Awa Melvine</a>
+        </p>
+        <p>
+          <a href="##">Full-stack developer</a>
+        </p>
+      </div>
+    </StyledTeamArea>
   </div>
 );
 

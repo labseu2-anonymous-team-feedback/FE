@@ -44,4 +44,23 @@ const StyledDetailsArea = styled.div`
   }
 `;
 
-export default StyledDetailsArea;
+const StyledTeamArea = styled.div`
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  text-align: center;
+  margin: 1rem;
+  justify-content: center;
+
+  div {
+      margin: 0 1rem;
+
+    img {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+    }
+  }
+`;
+
+export { StyledDetailsArea, StyledTeamArea };
