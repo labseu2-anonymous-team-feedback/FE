@@ -8,7 +8,7 @@ import {
   body1,
   body2,
   fadedBlue,
-  bodyHero
+  bodyHero,
 } from '../../styles/variables';
 
 class Chart extends Component {
