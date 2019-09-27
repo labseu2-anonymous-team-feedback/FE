@@ -56,7 +56,7 @@ const StyledTeamArea = styled.section`
   a {
     color: #6f6f6f;
     text-decoration: none;
-    
+
   }
 
   h3 {
@@ -66,7 +66,7 @@ const StyledTeamArea = styled.section`
   }
 
   div {
-    margin: 0 1rem;
+    margin: 1rem;
 
     img {
       border-radius: 50%;

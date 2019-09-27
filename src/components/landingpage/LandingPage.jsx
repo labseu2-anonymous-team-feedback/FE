@@ -38,7 +38,7 @@ const LandingPage = () => (
     </StyledDetailsArea>
 
     <StyledTeamArea>
-      <h3>Meet the team behind Anonymous Team Feedback</h3>
+      <h3>Meet the amazing team behind Anonymous Team Feedback</h3>
       <div>
         <a href="###" target="_blank" rel="noopener noreferer">
           <img
