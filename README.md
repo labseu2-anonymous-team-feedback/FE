@@ -4,15 +4,7 @@
 
 Welcome to the client app repo
 
-
-
-```
-Link to staging environment: https://staging-atf.herokuapp.com/
-```
-
-```
-Link to production environment: https://anonymous-team-feeedback.herokuapp.com/
-```
+You can play around with our client application on the staging server [here](https://stage-atf-fe.herokuapp.com "Anonymous Team Feedback Staging"). As for the production, you can find it [here](https://anonymous-team-feeedback.herokuapp.com/ "Anonymous Team Feedback Production")
 
 
 # Table of Contents
