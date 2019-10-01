@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import * as V from "victory";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import * as V from 'victory';
 import {
   white,
   extraSmallSpace,
@@ -8,8 +8,8 @@ import {
   body1,
   body2,
   fadedBlue,
-  bodyHero
-} from "../../styles/variables";
+  bodyHero,
+} from '../../styles/variables';
 
 class Chart extends Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class Chart extends Component {
       VictoryChart,
       VictoryTheme,
       VictoryLegend,
-      VictoryAxis
+      VictoryAxis,
     } = V;
     let empty = 0;
     data.forEach((ques, i) => {
@@ -41,7 +41,7 @@ class Chart extends Component {
       );
     }
     return data.map((ques, i) => {
-      if (ques.type === "rating") {
+      if (ques.type === 'rating') {
         const { feedbacks } = ques;
         let freq = [];
         freq = [...new Array(10)].map((item, index) => {
@@ -57,7 +57,7 @@ class Chart extends Component {
         const processedData = (frequency, rating) =>
           rating.map((rate, i) => ({
             rating: rate,
-            freq: frequency[i]
+            freq: frequency[i],
           }));
         const dataPlot = processedData(freq, xRange);
 
@@ -67,7 +67,8 @@ class Chart extends Component {
             <StyledDiv>
               <VictoryChart
                 domainPadding={10}
-                style={{ parent: { maxWidth: "70%" } }}
+
+                style={{ parent: { maxWidth: '90%' } }}
                 // adding the material theme provided with Victory
                 theme={VictoryTheme.material}
               >
@@ -77,14 +78,22 @@ class Chart extends Component {
                   gutter={5}
                   orientation="horizontal"
                   data={[
-                    { name: "x axis - rating", symbol: { fill: "#6bafe8" } },
-                    { name: "y axis - number of votes", symbol: { fill: "#6bafe8" } }
+                    { name: 'x axis - rating', symbol: { fill: '#6bafe8' } },
+
+                    {
+                      name: 'y axis - number of votes',
+                      symbol: { fill: '#6bafe8' }
+                    }
                   ]}
                 />
                 <VictoryAxis tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]} />
-                <VictoryAxis dependentAxis tickFormat={x => Number.isInteger(x) ? x : ''} />
+                <VictoryAxis
+                  dependentAxis
+                  tickFormat={x => (Number.isInteger(x) ? x : '')}
+                />
+
                 <VictoryBar
-                  style={{ data: { fill: "#6bafe8" } }}
+                  style={{ data: { fill: '#6bafe8' } }}
                   data={dataPlot}
                   // data accessor for x values
                   x="rating"
@@ -100,10 +109,10 @@ class Chart extends Component {
         <div key={ques.id}>
           <StyledHeader>{ques.question}</StyledHeader>
           <TextBox>
-            {ques.feedbacks.map(feedback => (
-              <div key={feedback.id}>
+            {ques.feedbacks.map((feedback) => (
+              <ParagraphDiv key={feedback.id}>
                 {feedback.comment && <Paragraph>{feedback.comment}</Paragraph>}
-              </div>
+              </ParagraphDiv>
             ))}
           </TextBox>
         </div>
@@ -121,16 +130,31 @@ const StyledDiv = styled.div`
   justify-content: center;
   background-color: ${white};
   width: 75%;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `;
 const TextBox = styled.div`
   font-size: ${body2};
   background-color: ${white};
   min-height: ${extraSmallSpace};
   width: 75%;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+`;
+
+const ParagraphDiv = styled.div`
+  border-bottom: 1px solid ${fadedBlue};
+
+  &:last-of-type {
+    border-bottom: none;
+  }
 `;
 
 const Paragraph = styled.p`
-  border: 1px solid ${fadedBlue};
   padding: ${extraSmallSpace} ${extraSmallSpace};
 `;
 const NoFeedback = styled.div`

@@ -46,6 +46,12 @@ class SidebarContainer extends React.Component {
                 path="/create_survey"
               />
 
+              <SideNavItem	
+                text={sidebarTexts.settings}	
+                icon={sidebarIcons.settings}	
+                path="/profile"	
+              />
+
               <div id="logout" role="presentation" onClick={context.logout}>
                 <SideNavItem
                   text="Logout"

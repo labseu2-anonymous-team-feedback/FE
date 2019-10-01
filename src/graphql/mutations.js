@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import { gql } from "apollo-boost";
 
 const LOGIN_MUTATION = gql`
   mutation userLogin($email: String!, $password: String!) {
@@ -26,7 +26,7 @@ const CREATE_ACCOUNT = gql`
 `;
 
 const VERIFY_ACCOUNT = gql`
-  mutation verifyAccount($token: String! ) {
+  mutation verifyAccount($token: String!) {
     verifyAccount(token: $token) {
       id
       username
@@ -66,22 +66,49 @@ const SET_NEW_PASSWORD = gql`
 `;
 
 const GOOGLE_AUTH_MUTATION = gql`
-  mutation google{
-  authGoogle{
-    id
-    username
-    email
-    token
+  mutation google {
+    authGoogle {
+      id
+      username
+      email
+      token
+    }
   }
-}
 `;
 
 const SAVE_FEEDBACK = gql`
- mutation saveFeedback($input: FeedbackInput!) {
-   saveFeedback(input: $input) {
-     message
-   }
- }
+  mutation saveFeedback($input: FeedbackInput!) {
+    saveFeedback(input: $input) {
+      message
+    }
+  }
+`;
+
+const UPDATE_PROFILE = gql`
+  mutation updateProfile(
+    $username: String!
+    $email: String!
+    $firstName: String!
+    $lastName: String!
+    $profileImage: String!
+    $bio: String!
+  ) {
+    updateProfile(
+      username: $username
+      email: $email
+      firstName: $firstName
+      lastName: $lastName
+      profileImage: $profileImage
+      bio: $bio
+    ) {
+      username
+      email
+      firstName
+      lastName
+      profileImage
+      bio
+    }
+  }
 `;
 
 export {
@@ -93,4 +120,5 @@ export {
   SEND_RESET_PASSWORD_EMAIL,
   SET_NEW_PASSWORD,
   SAVE_FEEDBACK,
+  UPDATE_PROFILE
 };
