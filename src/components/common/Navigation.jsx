@@ -79,7 +79,7 @@ class Navigation extends React.Component {
               onClick={context.toggleSidebar}
             />
             <div className="logo-div">
-              <Link to="/">
+              <Link to="/dashboard">
                 <img alt="logo" src={logo} className="logo" />
               </Link>
             </div>
@@ -105,6 +105,7 @@ class Navigation extends React.Component {
                     className="dropdown-menu dropdown-menu-right border-0 z-depth-1"
                     aria-labelledby="user-nav-div"
                   >
+                    <Link to="/profile">Profile Settings</Link>
                     <a
                       className="dropdown-item"
                       id="logoutButton"

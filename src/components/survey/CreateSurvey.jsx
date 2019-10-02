@@ -51,7 +51,7 @@ class CreateSurvey extends Component {
   };
 
   cancelSurvey = () => {
-    this.props.history.push('/');
+    this.props.history.push('/dashboard');
   };
 
   updateCache = (cache, { data: { createNewSurvey } }) => {
@@ -68,7 +68,7 @@ class CreateSurvey extends Component {
   render() {
     const { title, questions, redirectToIndex } = this.state;
     if (redirectToIndex) {
-      return <Redirect to="/" />;
+      return <Redirect to="/dashboard" />;
     }
 
     return (

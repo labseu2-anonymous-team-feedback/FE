@@ -7,5 +7,6 @@ export const sidebarIcons = {
 
 export const sidebarTexts = {
   surveys: 'My Survey',
+  settings: 'Settings',
   create_survey: 'Create Survey',
 };

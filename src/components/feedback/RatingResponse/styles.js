@@ -21,7 +21,7 @@ export const Label = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  border: 1px solid #00B8D1;
+  border: 1px solid #62beff;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -36,14 +36,14 @@ export const RatingWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #43bccd;
+  border: 1px solid #62beff;
   transition: all 0.2s ease-in-out;
   z-index: 1000;
   &:hover {
     cursor: pointer;
   }
   &.selected {
-    background: #00B8D1;
+    background: #62beff;
     color: white;
     transition: background-color 0.2s ease-in-out;
   }
